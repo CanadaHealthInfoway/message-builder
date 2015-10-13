@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000006nb.ReportedReactionBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000016nb.AdverseReactionsQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000006ca.ReportedReactionBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000016ca.AdverseReactionsQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000002NB: Patient adverse reactions 
+ * <p>Business Name: REPC_IN000002CA: Patient adverse reactions 
  * query response</p>
  * 
  * <p>Returns information about the current status of one or 
@@ -58,17 +58,17 @@ import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000016nb.AdverseReact
  * the cause of the adverse reaction its severity, and any 
  * related notes.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000006NB.ReactionObservationEvent</p>
+ * <p>--> Payload: REPC_MT000006CA.ReactionObservationEvent</p>
  * 
- * <p>--> Payload: REPC_MT000016NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000016CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000002NB"})
+@Hl7PartTypeMapping({"REPC_IN000002CA"})
 public class PatientAdverseReactionsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ReportedReactionBean,AdverseReactionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

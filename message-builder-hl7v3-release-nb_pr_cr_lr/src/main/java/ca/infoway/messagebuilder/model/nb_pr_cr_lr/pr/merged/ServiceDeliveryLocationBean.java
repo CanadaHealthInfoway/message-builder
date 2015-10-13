@@ -54,7 +54,7 @@ import java.util.Set;
 /**
  * <p>Business Name: ServiceDeliveryLocation</p>
  * 
- * <p>PRPM_MT309000NB.ServiceDeliveryLocation: Service Delivery 
+ * <p>PRPM_MT306011CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
  * <p>Roleclass required to support the identification of the 
@@ -84,7 +84,7 @@ import java.util.Set;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  * 
- * <p>PRPM_MT306011NB.ServiceDeliveryLocation: Service Delivery 
+ * <p>PRPM_MT309000CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
  * <p>Roleclass required to support the identification of the 
@@ -114,10 +114,10 @@ import java.util.Set;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  */
-@Hl7PartTypeMapping({"PRPM_MT306011NB.ServiceDeliveryLocation","PRPM_MT309000NB.ServiceDeliveryLocation"})
-public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306011nb.Choice {
+@Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
+public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306011ca.Choice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -132,11 +132,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: PRPM_MT306011CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
      * <p>A unique identifier for the service delivery 
@@ -145,11 +145,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: PRPM_MT309000CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
      * <p>A unique identifier for the service delivery 
@@ -167,7 +167,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ServiceDeliveryLocation.code</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -188,7 +188,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ServiceDeliveryLocation.code</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -209,7 +209,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ServiceDeliveryLocation.addr</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
@@ -230,7 +230,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ServiceDeliveryLocation.telecom</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
@@ -253,7 +253,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ServiceDeliveryLocation.effectiveTime</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -275,7 +275,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ServiceDeliveryLocation.effectiveTime</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -295,7 +295,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * 
      * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Place.name</p>
+     * <p>Relationship: PRPM_MT306011CA.Place.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -314,7 +314,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * 
      * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Place.name</p>
+     * <p>Relationship: PRPM_MT306011CA.Place.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

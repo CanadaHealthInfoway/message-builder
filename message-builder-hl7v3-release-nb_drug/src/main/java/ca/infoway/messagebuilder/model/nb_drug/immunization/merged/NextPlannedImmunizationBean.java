@@ -31,31 +31,31 @@ import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"POIZ_MT030050NB.NextPlannedImmunization","POIZ_MT030060NB.NextPlannedImmunization","POIZ_MT060150NB.NextPlannedImmunization"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.NextPlannedImmunization","POIZ_MT030060CA.NextPlannedImmunization","POIZ_MT060150CA.NextPlannedImmunization"})
 public class NextPlannedImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: RenewalDate</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.NextPlannedImmunization.effectiveTime</p>
+     * POIZ_MT030050CA.NextPlannedImmunization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows for the scheduling of a multi-dose immunization 
-     * course.</p>
+     * <p>Necessary reminder to a patient and his/or provider for a 
+     * follow-up therapy.</p>
      * 
-     * <p>Indicates the date on which the next dose is to be 
-     * administered. .</p>
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
      * 
      * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.NextPlannedImmunization.effectiveTime</p>
+     * POIZ_MT030060CA.NextPlannedImmunization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -65,18 +65,18 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Indicates the date on which the next dose is to be 
      * administered.</p>
      * 
-     * <p>Un-merged Business Name: RenewalDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.NextPlannedImmunization.effectiveTime</p>
+     * POIZ_MT060150CA.NextPlannedImmunization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Necessary reminder to a patient and his/or provider for a 
-     * follow-up therapy.</p>
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
      * 
-     * <p>Indicates the date on which the next course of 
-     * immunization is to be undertaken.</p>
+     * <p>Indicates the date on which the next dose is to be 
+     * administered. .</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -84,23 +84,23 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: RenewalDate</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.NextPlannedImmunization.effectiveTime</p>
+     * POIZ_MT030050CA.NextPlannedImmunization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows for the scheduling of a multi-dose immunization 
-     * course.</p>
+     * <p>Necessary reminder to a patient and his/or provider for a 
+     * follow-up therapy.</p>
      * 
-     * <p>Indicates the date on which the next dose is to be 
-     * administered. .</p>
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
      * 
      * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.NextPlannedImmunization.effectiveTime</p>
+     * POIZ_MT030060CA.NextPlannedImmunization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -110,18 +110,18 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Indicates the date on which the next dose is to be 
      * administered.</p>
      * 
-     * <p>Un-merged Business Name: RenewalDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.NextPlannedImmunization.effectiveTime</p>
+     * POIZ_MT060150CA.NextPlannedImmunization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Necessary reminder to a patient and his/or provider for a 
-     * follow-up therapy.</p>
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
      * 
-     * <p>Indicates the date on which the next course of 
-     * immunization is to be undertaken.</p>
+     * <p>Indicates the date on which the next dose is to be 
+     * administered. .</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);

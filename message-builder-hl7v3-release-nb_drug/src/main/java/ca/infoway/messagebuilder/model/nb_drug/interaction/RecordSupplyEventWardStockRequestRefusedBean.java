@@ -22,13 +22,13 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020230NB: Record supply event (ward 
+ * <p>Business Name: PORX_IN020230CA: Record supply event (ward 
  * stock) request refused</p>
  * 
  * <p>Indicates that the request to record a bulk supply of a 
@@ -45,13 +45,13 @@ import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7Message
  * measure specified were not valid.<br /> c. One or more code 
  * values supplied in the message were invalid.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700222NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020230NB"})
+@Hl7PartTypeMapping({"PORX_IN020230CA"})
 public class RecordSupplyEventWardStockRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

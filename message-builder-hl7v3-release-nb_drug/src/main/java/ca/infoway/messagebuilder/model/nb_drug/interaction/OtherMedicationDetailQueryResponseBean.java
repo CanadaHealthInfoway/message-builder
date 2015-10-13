@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060210nb.OtherMedicationBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060220nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060210ca.OtherMedicationBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060220ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060460NB: Other medication detail 
+ * <p>Business Name: PORX_IN060460CA: Other medication detail 
  * query response</p>
  * 
  * <p>Returns detailed information about a single 
@@ -60,17 +60,17 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060220nb.Paramete
  * &ldquo;annotation&rdquo; elements in the message path: 
  * &ldquo; /subject /otherMedication /subjectOf3&rdquo;.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060210NB.OtherMedication</p>
+ * <p>--> Payload: PORX_MT060210CA.OtherMedication</p>
  * 
- * <p>--> Payload: PORX_MT060220NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060220CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060460NB"})
+@Hl7PartTypeMapping({"PORX_IN060460CA"})
 public class OtherMedicationDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<OtherMedicationBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

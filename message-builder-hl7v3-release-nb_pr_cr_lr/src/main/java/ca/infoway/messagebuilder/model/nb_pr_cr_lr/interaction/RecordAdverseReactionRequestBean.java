@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000002nb.ReportedReactionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000002ca.ReportedReactionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000004NB: Record adverse reaction 
+ * <p>Business Name: REPC_IN000004CA: Record adverse reaction 
  * request</p>
  * 
  * <p>Requests that information about an adverse reaction be 
  * recorded against a patient's record.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000002NB.ReactionObservationEvent</p>
+ * <p>--> Payload: REPC_MT000002CA.ReactionObservationEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000004NB"})
+@Hl7PartTypeMapping({"REPC_IN000004CA"})
 public class RecordAdverseReactionRequestBean extends HL7MessageBean<TriggerEventBean<ReportedReactionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -36,7 +36,7 @@ import java.util.Date;
 /**
  * <p>Business Name: FirstDispenseInformation</p>
  * 
- * <p>PORX_MT060060NB.SupplyEventFirstSummary: First Dispense 
+ * <p>PORX_MT060060CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -45,7 +45,7 @@ import java.util.Date;
  * <p>Provides summary information about the first dispense 
  * event on the prescription</p>
  * 
- * <p>PORX_MT060040NB.SupplyEventFirstSummary: First Dispense 
+ * <p>PORX_MT060040CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -54,10 +54,10 @@ import java.util.Date;
  * <p>Provides summary information about the first dispense 
  * event on the prescription</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060040NB.SupplyEventFirstSummary","PORX_MT060060NB.SupplyEventFirstSummary"})
+@Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFirstSummary","PORX_MT060060CA.SupplyEventFirstSummary"})
 public class FirstDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
 
@@ -68,7 +68,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060060CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -81,7 +81,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060040CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -102,7 +102,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060060CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -115,7 +115,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060040CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -136,7 +136,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060060CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -151,7 +151,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060040CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060060CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060040CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

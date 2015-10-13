@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt002000nb.PromiseChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt002000ca.PromiseChoice;
 
 
 
 /**
- * <p>Business Name: POLB_IN222000NB: Promise Status</p>
+ * <p>Business Name: POLB_IN222000CA: Promise Status</p>
  * 
  * <p>This interaction is a Promise Status without Receiver 
  * Responsibilities (i.e., the sending system utilizes messages 
@@ -38,21 +38,21 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt002000nb.PromiseCh
  * It is typically used to communicate where the filler is in 
  * the process of fulfilling an order.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT002000NB.PromiseChoice</p>
+ * <p>--> Payload: POLB_MT002000CA.PromiseChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000NB.PromiseGroup</p>
+ * <p>----> Payload Choice: POLB_MT002000CA.PromiseGroup</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000NB.BatteryPromise</p>
+ * <p>----> Payload Choice: POLB_MT002000CA.BatteryPromise</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000NB.ObservationPromise</p>
+ * <p>----> Payload Choice: POLB_MT002000CA.ObservationPromise</p>
  */
-@Hl7PartTypeMapping({"POLB_IN222000NB"})
+@Hl7PartTypeMapping({"POLB_IN222000CA"})
 public class PromiseStatusBean extends HL7MessageBean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

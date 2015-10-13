@@ -33,31 +33,31 @@ import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt630000nb.PaymentIntentBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.qucr_mt830201nb.AdjudicatedResultOutcomeBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt630000ca.PaymentIntentBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.qucr_mt830201ca.AdjudicatedResultOutcomeBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActInvoiceGroupCode;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.nullified;
 
 
 
 /**
- * <p>FICR_MT630000NB.AdjudicatedInvoiceElementGroup: 
+ * <p>FICR_MT630000CA.AdjudicatedInvoiceElementGroup: 
  * Adjudicated Invoice Element Group</p>
  * 
  * <p>Group of Invoice Elements being referenced; ie. group of 
  * billable items.</p>
  * 
- * <p>QUCR_MT830201NB.AdjudicatedInvoiceElementGroup: 
+ * <p>QUCR_MT830201CA.AdjudicatedInvoiceElementGroup: 
  * Adjudication Result Identifier</p>
  * 
  * <p>May include data centre and sequence numbers</p>
  * 
  * <p>Adjudication Result Identifier</p>
  */
-@Hl7PartTypeMapping({"FICR_MT630000NB.AdjudicatedInvoiceElementGroup","QUCR_MT830201NB.AdjudicatedInvoiceElementGroup"})
+@Hl7PartTypeMapping({"FICR_MT630000CA.AdjudicatedInvoiceElementGroup","QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -75,7 +75,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: AdjudicationResultId</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.id</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -88,7 +88,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.id</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -109,7 +109,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: AdjudicationResultId</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.id</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -122,7 +122,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.id</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -143,7 +143,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.code</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -162,7 +162,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.code</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -189,7 +189,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.code</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -208,7 +208,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.code</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -233,7 +233,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.statusCode</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -267,7 +267,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.statusCode</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -303,7 +303,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -316,7 +316,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -338,7 +338,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -351,7 +351,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -371,7 +371,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.PaymentIntentReason.paymentIntent</p>
+     * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -384,7 +384,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.PaymentIntentReason.paymentIntent</p>
+     * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -397,7 +397,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.Reference.adjudicatedInvoiceElementGroup</p>
+     * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -410,7 +410,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.Reference.adjudicatedInvoiceElementGroup</p>
+     * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -423,7 +423,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsRef.adjudResultsGroup</p>
+     * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -436,7 +436,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsRef.adjudResultsGroup</p>
+     * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -449,7 +449,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.author</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -462,7 +462,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.author</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -475,7 +475,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.outcomeOf</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -488,7 +488,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceElementGroup.outcomeOf</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

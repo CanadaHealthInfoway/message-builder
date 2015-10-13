@@ -28,10 +28,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT500001NB.Specimen","REPC_MT500002NB.Specimen","REPC_MT500003NB.Specimen","REPC_MT500004NB.Specimen"})
+@Hl7PartTypeMapping({"REPC_MT500001CA.Specimen","REPC_MT500002CA.Specimen","REPC_MT500003CA.Specimen","REPC_MT500004CA.Specimen"})
 public class SpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private ST specimenMaterialDesc = new STImpl();
 
 
@@ -40,7 +40,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500004CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -58,7 +58,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500001CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -76,7 +76,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500003CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -94,7 +94,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500002CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -120,7 +120,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500004CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,7 +138,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500001CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -156,7 +156,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500003CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -174,7 +174,7 @@ public class SpecimenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FocusArea</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Material.desc</p>
+     * <p>Relationship: REPC_MT500002CA.Material.desc</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

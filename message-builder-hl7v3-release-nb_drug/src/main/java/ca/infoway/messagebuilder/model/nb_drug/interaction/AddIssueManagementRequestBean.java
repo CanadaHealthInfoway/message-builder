@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980010nb.IssuesBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980010ca.IssuesBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN700001NB: Add issue management 
+ * <p>Business Name: COMT_IN700001CA: Add issue management 
  * request</p>
  * 
  * <p>Requests that the specified issue be updated to include 
@@ -42,15 +42,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980010nb.IssuesBe
  * specified matching the issue as previously returned by the 
  * DIS as an issue in a response message.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT980010NB.DetectedIssueEvent</p>
+ * <p>--> Payload: PORX_MT980010CA.DetectedIssueEvent</p>
  */
-@Hl7PartTypeMapping({"COMT_IN700001NB"})
+@Hl7PartTypeMapping({"COMT_IN700001CA"})
 public class AddIssueManagementRequestBean extends HL7MessageBean<TriggerEventBean<IssuesBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

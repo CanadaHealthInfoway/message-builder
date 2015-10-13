@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000083NB.Recipients","REPC_MT210001NB.Recipients","REPC_MT210002NB.Recipients","REPC_MT210003NB.Recipients","REPC_MT220001NB.Recipients","REPC_MT220002NB.Recipients","REPC_MT220003NB.Recipients","REPC_MT230001NB.Recipients","REPC_MT230002NB.Recipients","REPC_MT230003NB.Recipients"})
+@Hl7PartTypeMapping({"REPC_MT000083CA.Recipients","REPC_MT210001CA.Recipients","REPC_MT210002CA.Recipients","REPC_MT210003CA.Recipients","REPC_MT220001CA.Recipients","REPC_MT220002CA.Recipients","REPC_MT220003CA.Recipients","REPC_MT230001CA.Recipients","REPC_MT230002CA.Recipients","REPC_MT230003CA.Recipients"})
 public interface Recipients {
 
 }

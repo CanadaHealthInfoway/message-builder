@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ComponentMeasurements</p>
  * 
- * <p>REPC_MT100002NB.SubObservationEvent: Component 
+ * <p>REPC_MT100002CA.SubObservationEvent: Component 
  * Measurements</p>
  * 
  * <p>The same Measurement Type may not be specified in both 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Represents one of the two components (systolic and 
  * diastolic) of a blood pressure measurement.</p>
  * 
- * <p>REPC_MT000018NB.SubObservationEvent: Component 
+ * <p>REPC_MT000018CA.SubObservationEvent: Component 
  * Measurements</p>
  * 
  * <p>The same Measurement Type may not be specified in both 
@@ -59,10 +59,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Represents one of the two components (systolic and 
  * diastolic) of a blood pressure measurement.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000018NB.SubObservationEvent","REPC_MT100002NB.SubObservationEvent"})
+@Hl7PartTypeMapping({"REPC_MT000018CA.SubObservationEvent","REPC_MT100002CA.SubObservationEvent"})
 public class ComponentMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
     private PQ value = new PQImpl();
 
@@ -72,7 +72,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
-     * <p>Relationship: REPC_MT100002NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT100002CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -86,7 +86,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
-     * <p>Relationship: REPC_MT000018NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000018CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -108,7 +108,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
-     * <p>Relationship: REPC_MT100002NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT100002CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -122,7 +122,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
-     * <p>Relationship: REPC_MT000018NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000018CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -144,7 +144,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
-     * <p>Relationship: REPC_MT100002NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT100002CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -158,7 +158,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
-     * <p>Relationship: REPC_MT000018NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000018CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -180,7 +180,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
-     * <p>Relationship: REPC_MT100002NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT100002CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -194,7 +194,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
-     * <p>Relationship: REPC_MT000018NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000018CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

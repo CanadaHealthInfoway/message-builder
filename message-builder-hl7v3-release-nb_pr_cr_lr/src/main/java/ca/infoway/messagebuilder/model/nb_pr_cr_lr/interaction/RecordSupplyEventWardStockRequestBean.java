@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700212nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt020050nb.OfficeSupplyBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700212ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt020050ca.OfficeSupplyBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020210NB: Record supply event (ward 
+ * <p>Business Name: PORX_IN020210CA: Record supply event (ward 
  * stock) request</p>
  * 
  * <p>Requests that a bulk supply of a medication to a facility 
  * be recorded.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700212NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700212CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT020050NB.SupplyEvent</p>
+ * <p>--> Payload: PORX_MT020050CA.SupplyEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020210NB"})
+@Hl7PartTypeMapping({"PORX_IN020210CA"})
 public class RecordSupplyEventWardStockRequestBean extends HL7MessageBean<TriggerEventBean<OfficeSupplyBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

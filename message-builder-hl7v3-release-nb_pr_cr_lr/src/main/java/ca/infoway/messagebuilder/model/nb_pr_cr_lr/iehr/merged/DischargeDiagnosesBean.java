@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActDiagnosisCode;
 /**
  * <p>Business Name: DischargeDiagnoses</p>
  * 
- * <p>REPC_MT220002NB.ConditionEvent: Discharge Diagnoses</p>
+ * <p>REPC_MT220002CA.ConditionEvent: Discharge Diagnoses</p>
  * 
  * <p>Commonly used for reporting, but also useful for 
  * searching and for obtaining a general understanding of the 
@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActDiagnosisCode;
  * <p>Describes one of the conditions associated with the 
  * patient as part of the encounter.</p>
  * 
- * <p>REPC_MT220001NB.ConditionEvent: Discharge Diagnoses</p>
+ * <p>REPC_MT220001CA.ConditionEvent: Discharge Diagnoses</p>
  * 
  * <p>Commonly used for reporting, but also useful for 
  * searching and for obtaining a general understanding of the 
@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActDiagnosisCode;
  * <p>Describes one of the conditions associated with the 
  * patient as part of the encounter.</p>
  * 
- * <p>REPC_MT220003NB.ConditionEvent: Discharge Diagnoses</p>
+ * <p>REPC_MT220003CA.ConditionEvent: Discharge Diagnoses</p>
  * 
  * <p>Commonly used for reporting, but also useful for 
  * searching and for obtaining a general understanding of the 
@@ -62,10 +62,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActDiagnosisCode;
  * <p>Describes one of the conditions associated with the 
  * patient as part of the encounter.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT220001NB.ConditionEvent","REPC_MT220002NB.ConditionEvent","REPC_MT220003NB.ConditionEvent"})
+@Hl7PartTypeMapping({"REPC_MT220001CA.ConditionEvent","REPC_MT220002CA.ConditionEvent","REPC_MT220003CA.ConditionEvent"})
 public class DischargeDiagnosesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
 
@@ -75,7 +75,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.ConditionEvent.code</p>
+     * <p>Relationship: REPC_MT220002CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -98,7 +98,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.ConditionEvent.code</p>
+     * <p>Relationship: REPC_MT220001CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -121,7 +121,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.ConditionEvent.code</p>
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,7 +152,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.ConditionEvent.code</p>
+     * <p>Relationship: REPC_MT220002CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -175,7 +175,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.ConditionEvent.code</p>
+     * <p>Relationship: REPC_MT220001CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -198,7 +198,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.ConditionEvent.code</p>
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -229,7 +229,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.ConditionEvent.value</p>
+     * <p>Relationship: REPC_MT220002CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -243,7 +243,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.ConditionEvent.value</p>
+     * <p>Relationship: REPC_MT220001CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -257,7 +257,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.ConditionEvent.value</p>
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -279,7 +279,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.ConditionEvent.value</p>
+     * <p>Relationship: REPC_MT220002CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -293,7 +293,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.ConditionEvent.value</p>
+     * <p>Relationship: REPC_MT220001CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -307,7 +307,7 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.ConditionEvent.value</p>
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

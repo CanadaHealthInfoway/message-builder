@@ -41,7 +41,7 @@ import java.util.Date;
 /**
  * <p>Business Name: AllergyTests</p>
  * 
- * <p>REPC_MT000005NB.AllergyTestEvent: Allergy Tests</p>
+ * <p>REPC_MT000005CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>Provides evidence for recording the 
  * allergy/intolerance.</p>
@@ -49,7 +49,7 @@ import java.util.Date;
  * <p>Indicates the specific allergy test that supports the 
  * recording of the allergy/intolerance.</p>
  * 
- * <p>REPC_MT000009NB.AllergyTestEvent: Allergy Tests</p>
+ * <p>REPC_MT000001CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>At least one of Id or Value must be specified.</p>
  * 
@@ -59,17 +59,7 @@ import java.util.Date;
  * <p>Indicates the specific allergy test that supports the 
  * recording of the allergy/intolerance.</p>
  * 
- * <p>REPC_MT000001NB.AllergyTestEvent: Allergy Tests</p>
- * 
- * <p>At least one of Id or Value must be specified.</p>
- * 
- * <p>Provides evidence for recording the 
- * allergy/intolerance.</p>
- * 
- * <p>Indicates the specific allergy test that supports the 
- * recording of the allergy/intolerance.</p>
- * 
- * <p>REPC_MT000013NB.AllergyTestEvent: Allergy Tests</p>
+ * <p>REPC_MT000013CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>At least one of Id or Value must be specified</p>
  * 
@@ -78,11 +68,21 @@ import java.util.Date;
  * 
  * <p>Indicates the specific allergy test that supports the 
  * recording of the allergy/intolerance.</p>
+ * 
+ * <p>REPC_MT000009CA.AllergyTestEvent: Allergy Tests</p>
+ * 
+ * <p>At least one of Id or Value must be specified.</p>
+ * 
+ * <p>Provides evidence for recording the 
+ * allergy/intolerance.</p>
+ * 
+ * <p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001NB.AllergyTestEvent","REPC_MT000005NB.AllergyTestEvent","REPC_MT000009NB.AllergyTestEvent","REPC_MT000013NB.AllergyTestEvent"})
-public class AllergyTestsBean extends MessagePartBean implements Records, ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000005nb.Records, ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000009nb.Records {
+@Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
+public class AllergyTestsBean extends MessagePartBean implements Records, ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000009ca.Records, ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000005ca.Records {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -94,7 +94,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -106,7 +106,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -118,7 +118,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -130,7 +130,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -150,7 +150,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -162,7 +162,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -174,7 +174,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -186,7 +186,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.AllergyTestEvent.id</p>
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -206,7 +206,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -221,7 +221,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -234,7 +234,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -247,7 +247,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -268,7 +268,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -283,7 +283,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -296,7 +296,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -309,7 +309,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.AllergyTestEvent.code</p>
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -331,7 +331,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -343,7 +343,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -355,7 +355,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -367,7 +367,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -387,7 +387,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -399,7 +399,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -411,7 +411,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -423,7 +423,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.AllergyTestEvent.effectiveTime</p>
+     * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -442,7 +442,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -458,7 +458,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -474,7 +474,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -490,7 +490,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -514,7 +514,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -530,7 +530,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -546,7 +546,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -562,7 +562,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records, ca.inf
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.AllergyTestEvent.value</p>
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

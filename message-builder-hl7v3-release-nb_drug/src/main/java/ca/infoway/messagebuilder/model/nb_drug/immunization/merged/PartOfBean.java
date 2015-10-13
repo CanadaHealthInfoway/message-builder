@@ -31,32 +31,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: PartOf</p>
  * 
- * <p>POIZ_MT030060NB.InFulfillmentOf3: part of</p>
+ * <p>POIZ_MT030050CA.InFulfillmentOf3: part of</p>
+ * 
+ * <p>Allows tracking against a therapy plan.</p>
+ * 
+ * <p>Indicates the order of a specific immunization event with 
+ * a planned/expected number of immunizations.</p>
+ * 
+ * <p>POIZ_MT060150CA.InFulfillmentOf3: part of</p>
+ * 
+ * <p>Allows tracking against a therapy plan.</p>
+ * 
+ * <p>Indicates the order of a specific immunization event with 
+ * a planned/expected number of immunizations.</p>
+ * 
+ * <p>POIZ_MT030060CA.InFulfillmentOf3: part of</p>
  * 
  * <p>Allows changing what dose was administered after the 
  * fact.</p>
  * 
  * <p>Indicates the order of a specific immunization event with 
  * a planned/expected number of immunizations.</p>
- * 
- * <p>POIZ_MT060150NB.InFulfillmentOf3: part of</p>
- * 
- * <p>Allows tracking against a therapy plan.</p>
- * 
- * <p>Indicates the order of a specific immunization event with 
- * a planned/expected number of immunizations.</p>
- * 
- * <p>POIZ_MT030050NB.InFulfillmentOf3: part of</p>
- * 
- * <p>Allows tracking against a therapy plan.</p>
- * 
- * <p>Indicates the order of a specific immunization event with 
- * a planned/expected number of immunizations.</p>
  */
-@Hl7PartTypeMapping({"POIZ_MT030050NB.InFulfillmentOf3","POIZ_MT030060NB.InFulfillmentOf3","POIZ_MT060150NB.InFulfillmentOf3"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf3","POIZ_MT030060CA.InFulfillmentOf3","POIZ_MT060150CA.InFulfillmentOf3"})
 public class PartOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private INT sequenceNumber = new INTImpl();
     private ImmunizationCourseBean immunizationPlan;
 
@@ -67,7 +67,39 @@ public class PartOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InFulfillmentOf3.sequenceNumber</p>
+     * POIZ_MT030050CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf3.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -76,38 +108,6 @@ public class PartOfBean extends MessagePartBean {
      * <p>Used in compliance checking regarding completion of a 
      * planned immunization therapy and is therefore marked as 
      * &quot;populated&quot;.</p>
-     * 
-     * <p>Indicates whether this is the initial immunization (Dose 
-     * Number = 1) or a specific booster (Dose Number = 2 means 
-     * first booster, 3 means 2nd booster, etc.).</p>
-     * 
-     * <p>Un-merged Business Name: VaccineDoseNumber</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT060150NB.InFulfillmentOf3.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>RXA.2</p>
-     * 
-     * <p>Used in compliance checking regarding completion of a 
-     * planned immunization therapy.</p>
-     * 
-     * <p>Indicates whether this is the initial immunization (Dose 
-     * Number = 1) or a specific booster (Dose Number = 2 means 
-     * first booster, 3 means 2nd booster, etc.).</p>
-     * 
-     * <p>Un-merged Business Name: VaccineDoseNumber</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT030050NB.InFulfillmentOf3.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>RXA.2</p>
-     * 
-     * <p>Used in compliance checking regarding completion of a 
-     * planned immunization therapy.</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
@@ -124,7 +124,39 @@ public class PartOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InFulfillmentOf3.sequenceNumber</p>
+     * POIZ_MT030050CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf3.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -133,38 +165,6 @@ public class PartOfBean extends MessagePartBean {
      * <p>Used in compliance checking regarding completion of a 
      * planned immunization therapy and is therefore marked as 
      * &quot;populated&quot;.</p>
-     * 
-     * <p>Indicates whether this is the initial immunization (Dose 
-     * Number = 1) or a specific booster (Dose Number = 2 means 
-     * first booster, 3 means 2nd booster, etc.).</p>
-     * 
-     * <p>Un-merged Business Name: VaccineDoseNumber</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT060150NB.InFulfillmentOf3.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>RXA.2</p>
-     * 
-     * <p>Used in compliance checking regarding completion of a 
-     * planned immunization therapy.</p>
-     * 
-     * <p>Indicates whether this is the initial immunization (Dose 
-     * Number = 1) or a specific booster (Dose Number = 2 means 
-     * first booster, 3 means 2nd booster, etc.).</p>
-     * 
-     * <p>Un-merged Business Name: VaccineDoseNumber</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT030050NB.InFulfillmentOf3.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>RXA.2</p>
-     * 
-     * <p>Used in compliance checking regarding completion of a 
-     * planned immunization therapy.</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
@@ -179,21 +179,21 @@ public class PartOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InFulfillmentOf3.immunizationPlan</p>
+     * POIZ_MT030050CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.InFulfillmentOf3.immunizationPlan</p>
+     * POIZ_MT060150CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.InFulfillmentOf3.immunizationPlan</p>
+     * POIZ_MT030060CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -206,21 +206,21 @@ public class PartOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InFulfillmentOf3.immunizationPlan</p>
+     * POIZ_MT030050CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.InFulfillmentOf3.immunizationPlan</p>
+     * POIZ_MT060150CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.InFulfillmentOf3.immunizationPlan</p>
+     * POIZ_MT030060CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

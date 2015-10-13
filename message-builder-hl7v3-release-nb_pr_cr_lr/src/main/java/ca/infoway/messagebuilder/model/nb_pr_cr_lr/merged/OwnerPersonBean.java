@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: OwnerPerson</p>
  * 
- * <p>COCT_MT050303NB.ContactPerson: Owner Person</p>
+ * <p>COCT_MT050303CA.ContactPerson: Owner Person</p>
  * 
  * <p>Important for tracking responsibility for decision making 
  * and other actions taken on behalf of an animal patient.</p>
@@ -43,10 +43,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Describes a person who is to be contacted regarding the 
  * delivery of healthcare to the animal.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT050303NB.ContactPerson","FICR_MT600201NB.ContactPerson"})
+@Hl7PartTypeMapping({"COCT_MT050303CA.ContactPerson","FICR_MT600201CA.ContactPerson"})
 public class OwnerPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private PN name = new PNImpl();
     private TEL telecom = new TELImpl();
 
@@ -54,7 +54,7 @@ public class OwnerPersonBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: OwnerName</p>
      * 
-     * <p>Relationship: COCT_MT050303NB.ContactPerson.name</p>
+     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -66,7 +66,7 @@ public class OwnerPersonBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactPersonName</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactPerson.name</p>
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -78,7 +78,7 @@ public class OwnerPersonBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: OwnerName</p>
      * 
-     * <p>Relationship: COCT_MT050303NB.ContactPerson.name</p>
+     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -90,7 +90,7 @@ public class OwnerPersonBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactPersonName</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactPerson.name</p>
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -105,7 +105,7 @@ public class OwnerPersonBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactPerson.telecom</p>
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -120,7 +120,7 @@ public class OwnerPersonBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactPerson.telecom</p>
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */

@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Request</p>
  * 
- * <p>REPC_MT610002NB.ActRequest: A:Request</p>
+ * <p>REPC_MT610002CA.ActRequest: A:Request</p>
  * 
  * <p> <i>By requesting the action, a provider takes a level of 
  * responsibility for it. Also, a link between request and 
@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * specific request) that resulted in the creation of the 
  * Professional Service record.</i> </p>
  * 
- * <p>REPC_MT610001NB.ActRequest: A:Request</p>
+ * <p>REPC_MT610001CA.ActRequest: A:Request</p>
  * 
  * <p> <i>By requesting the action, a provider takes a level of 
  * responsibility for it. Also, a link between request and 
@@ -63,10 +63,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * specific request) that resulted in the creation of the 
  * Professional Service record.</i> </p>
  */
-@Hl7PartTypeMapping({"REPC_MT610001NB.ActRequest","REPC_MT610002NB.ActRequest"})
+@Hl7PartTypeMapping({"REPC_MT610001CA.ActRequest","REPC_MT610002CA.ActRequest"})
 public class Request_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private RequestedByBean author;
@@ -77,7 +77,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestType</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActRequest.classCode</p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -90,7 +90,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestType</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ActRequest.classCode</p>
+     * <p>Relationship: REPC_MT610001CA.ActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -111,7 +111,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestType</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActRequest.classCode</p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -124,7 +124,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestType</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ActRequest.classCode</p>
+     * <p>Relationship: REPC_MT610001CA.ActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -145,7 +145,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestId</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActRequest.id</p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -165,7 +165,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestId</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ActRequest.id</p>
+     * <p>Relationship: REPC_MT610001CA.ActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -193,7 +193,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestId</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActRequest.id</p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -213,7 +213,7 @@ public class Request_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestId</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ActRequest.id</p>
+     * <p>Relationship: REPC_MT610001CA.ActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -239,13 +239,13 @@ public class Request_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT610001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -257,13 +257,13 @@ public class Request_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT610001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */

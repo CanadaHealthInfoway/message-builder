@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020002nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.pome_mt010050nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020002ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.pome_mt010050ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: POME_IN010010NB: Drug document query</p>
+ * <p>Business Name: POME_IN010010CA: Drug document query</p>
  * 
  * <p>Requests retrieval of a specific monograph or set of 
  * monographs for a particular medication (specified by 
  * identifier) or indication. The type of monograph (provider, 
  * patient, long, short, etc.) may be specified.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020002NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POME_MT010050NB.ParameterList</p>
+ * <p>--> Payload: POME_MT010050CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POME_IN010010NB"})
+@Hl7PartTypeMapping({"POME_IN010010CA"})
 public class DrugDocumentQueryBean extends HL7MessageBean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

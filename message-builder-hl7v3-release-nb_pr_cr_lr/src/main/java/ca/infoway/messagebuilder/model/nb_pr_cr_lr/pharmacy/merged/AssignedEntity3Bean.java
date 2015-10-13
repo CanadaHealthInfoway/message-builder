@@ -30,28 +30,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"POME_MT010040NB.AssignedEntity1","POME_MT010040NB.AssignedEntity2","POME_MT010040NB.AssignedEntity3","PORR_MT050016NB.AssignedEntity"})
+@Hl7PartTypeMapping({"POME_MT010040CA.AssignedEntity1","POME_MT010040CA.AssignedEntity2","POME_MT010040CA.AssignedEntity3","PORR_MT050016CA.AssignedEntity"})
 public class AssignedEntity3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private ST assignedOrganizationName = new STImpl();
 
 
     /**
-     * <p>Un-merged Business Name: MonographAuthorName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization1.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps the receiver evaluate the supplied information.</p>
-     * 
-     * <p>The name of the organization responsible for creating the 
-     * monograph</p>
-     * 
      * <p>Un-merged Business Name: MedicationDocumentAuthorName</p>
      * 
-     * <p>Relationship: PORR_MT050016NB.Organization4.name</p>
+     * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -62,7 +51,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FormularyOwnerName</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Organization3.name</p>
+     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -74,7 +63,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: MonitoringOrganizationName</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Organization2.name</p>
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -83,32 +72,32 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p>The name of the organization responsible for the 
      * monitoring program</p>
+     * 
+     * <p>Un-merged Business Name: MonographAuthorName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization1.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * monograph</p>
      */
     @Hl7XmlMapping({"assignedOrganization/name","representedOrganization/name"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization1"),
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization2"),
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization3"),
-        @Hl7MapByPartType(name="representedOrganization", type="PORR_MT050016NB.Organization4")})
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization1"),
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization2"),
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization3"),
+        @Hl7MapByPartType(name="representedOrganization", type="PORR_MT050016CA.Organization4")})
     public String getAssignedOrganizationName() {
         return this.assignedOrganizationName.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: MonographAuthorName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization1.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps the receiver evaluate the supplied information.</p>
-     * 
-     * <p>The name of the organization responsible for creating the 
-     * monograph</p>
-     * 
      * <p>Un-merged Business Name: MedicationDocumentAuthorName</p>
      * 
-     * <p>Relationship: PORR_MT050016NB.Organization4.name</p>
+     * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -119,7 +108,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FormularyOwnerName</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Organization3.name</p>
+     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -131,7 +120,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: MonitoringOrganizationName</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Organization2.name</p>
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -140,6 +129,17 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p>The name of the organization responsible for the 
      * monitoring program</p>
+     * 
+     * <p>Un-merged Business Name: MonographAuthorName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization1.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * monograph</p>
      */
     public void setAssignedOrganizationName(String assignedOrganizationName) {
         this.assignedOrganizationName.setValue(assignedOrganizationName);

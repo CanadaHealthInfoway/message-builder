@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt420002nb.QueryDefinitionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt420003nb.CodedObservationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt420002ca.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt420003ca.CodedObservationBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000068NB: Patient coded 
+ * <p>Business Name: REPC_IN000068CA: Patient coded 
  * observations query response</p>
  * 
  * <p>Returns one or more coded observations associated with a 
  * patient.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT420003NB.CommonObservationEvent</p>
+ * <p>--> Payload: REPC_MT420003CA.CommonObservationEvent</p>
  * 
- * <p>--> Payload: REPC_MT420002NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT420002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000068NB"})
+@Hl7PartTypeMapping({"REPC_IN000068CA"})
 public class PatientCodedObservationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<CodedObservationBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

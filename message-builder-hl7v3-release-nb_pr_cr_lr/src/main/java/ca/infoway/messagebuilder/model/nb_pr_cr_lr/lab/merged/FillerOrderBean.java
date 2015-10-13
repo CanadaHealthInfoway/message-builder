@@ -35,25 +35,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: FillerOrder</p>
  * 
- * <p>POLB_MT004200NB.ActPromise: Filler Order</p>
- * 
- * <p>The filler order communiates the intended testing (as 
- * opposted to the requested tests).</p>
- * 
- * <p>POLB_MT004000NB.ActPromise: Filler Order</p>
+ * <p>POLB_MT004000CA.ActPromise: Filler Order</p>
  * 
  * <p>The filler order communiates the intended testing (as 
  * opposed to the requested tests).</p>
  * 
- * <p>POLB_MT004100NB.ActPromise: Filler Order</p>
+ * <p>POLB_MT004200CA.ActPromise: Filler Order</p>
+ * 
+ * <p>The filler order communiates the intended testing (as 
+ * opposted to the requested tests).</p>
+ * 
+ * <p>POLB_MT004100CA.ActPromise: Filler Order</p>
  * 
  * <p>The filler order communiates the intended testing (as 
  * opposted to the requested tests).</p>
  */
-@Hl7PartTypeMapping({"POLB_MT004000NB.ActPromise","POLB_MT004100NB.ActPromise","POLB_MT004200NB.ActPromise"})
+@Hl7PartTypeMapping({"POLB_MT004000CA.ActPromise","POLB_MT004100CA.ActPromise","POLB_MT004200CA.ActPromise"})
 public class FillerOrderBean extends MessagePartBean implements FulfillmentChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
 
@@ -61,19 +61,19 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT004000NB.ActPromise.classCode</p>
+     * <p>Relationship: POLB_MT004000CA.ActPromise.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ActPromise.classCode</p>
+     * <p>Relationship: POLB_MT004200CA.ActPromise.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ActPromise.classCode</p>
+     * <p>Relationship: POLB_MT004100CA.ActPromise.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -85,19 +85,19 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT004000NB.ActPromise.classCode</p>
+     * <p>Relationship: POLB_MT004000CA.ActPromise.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ActPromise.classCode</p>
+     * <p>Relationship: POLB_MT004200CA.ActPromise.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ActPromise.classCode</p>
+     * <p>Relationship: POLB_MT004100CA.ActPromise.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -109,7 +109,7 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
     /**
      * <p>Un-merged Business Name: FillerOrderIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT004000NB.ActPromise.id</p>
+     * <p>Relationship: POLB_MT004000CA.ActPromise.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -120,7 +120,7 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
      * 
      * <p>Un-merged Business Name: FillerOrderNumber</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ActPromise.id</p>
+     * <p>Relationship: POLB_MT004200CA.ActPromise.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -128,7 +128,7 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
      * 
      * <p>Un-merged Business Name: FillerOrderNumber</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ActPromise.id</p>
+     * <p>Relationship: POLB_MT004100CA.ActPromise.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +142,7 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
     /**
      * <p>Un-merged Business Name: FillerOrderIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT004000NB.ActPromise.id</p>
+     * <p>Relationship: POLB_MT004000CA.ActPromise.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -153,7 +153,7 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
      * 
      * <p>Un-merged Business Name: FillerOrderNumber</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ActPromise.id</p>
+     * <p>Relationship: POLB_MT004200CA.ActPromise.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -161,7 +161,7 @@ public class FillerOrderBean extends MessagePartBean implements FulfillmentChoic
      * 
      * <p>Un-merged Business Name: FillerOrderNumber</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ActPromise.id</p>
+     * <p>Relationship: POLB_MT004100CA.ActPromise.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

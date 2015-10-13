@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ToBeRespondedToBy</p>
  * 
- * <p>MCCI_MT002300NB.RespondTo: to be responded to by</p>
+ * <p>MCCI_MT102001CA.RespondTo: to be responded to by</p>
  * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * response to this interaction. Used when different from the 
  * sender of the original interaction.</p>
  * 
- * <p>MCCI_MT002200NB.RespondTo: to be responded to by</p>
+ * <p>MCCI_MT002300CA.RespondTo: to be responded to by</p>
  * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * response to this interaction. Used when different from the 
  * sender of the original interaction.</p>
  * 
- * <p>MCCI_MT002100NB.RespondTo: to be responded to by</p>
+ * <p>MCCI_MT002200CA.RespondTo: to be responded to by</p>
  * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
@@ -71,7 +71,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * response to this interaction. Used when different from the 
  * sender of the original interaction.</p>
  * 
- * <p>MCCI_MT102001NB.RespondTo: to be responded to by</p>
+ * <p>MCCI_MT002100CA.RespondTo: to be responded to by</p>
  * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
@@ -83,10 +83,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * response to this interaction. Used when different from the 
  * sender of the original interaction.</p>
  */
-@Hl7PartTypeMapping({"MCCI_MT002100NB.RespondTo","MCCI_MT002200NB.RespondTo","MCCI_MT002300NB.RespondTo","MCCI_MT102001NB.RespondTo"})
+@Hl7PartTypeMapping({"MCCI_MT002100CA.RespondTo","MCCI_MT002200CA.RespondTo","MCCI_MT002300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
 
@@ -96,7 +96,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -112,7 +112,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT002300CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -128,7 +128,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT002200CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -144,7 +144,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT002100CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -168,7 +168,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -184,7 +184,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT002300CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -200,7 +200,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT002200CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -216,7 +216,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.RespondTo.telecom</p>
+     * <p>Relationship: MCCI_MT002100CA.RespondTo.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -240,7 +240,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -257,7 +257,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT002300CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -274,7 +274,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT002200CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -291,7 +291,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT002100CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -316,7 +316,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -333,7 +333,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT002300CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -350,7 +350,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT002200CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -367,7 +367,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device3.id</p>
+     * <p>Relationship: MCCI_MT002100CA.Device3.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

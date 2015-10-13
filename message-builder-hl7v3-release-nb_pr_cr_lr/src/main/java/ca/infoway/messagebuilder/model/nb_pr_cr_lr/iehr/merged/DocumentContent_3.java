@@ -21,13 +21,13 @@
 package ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt240007nb.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt240007ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.BecauseOfIndicationsBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT230001NB.DocumentContent","REPC_MT230002NB.DocumentContent","REPC_MT230003NB.DocumentContent"})
+@Hl7PartTypeMapping({"REPC_MT230001CA.DocumentContent","REPC_MT230002CA.DocumentContent","REPC_MT230003CA.DocumentContent"})
 public interface DocumentContent_3 {
 
 
@@ -35,14 +35,14 @@ public interface DocumentContent_3 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT230002NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT230003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT230003NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT230002CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -52,14 +52,14 @@ public interface DocumentContent_3 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT230002NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT230003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT230003NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT230002CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -69,19 +69,19 @@ public interface DocumentContent_3 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT230003CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT230001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT230002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */

@@ -33,10 +33,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"PRLO_MT000001NB.Place","PRLO_MT000002NB.Place","PRLO_MT202014NB.Place"})
+@Hl7PartTypeMapping({"PRLO_MT000001CA.Place","PRLO_MT000002CA.Place","PRLO_MT202014CA.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private BL mobileInd = new BLImpl();
     private List<HasBean> asIdentifiedLocation = new ArrayList<HasBean>();
@@ -47,7 +47,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Place.code</p>
+     * <p>Relationship: PRLO_MT202014CA.Place.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -60,7 +60,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT000001NB.Place.code</p>
+     * <p>Relationship: PRLO_MT000001CA.Place.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -73,7 +73,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Place.code</p>
+     * <p>Relationship: PRLO_MT000002CA.Place.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -94,7 +94,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Place.code</p>
+     * <p>Relationship: PRLO_MT202014CA.Place.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,7 +107,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT000001NB.Place.code</p>
+     * <p>Relationship: PRLO_MT000001CA.Place.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -120,7 +120,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Place.code</p>
+     * <p>Relationship: PRLO_MT000002CA.Place.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -141,7 +141,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Place.mobileInd</p>
+     * <p>Relationship: PRLO_MT202014CA.Place.mobileInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -155,7 +155,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Relationship: PRLO_MT000001NB.Place.mobileInd</p>
+     * <p>Relationship: PRLO_MT000001CA.Place.mobileInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -169,7 +169,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Place.mobileInd</p>
+     * <p>Relationship: PRLO_MT000002CA.Place.mobileInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,7 +191,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Place.mobileInd</p>
+     * <p>Relationship: PRLO_MT202014CA.Place.mobileInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -205,7 +205,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Relationship: PRLO_MT000001NB.Place.mobileInd</p>
+     * <p>Relationship: PRLO_MT000001CA.Place.mobileInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -219,7 +219,7 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Place.mobileInd</p>
+     * <p>Relationship: PRLO_MT000002CA.Place.mobileInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -239,13 +239,13 @@ public class PlaceBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Place.asIdentifiedLocation</p>
+     * <p>Relationship: PRLO_MT202014CA.Place.asIdentifiedLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Place.asIdentifiedLocation</p>
+     * <p>Relationship: PRLO_MT000002CA.Place.asIdentifiedLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */

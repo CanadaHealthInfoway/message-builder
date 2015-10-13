@@ -6,9 +6,9 @@ Build-Jdk: 1.6.0_45
 Implementation-Title: message-builder-hl7v3-release-nb_pr_cr_lr
 Implementation-Vendor-Id: ca.infoway.messagebuilder
 Application-Name: message-builder-hl7v3-release-nb_pr_cr_lr
-Implementation-Build-Date: 2015-09-02_09-08-40
-Implementation-Version: 2.1.1
+Implementation-Build-Date: 2015-10-13_11-13-40
+Implementation-Version: 2.1.2-SNAPSHOT
 MBT-Message-Set: /messageSet_nb_pr_cr_lr.xml
 MBT-Model-Version-Numbers: R02_03_NB
-MBT-Version: 2.1.1
+MBT-Version: 2.1.2-SNAPSHOT
 

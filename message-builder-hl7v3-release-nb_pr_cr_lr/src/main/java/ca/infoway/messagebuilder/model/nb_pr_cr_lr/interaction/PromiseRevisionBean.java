@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt002000nb.PromiseChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt002000ca.PromiseChoice;
 
 
 
 /**
- * <p>Business Name: POLB_IN122102NB: Promise Revision</p>
+ * <p>Business Name: POLB_IN122102CA: Promise Revision</p>
  * 
  * <p>This interaction is a Promise Revision Response. This 
  * interaction is used when a filler communicates a response to 
@@ -39,21 +39,21 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt002000nb.PromiseCh
  * filler will fulfill the order with a subsequent result 
  * complete interaction.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT002000NB.PromiseChoice</p>
+ * <p>--> Payload: POLB_MT002000CA.PromiseChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000NB.PromiseGroup</p>
+ * <p>----> Payload Choice: POLB_MT002000CA.PromiseGroup</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000NB.BatteryPromise</p>
+ * <p>----> Payload Choice: POLB_MT002000CA.BatteryPromise</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000NB.ObservationPromise</p>
+ * <p>----> Payload Choice: POLB_MT002000CA.ObservationPromise</p>
  */
-@Hl7PartTypeMapping({"POLB_IN122102NB"})
+@Hl7PartTypeMapping({"POLB_IN122102CA"})
 public class PromiseRevisionBean extends HL7MessageBean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

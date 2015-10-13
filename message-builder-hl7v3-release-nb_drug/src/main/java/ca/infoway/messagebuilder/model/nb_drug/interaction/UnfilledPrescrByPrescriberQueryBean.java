@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060270nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060270ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060470NB: Unfilled prescr. by 
+ * <p>Business Name: PORX_IN060470CA: Unfilled prescr. by 
  * prescriber query</p>
  * 
  * <p>Requests retrieval of basic information about all 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060270nb.Paramete
  * the specified prescriber which have not yet been dispensed, 
  * optionally filtered by date and status.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060270NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060270CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060470NB"})
+@Hl7PartTypeMapping({"PORX_IN060470CA"})
 public class UnfilledPrescrByPrescriberQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

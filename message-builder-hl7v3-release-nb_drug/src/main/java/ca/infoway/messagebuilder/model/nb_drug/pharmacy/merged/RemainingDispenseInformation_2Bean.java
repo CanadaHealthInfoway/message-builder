@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: RemainingDispenseInformation</p>
  * 
- * <p>PORX_MT060040NB.SupplyEventFutureSummary: Remaining 
+ * <p>PORX_MT060040CA.SupplyEventFutureSummary: Remaining 
  * Dispense Information</p>
  * 
  * <p>At least one of quantity and repeatNumber must be 
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides summary information about what dispenses remain 
  * to be performed against the prescription</p>
  * 
- * <p>PORX_MT060060NB.SupplyEventFutureSummary: Remaining 
+ * <p>PORX_MT060060CA.SupplyEventFutureSummary: Remaining 
  * Dispense Information</p>
  * 
  * <p>At least one of quantity and repeatNumber must be 
@@ -55,10 +55,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides summary information about what dispenses remain 
  * to be performed against the prescription</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060040NB.SupplyEventFutureSummary","PORX_MT060060NB.SupplyEventFutureSummary"})
+@Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFutureSummary","PORX_MT060060CA.SupplyEventFutureSummary"})
 public class RemainingDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
@@ -69,7 +69,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFutureSummary.repeatNumber</p>
+     * PORX_MT060040CA.SupplyEventFutureSummary.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -83,7 +83,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFutureSummary.repeatNumber</p>
+     * PORX_MT060060CA.SupplyEventFutureSummary.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -105,7 +105,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFutureSummary.repeatNumber</p>
+     * PORX_MT060040CA.SupplyEventFutureSummary.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -119,7 +119,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFutureSummary.repeatNumber</p>
+     * PORX_MT060060CA.SupplyEventFutureSummary.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -141,7 +141,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFutureSummary.quantity</p>
+     * PORX_MT060040CA.SupplyEventFutureSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -153,7 +153,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFutureSummary.quantity</p>
+     * PORX_MT060060CA.SupplyEventFutureSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -173,7 +173,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplyEventFutureSummary.quantity</p>
+     * PORX_MT060040CA.SupplyEventFutureSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -185,7 +185,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.SupplyEventFutureSummary.quantity</p>
+     * PORX_MT060060CA.SupplyEventFutureSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

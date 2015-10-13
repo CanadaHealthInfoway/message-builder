@@ -39,9 +39,9 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt050203nb.PatientBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107nb.ProviderBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt220110nb.DrugProductBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt050203ca.PatientBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt220110ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.nb_drug.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.nb_drug.merged.RecordedAtBean;
 import java.util.ArrayList;
@@ -52,15 +52,7 @@ import java.util.List;
 /**
  * <p>Business Name: Prescription</p>
  * 
- * <p>PORX_MT060100NB.SubstanceAdministrationRequest: 
- * Prescription</p>
- * 
- * <p>Provides a drill-down link from the prescription to its 
- * corresponding order.</p>
- * 
- * <p>Indicates the order being dispensed</p>
- * 
- * <p>PORX_MT060190NB.CombinedMedicationRequest: Prescription</p>
+ * <p>PORX_MT060190CA.CombinedMedicationRequest: Prescription</p>
  * 
  * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
@@ -69,19 +61,27 @@ import java.util.List;
  * <p>Where the prescription is for a combination of drugs 
  * (e.g. 10mg tablets + 40mg tablets) repeatNumber cannot be 
  * populated and quantity must be expressed in mg.</p>
+ * 
+ * <p>PORX_MT060100CA.SubstanceAdministrationRequest: 
+ * Prescription</p>
+ * 
+ * <p>Provides a drill-down link from the prescription to its 
+ * corresponding order.</p>
+ * 
+ * <p>Indicates the order being dispensed</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060100NB.SubstanceAdministrationRequest","PORX_MT060190NB.CombinedMedicationRequest"})
-public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060190nb.MedicationRecord {
+@Hl7PartTypeMapping({"PORX_MT060100CA.SubstanceAdministrationRequest","PORX_MT060190CA.CombinedMedicationRequest"})
+public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060190ca.MedicationRecord {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
-    private ProviderBean responsiblePartyAssignedPerson;
-    private PrescribedByBean author;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
     private PatientBean subjectPatient;
     private DrugProductBean directTargetMedication;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private PrescribedByBean author;
     private RecordedAtBean location;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
@@ -99,59 +99,10 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.SubstanceAdministrationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p>
-     * 
-     * <p>Prescription.prescriptionExternalKey</p>
-     * 
-     * <p>D53(ID for the prescription assigned by pharmacy)</p>
-     * 
-     * <p>D55(ID for the dispense event)</p>
-     * 
-     * <p>D99.01</p>
-     * 
-     * <p>X0101(id for prescription)</p>
-     * 
-     * <p>ZDP.5</p>
-     * 
-     * <p>ZDP.6</p>
-     * 
-     * <p>ZDP.22</p>
-     * 
-     * <p>ZRV.5</p>
-     * 
-     * <p>DRU.080-01(extension)</p>
-     * 
-     * <p>DRU.080-02(route)</p>
-     * 
-     * <p>Claim.455-EM (route)</p>
-     * 
-     * <p>Claim.402-D2 (extension)</p>
-     * 
-     * <p>Claim.456-EN</p>
-     * 
-     * <p>Claim.454-EK</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Links the dispense to the prescription it fulfilled.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
      * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.id</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -192,6 +143,55 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
      * number is mandatory to allow every prescription record to be 
      * uniquely identified.</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription.prescriptionNumber</p>
+     * 
+     * <p>Prescription.prescriptionExternalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>X0101(id for prescription)</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Links the dispense to the prescription it fulfilled.</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -205,59 +205,10 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.SubstanceAdministrationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p>
-     * 
-     * <p>Prescription.prescriptionExternalKey</p>
-     * 
-     * <p>D53(ID for the prescription assigned by pharmacy)</p>
-     * 
-     * <p>D55(ID for the dispense event)</p>
-     * 
-     * <p>D99.01</p>
-     * 
-     * <p>X0101(id for prescription)</p>
-     * 
-     * <p>ZDP.5</p>
-     * 
-     * <p>ZDP.6</p>
-     * 
-     * <p>ZDP.22</p>
-     * 
-     * <p>ZRV.5</p>
-     * 
-     * <p>DRU.080-01(extension)</p>
-     * 
-     * <p>DRU.080-02(route)</p>
-     * 
-     * <p>Claim.455-EM (route)</p>
-     * 
-     * <p>Claim.402-D2 (extension)</p>
-     * 
-     * <p>Claim.456-EN</p>
-     * 
-     * <p>Claim.454-EK</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Links the dispense to the prescription it fulfilled.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
      * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.id</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -304,89 +255,58 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * the source of the order</p><p>It is created by the EHR/DIS 
      * once the prescription has passed all edits and 
      * validation.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription.prescriptionNumber</p>
+     * 
+     * <p>Prescription.prescriptionExternalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>X0101(id for prescription)</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Links the dispense to the prescription it fulfilled.</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.ResponsibleParty2.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.ResponsibleParty2.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.SubstanceAdministrationRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.SubstanceAdministrationRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
     }
 
 
@@ -396,7 +316,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.code</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -419,7 +339,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.code</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -442,7 +362,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.statusCode</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -473,7 +393,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.statusCode</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -504,7 +424,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: PrescriptionMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.confidentialityCode</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -533,7 +453,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: PrescriptionMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.confidentialityCode</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -559,7 +479,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Subject5.patient</p>
+     * <p>Relationship: PORX_MT060190CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -571,7 +491,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Subject5.patient</p>
+     * <p>Relationship: PORX_MT060190CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -583,7 +503,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.DirectTarget.medication</p>
+     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -595,7 +515,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.DirectTarget.medication</p>
+     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -608,7 +528,87 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.location</p>
+     * PORX_MT060190CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -621,7 +621,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.location</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -634,7 +634,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.reason</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
@@ -652,7 +652,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Precondition.verificationEventCriterion</p>
+     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -665,7 +665,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Precondition.verificationEventCriterion</p>
+     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -677,7 +677,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.DerivedFrom.sourceDispense</p>
+     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -689,7 +689,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.DerivedFrom.sourceDispense</p>
+     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -704,7 +704,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.AdministrationInstructions.text</p>
+     * PORX_MT060190CA.AdministrationInstructions.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -728,7 +728,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.AdministrationInstructions.text</p>
+     * PORX_MT060190CA.AdministrationInstructions.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -750,7 +750,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.component2</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.component2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -763,7 +763,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.component2</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.component2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -776,7 +776,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf4.supplyEventFutureSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf4.supplyEventFutureSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -789,7 +789,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf4.supplyEventFutureSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf4.supplyEventFutureSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -802,7 +802,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf5.supplyEventFirstSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf5.supplyEventFirstSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -815,7 +815,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf5.supplyEventFirstSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf5.supplyEventFirstSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -828,7 +828,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf6.supplyEventLastSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf6.supplyEventLastSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -841,7 +841,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf6.supplyEventLastSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf6.supplyEventLastSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -854,7 +854,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf2.supplyEventPastSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf2.supplyEventPastSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -867,7 +867,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.InFulfillmentOf2.supplyEventPastSummary</p>
+     * PORX_MT060190CA.InFulfillmentOf2.supplyEventPastSummary</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -879,7 +879,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Subject.annotationIndicator</p>
+     * <p>Relationship: PORX_MT060190CA.Subject.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -891,7 +891,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Subject.annotationIndicator</p>
+     * <p>Relationship: PORX_MT060190CA.Subject.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -904,7 +904,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Subject2.detectedIssueIndicator</p>
+     * PORX_MT060190CA.Subject2.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -917,7 +917,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Subject2.detectedIssueIndicator</p>
+     * PORX_MT060190CA.Subject2.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -929,7 +929,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Subject3.refusalToFill</p>
+     * <p>Relationship: PORX_MT060190CA.Subject3.refusalToFill</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -943,7 +943,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.componentOf</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.componentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -956,7 +956,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.CombinedMedicationRequest.componentOf</p>
+     * PORX_MT060190CA.CombinedMedicationRequest.componentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

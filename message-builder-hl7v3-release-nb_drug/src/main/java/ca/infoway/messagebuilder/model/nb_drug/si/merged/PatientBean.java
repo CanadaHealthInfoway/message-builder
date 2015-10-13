@@ -28,24 +28,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Patient</p>
  * 
- * <p>RCMR_MT010001NB.Patient: Patient</p>
- * 
- * <p>Allows assertion of who issued the consent.</p>
- * 
- * <p>Indicates that consent was granted by the patient 
- * themselves</p>
- * 
- * <p>RCMR_MT010002NB.Patient: Patient</p>
+ * <p>RCMR_MT010002CA.Patient: Patient</p>
  * 
  * <p>Sometimes keywords are changed by the patient, sometimes 
  * by a patient representative.</p>
  * 
  * <p>Indicates that the keyword was changed by the patient 
  * themselves.</p>
+ * 
+ * <p>RCMR_MT010001CA.Patient: Patient</p>
+ * 
+ * <p>Allows assertion of who issued the consent.</p>
+ * 
+ * <p>Indicates that consent was granted by the patient 
+ * themselves</p>
  */
-@Hl7PartTypeMapping({"RCMR_MT010001NB.Patient","RCMR_MT010002NB.Patient"})
+@Hl7PartTypeMapping({"RCMR_MT010001CA.Patient","RCMR_MT010002CA.Patient"})
 public class PatientBean extends MessagePartBean implements Consenter {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

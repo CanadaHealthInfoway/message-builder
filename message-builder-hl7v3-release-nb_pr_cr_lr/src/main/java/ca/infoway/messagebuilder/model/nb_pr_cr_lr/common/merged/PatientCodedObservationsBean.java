@@ -43,7 +43,7 @@ import java.util.Set;
 /**
  * <p>Business Name: PatientCodedObservations</p>
  * 
- * <p>COCT_MT260030NB.ObservationCodedEvent: Patient Coded 
+ * <p>COCT_MT260010CA.ObservationCodedEvent: Patient Coded 
  * Observations</p>
  * 
  * <p>Useful for determining appropriate management and for 
@@ -53,7 +53,7 @@ import java.util.Set;
  * condition, lab result, pregnancy status, etc.) of the 
  * patient that contributed to the issue being raised.</p>
  * 
- * <p>COCT_MT260010NB.ObservationCodedEvent: Patient Coded 
+ * <p>COCT_MT260030CA.ObservationCodedEvent: Patient Coded 
  * Observations</p>
  * 
  * <p>Useful for determining appropriate management and for 
@@ -63,10 +63,10 @@ import java.util.Set;
  * condition, lab result, pregnancy status, etc.) of the 
  * patient that contributed to the issue being raised.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010NB.ObservationCodedEvent","COCT_MT260020NB.ObservationCodedEvent","COCT_MT260030NB.ObservationCodedEvent"})
-public class PatientCodedObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260030nb.CausalActs, ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020nb.CausalActs, ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260010nb.CausalActs {
+@Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
+public class PatientCodedObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020ca.CausalActs, ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260010ca.CausalActs, ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260030ca.CausalActs {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -78,7 +78,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
-     * <p>Relationship: COCT_MT260030NB.ObservationCodedEvent.id</p>
+     * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -93,13 +93,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.ObservationCodedEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationIdentifier</p>
-     * 
-     * <p>Relationship: COCT_MT260010NB.ObservationCodedEvent.id</p>
+     * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -111,6 +105,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * <p>Unique identifier for the record of the coded observation 
      * (e.g. allergy, medical condition, pregnancy status, etc.) 
      * that contributed to the issue.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -122,7 +122,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
-     * <p>Relationship: COCT_MT260030NB.ObservationCodedEvent.id</p>
+     * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -137,13 +137,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.ObservationCodedEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationIdentifier</p>
-     * 
-     * <p>Relationship: COCT_MT260010NB.ObservationCodedEvent.id</p>
+     * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -155,6 +149,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * <p>Unique identifier for the record of the coded observation 
      * (e.g. allergy, medical condition, pregnancy status, etc.) 
      * that contributed to the issue.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -166,7 +166,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationType</p>
      * 
-     * <p>Relationship: COCT_MT260030NB.ObservationCodedEvent.code</p>
+     * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,13 +191,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationType</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.ObservationCodedEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationType</p>
-     * 
-     * <p>Relationship: COCT_MT260010NB.ObservationCodedEvent.code</p>
+     * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -219,6 +213,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * and other observable information about a person that may be 
      * deemed as a possible trigger for clinical issue 
      * detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public CommonCodedClinicalObservationType getCode() {
@@ -230,7 +230,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationType</p>
      * 
-     * <p>Relationship: COCT_MT260030NB.ObservationCodedEvent.code</p>
+     * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -255,13 +255,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationType</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.ObservationCodedEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationType</p>
-     * 
-     * <p>Relationship: COCT_MT260010NB.ObservationCodedEvent.code</p>
+     * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -283,6 +277,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * and other observable information about a person that may be 
      * deemed as a possible trigger for clinical issue 
      * detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(CommonCodedClinicalObservationType code) {
         this.code.setValue(code);
@@ -293,7 +293,27 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.ObservationCodedEvent.confidentialityCode</p>
+     * COCT_MT260010CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the observation information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
+     * condition, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationCodedEvent.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
@@ -313,29 +333,9 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.ObservationCodedEvent.confidentialityCode</p>
+     * COCT_MT260020CA.ObservationCodedEvent.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010NB.ObservationCodedEvent.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
-     * 
-     * <p>Contraindication.intractingSourceMasked (Normal=false; 
-     * Restricted or Very Restricted = True); (Information is 
-     * withheld because the prescription is masked will be given a 
-     * NULL flavour of 'Masked')</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * condition, and thus defines the required sensitivity for the 
-     * detected issue.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -348,7 +348,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationValue</p>
      * 
-     * <p>Relationship: COCT_MT260030NB.ObservationCodedEvent.value</p>
+     * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -378,13 +378,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationValue</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.ObservationCodedEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationValue</p>
-     * 
-     * <p>Relationship: COCT_MT260010NB.ObservationCodedEvent.value</p>
+     * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -411,6 +405,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Denotes a specific coded observation made about a person 
      * that might have trigger the clinical issue detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"value"})
     public IssueTriggerObservationValue getValue() {
@@ -422,7 +422,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationValue</p>
      * 
-     * <p>Relationship: COCT_MT260030NB.ObservationCodedEvent.value</p>
+     * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -452,13 +452,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Un-merged Business Name: ObservationValue</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.ObservationCodedEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: ObservationValue</p>
-     * 
-     * <p>Relationship: COCT_MT260010NB.ObservationCodedEvent.value</p>
+     * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -485,6 +479,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements ca.
      * 
      * <p>Denotes a specific coded observation made about a person 
      * that might have trigger the clinical issue detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setValue(IssueTriggerObservationValue value) {
         this.value.setValue(value);

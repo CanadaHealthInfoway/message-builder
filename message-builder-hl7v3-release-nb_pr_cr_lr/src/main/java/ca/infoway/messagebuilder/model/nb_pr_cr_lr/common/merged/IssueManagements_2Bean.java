@@ -35,7 +35,19 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.ChangedByBean;
 /**
  * <p>Business Name: IssueManagements</p>
  * 
- * <p>COCT_MT260022NB.DetectedIssueManagement: Issue 
+ * <p>COCT_MT260030CA.DetectedIssueManagement: Issue 
+ * Managements</p>
+ * 
+ * <p>A_DetectedMedicationIssue</p>
+ * 
+ * <p>It allows overriding of the detected issue</p>
+ * 
+ * <p>The processes and procedures employed by providers to 
+ * resolve clinical and business issues between the action 
+ * being performed and additional information already in the 
+ * patient's record or system business rules.</p>
+ * 
+ * <p>COCT_MT260022CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
@@ -47,23 +59,11 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.ChangedByBean;
  * resolve clinical conflicts between the action being 
  * performed and additional information already in the 
  * patient's record.</p>
- * 
- * <p>COCT_MT260030NB.DetectedIssueManagement: Issue 
- * Managements</p>
- * 
- * <p>A_DetectedMedicationIssue</p>
- * 
- * <p>It allows overriding of the detected issue</p>
- * 
- * <p>The processes and procedures employed by providers to 
- * resolve clinical and business issues between the action 
- * being performed and additional information already in the 
- * patient's record or system business rules.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT260020NB.DetectedIssueManagement","COCT_MT260022NB.DetectedIssueManagement","COCT_MT260030NB.DetectedIssueManagement"})
+@Hl7PartTypeMapping({"COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagements_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ChangedByBean author;
@@ -75,57 +75,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260022NB.DetectedIssueManagement.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>ManagedContraindication.State</p>
-     * 
-     * <p>OverrideReason.reason</p>
-     * 
-     * <p>D65(when dealing with clinical indication overrides, 
-     * otherwise use overrides in ControlAct wrapper.</p>
-     * 
-     * <p>ZPB3.10</p>
-     * 
-     * <p>Intervention Codes</p>
-     * 
-     * <p>ZPS.8</p>
-     * 
-     * <p>ZPS.15</p>
-     * 
-     * <p>ZDP.21.1</p>
-     * 
-     * <p>DRU.100-02</p>
-     * 
-     * <p>DRU.100-03</p>
-     * 
-     * <p>DUR/PPS.440-E6</p>
-     * 
-     * <p>DUR/PPS.441-E6</p>
-     * 
-     * <p>Claim.420-DK</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Ensures consistency in description of management 
-     * actions.</p><p>This is mandatory so as to ensure distinction 
-     * between different kinds of management.</p>
-     * 
-     * <p>Indicates the kinds of management actions that can be 
-     * taken, based on the issue type.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementType</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260020NB.DetectedIssueManagement.code</p>
+     * COCT_MT260020CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.DetectedIssueManagement.code</p>
+     * COCT_MT260030CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -164,6 +121,49 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * 
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueManagement.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ManagedContraindication.State</p>
+     * 
+     * <p>OverrideReason.reason</p>
+     * 
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
+     * 
+     * <p>ZPB3.10</p>
+     * 
+     * <p>Intervention Codes</p>
+     * 
+     * <p>ZPS.8</p>
+     * 
+     * <p>ZPS.15</p>
+     * 
+     * <p>ZDP.21.1</p>
+     * 
+     * <p>DRU.100-02</p>
+     * 
+     * <p>DRU.100-03</p>
+     * 
+     * <p>DUR/PPS.440-E6</p>
+     * 
+     * <p>DUR/PPS.441-E6</p>
+     * 
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Ensures consistency in description of management 
+     * actions.</p><p>This is mandatory so as to ensure distinction 
+     * between different kinds of management.</p>
+     * 
+     * <p>Indicates the kinds of management actions that can be 
+     * taken, based on the issue type.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActDetectedIssueManagementCode getCode() {
@@ -176,57 +176,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260022NB.DetectedIssueManagement.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>ManagedContraindication.State</p>
-     * 
-     * <p>OverrideReason.reason</p>
-     * 
-     * <p>D65(when dealing with clinical indication overrides, 
-     * otherwise use overrides in ControlAct wrapper.</p>
-     * 
-     * <p>ZPB3.10</p>
-     * 
-     * <p>Intervention Codes</p>
-     * 
-     * <p>ZPS.8</p>
-     * 
-     * <p>ZPS.15</p>
-     * 
-     * <p>ZDP.21.1</p>
-     * 
-     * <p>DRU.100-02</p>
-     * 
-     * <p>DRU.100-03</p>
-     * 
-     * <p>DUR/PPS.440-E6</p>
-     * 
-     * <p>DUR/PPS.441-E6</p>
-     * 
-     * <p>Claim.420-DK</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Ensures consistency in description of management 
-     * actions.</p><p>This is mandatory so as to ensure distinction 
-     * between different kinds of management.</p>
-     * 
-     * <p>Indicates the kinds of management actions that can be 
-     * taken, based on the issue type.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementType</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260020NB.DetectedIssueManagement.code</p>
+     * COCT_MT260020CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.DetectedIssueManagement.code</p>
+     * COCT_MT260030CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -265,6 +222,49 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * 
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueManagement.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ManagedContraindication.State</p>
+     * 
+     * <p>OverrideReason.reason</p>
+     * 
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
+     * 
+     * <p>ZPB3.10</p>
+     * 
+     * <p>Intervention Codes</p>
+     * 
+     * <p>ZPS.8</p>
+     * 
+     * <p>ZPS.15</p>
+     * 
+     * <p>ZDP.21.1</p>
+     * 
+     * <p>DRU.100-02</p>
+     * 
+     * <p>DRU.100-03</p>
+     * 
+     * <p>DUR/PPS.440-E6</p>
+     * 
+     * <p>DUR/PPS.441-E6</p>
+     * 
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Ensures consistency in description of management 
+     * actions.</p><p>This is mandatory so as to ensure distinction 
+     * between different kinds of management.</p>
+     * 
+     * <p>Indicates the kinds of management actions that can be 
+     * taken, based on the issue type.</p>
      */
     public void setCode(ActDetectedIssueManagementCode code) {
         this.code.setValue(code);
@@ -277,7 +277,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260022NB.DetectedIssueManagement.text</p>
+     * COCT_MT260020CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -290,14 +297,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.DetectedIssueManagement.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDescription</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030NB.DetectedIssueManagement.text</p>
+     * COCT_MT260022CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -318,7 +318,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260022NB.DetectedIssueManagement.text</p>
+     * COCT_MT260020CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -331,14 +338,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.DetectedIssueManagement.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDescription</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030NB.DetectedIssueManagement.text</p>
+     * COCT_MT260022CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -357,23 +357,23 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260022NB.DetectedIssueManagement.author</p>
+     * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.DetectedIssueManagement.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030NB.DetectedIssueManagement.author</p>
+     * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueManagement.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"author"})
     public ChangedByBean getAuthor() {
@@ -384,23 +384,23 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260022NB.DetectedIssueManagement.author</p>
+     * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.DetectedIssueManagement.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030NB.DetectedIssueManagement.author</p>
+     * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueManagement.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setAuthor(ChangedByBean author) {
         this.author = author;

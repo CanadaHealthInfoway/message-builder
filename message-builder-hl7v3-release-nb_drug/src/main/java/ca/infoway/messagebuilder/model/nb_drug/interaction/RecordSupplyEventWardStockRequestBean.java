@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020050nb.OfficeSupplyBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020050ca.OfficeSupplyBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020210NB: Record supply event (ward 
+ * <p>Business Name: PORX_IN020210CA: Record supply event (ward 
  * stock) request</p>
  * 
  * <p>Requests that a bulk supply of a medication to a facility 
@@ -41,15 +41,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020050nb.OfficeSu
  * /annotation&rdquo;. The &ldquo;author&rdquo; should be 
  * included as the provider who has added the note.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT020050NB.SupplyEvent</p>
+ * <p>--> Payload: PORX_MT020050CA.SupplyEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020210NB"})
+@Hl7PartTypeMapping({"PORX_IN020210CA"})
 public class RecordSupplyEventWardStockRequestBean extends HL7MessageBean<TriggerEventBean<OfficeSupplyBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090310nb.EHRRepositoryBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * <p>Business Name: RefersTo</p>
  * 
- * <p>MFMI_MT700716NB.Subject2: f:refers to</p>
+ * <p>MFMI_MT700711CA.Subject2: f:refers to</p>
  * 
  * <p>On '''creation''' interactions (where the state 
  * transition is null-&gt;active), this must be true otherwise 
@@ -51,7 +51,7 @@ import java.util.List;
  * event.</p><p>Will be mandatory in wrappers with payload 
  * messages, otherwise not present.</p>
  * 
- * <p>MFMI_MT700711NB.Subject2: f:refers to</p>
+ * <p>MFMI_MT700716CA.Subject2: f:refers to</p>
  * 
  * <p>On '''creation''' interactions (where the state 
  * transition is null-&gt;active), this must be true otherwise 
@@ -68,10 +68,10 @@ import java.util.List;
  * event.</p><p>Will be mandatory in wrappers with payload 
  * messages, otherwise not present.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700711NB.Subject2","MFMI_MT700716NB.Subject2"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersTo_2Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL contextConductionInd = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
@@ -84,7 +84,7 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700711CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -109,7 +109,7 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700716CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +142,7 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700711CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -167,7 +167,7 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700716CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -197,13 +197,13 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.RegistrationRequest.subject</p>
+     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.RegistrationRequest.subject</p>
+     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -215,13 +215,13 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.RegistrationRequest.subject</p>
+     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.RegistrationRequest.subject</p>
+     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -233,13 +233,13 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700711CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700716CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -251,13 +251,13 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700711CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700716CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -270,14 +270,14 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.RegistrationRequest.replacementOf</p>
+     * MFMI_MT700711CA.RegistrationRequest.replacementOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.RegistrationRequest.replacementOf</p>
+     * MFMI_MT700716CA.RegistrationRequest.replacementOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
      */

@@ -40,7 +40,7 @@ import java.util.Set;
 /**
  * <p>Business Name: ErrorsOrWarnings</p>
  * 
- * <p>MCCI_MT002300NB.AcknowledgementDetail: Errors or Warnings</p>
+ * <p>MCCI_MT002200CA.AcknowledgementDetail: Errors or Warnings</p>
  * 
  * <p>Allows identification issues related to the parsing and 
  * low-level processing of the message.</p>
@@ -48,7 +48,7 @@ import java.util.Set;
  * <p>An error, warning or information message associated with 
  * the message being acknowledged.</p>
  * 
- * <p>MCCI_MT002200NB.AcknowledgementDetail: Errors or Warnings</p>
+ * <p>MCCI_MT002300CA.AcknowledgementDetail: Errors or Warnings</p>
  * 
  * <p>Allows identification issues related to the parsing and 
  * low-level processing of the message.</p>
@@ -56,10 +56,10 @@ import java.util.Set;
  * <p>An error, warning or information message associated with 
  * the message being acknowledged.</p>
  */
-@Hl7PartTypeMapping({"MCCI_MT002200NB.AcknowledgementDetail","MCCI_MT002300NB.AcknowledgementDetail"})
+@Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS typeCode = new CSImpl();
     private CV code = new CVImpl();
     private ST text = new STImpl();
@@ -72,7 +72,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT002300NB.AcknowledgementDetail.typeCode</p>
+     * MCCI_MT002200CA.AcknowledgementDetail.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -85,7 +85,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT002200NB.AcknowledgementDetail.typeCode</p>
+     * MCCI_MT002300CA.AcknowledgementDetail.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -106,7 +106,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT002300NB.AcknowledgementDetail.typeCode</p>
+     * MCCI_MT002200CA.AcknowledgementDetail.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -119,7 +119,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT002200NB.AcknowledgementDetail.typeCode</p>
+     * MCCI_MT002300CA.AcknowledgementDetail.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -139,7 +139,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponseCode</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AcknowledgementDetail.code</p>
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -159,7 +159,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponseCode</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.AcknowledgementDetail.code</p>
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -187,7 +187,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponseCode</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AcknowledgementDetail.code</p>
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -207,7 +207,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponseCode</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.AcknowledgementDetail.code</p>
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -235,7 +235,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: MessageDescription</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AcknowledgementDetail.text</p>
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -249,7 +249,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: MessageDescription</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.AcknowledgementDetail.text</p>
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -271,7 +271,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: MessageDescription</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AcknowledgementDetail.text</p>
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -285,7 +285,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: MessageDescription</p>
      * 
-     * <p>Relationship: MCCI_MT002200NB.AcknowledgementDetail.text</p>
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -308,7 +308,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferencedMessageLocations</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT002300NB.AcknowledgementDetail.location</p>
+     * MCCI_MT002200CA.AcknowledgementDetail.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
@@ -326,7 +326,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferencedMessageLocations</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT002200NB.AcknowledgementDetail.location</p>
+     * MCCI_MT002300CA.AcknowledgementDetail.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 

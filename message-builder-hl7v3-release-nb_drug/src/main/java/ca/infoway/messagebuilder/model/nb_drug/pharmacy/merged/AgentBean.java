@@ -30,31 +30,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PORX_MT060340NB.Agent: (no business name)</p>
+ * <p>PORX_MT060090CA.Agent: (no business name)</p>
  * 
  * <p>The identifier must be either the patient identifier, the 
  * prescriber identifier or the dispenser identifier</p>
  * 
- * <p>PORX_MT020070NB.Agent: (no business name)</p>
+ * <p>PORX_MT060340CA.Agent: (no business name)</p>
+ * 
+ * <p>The identifier must be either the patient identifier, the 
+ * prescriber identifier or the dispenser identifier</p>
+ * 
+ * <p>PORX_MT020070CA.Agent: (no business name)</p>
  * 
  * <p>invariant( x) { The identifier must be either the patient 
  * identifier, the prescriber identifier or the dispenser 
  * identifier. }</p>
  * 
- * <p>PORX_MT060160NB.Agent: (no business name)</p>
- * 
- * <p>The identifier must be either the patient identifier, the 
- * prescriber identifier or the dispenser identifier</p>
- * 
- * <p>PORX_MT060090NB.Agent: (no business name)</p>
+ * <p>PORX_MT060160CA.Agent: (no business name)</p>
  * 
  * <p>The identifier must be either the patient identifier, the 
  * prescriber identifier or the dispenser identifier</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020070NB.Agent","PORX_MT060090NB.Agent","PORX_MT060160NB.Agent","PORX_MT060340NB.Agent"})
+@Hl7PartTypeMapping({"PORX_MT020070CA.Agent","PORX_MT060090CA.Agent","PORX_MT060160CA.Agent","PORX_MT060340CA.Agent"})
 public class AgentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -63,7 +63,7 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Agent.id</p>
+     * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -76,7 +76,20 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.Agent.id</p>
+     * <p>Relationship: PORX_MT060340CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Agent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -88,20 +101,7 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Agent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides a trace of responsibility for the dispensed 
-     * drug.</p>
-     * 
-     * <p>The identity of the person who was ultimately responsible 
-     * for the drug substitution.</p><p>This is either the patient, 
-     * the prescriber of the dispenser.</p>
-     * 
-     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
-     * 
-     * <p>Relationship: PORX_MT060090NB.Agent.id</p>
+     * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -122,7 +122,7 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Agent.id</p>
+     * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -135,7 +135,20 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.Agent.id</p>
+     * <p>Relationship: PORX_MT060340CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Agent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -147,20 +160,7 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Agent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides a trace of responsibility for the dispensed 
-     * drug.</p>
-     * 
-     * <p>The identity of the person who was ultimately responsible 
-     * for the drug substitution.</p><p>This is either the patient, 
-     * the prescriber of the dispenser.</p>
-     * 
-     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
-     * 
-     * <p>Relationship: PORX_MT060090NB.Agent.id</p>
+     * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

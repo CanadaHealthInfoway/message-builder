@@ -33,11 +33,11 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107nb.ProviderBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt120600nb.NotesBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.nb_drug.merged.RecordedAtBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980030nb.IssuesBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980040nb.AdministrationInstructionsBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980030ca.IssuesBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +46,7 @@ import java.util.List;
 /**
  * <p>Business Name: PrescriptionDispenses</p>
  * 
- * <p>PORX_MT060340NB.MedicationDispense: Prescription 
+ * <p>PORX_MT060340CA.MedicationDispense: Prescription 
  * Dispenses</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
@@ -63,7 +63,7 @@ import java.util.List;
  * <p>This is the detailed information about a medication 
  * dispense that has been performed on behalf of a patient.</p>
  * 
- * <p>PORX_MT060160NB.MedicationDispense: Prescription 
+ * <p>PORX_MT060160CA.MedicationDispense: Prescription 
  * Dispenses</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
@@ -80,10 +80,10 @@ import java.util.List;
  * <p>This is the detailed information about a medication 
  * dispense that has been performed on behalf of a patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060160NB.MedicationDispense","PORX_MT060340NB.MedicationDispense"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.MedicationDispense","PORX_MT060340CA.MedicationDispense"})
 public class PrescriptionDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
@@ -104,7 +104,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.MedicationDispense.id</p>
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -153,7 +153,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.MedicationDispense.id</p>
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -210,7 +210,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.MedicationDispense.id</p>
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -259,7 +259,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.MedicationDispense.id</p>
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -317,7 +317,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.MedicationDispense.statusCode</p>
+     * PORX_MT060340CA.MedicationDispense.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -335,7 +335,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.MedicationDispense.statusCode</p>
+     * PORX_MT060160CA.MedicationDispense.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -361,7 +361,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.MedicationDispense.statusCode</p>
+     * PORX_MT060340CA.MedicationDispense.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -379,7 +379,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.MedicationDispense.statusCode</p>
+     * PORX_MT060160CA.MedicationDispense.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -403,14 +403,14 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.ResponsibleParty4.assignedPerson</p>
+     * PORX_MT060340CA.ResponsibleParty4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ResponsibleParty3.assignedPerson</p>
+     * PORX_MT060160CA.ResponsibleParty3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -423,14 +423,14 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.ResponsibleParty4.assignedPerson</p>
+     * PORX_MT060340CA.ResponsibleParty4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ResponsibleParty3.assignedPerson</p>
+     * PORX_MT060160CA.ResponsibleParty3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -442,13 +442,13 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Performer3.assignedPerson</p>
+     * <p>Relationship: PORX_MT060340CA.Performer3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Performer3.assignedPerson</p>
+     * <p>Relationship: PORX_MT060160CA.Performer3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -460,13 +460,13 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Performer3.assignedPerson</p>
+     * <p>Relationship: PORX_MT060340CA.Performer3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Performer3.assignedPerson</p>
+     * <p>Relationship: PORX_MT060160CA.Performer3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -478,13 +478,13 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.MedicationDispense.location</p>
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.MedicationDispense.location</p>
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -496,13 +496,13 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.MedicationDispense.location</p>
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.MedicationDispense.location</p>
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -515,23 +515,23 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component11.dosageInstruction</p>
+     * PORX_MT060340CA.Component11.dosageInstruction</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component11.dosageInstruction</p>
+     * PORX_MT060160CA.Component11.dosageInstruction</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340NB.Component11"),
-        @Hl7MapByPartType(name="component1/dosageInstruction", type="PORX_MT980040NB.DosageInstruction"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160NB.Component11"),
-        @Hl7MapByPartType(name="component2/dosageInstruction", type="PORX_MT980040NB.DosageInstruction")})
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component11"),
+        @Hl7MapByPartType(name="component1/dosageInstruction", type="PORX_MT980040CA.DosageInstruction"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component11"),
+        @Hl7MapByPartType(name="component2/dosageInstruction", type="PORX_MT980040CA.DosageInstruction")})
     public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
         return this.component2DosageInstruction;
     }
@@ -541,23 +541,23 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component13.substitutionMade</p>
+     * PORX_MT060340CA.Component13.substitutionMade</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component13.substitutionMade</p>
+     * PORX_MT060160CA.Component13.substitutionMade</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2/substitutionMade","component3/substitutionMade"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component2", type="PORX_MT060340NB.Component13"),
-        @Hl7MapByPartType(name="component2/substitutionMade", type="PORX_MT060340NB.SubstitutionMade"),
-        @Hl7MapByPartType(name="component3", type="PORX_MT060160NB.Component13"),
-        @Hl7MapByPartType(name="component3/substitutionMade", type="PORX_MT060160NB.SubstitutionMade")})
+        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component13"),
+        @Hl7MapByPartType(name="component2/substitutionMade", type="PORX_MT060340CA.SubstitutionMade"),
+        @Hl7MapByPartType(name="component3", type="PORX_MT060160CA.Component13"),
+        @Hl7MapByPartType(name="component3/substitutionMade", type="PORX_MT060160CA.SubstitutionMade")})
     public SubstitutionBean getComponent3SubstitutionMade() {
         return this.component3SubstitutionMade;
     }
@@ -566,14 +566,14 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component13.substitutionMade</p>
+     * PORX_MT060340CA.Component13.substitutionMade</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component13.substitutionMade</p>
+     * PORX_MT060160CA.Component13.substitutionMade</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -585,22 +585,22 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Component.supplyEvent</p>
+     * <p>Relationship: PORX_MT060340CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Component.supplyEvent</p>
+     * <p>Relationship: PORX_MT060160CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component1/supplyEvent","component3/supplyEvent"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060160NB.Component"),
-        @Hl7MapByPartType(name="component1/supplyEvent", type="PORX_MT060160NB.SupplyEvent"),
-        @Hl7MapByPartType(name="component3", type="PORX_MT060340NB.Component"),
-        @Hl7MapByPartType(name="component3/supplyEvent", type="PORX_MT060340NB.SupplyEvent")})
+        @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component"),
+        @Hl7MapByPartType(name="component1/supplyEvent", type="PORX_MT060160CA.SupplyEvent"),
+        @Hl7MapByPartType(name="component3", type="PORX_MT060340CA.Component"),
+        @Hl7MapByPartType(name="component3/supplyEvent", type="PORX_MT060340CA.SupplyEvent")})
     public SupplyEventBean getComponent1SupplyEvent() {
         return this.component1SupplyEvent;
     }
@@ -608,13 +608,13 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Component.supplyEvent</p>
+     * <p>Relationship: PORX_MT060340CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Component.supplyEvent</p>
+     * <p>Relationship: PORX_MT060160CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -626,13 +626,13 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Subject10.controlActEvent</p>
+     * <p>Relationship: PORX_MT060340CA.Subject10.controlActEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Subject.controlActEvent</p>
+     * <p>Relationship: PORX_MT060160CA.Subject.controlActEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -645,22 +645,22 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Subject7.annotation</p>
+     * <p>Relationship: PORX_MT060340CA.Subject7.annotation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Subject7.annotation</p>
+     * <p>Relationship: PORX_MT060160CA.Subject7.annotation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation","subjectOf4/annotation"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340NB.Subject7"),
-        @Hl7MapByPartType(name="subjectOf2/annotation", type="COCT_MT120600NB.Annotation"),
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060160NB.Subject7"),
-        @Hl7MapByPartType(name="subjectOf4/annotation", type="COCT_MT120600NB.Annotation")})
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf2/annotation", type="COCT_MT120600CA.Annotation"),
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060160CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf4/annotation", type="COCT_MT120600CA.Annotation")})
     public List<NotesBean> getSubjectOf4Annotation() {
         return this.subjectOf4Annotation;
     }
@@ -670,14 +670,14 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Subject13.detectedIssueIndicator</p>
+     * PORX_MT060340CA.Subject13.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Subject13.detectedIssueIndicator</p>
+     * PORX_MT060160CA.Subject13.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -690,14 +690,14 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Subject13.detectedIssueIndicator</p>
+     * PORX_MT060340CA.Subject13.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Subject13.detectedIssueIndicator</p>
+     * PORX_MT060160CA.Subject13.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -709,22 +709,22 @@ public class PrescriptionDispensesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Subject6.detectedIssueEvent</p>
+     * <p>Relationship: PORX_MT060340CA.Subject6.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Subject6.detectedIssueEvent</p>
+     * <p>Relationship: PORX_MT060160CA.Subject6.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf4/detectedIssueEvent","subjectOf5/detectedIssueEvent"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060340NB.Subject6"),
-        @Hl7MapByPartType(name="subjectOf4/detectedIssueEvent", type="PORX_MT980030NB.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060160NB.Subject6"),
-        @Hl7MapByPartType(name="subjectOf5/detectedIssueEvent", type="PORX_MT980030NB.DetectedIssueEvent")})
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060340CA.Subject6"),
+        @Hl7MapByPartType(name="subjectOf4/detectedIssueEvent", type="PORX_MT980030CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060160CA.Subject6"),
+        @Hl7MapByPartType(name="subjectOf5/detectedIssueEvent", type="PORX_MT980030CA.DetectedIssueEvent")})
     public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
         return this.subjectOf5DetectedIssueEvent;
     }
@@ -734,23 +734,23 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Subject12.annotationIndicator</p>
+     * PORX_MT060340CA.Subject12.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Subject12.annotationIndicator</p>
+     * PORX_MT060160CA.Subject12.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf5/annotationIndicator"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060160NB.Subject12"),
-        @Hl7MapByPartType(name="subjectOf2/annotationIndicator", type="PORX_MT060160NB.AnnotationIndicator"),
-        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060340NB.Subject12"),
-        @Hl7MapByPartType(name="subjectOf5/annotationIndicator", type="PORX_MT060340NB.AnnotationIndicator")})
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060160CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf2/annotationIndicator", type="PORX_MT060160CA.AnnotationIndicator"),
+        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060340CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf5/annotationIndicator", type="PORX_MT060340CA.AnnotationIndicator")})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
@@ -759,14 +759,14 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Subject12.annotationIndicator</p>
+     * PORX_MT060340CA.Subject12.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Subject12.annotationIndicator</p>
+     * PORX_MT060160CA.Subject12.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

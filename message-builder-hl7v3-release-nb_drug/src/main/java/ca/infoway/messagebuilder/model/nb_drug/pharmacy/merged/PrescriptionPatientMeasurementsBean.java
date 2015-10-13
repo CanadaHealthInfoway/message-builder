@@ -38,7 +38,7 @@ import java.util.Date;
 /**
  * <p>Business Name: PrescriptionPatientMeasurements</p>
  * 
- * <p>PORX_MT060340NB.QuantityObservationEvent: Prescription 
+ * <p>PORX_MT060340CA.QuantityObservationEvent: Prescription 
  * Patient Measurements</p>
  * 
  * <p>Allows patient height and weight to be conveyed to the 
@@ -48,17 +48,7 @@ import java.util.Date;
  * measured/observed/known by the prescriber at the time of 
  * prescribing.</p>
  * 
- * <p>PORX_MT060160NB.QuantityObservationEvent: Prescription 
- * Patient Measurements</p>
- * 
- * <p>Allows patient height and weight to be conveyed to the 
- * pharmacy for dosage calculation or verification</p>
- * 
- * <p>This comprises the height and/or weight of a patient as 
- * measured/observed/known by the prescriber at the time of 
- * prescribing.</p>
- * 
- * <p>PORX_MT010120NB.QuantityObservationEvent: Prescription 
+ * <p>PORX_MT010120CA.QuantityObservationEvent: Prescription 
  * Patient Measurements</p>
  * 
  * <p>Allows patient height and weight to be conveyed to the 
@@ -67,11 +57,21 @@ import java.util.Date;
  * <p>This comprises the height and/or weight of a patient as 
  * measured/observed/known by the prescriber at the time of 
  * prescribing.</p>
+ * 
+ * <p>PORX_MT060160CA.QuantityObservationEvent: Prescription 
+ * Patient Measurements</p>
+ * 
+ * <p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification</p>
+ * 
+ * <p>This comprises the height and/or weight of a patient as 
+ * measured/observed/known by the prescriber at the time of 
+ * prescribing.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.QuantityObservationEvent","PORX_MT060160NB.QuantityObservationEvent","PORX_MT060340NB.QuantityObservationEvent"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
@@ -84,7 +84,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.QuantityObservationEvent.code</p>
+     * PORX_MT060340CA.QuantityObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,7 +104,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.QuantityObservationEvent.code</p>
+     * PORX_MT010120CA.QuantityObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -122,7 +122,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.QuantityObservationEvent.code</p>
+     * PORX_MT060160CA.QuantityObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -150,7 +150,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.QuantityObservationEvent.code</p>
+     * PORX_MT060340CA.QuantityObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -170,7 +170,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.QuantityObservationEvent.code</p>
+     * PORX_MT010120CA.QuantityObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.QuantityObservationEvent.code</p>
+     * PORX_MT060160CA.QuantityObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -214,7 +214,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.QuantityObservationEvent.effectiveTime</p>
+     * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -235,7 +235,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementTimestamp</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.QuantityObservationEvent.effectiveTime</p>
+     * PORX_MT010120CA.QuantityObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -253,7 +253,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.QuantityObservationEvent.effectiveTime</p>
+     * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -280,7 +280,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.QuantityObservationEvent.effectiveTime</p>
+     * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -301,7 +301,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementTimestamp</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.QuantityObservationEvent.effectiveTime</p>
+     * PORX_MT010120CA.QuantityObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -319,7 +319,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.QuantityObservationEvent.effectiveTime</p>
+     * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -347,7 +347,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.QuantityObservationEvent.value</p>
+     * PORX_MT060340CA.QuantityObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -370,7 +370,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.QuantityObservationEvent.value</p>
+     * PORX_MT010120CA.QuantityObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -390,7 +390,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.QuantityObservationEvent.value</p>
+     * PORX_MT060160CA.QuantityObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -421,7 +421,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.QuantityObservationEvent.value</p>
+     * PORX_MT060340CA.QuantityObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -444,7 +444,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.QuantityObservationEvent.value</p>
+     * PORX_MT010120CA.QuantityObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -464,7 +464,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.QuantityObservationEvent.value</p>
+     * PORX_MT060160CA.QuantityObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

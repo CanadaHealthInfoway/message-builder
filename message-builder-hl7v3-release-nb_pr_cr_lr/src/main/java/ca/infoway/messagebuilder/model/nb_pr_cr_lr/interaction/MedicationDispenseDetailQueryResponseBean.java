@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060090nb.DispenseBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060360nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060090ca.DispenseBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060360ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060220NB: Medication dispense 
+ * <p>Business Name: PORX_IN060220CA: Medication dispense 
  * detail query response</p>
  * 
  * <p>Returns detailed information about a single identified 
  * medication dispense event.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060090NB.MedicationDispense</p>
+ * <p>--> Payload: PORX_MT060090CA.MedicationDispense</p>
  * 
- * <p>--> Payload: PORX_MT060360NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060360CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060220NB"})
+@Hl7PartTypeMapping({"PORX_IN060220CA"})
 public class MedicationDispenseDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<DispenseBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

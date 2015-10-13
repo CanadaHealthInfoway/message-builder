@@ -31,10 +31,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PRPM_MT306011NB.Location","PRPM_MT309000NB.Location"})
+@Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
 public class Location_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS typeCode = new CSImpl();
     private INT sequenceNumber = new INTImpl();
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
@@ -43,13 +43,13 @@ public class Location_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Location.typeCode</p>
+     * <p>Relationship: PRPM_MT309000CA.Location.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Location.typeCode</p>
+     * <p>Relationship: PRPM_MT306011CA.Location.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -61,13 +61,13 @@ public class Location_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Location.typeCode</p>
+     * <p>Relationship: PRPM_MT309000CA.Location.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Location.typeCode</p>
+     * <p>Relationship: PRPM_MT306011CA.Location.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -79,13 +79,13 @@ public class Location_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -97,13 +97,13 @@ public class Location_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -116,14 +116,14 @@ public class Location_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.Location.serviceDeliveryLocation</p>
+     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.Location.serviceDeliveryLocation</p>
+     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -136,14 +136,14 @@ public class Location_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.Location.serviceDeliveryLocation</p>
+     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.Location.serviceDeliveryLocation</p>
+     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

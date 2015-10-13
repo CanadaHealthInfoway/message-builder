@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020002nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050010nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020002ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050010ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN050010NB: Drug contraindications 
+ * <p>Business Name: PORX_IN050010CA: Drug contraindications 
  * query</p>
  * 
  * <p>Requests retrieval of the contraindications associated 
  * with issuing a particular combination of drugs based only on 
  * a list of concomitant medications.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020002NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT050010NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT050010CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN050010NB"})
+@Hl7PartTypeMapping({"PORX_IN050010CA"})
 public class DrugContraindicationsQueryBean extends HL7MessageBean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

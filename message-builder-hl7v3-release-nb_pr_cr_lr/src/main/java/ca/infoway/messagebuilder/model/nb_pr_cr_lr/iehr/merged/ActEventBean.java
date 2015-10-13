@@ -29,17 +29,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT230001NB.ActEvent","REPC_MT230002NB.ActEvent","REPC_MT230003NB.ActEvent","REPC_MT500001NB.ActEvent","REPC_MT500002NB.ActEvent","REPC_MT500004NB.ActEvent"})
+@Hl7PartTypeMapping({"REPC_MT230001CA.ActEvent","REPC_MT230002CA.ActEvent","REPC_MT230003CA.ActEvent","REPC_MT500001CA.ActEvent","REPC_MT500002CA.ActEvent","REPC_MT500004CA.ActEvent"})
 public class ActEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
     /**
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>One of the primary purposes of a care composition is to 
+     * 'group' information. This attribute is the representation of 
+     * that grouping.</p>
+     * 
+     * <p>References any existing health service event records that 
+     * should be associated with this care composition when it is 
+     * created</p>
+     * 
      * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT230002CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -53,7 +67,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT230003CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -67,7 +81,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT500004CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -80,7 +94,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT230001CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -94,21 +108,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.ActEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>One of the primary purposes of a care composition is to 
-     * 'group' information. This attribute is the representation of 
-     * that grouping.</p>
-     * 
-     * <p>References any existing health service event records that 
-     * should be associated with this care composition when it is 
-     * created</p>
-     * 
-     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
-     * 
-     * <p>Relationship: REPC_MT500002NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT500002CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -125,9 +125,23 @@ public class ActEventBean extends MessagePartBean {
     }
 
     /**
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>One of the primary purposes of a care composition is to 
+     * 'group' information. This attribute is the representation of 
+     * that grouping.</p>
+     * 
+     * <p>References any existing health service event records that 
+     * should be associated with this care composition when it is 
+     * created</p>
+     * 
      * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT230002CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -141,7 +155,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT230003CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -155,7 +169,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT500004CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -168,7 +182,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT230001CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -182,21 +196,7 @@ public class ActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.ActEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>One of the primary purposes of a care composition is to 
-     * 'group' information. This attribute is the representation of 
-     * that grouping.</p>
-     * 
-     * <p>References any existing health service event records that 
-     * should be associated with this care composition when it is 
-     * created</p>
-     * 
-     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
-     * 
-     * <p>Relationship: REPC_MT500002NB.ActEvent.id</p>
+     * <p>Relationship: REPC_MT500002CA.ActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

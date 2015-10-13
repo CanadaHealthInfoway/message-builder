@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt004999nb.ResultInstancePayloadChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt004999ca.ResultInstancePayloadChoice;
 
 
 
 /**
- * <p>Business Name: POLB_IN224202NB: Result Revision Request</p>
+ * <p>Business Name: POLB_IN224202CA: Result Revision Request</p>
  * 
  * <p>This interaction is a Result Corrected with Receiver 
  * Responsibilitie. This interaction is used when the filler 
@@ -37,21 +37,21 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt004999nb.ResultIns
  * reported as completed. The expected responses to this 
  * interaction are confirm or reject.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT004999NB.ResultInstancePayloadChoice</p>
+ * <p>--> Payload: POLB_MT004999CA.ResultInstancePayloadChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT004000NB.ResultChoice</p>
+ * <p>----> Payload Choice: POLB_MT004000CA.ResultChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT004100NB.ObservationReport</p>
+ * <p>----> Payload Choice: POLB_MT004100CA.ObservationReport</p>
  * 
- * <p>----> Payload Choice: POLB_MT004200NB.ObservationChoice</p>
+ * <p>----> Payload Choice: POLB_MT004200CA.ObservationChoice</p>
  */
-@Hl7PartTypeMapping({"POLB_IN224202NB"})
+@Hl7PartTypeMapping({"POLB_IN224202CA"})
 public class ResultRevisionRequestBean extends HL7MessageBean<TriggerEventBean<ResultInstancePayloadChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

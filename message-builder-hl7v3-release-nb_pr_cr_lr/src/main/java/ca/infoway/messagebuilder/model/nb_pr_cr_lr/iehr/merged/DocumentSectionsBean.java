@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * <p>Business Name: DocumentSections</p>
  * 
- * <p>REPC_MT000083NB.SubSection: Document Sections</p>
+ * <p>REPC_MT220001CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Discharge-Care Summary by sharing a filtered, rendered view 
@@ -49,7 +49,17 @@ import java.util.List;
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  * 
- * <p>REPC_MT230003NB.SubSection: Document Sections</p>
+ * <p>REPC_MT000083CA.SubSection: Document Sections</p>
+ * 
+ * <p>Provides contextual information for understanding the 
+ * Discharge-Care Summary by sharing a filtered, rendered view 
+ * of portions of the patient's record.</p>
+ * 
+ * <p>Used to document additional relevant information about 
+ * the patient such as allergies, medications, problem list, 
+ * etc.</p>
+ * 
+ * <p>REPC_MT230003CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Clinical Observation Document by sharing a filtered, 
@@ -59,17 +69,7 @@ import java.util.List;
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  * 
- * <p>REPC_MT210003NB.SubSection: Document Sections</p>
- * 
- * <p>Provides contextual information for understanding the 
- * Referral by sharing a filtered, rendered view of portions of 
- * the patient's record.</p>
- * 
- * <p>Used to document additional relevant information about 
- * the patient such as allergies, medications, problem list, 
- * etc.</p>
- * 
- * <p>REPC_MT220001NB.SubSection: Document Sections</p>
+ * <p>REPC_MT220003CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Discharge-Care Summary by sharing a filtered, rendered view 
@@ -79,7 +79,7 @@ import java.util.List;
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  * 
- * <p>REPC_MT210001NB.SubSection: Document Sections</p>
+ * <p>REPC_MT210003CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Referral by sharing a filtered, rendered view of portions of 
@@ -89,7 +89,7 @@ import java.util.List;
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  * 
- * <p>REPC_MT230001NB.SubSection: Document Sections</p>
+ * <p>REPC_MT230001CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Clinical Observation Document by sharing a filtered, 
@@ -99,20 +99,20 @@ import java.util.List;
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  * 
- * <p>REPC_MT220003NB.SubSection: Document Sections</p>
+ * <p>REPC_MT210001CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
- * Discharge-Care Summary by sharing a filtered, rendered view 
- * of portions of the patient's record.</p>
+ * Referral by sharing a filtered, rendered view of portions of 
+ * the patient's record.</p>
  * 
  * <p>Used to document additional relevant information about 
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000083NB.SubSection","REPC_MT210001NB.SubSection","REPC_MT210003NB.SubSection","REPC_MT220001NB.SubSection","REPC_MT220003NB.SubSection","REPC_MT230001NB.SubSection","REPC_MT230003NB.SubSection"})
+@Hl7PartTypeMapping({"REPC_MT000083CA.SubSection","REPC_MT210001CA.SubSection","REPC_MT210003CA.SubSection","REPC_MT220001CA.SubSection","REPC_MT220003CA.SubSection","REPC_MT230001CA.SubSection","REPC_MT230003CA.SubSection"})
 public class DocumentSectionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
@@ -124,7 +124,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -146,7 +146,29 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT000083CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Discharge-Care Summary records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Section Type concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p> <i>Identifies the type of Discharge-Care Summary 
+     * represented by this record.</i> </p><p>Examples: allergy 
+     * list, problem list, medication list, etc.</p>
+     * 
+     * <p>Un-merged Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -168,7 +190,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT210003CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -190,7 +212,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT220003CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -212,29 +234,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.SubSection.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Identifies the type of Referral represented by this 
-     * record.</i> </p><p>Examples: allergy list, problem list, 
-     * medication list, etc.</p>
-     * 
-     * <p>Un-merged Business Name: SectionType</p>
-     * 
-     * <p>Relationship: REPC_MT230001NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT230001CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -256,12 +256,12 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT210001CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
+     * Referral records as well as sorting them for 
      * presentation.</i> </p><p> <i>This is a key attribute for 
      * understanding the type of record and is therefore 
      * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
@@ -272,9 +272,9 @@ public class DocumentSectionsBean extends MessagePartBean {
      * that will not be amenable to searching or categorizing.</i> 
      * </p>
      * 
-     * <p> <i>Identifies the type of Discharge-Care Summary 
-     * represented by this record.</i> </p><p>Examples: allergy 
-     * list, problem list, medication list, etc.</p>
+     * <p> <i>Identifies the type of Referral represented by this 
+     * record.</i> </p><p>Examples: allergy list, problem list, 
+     * medication list, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public DocumentSectionType getCode() {
@@ -286,7 +286,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -308,7 +308,29 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT000083CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Discharge-Care Summary records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Section Type concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p> <i>Identifies the type of Discharge-Care Summary 
+     * represented by this record.</i> </p><p>Examples: allergy 
+     * list, problem list, medication list, etc.</p>
+     * 
+     * <p>Un-merged Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -330,7 +352,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT210003CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -352,7 +374,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT220003CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -374,29 +396,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.SubSection.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Identifies the type of Referral represented by this 
-     * record.</i> </p><p>Examples: allergy list, problem list, 
-     * medication list, etc.</p>
-     * 
-     * <p>Un-merged Business Name: SectionType</p>
-     * 
-     * <p>Relationship: REPC_MT230001NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT230001CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -418,12 +418,12 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionType</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.SubSection.code</p>
+     * <p>Relationship: REPC_MT210001CA.SubSection.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
+     * Referral records as well as sorting them for 
      * presentation.</i> </p><p> <i>This is a key attribute for 
      * understanding the type of record and is therefore 
      * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
@@ -434,9 +434,9 @@ public class DocumentSectionsBean extends MessagePartBean {
      * that will not be amenable to searching or categorizing.</i> 
      * </p>
      * 
-     * <p> <i>Identifies the type of Discharge-Care Summary 
-     * represented by this record.</i> </p><p>Examples: allergy 
-     * list, problem list, medication list, etc.</p>
+     * <p> <i>Identifies the type of Referral represented by this 
+     * record.</i> </p><p>Examples: allergy list, problem list, 
+     * medication list, etc.</p>
      */
     public void setCode(DocumentSectionType code) {
         this.code.setValue(code);
@@ -448,7 +448,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -464,7 +464,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT000083CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -480,7 +480,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT230003CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -496,7 +496,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT210003CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -512,7 +512,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT220003CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -528,7 +528,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT230001CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -544,7 +544,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT210001CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -568,7 +568,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -584,7 +584,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT000083CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -600,7 +600,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT230003CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -616,7 +616,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT210003CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -632,7 +632,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT220003CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -648,7 +648,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT230001CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -664,7 +664,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionTitle</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.SubSection.title</p>
+     * <p>Relationship: REPC_MT210001CA.SubSection.title</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -688,7 +688,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -702,7 +702,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT000083CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -716,7 +716,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT230003CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -730,7 +730,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT210003CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -744,7 +744,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT220003CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -758,7 +758,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT230001CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -772,7 +772,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT210001CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -794,7 +794,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -808,7 +808,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT000083CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -822,7 +822,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT230003CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -836,7 +836,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT210003CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -850,7 +850,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT220003CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -864,7 +864,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT230001CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -878,7 +878,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SectionContent</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.SubSection.text</p>
+     * <p>Relationship: REPC_MT210001CA.SubSection.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -898,43 +898,43 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT220001CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT000083CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT230003CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT210003CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT220003CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT230001CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.Component7.reference</p>
+     * <p>Relationship: REPC_MT210001CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

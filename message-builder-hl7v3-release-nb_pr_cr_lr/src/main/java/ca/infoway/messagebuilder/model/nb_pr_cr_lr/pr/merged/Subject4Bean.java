@@ -29,76 +29,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PRPM_MT301010NB.Subject4","PRPM_MT303010NB.Subject4","PRPM_MT306011NB.Subject4","PRPM_MT309000NB.Subject4"})
+@Hl7PartTypeMapping({"PRPM_MT301010CA.Subject4","PRPM_MT303010CA.Subject4","PRPM_MT306011CA.Subject4","PRPM_MT309000CA.Subject4"})
 public class Subject4Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
-    private CS typeCode = new CSImpl();
+    private static final long serialVersionUID = 20151013L;
     private PrivilegeCategorizationBean privilegeCategorization;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT309000NB.Subject4.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT306011NB.Subject4.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public ActRelationshipType getTypeCode() {
-        return (ActRelationshipType) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT309000NB.Subject4.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT306011NB.Subject4.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTypeCode(ActRelationshipType typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private CS typeCode = new CSImpl();
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT303010CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT301010CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT306011CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT309000CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -111,33 +75,69 @@ public class Subject4Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT303010CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT301010CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT306011CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.Subject4.privilegeCategorization</p>
+     * PRPM_MT309000CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPrivilegeCategorization(PrivilegeCategorizationBean privilegeCategorization) {
         this.privilegeCategorization = privilegeCategorization;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Subject4.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Subject4.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public ActRelationshipType getTypeCode() {
+        return (ActRelationshipType) this.typeCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Subject4.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Subject4.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setTypeCode(ActRelationshipType typeCode) {
+        this.typeCode.setValue(typeCode);
     }
 
 }

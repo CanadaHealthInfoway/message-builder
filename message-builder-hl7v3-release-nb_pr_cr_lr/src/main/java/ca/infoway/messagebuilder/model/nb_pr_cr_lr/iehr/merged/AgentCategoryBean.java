@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: AgentCategory</p>
  * 
- * <p>REPC_MT000001NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000006CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
- * <p>REPC_MT000005NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000005CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
- * <p>REPC_MT000009NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000009CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
- * <p>REPC_MT000012NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000013CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
- * <p>REPC_MT000013NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000001CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -74,7 +74,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
- * <p>REPC_MT000006NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000012CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -82,7 +82,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
- * <p>REPC_MT000002NB.MaterialKind: Agent Category</p>
+ * <p>REPC_MT000002CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
@@ -90,10 +90,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001NB.MaterialKind","REPC_MT000002NB.MaterialKind","REPC_MT000005NB.MaterialKind","REPC_MT000006NB.MaterialKind","REPC_MT000009NB.MaterialKind","REPC_MT000012NB.MaterialKind","REPC_MT000013NB.MaterialKind"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.MaterialKind","REPC_MT000002CA.MaterialKind","REPC_MT000005CA.MaterialKind","REPC_MT000006CA.MaterialKind","REPC_MT000009CA.MaterialKind","REPC_MT000012CA.MaterialKind","REPC_MT000013CA.MaterialKind"})
 public class AgentCategoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
@@ -103,7 +103,61 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -122,7 +176,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -140,7 +194,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -158,61 +212,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000013NB.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000006NB.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000002NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -239,7 +239,61 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -258,7 +312,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -276,7 +330,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -294,61 +348,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000013NB.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000006NB.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000002NB.MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -375,19 +375,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.MaterialKind.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Proivdes a human-readable name in circumstances where the 
-     * agent is captured as a code.</p>
-     * 
-     * <p>Indicates the name of the agent identified by 
-     * MaterialKind.code.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialName</p>
-     * 
-     * <p>Relationship: REPC_MT000006NB.MaterialKind.name</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -399,7 +387,19 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.MaterialKind.name</p>
+     * <p>Relationship: REPC_MT000012CA.MaterialKind.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Proivdes a human-readable name in circumstances where the 
+     * agent is captured as a code.</p>
+     * 
+     * <p>Indicates the name of the agent identified by 
+     * MaterialKind.code.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.MaterialKind.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -419,19 +419,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.MaterialKind.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Proivdes a human-readable name in circumstances where the 
-     * agent is captured as a code.</p>
-     * 
-     * <p>Indicates the name of the agent identified by 
-     * MaterialKind.code.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialName</p>
-     * 
-     * <p>Relationship: REPC_MT000006NB.MaterialKind.name</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -443,7 +431,19 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.MaterialKind.name</p>
+     * <p>Relationship: REPC_MT000012CA.MaterialKind.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Proivdes a human-readable name in circumstances where the 
+     * agent is captured as a code.</p>
+     * 
+     * <p>Indicates the name of the agent identified by 
+     * MaterialKind.code.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.MaterialKind.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

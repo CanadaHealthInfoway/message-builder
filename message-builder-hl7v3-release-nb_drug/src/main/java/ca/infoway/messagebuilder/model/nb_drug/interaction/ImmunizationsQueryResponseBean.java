@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt060140nb.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt060150nb.ImmunizationsBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt060140ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt060150ca.ImmunizationsBean;
 
 
 
 /**
- * <p>Business Name: POIZ_IN020020NB: Immunizations query 
+ * <p>Business Name: POIZ_IN020020CA: Immunizations query 
  * response</p>
  * 
  * <p>Returns detailed information about a patient's 
  * immunizations.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POIZ_MT060150NB.Immunization</p>
+ * <p>--> Payload: POIZ_MT060150CA.Immunization</p>
  * 
- * <p>--> Payload: POIZ_MT060140NB.ParameterList</p>
+ * <p>--> Payload: POIZ_MT060140CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POIZ_IN020020NB"})
+@Hl7PartTypeMapping({"POIZ_IN020020CA"})
 public class ImmunizationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ImmunizationsBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

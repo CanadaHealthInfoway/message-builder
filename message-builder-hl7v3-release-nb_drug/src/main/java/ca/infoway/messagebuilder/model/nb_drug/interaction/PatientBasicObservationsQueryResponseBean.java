@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt100002nb.PatientMeasurementBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120002nb.CommonObservationQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt100002ca.PatientMeasurementBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120002ca.CommonObservationQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000055NB: Patient basic 
+ * <p>Business Name: REPC_IN000055CA: Patient basic 
  * observations query response</p>
  * 
  * <p>Returns one or more basic observations (height, weight, 
@@ -58,17 +58,17 @@ import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120002nb.CommonObserv
  * itself which will be coded using the &ldquo;code&rdquo; and 
  * the &ldquo;value&rdquo; elements. </p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT100002NB.CommonObservationEvent</p>
+ * <p>--> Payload: REPC_MT100002CA.CommonObservationEvent</p>
  * 
- * <p>--> Payload: REPC_MT120002NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT120002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000055NB"})
+@Hl7PartTypeMapping({"REPC_IN000055CA"})
 public class PatientBasicObservationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<PatientMeasurementBean,CommonObservationQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

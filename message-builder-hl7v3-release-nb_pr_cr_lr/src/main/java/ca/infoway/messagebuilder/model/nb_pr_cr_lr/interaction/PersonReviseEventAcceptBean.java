@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101102nb.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101102ca.IdentifiedPersonBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101205NB: Person Revise Event 
+ * <p>Business Name: PRPA_IN101205CA: Person Revise Event 
  * Accept</p>
  * 
  * <p>A person registry accepts a request to revise an existing 
  * record and responds back to the requesting application. The 
  * revised person record is sent in the payload.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700726NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700726CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101102NB.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101102CA.IdentifiedEntity</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101205NB"})
+@Hl7PartTypeMapping({"PRPA_IN101205CA"})
 public class PersonReviseEventAcceptBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

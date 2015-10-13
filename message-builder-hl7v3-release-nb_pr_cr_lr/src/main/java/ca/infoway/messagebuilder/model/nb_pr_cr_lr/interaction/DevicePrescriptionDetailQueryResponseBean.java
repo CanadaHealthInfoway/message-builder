@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060040nb.PrescriptionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060280nb.DrugPrescriptionDetailQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060040ca.PrescriptionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060280ca.DrugPrescriptionDetailQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060100NB: Device prescription 
+ * <p>Business Name: PORX_IN060100CA: Device prescription 
  * detail query response</p>
  * 
  * <p>Returns detailed information about a single device 
  * prescription referenced by id, optionally including detailed 
  * dispense information.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060040NB.DeviceRequest</p>
+ * <p>--> Payload: PORX_MT060040CA.DeviceRequest</p>
  * 
- * <p>--> Payload: PORX_MT060280NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060280CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060100NB"})
+@Hl7PartTypeMapping({"PORX_IN060100CA"})
 public class DevicePrescriptionDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<PrescriptionBean,DrugPrescriptionDetailQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

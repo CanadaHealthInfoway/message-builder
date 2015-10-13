@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060270nb.ParameterListBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060300nb.Prescription;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060270ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060300ca.Prescription;
 
 
 
 /**
- * <p>Business Name: PORX_IN060480NB: Unfilled prescr. by 
+ * <p>Business Name: PORX_IN060480CA: Unfilled prescr. by 
  * prescriber query response</p>
  * 
  * <p>Returns basic information about all prescriptions 
@@ -38,22 +38,22 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060300nb.Prescrip
  * prescriber which have not yet been dispensed, optionally 
  * filtered by date and status.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060300NB.Prescription</p>
+ * <p>--> Payload: PORX_MT060300CA.Prescription</p>
  * 
  * <p>----> Payload Choice: 
- * PORX_MT030040NB.CombinedMedicationRequest</p>
+ * PORX_MT030040CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Payload Choice: PORX_MT060060NB.DevicePrescription</p>
+ * <p>----> Payload Choice: PORX_MT060060CA.DevicePrescription</p>
  * 
- * <p>--> Payload: PORX_MT060270NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060270CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060480NB"})
+@Hl7PartTypeMapping({"PORX_IN060480CA"})
 public class UnfilledPrescrByPrescriberQueryResponseBean extends HL7MessageBean<TriggerEventBean<Prescription,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

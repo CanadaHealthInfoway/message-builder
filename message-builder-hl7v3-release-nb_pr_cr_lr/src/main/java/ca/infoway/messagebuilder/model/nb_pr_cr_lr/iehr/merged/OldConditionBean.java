@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000003NB.OldCondition","REPC_MT000007NB.OldCondition","REPC_MT000010NB.OldCondition"})
+@Hl7PartTypeMapping({"REPC_MT000003CA.OldCondition","REPC_MT000007CA.OldCondition","REPC_MT000010CA.OldCondition"})
 public class OldConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,7 +41,7 @@ public class OldConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT000003NB.OldCondition.id</p>
+     * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -63,7 +63,7 @@ public class OldConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT000007NB.OldCondition.id</p>
+     * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -85,7 +85,7 @@ public class OldConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.OldCondition.id</p>
+     * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -115,7 +115,7 @@ public class OldConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT000003NB.OldCondition.id</p>
+     * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -137,7 +137,7 @@ public class OldConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT000007NB.OldCondition.id</p>
+     * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -159,7 +159,7 @@ public class OldConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.OldCondition.id</p>
+     * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -30,21 +30,21 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ResultStatusProce
 
 
 /**
- * <p>POLB_MT004100NB.ResultStatusProcessStep: Result Status 
+ * <p>POLB_MT004200CA.ResultStatusProcessStep: Result Status</p>
+ * 
+ * <p>Used to designate &quot;preliminary&quot; and 
+ * &quot;final&quot; result statuses.</p>
+ * 
+ * <p>POLB_MT004100CA.ResultStatusProcessStep: Result Status 
  * Process Step</p>
  * 
  * <p>Used to communicate report &quot;preliminary&quot; and 
  * &quot;final&quot; result statuses.</p>
- * 
- * <p>POLB_MT004200NB.ResultStatusProcessStep: Result Status</p>
- * 
- * <p>Used to designate &quot;preliminary&quot; and 
- * &quot;final&quot; result statuses.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT002000NB.ResultStatusProcessStep","POLB_MT004000NB.ResultStatusProcessStep","POLB_MT004100NB.ResultStatusProcessStep","POLB_MT004200NB.ResultStatusProcessStep"})
+@Hl7PartTypeMapping({"POLB_MT002000CA.ResultStatusProcessStep","POLB_MT004000CA.ResultStatusProcessStep","POLB_MT004100CA.ResultStatusProcessStep","POLB_MT004200CA.ResultStatusProcessStep"})
 public class ResultStatusProcessStepBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
 
 
@@ -52,24 +52,24 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Un-merged Business Name: ResultStatusCode</p>
      * 
      * <p>Relationship: 
-     * POLB_MT002000NB.ResultStatusProcessStep.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: ResultStatusCode</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100NB.ResultStatusProcessStep.code</p>
+     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
+     * 
+     * <p>Un-merged Business Name: ResultStatusCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ResultStatusType</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004200NB.ResultStatusProcessStep.code</p>
+     * POLB_MT004200CA.ResultStatusProcessStep.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -79,7 +79,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Un-merged Business Name: ResultStatusCode</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004000NB.ResultStatusProcessStep.code</p>
+     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -95,24 +95,24 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Un-merged Business Name: ResultStatusCode</p>
      * 
      * <p>Relationship: 
-     * POLB_MT002000NB.ResultStatusProcessStep.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: ResultStatusCode</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100NB.ResultStatusProcessStep.code</p>
+     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
+     * 
+     * <p>Un-merged Business Name: ResultStatusCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ResultStatusType</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004200NB.ResultStatusProcessStep.code</p>
+     * POLB_MT004200CA.ResultStatusProcessStep.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -122,7 +122,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Un-merged Business Name: ResultStatusCode</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004000NB.ResultStatusProcessStep.code</p>
+     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

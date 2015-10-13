@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: DrugUse</p>
  * 
- * <p>PORX_MT030040NB.WorkingListEvent: Drug Use</p>
+ * <p>PORX_MT060340CA.WorkingListEvent: Drug Use</p>
  * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Categorization of prescriptions based on the intended 
  * duration of the prescribed therapy.</p>
  * 
- * <p>PORX_MT060340NB.WorkingListEvent: Drug Use</p>
+ * <p>PORX_MT060160CA.WorkingListEvent: Drug Use</p>
  * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Categorization of prescriptions based on the intended 
  * duration of the prescribed therapy.</p>
  * 
- * <p>PORX_MT060190NB.WorkingListEvent: Drug Use</p>
+ * <p>PORX_MT030040CA.WorkingListEvent: Drug Use</p>
  * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Categorization of prescriptions based on the intended 
  * duration of the prescribed therapy.</p>
  * 
- * <p>PORX_MT060160NB.WorkingListEvent: Drug Use</p>
+ * <p>PORX_MT060190CA.WorkingListEvent: Drug Use</p>
  * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
@@ -64,17 +64,51 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Categorization of prescriptions based on the intended 
  * duration of the prescribed therapy.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.WorkingListEvent","PORX_MT030040NB.WorkingListEvent","PORX_MT060160NB.WorkingListEvent","PORX_MT060190NB.WorkingListEvent","PORX_MT060340NB.WorkingListEvent"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.WorkingListEvent","PORX_MT030040CA.WorkingListEvent","PORX_MT060160CA.WorkingListEvent","PORX_MT060190CA.WorkingListEvent","PORX_MT060340CA.WorkingListEvent"})
 public class DrugUseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
 
 
     /**
+     * <p>Un-merged Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Un-merged Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
      * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.WorkingListEvent.code</p>
+     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -90,58 +124,7 @@ public class DrugUseBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TreatmentType</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked as &quot;mandatory&quot; because the intended 
-     * duration of the therapy should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The field is 
-     * marked as &quot;mandatory&quot; because the intended 
-     * duration of the therapy should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Un-merged Business Name: TreatmentType</p>
-     * 
-     * <p>Relationship: PORX_MT060160NB.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The field is 
-     * marked as &quot;mandatory&quot; because the intended 
-     * duration of the therapy should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Un-merged Business Name: TreatmentType</p>
-     * 
-     * <p>Relationship: PORX_MT010120NB.WorkingListEvent.code</p>
+     * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -149,6 +132,23 @@ public class DrugUseBean extends MessagePartBean {
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed. The code is 
      * mandatory as this information should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
      * time.</p>
      * 
      * <p>Describes the categorization of the therapy envisioned by 
@@ -161,9 +161,43 @@ public class DrugUseBean extends MessagePartBean {
     }
 
     /**
+     * <p>Un-merged Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Un-merged Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
      * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.WorkingListEvent.code</p>
+     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -179,58 +213,7 @@ public class DrugUseBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TreatmentType</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked as &quot;mandatory&quot; because the intended 
-     * duration of the therapy should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The field is 
-     * marked as &quot;mandatory&quot; because the intended 
-     * duration of the therapy should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Un-merged Business Name: TreatmentType</p>
-     * 
-     * <p>Relationship: PORX_MT060160NB.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The field is 
-     * marked as &quot;mandatory&quot; because the intended 
-     * duration of the therapy should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Un-merged Business Name: TreatmentType</p>
-     * 
-     * <p>Relationship: PORX_MT010120NB.WorkingListEvent.code</p>
+     * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -238,6 +221,23 @@ public class DrugUseBean extends MessagePartBean {
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed. The code is 
      * mandatory as this information should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
      * time.</p>
      * 
      * <p>Describes the categorization of the therapy envisioned by 

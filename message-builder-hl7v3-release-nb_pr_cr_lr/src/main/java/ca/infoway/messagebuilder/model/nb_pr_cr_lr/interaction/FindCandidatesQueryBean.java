@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700751nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101103nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700751ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101103ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101103NB: Find Candidates Query</p>
+ * <p>Business Name: PRPA_IN101103CA: Find Candidates Query</p>
  * 
  * <p>This interaction sends a query to a Person Registry 
  * requesting a list of candidates that match a particular set 
  * of person demographics.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700751NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101103NB.ParameterList</p>
+ * <p>--> Payload: PRPA_MT101103CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101103NB"})
+@Hl7PartTypeMapping({"PRPA_IN101103CA"})
 public class FindCandidatesQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

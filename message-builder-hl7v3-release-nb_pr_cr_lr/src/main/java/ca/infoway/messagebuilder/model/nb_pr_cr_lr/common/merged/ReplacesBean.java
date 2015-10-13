@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Replaces</p>
  * 
- * <p>MFMI_MT700716NB.ReplacementOf: replaces</p>
+ * <p>MFMI_MT700716CA.ReplacementOf: replaces</p>
  * 
  * <p>Supports this message &quot;replacing&quot; a prior 
  * registration with a current regsitration (merges).</p>
@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Associates a new registration which is intended to 
  * replace a registration received prior to this message.</p>
  * 
- * <p>MFMI_MT700717NB.ReplacementOf: replaces</p>
+ * <p>MFMI_MT700717CA.ReplacementOf: replaces</p>
  * 
  * <p>Supports this message &quot;replacing&quot; a prior 
  * registration with a current regsitration (merges).</p>
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Associates a new registration which is intended to 
  * replace a registration received prior to this message.</p>
  * 
- * <p>MFMI_MT700726NB.ReplacementOf: replaces</p>
+ * <p>MFMI_MT700726CA.ReplacementOf: replaces</p>
  * 
  * <p>Supports this message &quot;replacing&quot; a prior 
  * registration with a current regsitration (merges).</p>
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Associates a new registration which is intended to 
  * replace a registration received prior to this message.</p>
  * 
- * <p>MFMI_MT700746NB.ReplacementOf: replaces</p>
+ * <p>MFMI_MT700746CA.ReplacementOf: replaces</p>
  * 
  * <p>Supports this message &quot;replacing&quot; a prior 
  * registration with a current regsitration (merges).</p>
@@ -63,7 +63,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Associates a new registration which is intended to 
  * replace a registration received prior to this message.</p>
  * 
- * <p>MFMI_MT700711NB.ReplacementOf: replaces</p>
+ * <p>MFMI_MT700711CA.ReplacementOf: replaces</p>
  * 
  * <p>Supports this message &quot;replacing&quot; a prior 
  * registration with a current regsitration (merges).</p>
@@ -71,10 +71,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Associates a new registration which is intended to 
  * replace a registration received prior to this message.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700711NB.ReplacementOf","MFMI_MT700716NB.ReplacementOf","MFMI_MT700717NB.ReplacementOf","MFMI_MT700726NB.ReplacementOf","MFMI_MT700746NB.ReplacementOf"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.ReplacementOf","MFMI_MT700716CA.ReplacementOf","MFMI_MT700717CA.ReplacementOf","MFMI_MT700726CA.ReplacementOf","MFMI_MT700746CA.ReplacementOf"})
 public class ReplacesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL contextConductionInd = new BLImpl();
     private PriorRegistrationEventBean priorRegistration;
 
@@ -83,35 +83,35 @@ public class ReplacesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700716CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700717CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700726CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700746CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700711CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -124,35 +124,35 @@ public class ReplacesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700716CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700717CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700726CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700746CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.ReplacementOf.contextConductionInd</p>
+     * MFMI_MT700711CA.ReplacementOf.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -165,35 +165,35 @@ public class ReplacesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700716CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700717CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700726CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700746CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700711CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -206,35 +206,35 @@ public class ReplacesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700716CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700717CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700726CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700746CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.ReplacementOf.priorRegistration</p>
+     * MFMI_MT700711CA.ReplacementOf.priorRegistration</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

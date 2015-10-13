@@ -22,33 +22,33 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700711nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt303010nb.RoleChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700711ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt303010ca.RoleChoice;
 
 
 
 /**
- * <p>Business Name: PRPM_IN303010NB: Update Provider Request</p>
+ * <p>Business Name: PRPM_IN303010CA: Update Provider Request</p>
  * 
  * <p>TThis interaction is used to request that a provider 
  * record be updated within a provider registry system.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700711NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700711CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT303010NB.RoleChoice</p>
+ * <p>--> Payload: PRPM_MT303010CA.RoleChoice</p>
  * 
- * <p>----> Payload Choice: PRPM_MT303010NB.AssignedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT303010CA.AssignedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT303010NB.QualifiedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT303010CA.QualifiedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT303010NB.HealthCareProvider</p>
+ * <p>----> Payload Choice: PRPM_MT303010CA.HealthCareProvider</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN303010NB"})
+@Hl7PartTypeMapping({"PRPM_IN303010CA"})
 public class UpdateProviderRequestBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

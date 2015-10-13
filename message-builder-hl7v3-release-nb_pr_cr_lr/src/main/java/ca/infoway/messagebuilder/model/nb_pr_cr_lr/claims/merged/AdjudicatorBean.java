@@ -38,17 +38,7 @@ import java.util.Date;
 /**
  * <p>Business Name: Adjudicator</p>
  * 
- * <p>FICR_MT610201NB.AdjudicatedInvoiceAuthor: Adjudicator</p>
- * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
- * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
- * 
- * <p>Adjudicator Information</p>
- * 
- * <p>QUCR_MT830201NB.AdjudicatedInvoiceAuthor: Adjudicator</p>
+ * <p>QUCR_MT830201CA.AdjudicatedInvoiceAuthor: Adjudicator</p>
  * 
  * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
  * otherwise not specified.</p>
@@ -58,130 +48,32 @@ import java.util.Date;
  * written (manual). This is important for Payment Advices, 
  * where it can be used to indicate manually adjudicated 
  * Invoice Groupings.</p>
+ * 
+ * <p>FICR_MT610201CA.AdjudicatedInvoiceAuthor: Adjudicator</p>
+ * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
+ * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
+ * 
+ * <p>Adjudicator Information</p>
  */
-@Hl7PartTypeMapping({"FICR_MT610201NB.AdjudicatedInvoiceAuthor","QUCR_MT830201NB.AdjudicatedInvoiceAuthor"})
+@Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor","QUCR_MT830201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
-    private TS time = new TSImpl();
-    private AdjudicatorRoleBean adjudicatorRole;
+    private static final long serialVersionUID = 20151013L;
     private CS contextControlCode = new CSImpl();
+    private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
-
-
-    /**
-     * <p>Business Name: AdjudicationDateTime</p>
-     * 
-     * <p>Un-merged Business Name: AdjudicationDateTime</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT610201NB.AdjudicatedInvoiceAuthor.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p>
-     * 
-     * <p>Used in RX for daily totals.</p>
-     * 
-     * <p>Adjudication date/time</p>
-     * 
-     * <p>Un-merged Business Name: AdjudicationDateTime</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
-     * only be value for electronic EOBs</p>
-     * 
-     * <p>Date and time of Adjudication</p>
-     */
-    @Hl7XmlMapping({"time"})
-    public Date getTime() {
-        return this.time.getValue();
-    }
-
-    /**
-     * <p>Business Name: AdjudicationDateTime</p>
-     * 
-     * <p>Un-merged Business Name: AdjudicationDateTime</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT610201NB.AdjudicatedInvoiceAuthor.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p>
-     * 
-     * <p>Used in RX for daily totals.</p>
-     * 
-     * <p>Adjudication date/time</p>
-     * 
-     * <p>Un-merged Business Name: AdjudicationDateTime</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
-     * only be value for electronic EOBs</p>
-     * 
-     * <p>Date and time of Adjudication</p>
-     */
-    public void setTime(Date time) {
-        this.time.setValue(time);
-    }
+    private AdjudicatorRoleBean adjudicatorRole;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"adjudicatorRole"})
-    public AdjudicatorRoleBean getAdjudicatorRole() {
-        return this.adjudicatorRole;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT610201NB.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
-        this.adjudicatorRole = adjudicatorRole;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.contextControlCode</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -194,7 +86,7 @@ public class AdjudicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.contextControlCode</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -204,10 +96,78 @@ public class AdjudicatorBean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
+     * only be value for electronic EOBs</p>
+     * 
+     * <p>Date and time of Adjudication</p>
+     * 
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
+     * (COB): Will only be valued for electronic EOBs.</p>
+     * 
+     * <p>Used in RX for daily totals.</p>
+     * 
+     * <p>Adjudication date/time</p>
+     */
+    @Hl7XmlMapping({"time"})
+    public Date getTime() {
+        return this.time.getValue();
+    }
+
+    /**
+     * <p>Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
+     * only be value for electronic EOBs</p>
+     * 
+     * <p>Date and time of Adjudication</p>
+     * 
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
+     * (COB): Will only be valued for electronic EOBs.</p>
+     * 
+     * <p>Used in RX for daily totals.</p>
+     * 
+     * <p>Adjudication date/time</p>
+     */
+    public void setTime(Date time) {
+        this.time.setValue(time);
+    }
+
+
+    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.modeCode</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -228,7 +188,7 @@ public class AdjudicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT830201NB.AdjudicatedInvoiceAuthor.modeCode</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -242,6 +202,46 @@ public class AdjudicatorBean extends MessagePartBean {
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"adjudicatorRole"})
+    public AdjudicatorRoleBean getAdjudicatorRole() {
+        return this.adjudicatorRole;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
+        this.adjudicatorRole = adjudicatorRole;
     }
 
 }

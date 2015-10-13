@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt610201nb.PaymentIntentBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700227nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt610201ca.PaymentIntentBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700227ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: FICR_IN610102NB: Invoice Results, Rx</p>
+ * <p>Business Name: FICR_IN610102CA: Invoice Results, Rx</p>
  * 
  * <p>The sender sends an Invoice Adjudication Results message 
  * containing the completed results of an Invoice Adjudication 
  * Request for Pharmacy services and/or products.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700227NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700227CA.ControlActEvent</p>
  * 
- * <p>--> Payload: FICR_MT610201NB.PaymentIntent</p>
+ * <p>--> Payload: FICR_MT610201CA.PaymentIntent</p>
  */
-@Hl7PartTypeMapping({"FICR_IN610102NB"})
+@Hl7PartTypeMapping({"FICR_IN610102CA"})
 public class InvoiceResultsRxBean extends HL7MessageBean<TriggerEventBean<PaymentIntentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

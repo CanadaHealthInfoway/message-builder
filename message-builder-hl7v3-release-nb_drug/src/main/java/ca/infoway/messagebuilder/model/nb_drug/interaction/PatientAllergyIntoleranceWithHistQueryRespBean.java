@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000008nb.ConditionHistoryQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000009nb.AllergyIntoleranceBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000008ca.ConditionHistoryQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000009ca.AllergyIntoleranceBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000018NB: Patient 
+ * <p>Business Name: REPC_IN000018CA: Patient 
  * allergy/intolerance with hist. query resp.</p>
  * 
  * <p>Returns information about a single allergy or intolerance 
@@ -48,17 +48,17 @@ import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000009nb.AllergyIntol
  * malformed query request message, or an invalid attribute 
  * values.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000009NB.IntoleranceCondition</p>
+ * <p>--> Payload: REPC_MT000009CA.IntoleranceCondition</p>
  * 
- * <p>--> Payload: REPC_MT000008NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000018NB"})
+@Hl7PartTypeMapping({"REPC_IN000018CA"})
 public class PatientAllergyIntoleranceWithHistQueryRespBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean,ConditionHistoryQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ImmunizationCourse</p>
  * 
- * <p>POIZ_MT060150NB.ImmunizationPlan: Immunization Course</p>
+ * <p>POIZ_MT060150CA.ImmunizationPlan: Immunization Course</p>
  * 
  * <p>Allows the system to record a specific immunization event 
  * as one of several within a course of immunizations. Allows 
@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Specifies whether there is more than 1 dose in the course 
  * of immunizations.</p>
  * 
- * <p>POIZ_MT030060NB.ImmunizationPlan: Immunization Course</p>
+ * <p>POIZ_MT030050CA.ImmunizationPlan: Immunization Course</p>
  * 
  * <p>Allows the system to record a specific immunization event 
  * as one of several within a course of immunizations. Allows 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Specifies whether there is more that 1 dose in the course 
  * of immunizations.</p>
  * 
- * <p>POIZ_MT030050NB.ImmunizationPlan: Immunization Course</p>
+ * <p>POIZ_MT030060CA.ImmunizationPlan: Immunization Course</p>
  * 
  * <p>Allows the system to record a specific immunization event 
  * as one of several within a course of immunizations. Allows 
@@ -56,10 +56,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Specifies whether there is more that 1 dose in the course 
  * of immunizations.</p>
  */
-@Hl7PartTypeMapping({"POIZ_MT030050NB.ImmunizationPlan","POIZ_MT030060NB.ImmunizationPlan","POIZ_MT060150NB.ImmunizationPlan"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationPlan","POIZ_MT030060CA.ImmunizationPlan","POIZ_MT060150CA.ImmunizationPlan"})
 public class ImmunizationCourseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private NextPlannedImmunizationBean fulfillmentNextPlannedImmunization;
     private NextImmunizationPlanBean successorNextImmunizationPlan;
 
@@ -68,21 +68,21 @@ public class ImmunizationCourseBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.InFulfillmentOf.nextPlannedImmunization</p>
+     * POIZ_MT060150CA.InFulfillmentOf.nextPlannedImmunization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InFulfillmentOf.nextPlannedImmunization</p>
+     * POIZ_MT030050CA.InFulfillmentOf.nextPlannedImmunization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.InFulfillmentOf.nextPlannedImmunization</p>
+     * POIZ_MT030060CA.InFulfillmentOf.nextPlannedImmunization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -95,21 +95,21 @@ public class ImmunizationCourseBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.InFulfillmentOf.nextPlannedImmunization</p>
+     * POIZ_MT060150CA.InFulfillmentOf.nextPlannedImmunization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InFulfillmentOf.nextPlannedImmunization</p>
+     * POIZ_MT030050CA.InFulfillmentOf.nextPlannedImmunization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.InFulfillmentOf.nextPlannedImmunization</p>
+     * POIZ_MT030060CA.InFulfillmentOf.nextPlannedImmunization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -122,21 +122,21 @@ public class ImmunizationCourseBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.Predecessor.nextImmunizationPlan</p>
+     * POIZ_MT060150CA.Predecessor.nextImmunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.Predecessor.nextImmunizationPlan</p>
+     * POIZ_MT030050CA.Predecessor.nextImmunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.Predecessor.nextImmunizationPlan</p>
+     * POIZ_MT030060CA.Predecessor.nextImmunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -149,21 +149,21 @@ public class ImmunizationCourseBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.Predecessor.nextImmunizationPlan</p>
+     * POIZ_MT060150CA.Predecessor.nextImmunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.Predecessor.nextImmunizationPlan</p>
+     * POIZ_MT030050CA.Predecessor.nextImmunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050NB.Predecessor.nextImmunizationPlan</p>
+     * POIZ_MT030060CA.Predecessor.nextImmunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

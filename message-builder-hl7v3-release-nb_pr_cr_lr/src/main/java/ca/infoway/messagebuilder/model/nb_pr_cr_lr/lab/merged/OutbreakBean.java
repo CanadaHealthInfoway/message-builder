@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Outbreak</p>
  * 
- * <p>POLB_MT004200NB.OutbreakEvent: Outbreak</p>
+ * <p>POLB_MT004100CA.OutbreakEvent: Outbreak</p>
  * 
  * <p>Used as an indicator to public health that this lab 
  * result may indicate the subject is a part of an outbreak. 
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies an outbreak which the reporting lab suspects 
  * this result might be a part of.</p>
  * 
- * <p>POLB_MT004000NB.OutbreakEvent: Outbreak</p>
+ * <p>POLB_MT004200CA.OutbreakEvent: Outbreak</p>
  * 
  * <p>Used as an indicator to public health that this lab 
  * result may indicate the subject is a part of an outbreak. 
@@ -54,7 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies an outbreak which the reporting lab suspects 
  * this result might be a part of.</p>
  * 
- * <p>POLB_MT004100NB.OutbreakEvent: Outbreak</p>
+ * <p>POLB_MT004000CA.OutbreakEvent: Outbreak</p>
  * 
  * <p>Used as an indicator to public health that this lab 
  * result may indicate the subject is a part of an outbreak. 
@@ -65,10 +65,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies an outbreak which the reporting lab suspects 
  * this result might be a part of.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT001000NB.OutbreakEvent","POLB_MT001010NB.OutbreakEvent","POLB_MT001999NB.OutbreakEvent","POLB_MT002000NB.OutbreakEvent","POLB_MT004000NB.OutbreakEvent","POLB_MT004100NB.OutbreakEvent","POLB_MT004200NB.OutbreakEvent"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.OutbreakEvent","POLB_MT001010CA.OutbreakEvent","POLB_MT001999CA.OutbreakEvent","POLB_MT002000CA.OutbreakEvent","POLB_MT004000CA.OutbreakEvent","POLB_MT004100CA.OutbreakEvent","POLB_MT004200CA.OutbreakEvent"})
 public class OutbreakBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -77,25 +77,13 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT002000CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p>
-     * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p>
-     * 
-     * <p>Un-merged Business Name: OutbreakIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT004200NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT004100CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -110,22 +98,7 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT004000NB.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
-     * 
-     * <p>Un-merged Business Name: OutbreakIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT001010NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT001010CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -134,13 +107,7 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT002000NB.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: OutbreakIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT004100NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT004200CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,6 +119,39 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
+     * 
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.OutbreakEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows public health to identify an outbreak for which 
+     * this test is being conducted.</p>
+     * 
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used as an indicator to public health that this lab 
+     * result may indicate the subject is a part of an outbreak. 
+     * This does not confirm that lab result is an outbreak 
+     * subject, only that the potential exists and public health 
+     * should disposition.</p>
+     * 
+     * <p>Identifies an outbreak which the reporting lab suspects 
+     * this result might be a part of.</p>
+     * 
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.OutbreakEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows public health to identify an outbreak for which 
+     * this test is being conducted.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -163,25 +163,13 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT002000CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p>
-     * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p>
-     * 
-     * <p>Un-merged Business Name: OutbreakIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT004200NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT004100CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -196,22 +184,7 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT004000NB.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
-     * 
-     * <p>Un-merged Business Name: OutbreakIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT001010NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT001010CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -220,13 +193,7 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT002000NB.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: OutbreakIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT004100NB.OutbreakEvent.id</p>
+     * <p>Relationship: POLB_MT004200CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -238,6 +205,39 @@ public class OutbreakBean extends MessagePartBean {
      * 
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
+     * 
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.OutbreakEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows public health to identify an outbreak for which 
+     * this test is being conducted.</p>
+     * 
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used as an indicator to public health that this lab 
+     * result may indicate the subject is a part of an outbreak. 
+     * This does not confirm that lab result is an outbreak 
+     * subject, only that the potential exists and public health 
+     * should disposition.</p>
+     * 
+     * <p>Identifies an outbreak which the reporting lab suspects 
+     * this result might be a part of.</p>
+     * 
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.OutbreakEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows public health to identify an outbreak for which 
+     * this test is being conducted.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

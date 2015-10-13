@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060360nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060360ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060050NB: Device prescription 
+ * <p>Business Name: PORX_IN060050CA: Device prescription 
  * dispense detail query</p>
  * 
  * <p>Requests retrieval of detailed information about a single 
  * identified device dispense event.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060360NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060360CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060050NB"})
+@Hl7PartTypeMapping({"PORX_IN060050CA"})
 public class DevicePrescriptionDispenseDetailQueryBean extends HL7MessageBean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

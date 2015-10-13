@@ -32,24 +32,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: DrugCost</p>
  * 
- * <p>POME_MT010100NB.PotentialCharge: I:Drug Cost</p>
+ * <p>POME_MT010100CA.PotentialCharge: I:Drug Cost</p>
  * 
  * <p>Allows providers to evaluate patient's affordability 
  * status before prescribing a drug.</p>
  * 
  * <p>Suggested cost of a drug (unit cost).</p>
  * 
- * <p>POME_MT010040NB.PotentialCharge: Drug Cost</p>
+ * <p>POME_MT010040CA.PotentialCharge: Drug Cost</p>
  * 
  * <p>Allows providers to evaluate patient's affordability 
  * status before prescribing a drug.</p>
  * 
  * <p>Suggested cost of a drug (unit cost).</p>
  */
-@Hl7PartTypeMapping({"POME_MT010040NB.PotentialCharge","POME_MT010100NB.PotentialCharge"})
+@Hl7PartTypeMapping({"POME_MT010040CA.PotentialCharge","POME_MT010100CA.PotentialCharge"})
 public class DrugCostBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private MO unitPriceAmt = new MOImpl();
 
 
@@ -59,7 +59,7 @@ public class DrugCostBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
-     * POME_MT010100NB.PotentialCharge.unitPriceAmt</p>
+     * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -73,7 +73,7 @@ public class DrugCostBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
-     * POME_MT010040NB.PotentialCharge.unitPriceAmt</p>
+     * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -95,7 +95,7 @@ public class DrugCostBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
-     * POME_MT010100NB.PotentialCharge.unitPriceAmt</p>
+     * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -109,7 +109,7 @@ public class DrugCostBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
-     * POME_MT010040NB.PotentialCharge.unitPriceAmt</p>
+     * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

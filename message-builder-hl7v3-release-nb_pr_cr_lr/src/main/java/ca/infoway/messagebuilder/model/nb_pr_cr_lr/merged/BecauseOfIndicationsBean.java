@@ -25,60 +25,12 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indications;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402ca.Indications;
 
 
 
 /**
- * <p>REPC_MT610001NB.Reason: k:because of</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Professional Service is being done 
- * for multiple reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT420001NB.Reason: *j:because of</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Coded Observation is being done for 
- * multiple reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT000083NB.Reason: *m:because of Indications</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Discharge-Care Summary is being done 
- * for multiple reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT220001NB.Reason: *m:because of Indications</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Discharge-Care Summary is being done 
- * for multiple reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT230002NB.Reason: *m:because of Indications</p>
+ * <p>REPC_MT230003CA.Reason: *m:because of Indications</p>
  * 
  * <p> <i>Essential for understanding the context in which the 
  * action was performed. Also frequently used in searching and 
@@ -90,19 +42,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indica
  * <p> <i>Identifies the clinical reason(s) for performing the 
  * action described by the record.</i> </p>
  * 
- * <p>REPC_MT210003NB.Reason: *m:because of Indications</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Referral is being done for multiple 
- * reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT410001NB.Reason: *j:because of</p>
+ * <p>REPC_MT410001CA.Reason: *j:because of</p>
  * 
  * <p> <i>Essential for understanding the context in which the 
  * action was performed. Also frequently used in searching and 
@@ -114,7 +54,45 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indica
  * <p> <i>Identifies the clinical reason(s) for performing the 
  * action described by the record.</i> </p>
  * 
- * <p>REPC_MT220002NB.Reason: *m:because of Indications</p>
+ * <p>POME_MT010040CA.Reason: recommended for</p>
+ * 
+ * <p>Useful in prescribing by narrowing selectable drugs based 
+ * on specified indication.</p>
+ * 
+ * <p>Recommends which drugs are to be used for which 
+ * indications.</p>
+ * 
+ * <p>PORX_MT060190CA.Reason: d:prescribed because of</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
+ * 
+ * <p>REPC_MT230001CA.Reason: *m:because of Indications</p>
+ * 
+ * <p> <i>Essential for understanding the context in which the 
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Clinical Observation Document is 
+ * being done for multiple reasons.</i> </p>
+ * 
+ * <p> <i>Identifies the clinical reason(s) for performing the 
+ * action described by the record.</i> </p>
+ * 
+ * <p>REPC_MT220003CA.Reason: *m:because of Indications</p>
  * 
  * <p> <i>Essential for understanding the context in which the 
  * action was performed. Also frequently used in searching and 
@@ -126,75 +104,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indica
  * <p> <i>Identifies the clinical reason(s) for performing the 
  * action described by the record.</i> </p>
  * 
- * <p>REPC_MT500004NB.Reason: k:because of</p>
- * 
- * <p>Association is mandatory, 1..1 when Care Composition Type 
- * is Episode (Health Condition-based) or a specialization 
- * there-of</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Care Composition is being done for 
- * multiple reasons.</i> </p>
- * 
- * <p>For health condition-based (episode) collections, there 
- * must be exactly one indication (the 'definitional' problem 
- * for the episode). For care-based collections, there should 
- * not be any indications. (Problems are captured as part of 
- * the overall care, not as the reason for care.)</p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT500001NB.Reason: k:because of</p>
- * 
- * <p>Association is mandatory, 1..1 when Care Composition Type 
- * is Episode (Health Condition-based) or a specialization 
- * there-of</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Care Composition is being done for 
- * multiple reasons.</i> </p>
- * 
- * <p>For health condition-based (episode) collections, there 
- * must be exactly one indication (the 'definitional' problem 
- * for the episode). For care-based collections, there should 
- * not be any indications. (Problems are captured as part of 
- * the overall care, not as the reason for care.)</p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT220003NB.Reason: *m:because of Indications</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Discharge-Care Summary is being done 
- * for multiple reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT610002NB.Reason: k:because of</p>
- * 
- * <p> <i>Essential for understanding the context in which the 
- * action was performed. Also frequently used in searching and 
- * filtering and can impact whether the record will be 
- * automatically masked. Multiple indications are supported for 
- * circumstances where the Professional Service is being done 
- * for multiple reasons.</i> </p>
- * 
- * <p> <i>Identifies the clinical reason(s) for performing the 
- * action described by the record.</i> </p>
- * 
- * <p>REPC_MT210001NB.Reason: *m:because of Indications</p>
+ * <p>REPC_MT210001CA.Reason: *m:because of Indications</p>
  * 
  * <p> <i>Essential for understanding the context in which the 
  * action was performed. Also frequently used in searching and 
@@ -206,15 +116,85 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indica
  * <p> <i>Identifies the clinical reason(s) for performing the 
  * action described by the record.</i> </p>
  * 
- * <p>POME_MT010040NB.Reason: recommended for</p>
+ * <p>REPC_MT000083CA.Reason: *m:because of Indications</p>
  * 
- * <p>Useful in prescribing by narrowing selectable drugs based 
- * on specified indication.</p>
+ * <p> <i>Essential for understanding the context in which the 
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Discharge-Care Summary is being done 
+ * for multiple reasons.</i> </p>
  * 
- * <p>Recommends which drugs are to be used for which 
- * indications.</p>
+ * <p> <i>Identifies the clinical reason(s) for performing the 
+ * action described by the record.</i> </p>
  * 
- * <p>PORX_MT030040NB.Reason: d:prescribed because of</p>
+ * <p>REPC_MT220002CA.Reason: *m:because of Indications</p>
+ * 
+ * <p> <i>Essential for understanding the context in which the 
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Discharge-Care Summary is being done 
+ * for multiple reasons.</i> </p>
+ * 
+ * <p> <i>Identifies the clinical reason(s) for performing the 
+ * action described by the record.</i> </p>
+ * 
+ * <p>REPC_MT230002CA.Reason: *m:because of Indications</p>
+ * 
+ * <p> <i>Essential for understanding the context in which the 
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Clinical Observation Document is 
+ * being done for multiple reasons.</i> </p>
+ * 
+ * <p> <i>Identifies the clinical reason(s) for performing the 
+ * action described by the record.</i> </p>
+ * 
+ * <p>PORX_MT060040CA.Reason2: d:prescribed because of</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * instructions for the device, and may influence education or 
+ * literature provided to the patient on the use of the 
+ * device.</p><p>Provided at the discretion of the prescriber 
+ * to enhance patient care. E.g., take 1 tab bid for migraine. 
+ * Also needed for drug-disease interaction checking software 
+ * to work properly.</p><p>This field is marked as populated 
+ * because of its high clinical importance, however 'Nulls' are 
+ * allowed because the individual recording the prescription 
+ * (e.g. pharmacist) may not be aware of the indication or the 
+ * prescriber may choose to withhold (mask) the information due 
+ * to patient sensitivity.</p>
+ * 
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
+ * 
+ * <p>REPC_MT210002CA.Reason: *m:because of Indications</p>
+ * 
+ * <p> <i>Essential for understanding the context in which the 
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Referral is being done for multiple 
+ * reasons.</i> </p>
+ * 
+ * <p> <i>Identifies the clinical reason(s) for performing the 
+ * action described by the record.</i> </p>
+ * 
+ * <p>REPC_MT420003CA.Reason: *j:because of</p>
+ * 
+ * <p> <i>Essential for understanding the context in which the 
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Coded Observation is being done for 
+ * multiple reasons.</i> </p>
+ * 
+ * <p> <i>Identifies the clinical reason(s) for performing the 
+ * action described by the record.</i> </p>
+ * 
+ * <p>PORX_MT060340CA.Reason2: d:prescribed because of</p>
  * 
  * <p>Helps providers evaluate the appropriateness of the 
  * dosage instructions for the medication, and may influence 
@@ -232,7 +212,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indica
  * <p>Denotes the reason(s) for this specific prescription; it 
  * must not be interpreted as a permanent diagnosis.</p>
  * 
- * <p>PORX_MT060190NB.Reason: d:prescribed because of</p>
+ * <p>PORX_MT030040CA.Reason: d:prescribed because of</p>
  * 
  * <p>Helps providers evaluate the appropriateness of the 
  * dosage instructions for the medication, and may influence 
@@ -250,20 +230,30 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt120402nb.Indica
  * <p>Denotes the reason(s) for this specific prescription; it 
  * must not be interpreted as a permanent diagnosis.</p>
  * 
- * <p>REPC_MT500003NB.Reason: k:because of</p>
+ * <p>REPC_MT500001CA.Reason: k:because of</p>
  * 
  * <p>Association is mandatory, 1..1 when Care Composition Type 
  * is Episode (Health Condition-based) or a specialization 
  * there-of</p>
  * 
  * <p> <i>Essential for understanding the context in which the 
-
+ * action was performed. Also frequently used in searching and 
+ * filtering and can impact whether the record will be 
+ * automatically masked. Multiple indications are supported for 
+ * circumstances where the Care Composition is being done for 
+ * multiple reasons.</i> </p>
+ * 
+ * <p>For health condition-based (episode) collections, there 
+ * must be exactly one indication (the 'definitional' problem 
+ * for the episode). For care-based collections, there should 
+ * not be any indications. (Problems are captured as part of 
+ * the overall care, not as the reason f
  * ... [rest of documentation truncated due to excessive length]
  */
-@Hl7PartTypeMapping({"POME_MT010040NB.Reason","PORX_MT010110NB.Reason2","PORX_MT010120NB.Reason2","PORX_MT030040NB.Reason","PORX_MT060040NB.Reason2","PORX_MT060060NB.Reason","PORX_MT060160NB.Reason2","PORX_MT060190NB.Reason","PORX_MT060340NB.Reason2","REPC_MT000083NB.Reason","REPC_MT210001NB.Reason","REPC_MT210002NB.Reason","REPC_MT210003NB.Reason","REPC_MT220001NB.Reason","REPC_MT220002NB.Reason","REPC_MT220003NB.Reason","REPC_MT230001NB.Reason","REPC_MT230002NB.Reason","REPC_MT230003NB.Reason","REPC_MT410001NB.Reason","REPC_MT410003NB.Reason","REPC_MT420001NB.Reason","REPC_MT420003NB.Reason","REPC_MT500001NB.Reason","REPC_MT500002NB.Reason","REPC_MT500003NB.Reason","REPC_MT500004NB.Reason","REPC_MT610001NB.Reason","REPC_MT610002NB.Reason"})
+@Hl7PartTypeMapping({"POME_MT010040CA.Reason","PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2","REPC_MT000083CA.Reason","REPC_MT210001CA.Reason","REPC_MT210002CA.Reason","REPC_MT210003CA.Reason","REPC_MT220001CA.Reason","REPC_MT220002CA.Reason","REPC_MT220003CA.Reason","REPC_MT230001CA.Reason","REPC_MT230002CA.Reason","REPC_MT230003CA.Reason","REPC_MT410001CA.Reason","REPC_MT410003CA.Reason","REPC_MT420001CA.Reason","REPC_MT420003CA.Reason","REPC_MT500001CA.Reason","REPC_MT500002CA.Reason","REPC_MT500003CA.Reason","REPC_MT500004CA.Reason","REPC_MT610001CA.Reason","REPC_MT610002CA.Reason"})
 public class BecauseOfIndicationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private Indications indications;
     private INT priorityNumber = new INTImpl();
 
@@ -271,175 +261,175 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT410003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT420001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT230003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT410001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.Reason.indications</p>
+     * <p>Relationship: POME_MT010040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT230001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060190CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT410001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT220003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT000083CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT210001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT220002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT230002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060040CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT210002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT420003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060340CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT030040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT500001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT420001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060060CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT500004CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT220001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Reason2.indications</p>
+     * <p>Relationship: PORX_MT010120CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT410003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT500003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT210003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060160CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT500002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT010110CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT610002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT610001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -451,175 +441,175 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT410003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT420001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT230003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT410001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.Reason.indications</p>
+     * <p>Relationship: POME_MT010040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT230001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060190CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT410001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT220003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT000083CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT210001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT220002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT230002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060040CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT210002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT420003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060340CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT030040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT500001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT420001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060060CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT500004CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT220001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Reason2.indications</p>
+     * <p>Relationship: PORX_MT010120CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT410003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT500003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT210003CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT060160CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Reason2.indications</p>
+     * <p>Relationship: REPC_MT500002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Reason.indications</p>
+     * <p>Relationship: PORX_MT010110CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT610002CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Reason.indications</p>
+     * <p>Relationship: REPC_MT610001CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -633,7 +623,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.Reason.priorityNumber</p>
+     * <p>Relationship: PORX_MT060060CA.Reason.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -649,7 +639,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Reason.priorityNumber</p>
+     * <p>Relationship: PORX_MT010120CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -665,7 +655,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT030040CA.Reason.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -681,7 +671,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.Reason.priorityNumber</p>
+     * <p>Relationship: PORX_MT060340CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -697,7 +687,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT060040CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -713,7 +703,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT060160CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -729,7 +719,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT060190CA.Reason.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -745,7 +735,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT010110CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -769,7 +759,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.Reason.priorityNumber</p>
+     * <p>Relationship: PORX_MT060060CA.Reason.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -785,7 +775,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Reason.priorityNumber</p>
+     * <p>Relationship: PORX_MT010120CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -801,7 +791,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT030040CA.Reason.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -817,7 +807,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.Reason.priorityNumber</p>
+     * <p>Relationship: PORX_MT060340CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -833,7 +823,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT060040CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -849,7 +839,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT060160CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -865,7 +855,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT060190CA.Reason.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -881,7 +871,7 @@ public class BecauseOfIndicationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IndicationPriority</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Reason2.priorityNumber</p>
+     * <p>Relationship: PORX_MT010110CA.Reason2.priorityNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

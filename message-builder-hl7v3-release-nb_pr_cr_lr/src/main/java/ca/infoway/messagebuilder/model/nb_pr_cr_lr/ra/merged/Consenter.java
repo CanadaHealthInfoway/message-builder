@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"RCMR_MT010001NB.Consenter","RCMR_MT010002NB.Consenter"})
+@Hl7PartTypeMapping({"RCMR_MT010001CA.Consenter","RCMR_MT010002CA.Consenter"})
 public interface Consenter {
 
 }

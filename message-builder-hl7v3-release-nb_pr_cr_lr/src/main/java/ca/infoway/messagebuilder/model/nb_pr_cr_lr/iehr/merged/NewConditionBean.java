@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000007NB.NewCondition","REPC_MT000010NB.NewCondition"})
+@Hl7PartTypeMapping({"REPC_MT000007CA.NewCondition","REPC_MT000010CA.NewCondition"})
 public class NewConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,7 +41,7 @@ public class NewConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000007NB.NewCondition.id</p>
+     * <p>Relationship: REPC_MT000010CA.NewCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -54,7 +54,7 @@ public class NewConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.NewCondition.id</p>
+     * <p>Relationship: REPC_MT000007CA.NewCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -75,7 +75,7 @@ public class NewConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000007NB.NewCondition.id</p>
+     * <p>Relationship: REPC_MT000010CA.NewCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -88,7 +88,7 @@ public class NewConditionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.NewCondition.id</p>
+     * <p>Relationship: REPC_MT000007CA.NewCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

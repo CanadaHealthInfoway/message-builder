@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.rcmr_mt010002nb.KeywordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.rcmr_mt010002ca.KeywordBean;
 
 
 
 /**
- * <p>Business Name: RCMR_IN010006NB: Update keyword request</p>
+ * <p>Business Name: RCMR_IN010006CA: Update keyword request</p>
  * 
  * <p>Requests that the keyword used to control patient access 
  * to a all or a portion of the patient's record be revised to 
  * the specified value.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700211NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: RCMR_MT010002NB.KeywordEvent</p>
+ * <p>--> Payload: RCMR_MT010002CA.KeywordEvent</p>
  */
-@Hl7PartTypeMapping({"RCMR_IN010006NB"})
+@Hl7PartTypeMapping({"RCMR_IN010006CA"})
 public class UpdateKeywordRequestBean extends HL7MessageBean<TriggerEventBean<KeywordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

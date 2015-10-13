@@ -38,7 +38,7 @@ import java.util.Set;
 /**
  * <p>Business Name: ParentPrescription</p>
  * 
- * <p>PORX_MT060340NB.PriorCombinedMedicationRequest: Parent 
+ * <p>PORX_MT060340CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
  * <p>Helps link prescriptions together, and subsequently 
@@ -48,7 +48,7 @@ import java.util.Set;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  * 
- * <p>PORX_MT060160NB.PriorCombinedMedicationRequest: Parent 
+ * <p>PORX_MT060160CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
  * <p>Helps link prescriptions together, and subsequently 
@@ -58,10 +58,10 @@ import java.util.Set;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060160NB.PriorCombinedMedicationRequest","PORX_MT060340NB.PriorCombinedMedicationRequest"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
 
@@ -72,7 +72,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
@@ -87,7 +87,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
@@ -111,7 +111,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.PriorCombinedMedicationRequest.code</p>
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -126,7 +126,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.PriorCombinedMedicationRequest.code</p>
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -149,7 +149,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.PriorCombinedMedicationRequest.code</p>
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -164,7 +164,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.PriorCombinedMedicationRequest.code</p>
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

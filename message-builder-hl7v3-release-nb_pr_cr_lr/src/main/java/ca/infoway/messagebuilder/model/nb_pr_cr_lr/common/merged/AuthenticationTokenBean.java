@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: AuthenticationToken</p>
  * 
- * <p>QUQI_MT020000NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700222CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700222NB.AuthorizationToken: Authentication Token</p>
+ * <p>MFMI_MT700711CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -72,7 +72,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700232NB.AuthorizationToken: Authentication Token</p>
+ * <p>MFMI_MT700751CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -91,7 +91,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MFMI_MT700751NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700212CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -110,7 +110,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700230NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700220CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -129,7 +129,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700210NB.AuthorizationToken: Authentication Token</p>
+ * <p>QUQI_MT020002CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -148,7 +148,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700220NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700211CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -167,7 +167,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700231NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700210CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -186,7 +186,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700221NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700221CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -205,7 +205,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>QUQI_MT020002NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700230CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -224,7 +224,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700211NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700231CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -243,7 +243,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MCAI_MT700212NB.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700232CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -262,7 +262,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
  * 
- * <p>MFMI_MT700711NB.AuthorizationToken: Authentication Token</p>
+ * <p>QUQI_MT020000CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
@@ -274,10 +274,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  *
  * ... [rest of documentation truncated due to excessive length]
  */
-@Hl7PartTypeMapping({"MCAI_MT700210NB.AuthorizationToken","MCAI_MT700211NB.AuthorizationToken","MCAI_MT700212NB.AuthorizationToken","MCAI_MT700220NB.AuthorizationToken","MCAI_MT700221NB.AuthorizationToken","MCAI_MT700222NB.AuthorizationToken","MCAI_MT700230NB.AuthorizationToken","MCAI_MT700231NB.AuthorizationToken","MCAI_MT700232NB.AuthorizationToken","MFMI_MT700711NB.AuthorizationToken","MFMI_MT700751NB.AuthorizationToken","QUQI_MT020000NB.AuthorizationToken","QUQI_MT020002NB.AuthorizationToken"})
+@Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private ST text = new STImpl();
 
@@ -287,7 +287,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -301,7 +301,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.AuthorizationToken.id</p>
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -315,7 +315,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.AuthorizationToken.id</p>
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -329,7 +329,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -343,7 +343,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -357,7 +357,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.AuthorizationToken.id</p>
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -371,7 +371,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -385,7 +385,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -399,7 +399,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -413,7 +413,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -427,7 +427,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -441,7 +441,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -455,7 +455,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.AuthorizationToken.id</p>
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -477,7 +477,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -491,7 +491,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.AuthorizationToken.id</p>
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -505,7 +505,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.AuthorizationToken.id</p>
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -519,7 +519,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -533,7 +533,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -547,7 +547,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.AuthorizationToken.id</p>
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -561,7 +561,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -575,7 +575,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -589,7 +589,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -603,7 +603,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -617,7 +617,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -631,7 +631,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.AuthorizationToken.id</p>
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -645,7 +645,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.AuthorizationToken.id</p>
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -667,7 +667,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -681,7 +681,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.AuthorizationToken.text</p>
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -695,7 +695,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.AuthorizationToken.text</p>
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -709,7 +709,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -723,7 +723,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -737,7 +737,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.AuthorizationToken.text</p>
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -751,7 +751,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -765,7 +765,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -779,7 +779,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -793,7 +793,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -807,7 +807,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -821,7 +821,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -835,7 +835,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.AuthorizationToken.text</p>
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -857,7 +857,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -871,7 +871,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.AuthorizationToken.text</p>
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -885,7 +885,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.AuthorizationToken.text</p>
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -899,7 +899,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -913,7 +913,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -927,7 +927,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.AuthorizationToken.text</p>
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -941,7 +941,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -955,7 +955,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -969,7 +969,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -983,7 +983,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -997,7 +997,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1011,7 +1011,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.AuthorizationToken.text</p>
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1025,7 +1025,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.AuthorizationToken.text</p>
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

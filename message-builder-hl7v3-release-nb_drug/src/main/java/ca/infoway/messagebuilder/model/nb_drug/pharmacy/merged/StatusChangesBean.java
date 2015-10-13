@@ -31,13 +31,13 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107nb.ProviderBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107ca.ProviderBean;
 import java.util.Date;
 
 
 
 /**
- * <p>PORX_MT060340NB.ControlActEvent: Status Changes</p>
+ * <p>PORX_MT060340CA.ControlActEvent: Status Changes</p>
  * 
  * <p>Provides an audit trail of a patient's therapy 
  * adjustments. Status changes may affect evaluations of 
@@ -47,7 +47,7 @@ import java.util.Date;
  * to the prescription, including why the changes were made, 
  * who made them and when.</p>
  * 
- * <p>PORX_MT060160NB.ControlActEvent: Status Changes</p>
+ * <p>PORX_MT060160CA.ControlActEvent: Status Changes</p>
  * 
  * <p>Provides an audit trail of a patient's therapy 
  * adjustments. Status changes may affect evaluations of 
@@ -57,17 +57,7 @@ import java.util.Date;
  * to the prescription, including why the changes were made, 
  * who made them and when.</p>
  * 
- * <p>PORX_MT060040NB.ControlActEvent: Status Changes</p>
- * 
- * <p>Provides an audit trail of a patient's therapy 
- * adjustments. Status changes may affect evaluations of 
- * compliance.</p>
- * 
- * <p>This records the history of changes that have been made 
- * to the prescription, including why the changes were made, 
- * who made them and when.</p>
- * 
- * <p>PORX_MT060210NB.ControlActEvent: Other Medication Status 
+ * <p>PORX_MT060210CA.ControlActEvent: Other Medication Status 
  * Changes</p>
  * 
  * <p>Provides an audit trail of a patient's use of other 
@@ -77,7 +67,17 @@ import java.util.Date;
  * to the other medication record, including why the changes 
  * were made, who made them and when.</p>
  * 
- * <p>PORX_MT060010NB.ControlActEvent: Dispense Status Changes</p>
+ * <p>PORX_MT060040CA.ControlActEvent: Status Changes</p>
+ * 
+ * <p>Provides an audit trail of a patient's therapy 
+ * adjustments. Status changes may affect evaluations of 
+ * compliance.</p>
+ * 
+ * <p>This records the history of changes that have been made 
+ * to the prescription, including why the changes were made, 
+ * who made them and when.</p>
+ * 
+ * <p>PORX_MT060090CA.ControlActEvent: Dispense Status Changes</p>
  * 
  * <p>Provides an audit trail of a patient's therapy 
  * adjustments. Status changes may affect evaluations of 
@@ -87,7 +87,7 @@ import java.util.Date;
  * to the prescription dispense, including why the changes were 
  * made, who made them and when.</p>
  * 
- * <p>PORX_MT060090NB.ControlActEvent: Dispense Status Changes</p>
+ * <p>PORX_MT060010CA.ControlActEvent: Dispense Status Changes</p>
  * 
  * <p>Provides an audit trail of a patient's therapy 
  * adjustments. Status changes may affect evaluations of 
@@ -97,10 +97,10 @@ import java.util.Date;
  * to the prescription dispense, including why the changes were 
  * made, who made them and when.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060010NB.ControlActEvent","PORX_MT060040NB.ControlActEvent","PORX_MT060090NB.ControlActEvent","PORX_MT060160NB.ControlActEvent","PORX_MT060210NB.ControlActEvent","PORX_MT060340NB.ControlActEvent"})
+@Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060160CA.ControlActEvent","PORX_MT060210CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -111,7 +111,7 @@ public class StatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -126,7 +126,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -141,7 +141,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -156,7 +156,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OtherMedicationStatusChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060210NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -168,7 +168,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -180,7 +180,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -198,7 +198,7 @@ public class StatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -213,7 +213,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -228,7 +228,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -243,7 +243,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OtherMedicationStatusChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060210NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -255,7 +255,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -267,7 +267,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ControlActEvent.code</p>
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -286,7 +286,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060340CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -320,7 +320,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060160CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -354,7 +354,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060040CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -389,7 +389,7 @@ public class StatusChangesBean extends MessagePartBean {
      * OtherMedicationStatusChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060210NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060210CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -406,7 +406,7 @@ public class StatusChangesBean extends MessagePartBean {
      * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -423,7 +423,7 @@ public class StatusChangesBean extends MessagePartBean {
      * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060090NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -445,7 +445,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060340CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -479,7 +479,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060160CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -513,7 +513,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060040CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -548,7 +548,7 @@ public class StatusChangesBean extends MessagePartBean {
      * OtherMedicationStatusChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060210NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060210CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -565,7 +565,7 @@ public class StatusChangesBean extends MessagePartBean {
      * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -582,7 +582,7 @@ public class StatusChangesBean extends MessagePartBean {
      * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060090NB.ControlActEvent.effectiveTime</p>
+     * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -603,7 +603,7 @@ public class StatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -620,7 +620,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -637,7 +637,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -655,7 +655,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * OtherMedicationStatusChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060210NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -668,7 +668,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -681,7 +681,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -700,7 +700,7 @@ public class StatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -717,7 +717,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -734,7 +734,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -752,7 +752,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * OtherMedicationStatusChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060210NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -765,7 +765,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -778,7 +778,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -798,42 +798,42 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ResponsibleParty6.assignedPerson</p>
+     * PORX_MT060340CA.ResponsibleParty3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.ResponsibleParty3.assignedPerson</p>
+     * PORX_MT060160CA.ResponsibleParty6.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.ResponsibleParty4.assignedPerson</p>
+     * PORX_MT060040CA.ResponsibleParty4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060210NB.ResponsibleParty2.assignedPerson</p>
+     * PORX_MT060210CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.ResponsibleParty2.assignedPerson</p>
+     * PORX_MT060010CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060090NB.ResponsibleParty4.assignedPerson</p>
+     * PORX_MT060090CA.ResponsibleParty4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -846,42 +846,42 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ResponsibleParty6.assignedPerson</p>
+     * PORX_MT060340CA.ResponsibleParty3.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.ResponsibleParty3.assignedPerson</p>
+     * PORX_MT060160CA.ResponsibleParty6.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.ResponsibleParty4.assignedPerson</p>
+     * PORX_MT060040CA.ResponsibleParty4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060210NB.ResponsibleParty2.assignedPerson</p>
+     * PORX_MT060210CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.ResponsibleParty2.assignedPerson</p>
+     * PORX_MT060010CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060090NB.ResponsibleParty4.assignedPerson</p>
+     * PORX_MT060090CA.ResponsibleParty4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -893,37 +893,37 @@ public class StatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060210NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -935,37 +935,37 @@ public class StatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060210NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

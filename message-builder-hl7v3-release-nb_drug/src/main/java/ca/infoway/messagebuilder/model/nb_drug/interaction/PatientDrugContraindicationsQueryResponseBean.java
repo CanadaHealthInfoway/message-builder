@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt050020nb.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980020nb.IssuesBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt050020ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt980020ca.IssuesBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN050040NB: Patient drug 
+ * <p>Business Name: PORX_IN050040CA: Patient drug 
  * contraindications query response</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT980020NB.DetectedIssueEvent</p>
+ * <p>--> Payload: PORX_MT980020CA.DetectedIssueEvent</p>
  * 
- * <p>--> Payload: PORX_MT050020NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT050020CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN050040NB"})
+@Hl7PartTypeMapping({"PORX_IN050040CA"})
 public class PatientDrugContraindicationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

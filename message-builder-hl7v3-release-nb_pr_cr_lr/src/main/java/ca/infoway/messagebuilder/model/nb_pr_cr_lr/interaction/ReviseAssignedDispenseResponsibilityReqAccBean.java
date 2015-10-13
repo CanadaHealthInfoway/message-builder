@@ -22,34 +22,34 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700226nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060350nb.Prescription;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700226ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060350ca.Prescription;
 
 
 
 /**
- * <p>Business Name: PORX_IN010110NB: Revise assigned dispense 
+ * <p>Business Name: PORX_IN010110CA: Revise assigned dispense 
  * responsibility req. acc.</p>
  * 
  * <p>Indicates that the responsibility for fulfilling the 
  * dispense portion of a prescription has been changed to the 
  * requested facility.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700226NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060350NB.Prescription</p>
+ * <p>--> Payload: PORX_MT060350CA.Prescription</p>
  * 
  * <p>----> Payload Choice: 
- * PORX_MT060340NB.CombinedMedicationRequest</p>
+ * PORX_MT060340CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Payload Choice: PORX_MT060040NB.DeviceRequest</p>
+ * <p>----> Payload Choice: PORX_MT060040CA.DeviceRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010110NB"})
+@Hl7PartTypeMapping({"PORX_IN010110CA"})
 public class ReviseAssignedDispenseResponsibilityReqAccBean extends HL7MessageBean<TriggerEventBean<Prescription>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

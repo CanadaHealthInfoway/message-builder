@@ -39,10 +39,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"MCCI_MT000200NB.Acknowledgement","MCCI_MT000300NB.Acknowledgement"})
+@Hl7PartTypeMapping({"MCCI_MT000200CA.Acknowledgement","MCCI_MT000300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CS typeCode = new CSImpl();
     private INT messageWaitingNumber = new INTImpl();
     private CV messageWaitingPriorityCode = new CVImpl();
@@ -55,7 +55,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Acknowledgement.typeCode</p>
+     * <p>Relationship: MCCI_MT000300CA.Acknowledgement.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -67,7 +67,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Acknowledgement.typeCode</p>
+     * <p>Relationship: MCCI_MT000200CA.Acknowledgement.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -87,7 +87,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Acknowledgement.typeCode</p>
+     * <p>Relationship: MCCI_MT000300CA.Acknowledgement.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -99,7 +99,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Acknowledgement.typeCode</p>
+     * <p>Relationship: MCCI_MT000200CA.Acknowledgement.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -120,7 +120,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Acknowledgement.messageWaitingNumber</p>
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -135,7 +135,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Acknowledgement.messageWaitingNumber</p>
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -158,7 +158,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Acknowledgement.messageWaitingNumber</p>
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -173,7 +173,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Acknowledgement.messageWaitingNumber</p>
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -196,7 +196,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Acknowledgement.messageWaitingPriorityCode</p>
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingPriorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -212,7 +212,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Acknowledgement.messageWaitingPriorityCode</p>
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingPriorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -236,7 +236,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Acknowledgement.messageWaitingPriorityCode</p>
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingPriorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -252,7 +252,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Acknowledgement.messageWaitingPriorityCode</p>
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingPriorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -275,7 +275,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.TargetMessage.id</p>
+     * <p>Relationship: MCCI_MT000300CA.TargetMessage.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -288,7 +288,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.TargetMessage.id</p>
+     * <p>Relationship: MCCI_MT000200CA.TargetMessage.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -309,7 +309,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.TargetMessage.id</p>
+     * <p>Relationship: MCCI_MT000300CA.TargetMessage.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -322,7 +322,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.TargetMessage.id</p>
+     * <p>Relationship: MCCI_MT000200CA.TargetMessage.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -342,14 +342,14 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Acknowledgement.acknowledgementDetail</p>
+     * MCCI_MT000300CA.Acknowledgement.acknowledgementDetail</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Acknowledgement.acknowledgementDetail</p>
+     * MCCI_MT000200CA.Acknowledgement.acknowledgementDetail</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
      */

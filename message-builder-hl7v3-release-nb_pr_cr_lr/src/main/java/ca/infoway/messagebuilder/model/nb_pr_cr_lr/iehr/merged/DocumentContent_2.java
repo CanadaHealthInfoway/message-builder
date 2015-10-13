@@ -26,26 +26,26 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT220001NB.DocumentContent","REPC_MT220002NB.DocumentContent","REPC_MT220003NB.DocumentContent"})
+@Hl7PartTypeMapping({"REPC_MT220001CA.DocumentContent","REPC_MT220002CA.DocumentContent","REPC_MT220003CA.DocumentContent"})
 public interface DocumentContent_2 {
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220003CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */

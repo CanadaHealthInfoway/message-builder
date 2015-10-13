@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020nb.DetectedIssueEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050020nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020ca.DetectedIssueEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050020ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN050040NB: Patient drug 
+ * <p>Business Name: PORX_IN050040CA: Patient drug 
  * contraindications query response</p>
  * 
  * <p>Indicates contraindications (if any) associated with 
@@ -40,17 +40,17 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050020nb.Gene
  * appropriately reflect duplicate therapy contraindications 
  * due to lack of timing information.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COCT_MT260020NB.DetectedIssueEvent</p>
+ * <p>--> Payload: COCT_MT260020CA.DetectedIssueEvent</p>
  * 
- * <p>--> Payload: PORX_MT050020NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT050020CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN050040NB"})
+@Hl7PartTypeMapping({"PORX_IN050040CA"})
 public class PatientDrugContraindicationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<DetectedIssueEventBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT210001NB.ActRequest2","REPC_MT210002NB.ActRequest2","REPC_MT210003NB.ActRequest2"})
+@Hl7PartTypeMapping({"REPC_MT210001CA.ActRequest2","REPC_MT210002CA.ActRequest2","REPC_MT210003CA.ActRequest2"})
 public class ActRequest2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
 
 
@@ -41,7 +41,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestedService</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -61,7 +61,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestedService</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -81,7 +81,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestedService</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -109,7 +109,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestedService</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -129,7 +129,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestedService</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -149,7 +149,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RequestedService</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

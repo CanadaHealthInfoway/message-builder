@@ -22,25 +22,25 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700223nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700223ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010740NB: Prescription renewal 
+ * <p>Business Name: PORX_IN010740CA: Prescription renewal 
  * request refused</p>
  * 
  * <p>Indicates that the request for the issuance of a 
  * prescription has been refused.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700223NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700223CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010740NB"})
+@Hl7PartTypeMapping({"PORX_IN010740CA"})
 public class PrescriptionRenewalRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

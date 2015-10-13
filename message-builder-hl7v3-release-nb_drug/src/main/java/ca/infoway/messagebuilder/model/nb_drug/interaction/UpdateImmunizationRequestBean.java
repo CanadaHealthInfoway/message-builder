@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt030060nb.ImmunizationsBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt030060ca.ImmunizationsBean;
 
 
 
 /**
- * <p>Business Name: POIZ_IN010070NB: Update immunization 
+ * <p>Business Name: POIZ_IN010070CA: Update immunization 
  * request</p>
  * 
  * <p>Request that information about a previously recorded 
  * immunization be changed.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POIZ_MT030060NB.Immunization</p>
+ * <p>--> Payload: POIZ_MT030060CA.Immunization</p>
  */
-@Hl7PartTypeMapping({"POIZ_IN010070NB"})
+@Hl7PartTypeMapping({"POIZ_IN010070CA"})
 public class UpdateImmunizationRequestBean extends HL7MessageBean<TriggerEventBean<ImmunizationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

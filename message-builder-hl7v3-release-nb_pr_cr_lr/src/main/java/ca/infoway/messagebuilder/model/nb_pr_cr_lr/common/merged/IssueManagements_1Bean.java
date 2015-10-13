@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueManagementCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090102nb.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090102ca.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -38,7 +38,7 @@ import java.util.Date;
 /**
  * <p>Business Name: IssueManagements</p>
  * 
- * <p>COCT_MT260010NB.DetectedIssueManagement: Issue 
+ * <p>COCT_MT260012CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
@@ -50,7 +50,7 @@ import java.util.Date;
  * being performed and additional information already in the 
  * patient's record or system business rules.</p>
  * 
- * <p>COCT_MT260012NB.DetectedIssueManagement: Issue 
+ * <p>COCT_MT260010CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
@@ -62,10 +62,10 @@ import java.util.Date;
  * being performed and additional information already in the 
  * patient's record or system business rules.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010NB.DetectedIssueManagement","COCT_MT260012NB.DetectedIssueManagement"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement"})
 public class IssueManagements_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
@@ -78,7 +78,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.DetectedIssueManagement.code</p>
+     * COCT_MT260012CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -121,7 +121,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260012NB.DetectedIssueManagement.code</p>
+     * COCT_MT260010CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -172,7 +172,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.DetectedIssueManagement.code</p>
+     * COCT_MT260012CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -215,7 +215,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260012NB.DetectedIssueManagement.code</p>
+     * COCT_MT260010CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -266,7 +266,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.DetectedIssueManagement.text</p>
+     * COCT_MT260012CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -279,7 +279,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260012NB.DetectedIssueManagement.text</p>
+     * COCT_MT260010CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -300,7 +300,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.DetectedIssueManagement.text</p>
+     * COCT_MT260012CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -313,7 +313,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260012NB.DetectedIssueManagement.text</p>
+     * COCT_MT260010CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -333,7 +333,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ManagementDate</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Author1.time</p>
+     * <p>Relationship: COCT_MT260012CA.Author1.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -347,7 +347,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ManagementDate</p>
      * 
-     * <p>Relationship: COCT_MT260012NB.Author1.time</p>
+     * <p>Relationship: COCT_MT260010CA.Author1.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -369,7 +369,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ManagementDate</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Author1.time</p>
+     * <p>Relationship: COCT_MT260012CA.Author1.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -383,7 +383,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ManagementDate</p>
      * 
-     * <p>Relationship: COCT_MT260012NB.Author1.time</p>
+     * <p>Relationship: COCT_MT260010CA.Author1.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -403,13 +403,13 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Author1.assignedEntity</p>
+     * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260012NB.Author1.assignedEntity</p>
+     * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -421,13 +421,13 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Author1.assignedEntity</p>
+     * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260012NB.Author1.assignedEntity</p>
+     * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

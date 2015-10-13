@@ -33,40 +33,56 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActInvoiceElement
 
 
 /**
- * <p>FICR_MT630000NB.AdjudResultsGroupSummaryData: Summary 
- * Details</p>
- * 
- * <p>Summarised Details of the Adjudicated Results for a group 
- * of Invoice elements/line items.</p>
- * 
- * <p>QUCR_MT810201NB.AdjudResultsGroupSummaryData: Adjudicated 
+ * <p>QUCR_MT810201CA.AdjudResultsGroupSummaryData: Adjudicated 
  * Results Group Summary Data</p>
  * 
  * <p>Used for SOFA queries only</p>
  * 
  * <p>Summary Data for this Group of Adjudicated Results</p>
  * 
- * <p>FICR_MT610201NB.AdjudResultsGroupSummaryData: Summary 
+ * <p>FICR_MT610201CA.AdjudResultsGroupSummaryData: Summary 
  * Details</p>
  * 
  * <p>Used for SOFA queries only</p>
  * 
  * <p>Summary details of the adjudicated results for this 
  * group</p>
+ * 
+ * <p>FICR_MT630000CA.AdjudResultsGroupSummaryData: Summary 
+ * Details</p>
+ * 
+ * <p>Summarised Details of the Adjudicated Results for a group 
+ * of Invoice elements/line items.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT610201NB.AdjudResultsGroupSummaryData","FICR_MT630000NB.AdjudResultsGroupSummaryData","QUCR_MT810201NB.AdjudResultsGroupSummaryData"})
+@Hl7PartTypeMapping({"FICR_MT610201CA.AdjudResultsGroupSummaryData","FICR_MT630000CA.AdjudResultsGroupSummaryData","QUCR_MT810201CA.AdjudResultsGroupSummaryData"})
 public class SummaryDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private PQ value = new PQImpl();
 
 
     /**
+     * <p>Un-merged Business Name: CodeForTypeOfAdjudicatedResult</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: SummaryTypeCode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Identify the different types of summary information.</p>
+     * 
      * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroupSummaryData.code</p>
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -74,22 +90,6 @@ public class SummaryDetailsBean extends MessagePartBean {
      * summaries.</p>
      * 
      * <p>Summary Period Amt</p>
-     * 
-     * <p>Un-merged Business Name: SummaryTypeCode</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroupSummaryData.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Identify the different types of summary information.</p>
-     * 
-     * <p>Un-merged Business Name: CodeForTypeOfAdjudicatedResult</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT810201NB.AdjudResultsGroupSummaryData.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceElementSummaryCode getCode() {
@@ -97,10 +97,26 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
 
     /**
+     * <p>Un-merged Business Name: CodeForTypeOfAdjudicatedResult</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: SummaryTypeCode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Identify the different types of summary information.</p>
+     * 
      * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroupSummaryData.code</p>
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -108,22 +124,6 @@ public class SummaryDetailsBean extends MessagePartBean {
      * summaries.</p>
      * 
      * <p>Summary Period Amt</p>
-     * 
-     * <p>Un-merged Business Name: SummaryTypeCode</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroupSummaryData.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Identify the different types of summary information.</p>
-     * 
-     * <p>Un-merged Business Name: CodeForTypeOfAdjudicatedResult</p>
-     * 
-     * <p>Relationship: 
-     * QUCR_MT810201NB.AdjudResultsGroupSummaryData.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setCode(ActInvoiceElementSummaryCode code) {
         this.code.setValue(code);
@@ -131,23 +131,21 @@ public class SummaryDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: SummaryTotalAmt</p>
+     * <p>Un-merged Business Name: ValueOfSummary</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroupSummaryData.value</p>
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
-     * <p>PQ or MO only - Value of summary</p>
-     * 
-     * <p>Summary Total Amt</p>
+     * <p>PQ or MO - Value of summary</p>
      * 
      * <p>Un-merged Business Name: SummaryTotalAmount</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroupSummaryData.value</p>
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -157,16 +155,18 @@ public class SummaryDetailsBean extends MessagePartBean {
      * 
      * <p>Summary Total</p>
      * 
-     * <p>Un-merged Business Name: ValueOfSummary</p>
+     * <p>Un-merged Business Name: SummaryTotalAmt</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201NB.AdjudResultsGroupSummaryData.value</p>
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
-     * <p>PQ or MO - Value of summary</p>
+     * <p>PQ or MO only - Value of summary</p>
+     * 
+     * <p>Summary Total Amt</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
@@ -174,23 +174,21 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: SummaryTotalAmt</p>
+     * <p>Un-merged Business Name: ValueOfSummary</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroupSummaryData.value</p>
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
-     * <p>PQ or MO only - Value of summary</p>
-     * 
-     * <p>Summary Total Amt</p>
+     * <p>PQ or MO - Value of summary</p>
      * 
      * <p>Un-merged Business Name: SummaryTotalAmount</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroupSummaryData.value</p>
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -200,16 +198,18 @@ public class SummaryDetailsBean extends MessagePartBean {
      * 
      * <p>Summary Total</p>
      * 
-     * <p>Un-merged Business Name: ValueOfSummary</p>
+     * <p>Un-merged Business Name: SummaryTotalAmt</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201NB.AdjudResultsGroupSummaryData.value</p>
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
-     * <p>PQ or MO - Value of summary</p>
+     * <p>PQ or MO only - Value of summary</p>
+     * 
+     * <p>Summary Total Amt</p>
      */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);

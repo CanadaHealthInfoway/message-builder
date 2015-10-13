@@ -48,12 +48,7 @@ import java.util.Date;
 /**
  * <p>Business Name: ReportedReactions</p>
  * 
- * <p>REPC_MT000009NB.ObservationEvent: (no business name)</p>
- * 
- * <p>Value must not be present when using SNOMED, mandatory 
- * otherwise</p>
- * 
- * <p>REPC_MT000005NB.ObservationEvent: Reported Reactions</p>
+ * <p>REPC_MT000005CA.ObservationEvent: Reported Reactions</p>
  * 
  * <p>Value must be mandatory if not using SNOMED</p>
  * 
@@ -70,12 +65,7 @@ import java.util.Date;
  * <p>This is a recording of a patient reaction that is 
  * believed to be associated with the allergy/intolerance.</p>
  * 
- * <p>REPC_MT000013NB.ObservationEvent: (no business name)</p>
- * 
- * <p>If code is SNOMED, value is not permitted, otherwise it 
- * is mandatory and code must be '''DX'''</p>
- * 
- * <p>REPC_MT000001NB.ObservationEvent: (no business name)</p>
+ * <p>REPC_MT000001CA.ObservationEvent: (no business name)</p>
  * 
  * <p>Value is required if not using SNOMED</p>
  * 
@@ -105,11 +95,21 @@ import java.util.Date;
  * the SeverityObservation vocabulary) for the ADR as well as 
  * its current status as shown in the sample messages. 
  * </span></p>
+ * 
+ * <p>REPC_MT000009CA.ObservationEvent: (no business name)</p>
+ * 
+ * <p>Value must not be present when using SNOMED, mandatory 
+ * otherwise</p>
+ * 
+ * <p>REPC_MT000013CA.ObservationEvent: (no business name)</p>
+ * 
+ * <p>If code is SNOMED, value is not permitted, otherwise it 
+ * is mandatory and code must be '''DX'''</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001NB.ObservationEvent","REPC_MT000005NB.ObservationEvent","REPC_MT000009NB.ObservationEvent","REPC_MT000013NB.ObservationEvent"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.ObservationEvent","REPC_MT000005CA.ObservationEvent","REPC_MT000009CA.ObservationEvent","REPC_MT000013CA.ObservationEvent"})
 public class ObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -124,7 +124,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -136,7 +136,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -148,7 +148,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -160,7 +160,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -180,7 +180,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -192,7 +192,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -204,7 +204,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -216,7 +216,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ObservationEvent.id</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -236,7 +236,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -251,7 +251,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -266,7 +266,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -289,7 +289,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -304,7 +304,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -319,7 +319,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.code</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -343,7 +343,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.ObservationEvent.negationInd</p>
+     * REPC_MT000005CA.ObservationEvent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -362,7 +362,26 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ObservationEvent.negationInd</p>
+     * REPC_MT000001CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is Codeine.</p><p>The 
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Indicates if there was an there was no adverse reaction 
+     * when the patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -382,7 +401,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.ObservationEvent.negationInd</p>
+     * REPC_MT000013CA.ObservationEvent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -396,25 +415,6 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Indicates that there was no adverse reaction when the 
      * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Un-merged Business Name: NoReactionOccurred</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000001NB.ObservationEvent.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>Indicates if there was an there was no adverse reaction 
-     * when the patient was exposed to the agent to which an 
      * allergy/intolerance has been recorded.</p>
      */
     @Hl7XmlMapping({"negationInd"})
@@ -428,7 +428,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.ObservationEvent.negationInd</p>
+     * REPC_MT000005CA.ObservationEvent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -447,7 +447,26 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ObservationEvent.negationInd</p>
+     * REPC_MT000001CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is Codeine.</p><p>The 
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Indicates if there was an there was no adverse reaction 
+     * when the patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -467,7 +486,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.ObservationEvent.negationInd</p>
+     * REPC_MT000013CA.ObservationEvent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -482,25 +501,6 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Indicates that there was no adverse reaction when the 
      * patient was exposed to the agent to which an 
      * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Un-merged Business Name: NoReactionOccurred</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000001NB.ObservationEvent.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>Indicates if there was an there was no adverse reaction 
-     * when the patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -512,7 +512,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -525,7 +525,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -538,7 +538,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -551,7 +551,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -572,7 +572,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -585,7 +585,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -598,7 +598,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -611,7 +611,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Description</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ObservationEvent.text</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -633,7 +633,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -646,7 +646,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -659,7 +659,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -672,7 +672,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -693,7 +693,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -706,7 +706,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -719,7 +719,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -732,7 +732,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.ObservationEvent.effectiveTime</p>
+     * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -752,7 +752,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -770,7 +770,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -788,7 +788,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -806,7 +806,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -832,7 +832,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -850,7 +850,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -868,7 +868,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -886,7 +886,7 @@ public class ObservationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Reaction</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ObservationEvent.value</p>
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -910,25 +910,25 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -940,25 +940,25 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Subject.severityObservation</p>
+     * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

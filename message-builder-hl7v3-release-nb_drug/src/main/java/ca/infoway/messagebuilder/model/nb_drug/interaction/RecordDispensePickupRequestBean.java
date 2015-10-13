@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020020nb.DispensePickupBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020020ca.DispensePickupBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020080NB: Record dispense pickup 
+ * <p>Business Name: PORX_IN020080CA: Record dispense pickup 
  * request</p>
  * 
  * <p>Requests that the pickup of a previously processed 
  * prescription be recorded.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT020020NB.SupplyEvent</p>
+ * <p>--> Payload: PORX_MT020020CA.SupplyEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020080NB"})
+@Hl7PartTypeMapping({"PORX_IN020080CA"})
 public class RecordDispensePickupRequestBean extends HL7MessageBean<TriggerEventBean<DispensePickupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

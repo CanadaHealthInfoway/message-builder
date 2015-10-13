@@ -23,46 +23,46 @@ package ca.infoway.messagebuilder.model.nb_drug.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt220200nb.DrugProductBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt220200ca.DrugProductBean;
 
 
 
 /**
  * <p>Business Name: Dispensed</p>
  * 
- * <p>PORX_MT980010NB.Product: *a:dispensed</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is marked as populated because it may be 
- * masked.</p>
- * 
- * <p>Indicates the drug that was dispensed</p>
- * 
- * <p>PORX_MT980020NB.Product: *a:dispensed</p>
+ * <p>PORX_MT980020CA.Product: *a:dispensed</p>
  * 
  * <p>Important information for issue management.</p><p>The 
  * association is only marked as 'populated' because it may be 
  * masked.</p>
  * 
  * <p>Indicates the implicated drug that was dispensed.</p>
+ * 
+ * <p>PORX_MT980010CA.Product: *a:dispensed</p>
+ * 
+ * <p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p>
+ * 
+ * <p>Indicates the drug that was dispensed</p>
  */
-@Hl7PartTypeMapping({"PORX_MT980010NB.Product","PORX_MT980020NB.Product"})
+@Hl7PartTypeMapping({"PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private DrugProductBean medication;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.Product.medication</p>
+     * <p>Relationship: PORX_MT980020CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.Product.medication</p>
+     * <p>Relationship: PORX_MT980010CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -74,13 +74,13 @@ public class DispensedBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.Product.medication</p>
+     * <p>Relationship: PORX_MT980020CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.Product.medication</p>
+     * <p>Relationship: PORX_MT980010CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Protocols</p>
  * 
- * <p>PORX_MT060340NB.SubstanceAdministrationDefinition: 
+ * <p>PORX_MT060340CA.SubstanceAdministrationDefinition: 
  * Protocols</p>
  * 
  * <p>Allows linking to specific guidelines or protocols. Also 
@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Documentation of why a prescriber has chosen to prescribe 
  * the drug in the manner they have.</p>
  * 
- * <p>PORX_MT060160NB.SubstanceAdministrationDefinition: 
+ * <p>PORX_MT060160CA.SubstanceAdministrationDefinition: 
  * Protocols</p>
  * 
  * <p>Allows linking to specific guidelines or protocols. Also 
@@ -52,10 +52,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Documentation of why a prescriber has chosen to prescribe 
  * the drug in the manner they have.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.SubstanceAdministrationDefinition","PORX_MT060160NB.SubstanceAdministrationDefinition","PORX_MT060340NB.SubstanceAdministrationDefinition"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.SubstanceAdministrationDefinition","PORX_MT060160CA.SubstanceAdministrationDefinition","PORX_MT060340CA.SubstanceAdministrationDefinition"})
 public class ProtocolsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -65,7 +65,7 @@ public class ProtocolsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubstanceAdministrationDefinition.id</p>
+     * PORX_MT060340CA.SubstanceAdministrationDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -86,28 +86,7 @@ public class ProtocolsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubstanceAdministrationDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Enables the communication of a reference to a protocol, 
-     * study or guideline id, specific to the 
-     * jurisdiction;</p><p>Allows providers to reference a 
-     * protocol/guideline for prescribing to specific situations. 
-     * This could also be used for justification for prescribing a 
-     * medication from a particular formulary. E.g., 'Limited Use' 
-     * medications in Ontario require physicians to use a code 
-     * indicating that a patient is eligible for this particular 
-     * medication</p>
-     * 
-     * <p>A unique identifier for a specific protocol or guideline 
-     * which the prescription has been written in accordance 
-     * with.</p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.SubstanceAdministrationDefinition.id</p>
+     * PORX_MT060160CA.SubstanceAdministrationDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -120,6 +99,27 @@ public class ProtocolsBean extends MessagePartBean {
      * medications in Ontario require physicians to use a code 
      * indicating that a patient is eligible for this particular 
      * medication.</p>
+     * 
+     * <p>A unique identifier for a specific protocol or guideline 
+     * which the prescription has been written in accordance 
+     * with.</p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Enables the communication of a reference to a protocol, 
+     * study or guideline id, specific to the 
+     * jurisdiction;</p><p>Allows providers to reference a 
+     * protocol/guideline for prescribing to specific situations. 
+     * This could also be used for justification for prescribing a 
+     * medication from a particular formulary. E.g., 'Limited Use' 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication</p>
      * 
      * <p>A unique identifier for a specific protocol or guideline 
      * which the prescription has been written in accordance 
@@ -136,7 +136,7 @@ public class ProtocolsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubstanceAdministrationDefinition.id</p>
+     * PORX_MT060340CA.SubstanceAdministrationDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -157,28 +157,7 @@ public class ProtocolsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubstanceAdministrationDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Enables the communication of a reference to a protocol, 
-     * study or guideline id, specific to the 
-     * jurisdiction;</p><p>Allows providers to reference a 
-     * protocol/guideline for prescribing to specific situations. 
-     * This could also be used for justification for prescribing a 
-     * medication from a particular formulary. E.g., 'Limited Use' 
-     * medications in Ontario require physicians to use a code 
-     * indicating that a patient is eligible for this particular 
-     * medication</p>
-     * 
-     * <p>A unique identifier for a specific protocol or guideline 
-     * which the prescription has been written in accordance 
-     * with.</p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.SubstanceAdministrationDefinition.id</p>
+     * PORX_MT060160CA.SubstanceAdministrationDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,6 +170,27 @@ public class ProtocolsBean extends MessagePartBean {
      * medications in Ontario require physicians to use a code 
      * indicating that a patient is eligible for this particular 
      * medication.</p>
+     * 
+     * <p>A unique identifier for a specific protocol or guideline 
+     * which the prescription has been written in accordance 
+     * with.</p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Enables the communication of a reference to a protocol, 
+     * study or guideline id, specific to the 
+     * jurisdiction;</p><p>Allows providers to reference a 
+     * protocol/guideline for prescribing to specific situations. 
+     * This could also be used for justification for prescribing a 
+     * medication from a particular formulary. E.g., 'Limited Use' 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication</p>
      * 
      * <p>A unique identifier for a specific protocol or guideline 
      * which the prescription has been written in accordance 

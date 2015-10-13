@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000001nb.AllergyIntoleranceBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000001ca.AllergyIntoleranceBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000012NB: Add allergy/intolerance 
+ * <p>Business Name: REPC_IN000012CA: Add allergy/intolerance 
  * request</p>
  * 
  * <p>Requests that a new allergy or intolerance record be 
  * recorded against the specified patient.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000001NB.IntoleranceCondition</p>
+ * <p>--> Payload: REPC_MT000001CA.IntoleranceCondition</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000012NB"})
+@Hl7PartTypeMapping({"REPC_IN000012CA"})
 public class AddAllergyIntoleranceRequestBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

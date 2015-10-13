@@ -51,7 +51,7 @@ import java.util.List;
 /**
  * <p>Business Name: PrinicpalPerson</p>
  * 
- * <p>PRPM_MT303010NB.PrincipalPerson: Prinicpal Person</p>
+ * <p>PRPM_MT303010CA.PrincipalPerson: Prinicpal Person</p>
  * 
  * <p>Provides additional information about the person playing 
  * the role of Healthcare Provider</p>
@@ -60,7 +60,7 @@ import java.util.List;
  * support the case in which information directly related to 
  * the playing party is not needed.</p>
  * 
- * <p>PRPM_MT301010NB.PrincipalPerson: Prinicpal Person</p>
+ * <p>PRPM_MT301010CA.PrincipalPerson: Prinicpal Person</p>
  * 
  * <p>Provides additional information about the person playing 
  * the role of Healthcare Provider</p>
@@ -69,10 +69,10 @@ import java.util.List;
  * support the case in which information directly related to 
  * the playing party is not needed.</p>
  */
-@Hl7PartTypeMapping({"PRPM_MT301010NB.PrincipalPerson","PRPM_MT303010NB.PrincipalPerson"})
+@Hl7PartTypeMapping({"PRPM_MT301010CA.PrincipalPerson","PRPM_MT303010CA.PrincipalPerson"})
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -89,7 +89,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.id</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -103,7 +103,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.id</p>
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -125,7 +125,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.id</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -139,7 +139,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.id</p>
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -160,7 +160,22 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonName</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.name</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>If Principal Person is included in the message, then 
+     * Person Name Must Exist.</p>
+     * 
+     * <p>The person'''s name independent of any role they may 
+     * play.</p>
+     * 
+     * <p>Un-merged Business Name: PrincipalPersonName</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
@@ -171,21 +186,6 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Name Must Exist.</p>
-     * 
-     * <p>The person'''s name independent of any role they may 
-     * play.</p>
-     * 
-     * <p>Un-merged Business Name: PrincipalPersonName</p>
-     * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
-     * 
-     * <p>Required attribute supports the identification of the 
-     * healthcare provider</p>
-     * 
-     * <p>If Principal Person is included in the message, then 
-     * Person Name Must Exist.</p>
      * 
      * <p>The person'''s name independent of any role they may 
      * play.</p>
@@ -202,11 +202,9 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrincipalPerson.administrativeGenderCode</p>
+     * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>STF.5</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -219,9 +217,11 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrincipalPerson.administrativeGenderCode</p>
+     * PRPM_MT301010CA.PrincipalPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>STF.5</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -242,11 +242,9 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrincipalPerson.administrativeGenderCode</p>
+     * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>STF.5</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -259,9 +257,11 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrincipalPerson.administrativeGenderCode</p>
+     * PRPM_MT301010CA.PrincipalPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>STF.5</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -281,7 +281,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.birthTime</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -295,7 +295,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.birthTime</p>
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -317,7 +317,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.birthTime</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -331,7 +331,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.birthTime</p>
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -353,7 +353,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.deceasedInd</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.deceasedInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -364,7 +364,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.deceasedInd</p>
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.deceasedInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -383,7 +383,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.PrincipalPerson.deceasedInd</p>
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.deceasedInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -394,7 +394,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.PrincipalPerson.deceasedInd</p>
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.deceasedInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -414,7 +414,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrincipalPerson.deceasedTime</p>
+     * PRPM_MT303010CA.PrincipalPerson.deceasedTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -429,7 +429,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrincipalPerson.deceasedTime</p>
+     * PRPM_MT301010CA.PrincipalPerson.deceasedTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -452,7 +452,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrincipalPerson.deceasedTime</p>
+     * PRPM_MT303010CA.PrincipalPerson.deceasedTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -467,7 +467,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrincipalPerson.deceasedTime</p>
+     * PRPM_MT301010CA.PrincipalPerson.deceasedTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -489,7 +489,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Birthplace.addr</p>
+     * <p>Relationship: PRPM_MT303010CA.Birthplace.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -503,7 +503,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Birthplace.addr</p>
+     * <p>Relationship: PRPM_MT301010CA.Birthplace.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -525,7 +525,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Birthplace.addr</p>
+     * <p>Relationship: PRPM_MT303010CA.Birthplace.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -539,7 +539,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Birthplace.addr</p>
+     * <p>Relationship: PRPM_MT301010CA.Birthplace.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -560,14 +560,14 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrincipalPerson.languageCommunication</p>
+     * PRPM_MT303010CA.PrincipalPerson.languageCommunication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrincipalPerson.languageCommunication</p>
+     * PRPM_MT301010CA.PrincipalPerson.languageCommunication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */

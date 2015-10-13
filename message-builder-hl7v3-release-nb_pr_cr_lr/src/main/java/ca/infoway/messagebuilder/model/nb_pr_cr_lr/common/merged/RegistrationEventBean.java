@@ -23,14 +23,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090310nb.EHRRepositoryBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 /**
- * <p>MFMI_MT700717NB.RegistrationEvent: Registration 
+ * <p>MFMI_MT700717CA.RegistrationEvent: Registration 
  * Notification</p>
  * 
  * <p>The RegistrationProcess act is the focal act of the 
@@ -41,7 +41,7 @@ import java.util.List;
  * Registry. This message is a notification of the 
  * registration.</p>
  * 
- * <p>MFMI_MT700746NB.RegistrationEvent: Registration Event</p>
+ * <p>MFMI_MT700746CA.RegistrationEvent: Registration Event</p>
  * 
  * <p>The RegistrationProcess act is the focal act of the 
  * message and therefore is mandatory</p>
@@ -51,7 +51,7 @@ import java.util.List;
  * Registry. This message is a response to a request to 
  * register (therefore, the mood is an event).</p>
  * 
- * <p>MFMI_MT700726NB.RegistrationEvent: Registration Event</p>
+ * <p>MFMI_MT700726CA.RegistrationEvent: Registration Event</p>
  * 
  * <p>The RegistrationProcess act is the focal act of the 
  * message and therefore is mandatory</p>
@@ -61,10 +61,10 @@ import java.util.List;
  * Registry. This message is a response to a request to 
  * register (therefore, the mood is an event).</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700717NB.RegistrationEvent","MFMI_MT700726NB.RegistrationEvent","MFMI_MT700746NB.RegistrationEvent"})
+@Hl7PartTypeMapping({"MFMI_MT700717CA.RegistrationEvent","MFMI_MT700726CA.RegistrationEvent","MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
@@ -73,19 +73,19 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700717CA.RegistrationEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -97,19 +97,19 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700717CA.RegistrationEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -121,19 +121,19 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700717CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700746CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -145,19 +145,19 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700717CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700746CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.Custodian.assignedDevice</p>
+     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -170,21 +170,21 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.RegistrationEvent.replacementOf</p>
+     * MFMI_MT700717CA.RegistrationEvent.replacementOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.RegistrationEvent.replacementOf</p>
+     * MFMI_MT700746CA.RegistrationEvent.replacementOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.RegistrationEvent.replacementOf</p>
+     * MFMI_MT700726CA.RegistrationEvent.replacementOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
      */

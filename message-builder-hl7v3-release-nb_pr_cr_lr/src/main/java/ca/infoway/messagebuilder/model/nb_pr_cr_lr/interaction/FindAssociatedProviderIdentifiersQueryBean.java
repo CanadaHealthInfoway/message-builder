@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700751nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306050nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700751ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306050ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: PRPM_IN306050NB: Find Associated Provider 
+ * <p>Business Name: PRPM_IN306050CA: Find Associated Provider 
  * Identifiers Query</p>
  * 
  * <p>This interaction is used to request associated 
@@ -38,15 +38,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306050nb.ParameterL
  * Associated Identifiers Query Response containing the 
  * requested information from the provider registry system.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700751NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT306050NB.ParameterList</p>
+ * <p>--> Payload: PRPM_MT306050CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN306050NB"})
+@Hl7PartTypeMapping({"PRPM_IN306050CA"})
 public class FindAssociatedProviderIdentifiersQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

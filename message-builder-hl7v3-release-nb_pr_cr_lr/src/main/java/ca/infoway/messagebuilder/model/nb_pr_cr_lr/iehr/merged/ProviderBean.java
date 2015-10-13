@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Provider</p>
  * 
- * <p>REPC_MT210002NB.AssignedEntity: Provider</p>
+ * <p>REPC_MT210003CA.AssignedEntity: Provider</p>
  * 
  * <p>Player association must be present if and only if id is 
  * present</p>
@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * provider who is being requested to deliver services to the 
  * patient.</p>
  * 
- * <p>REPC_MT210003NB.AssignedEntity: Provider</p>
+ * <p>REPC_MT210001CA.AssignedEntity: Provider</p>
  * 
  * <p>Player association must be present if and only if id is 
  * present</p>
@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * provider who is being requested to deliver services to the 
  * patient.</p>
  * 
- * <p>REPC_MT210001NB.AssignedEntity: Provider</p>
+ * <p>REPC_MT210002CA.AssignedEntity: Provider</p>
  * 
  * <p>Player association must be present if and only if id is 
  * present</p>
@@ -80,10 +80,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * provider who is being requested to deliver services to the 
  * patient.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT210001NB.AssignedEntity","REPC_MT210002NB.AssignedEntity","REPC_MT210003NB.AssignedEntity"})
+@Hl7PartTypeMapping({"REPC_MT210001CA.AssignedEntity","REPC_MT210002CA.AssignedEntity","REPC_MT210003CA.AssignedEntity"})
 public class ProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN assignedProviderName = new PNImpl();
@@ -94,7 +94,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderId</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.AssignedEntity.id</p>
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -118,7 +118,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderId</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.AssignedEntity.id</p>
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -142,7 +142,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderId</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.AssignedEntity.id</p>
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -174,7 +174,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderId</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.AssignedEntity.id</p>
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -198,7 +198,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderId</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.AssignedEntity.id</p>
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -222,7 +222,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderId</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.AssignedEntity.id</p>
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -254,7 +254,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.AssignedEntity.code</p>
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -266,7 +266,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.AssignedEntity.code</p>
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -278,7 +278,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.AssignedEntity.code</p>
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -298,7 +298,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.AssignedEntity.code</p>
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -310,7 +310,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.AssignedEntity.code</p>
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -322,7 +322,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.AssignedEntity.code</p>
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -342,7 +342,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Provider.name</p>
+     * <p>Relationship: REPC_MT210001CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -355,7 +355,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Provider.name</p>
+     * <p>Relationship: REPC_MT210003CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -368,7 +368,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Provider.name</p>
+     * <p>Relationship: REPC_MT210002CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -389,7 +389,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Provider.name</p>
+     * <p>Relationship: REPC_MT210001CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -402,7 +402,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Provider.name</p>
+     * <p>Relationship: REPC_MT210003CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -415,7 +415,7 @@ public class ProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Provider.name</p>
+     * <p>Relationship: REPC_MT210002CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

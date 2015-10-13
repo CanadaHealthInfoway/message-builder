@@ -22,27 +22,27 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt330000nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt330000ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: POLB_IN351000NB: Find Order</p>
+ * <p>Business Name: POLB_IN351000CA: Find Order</p>
  * 
  * <p>This interaction is used to query lab orders from a 
  * JLIS.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT330000NB.ParameterList</p>
+ * <p>--> Payload: POLB_MT330000CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POLB_IN351000NB"})
+@Hl7PartTypeMapping({"POLB_IN351000CA"})
 public class FindOrderBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

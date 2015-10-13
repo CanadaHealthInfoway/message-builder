@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000007nb.HealthConditionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000015nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000007ca.HealthConditionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000015ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000024NB: Patient health condition 
+ * <p>Business Name: REPC_IN000024CA: Patient health condition 
  * summaries query response</p>
  * 
  * <p>Returns the list of recorded patient health conditions 
  * (symptoms, health problems, diagnosis). Including past 
  * changes.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000007NB.ConditionEvent</p>
+ * <p>--> Payload: REPC_MT000007CA.ConditionEvent</p>
  * 
- * <p>--> Payload: REPC_MT000015NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000015CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000024NB"})
+@Hl7PartTypeMapping({"REPC_IN000024CA"})
 public class PatientHealthConditionSummariesQueryResponseBean extends HL7MessageBean<TriggerEventBean<HealthConditionBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

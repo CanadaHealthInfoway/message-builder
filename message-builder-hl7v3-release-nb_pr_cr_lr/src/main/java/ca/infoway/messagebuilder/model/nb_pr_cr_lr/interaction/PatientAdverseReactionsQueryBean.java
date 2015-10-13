@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000016nb.AdverseReactionsQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000016ca.AdverseReactionsQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000001NB: Patient adverse reactions 
+ * <p>Business Name: REPC_IN000001CA: Patient adverse reactions 
  * query</p>
  * 
  * <p>Requests retrieval of the details about all adverse 
@@ -38,15 +38,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000016nb.AdverseR
  * the occurrence of the reaction and/or time-range in which 
  * the adverse reaction information was last changed.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000016NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000016CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000001NB"})
+@Hl7PartTypeMapping({"REPC_IN000001CA"})
 public class PatientAdverseReactionsQueryBean extends HL7MessageBean<TriggerEventBean<AdverseReactionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

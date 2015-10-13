@@ -31,14 +31,14 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107nb.ProviderBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.nb_drug.merged.RefusedByBean;
 import java.util.Date;
 
 
 
 /**
- * <p>REPC_MT000010NB.ControlActEvent: Medical Condition Status 
+ * <p>REPC_MT000010CA.ControlActEvent: Medical Condition Status 
  * Changes</p>
  * 
  * <p>Provides an audit trail of a patient's medical condition 
@@ -48,7 +48,7 @@ import java.util.Date;
  * to the medical condition record, including why the changes 
  * were made, who made them and when.</p>
  * 
- * <p>REPC_MT000009NB.ControlActEvent: Allergy/Intolerance 
+ * <p>REPC_MT000009CA.ControlActEvent: Allergy/Intolerance 
  * Status Changes</p>
  * 
  * <p>Provides a record of a patient's allergy changes, 
@@ -59,10 +59,10 @@ import java.util.Date;
  * to the allergy/intolerance, including why the changes were 
  * made, who made them and when.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000009NB.ControlActEvent","REPC_MT000010NB.ControlActEvent"})
+@Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent","REPC_MT000010CA.ControlActEvent"})
 public class MedicalConditionStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -73,7 +73,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: MedicalConditionStatusChangeType</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.ControlActEvent.code</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -85,7 +85,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ControlActEvent.code</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,7 +104,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: MedicalConditionStatusChangeType</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.ControlActEvent.code</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -116,7 +116,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ControlActEvent.code</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -137,7 +137,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * MedicalConditionStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000010NB.ControlActEvent.effectiveTime</p>
+     * REPC_MT000010CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,7 +152,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ControlActEvent.effectiveTime</p>
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * MedicalConditionStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000010NB.ControlActEvent.effectiveTime</p>
+     * REPC_MT000010CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ControlActEvent.effectiveTime</p>
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -208,7 +208,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * MedicalConditionStatusChangeReason</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -222,7 +222,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeReason</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -242,7 +242,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * MedicalConditionStatusChangeReason</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -256,7 +256,7 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeReason</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -276,14 +276,14 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000010NB.ResponsibleParty2.assignedPerson</p>
+     * REPC_MT000010CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ResponsibleParty2.assignedPerson</p>
+     * REPC_MT000009CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -296,14 +296,14 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000010NB.ResponsibleParty2.assignedPerson</p>
+     * REPC_MT000010CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.ResponsibleParty2.assignedPerson</p>
+     * REPC_MT000009CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -315,13 +315,13 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -333,13 +333,13 @@ public class MedicalConditionStatusChangesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000010NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

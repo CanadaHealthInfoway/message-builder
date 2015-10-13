@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001103nb.ReferencedRecordBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700227nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001103ca.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700227ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: FICR_IN630202NB: Invoice Nullify 
+ * <p>Business Name: FICR_IN630202CA: Invoice Nullify 
  * Rejection, Rx</p>
  * 
  * <p>The sender sends an ACK to acknowledge of the request and 
  * indicate that the nullification was rejected and the 
  * adjudication results not reversed.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700227NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700227CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001103NB.ActEvent</p>
+ * <p>--> Payload: COMT_MT001103CA.ActEvent</p>
  */
-@Hl7PartTypeMapping({"FICR_IN630202NB"})
+@Hl7PartTypeMapping({"FICR_IN630202CA"})
 public class InvoiceNullifyRejectionRxBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -22,26 +22,26 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700236nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700236ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000072NB: Record care composition 
+ * <p>Business Name: REPC_IN000072CA: Record care composition 
  * request refused</p>
  * 
  * <p>Indicates request to record basic information about an 
  * encounter, episode or similar structure for a particular 
  * patient or group of patients has been refused.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700236NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700236CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000072NB"})
+@Hl7PartTypeMapping({"REPC_IN000072CA"})
 public class RecordCareCompositionRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

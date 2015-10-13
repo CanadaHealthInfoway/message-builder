@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: PriorTestRequest</p>
  * 
- * <p>POLB_MT001999NB.PriorActRequest: Prior Test Request</p>
+ * <p>POLB_MT001999CA.PriorActRequest: Prior Test Request</p>
  * 
  * <p>This is used primarily for Order referrals.</p>
  * 
@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * organization that uniquely identifies this test request 
  * among all test requests in the receiving application.</p>
  * 
- * <p>POLB_MT001001NB.PriorActRequest: Prior Test Request</p>
+ * <p>POLB_MT001010CA.PriorActRequest: Prior Test Request</p>
  * 
  * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
  * or '''OBS''' according to the parent order classCode.</p>
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * organization that uniquely identifies this test request 
  * among all test requests in the receiving application.</p>
  * 
- * <p>POLB_MT001010NB.PriorActRequest: Prior Test Request</p>
+ * <p>POLB_MT001001CA.PriorActRequest: Prior Test Request</p>
  * 
  * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
  * or '''OBS''' according to the parent order classCode.</p>
@@ -66,10 +66,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * organization that uniquely identifies this test request 
  * among all test requests in the receiving application.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT001000NB.PriorActRequest","POLB_MT001001NB.PriorActRequest","POLB_MT001010NB.PriorActRequest","POLB_MT001999NB.PriorActRequest"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.PriorActRequest","POLB_MT001001CA.PriorActRequest","POLB_MT001010CA.PriorActRequest","POLB_MT001999CA.PriorActRequest"})
 public class PriorTestRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
@@ -78,25 +78,25 @@ public class PriorTestRequestBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -108,25 +108,25 @@ public class PriorTestRequestBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.PriorActRequest.classCode</p>
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -140,26 +140,13 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.PriorActRequest.id</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.PriorActRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used for order referrals. This attribute communicates the 
-     * identifier of the original test request (target) from which 
-     * the (source) referral request originated.</p>
-     * 
-     * <p>Uniquely identifies this test request among all test 
-     * requests in the receiving application.</p>
-     * 
-     * <p>Un-merged Business Name: PriorTestIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT001001NB.PriorActRequest.id</p>
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -172,7 +159,20 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.PriorActRequest.id</p>
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals. This attribute communicates the 
+     * identifier of the original test request (target) from which 
+     * the (source) referral request originated.</p>
+     * 
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
+     * 
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -193,26 +193,13 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.PriorActRequest.id</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.PriorActRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used for order referrals. This attribute communicates the 
-     * identifier of the original test request (target) from which 
-     * the (source) referral request originated.</p>
-     * 
-     * <p>Uniquely identifies this test request among all test 
-     * requests in the receiving application.</p>
-     * 
-     * <p>Un-merged Business Name: PriorTestIdentifier</p>
-     * 
-     * <p>Relationship: POLB_MT001001NB.PriorActRequest.id</p>
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -225,7 +212,20 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.PriorActRequest.id</p>
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals. This attribute communicates the 
+     * identifier of the original test request (target) from which 
+     * the (source) referral request originated.</p>
+     * 
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
+     * 
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -246,23 +246,13 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.PriorActRequest.statusCode</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.PriorActRequest.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used for order referrals.</p>
-     * 
-     * <p>The status of the prior test request.</p>
-     * 
-     * <p>Un-merged Business Name: PriorTestStatus</p>
-     * 
-     * <p>Relationship: POLB_MT001001NB.PriorActRequest.statusCode</p>
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -272,7 +262,17 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.PriorActRequest.statusCode</p>
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals.</p>
+     * 
+     * <p>The status of the prior test request.</p>
+     * 
+     * <p>Un-merged Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -290,23 +290,13 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.PriorActRequest.statusCode</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.PriorActRequest.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used for order referrals.</p>
-     * 
-     * <p>The status of the prior test request.</p>
-     * 
-     * <p>Un-merged Business Name: PriorTestStatus</p>
-     * 
-     * <p>Relationship: POLB_MT001001NB.PriorActRequest.statusCode</p>
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -316,7 +306,17 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.PriorActRequest.statusCode</p>
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals.</p>
+     * 
+     * <p>The status of the prior test request.</p>
+     * 
+     * <p>Un-merged Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

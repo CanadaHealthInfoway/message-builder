@@ -22,27 +22,27 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300001nb.CommentBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300001ca.CommentBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN300001NB: Add patient note request</p>
+ * <p>Business Name: COMT_IN300001CA: Add patient note request</p>
  * 
  * <p>Requests that the specified annotation be recorded 
  * against the identified patient</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT300001NB.Annotation</p>
+ * <p>--> Payload: COMT_MT300001CA.Annotation</p>
  */
-@Hl7PartTypeMapping({"COMT_IN300001NB"})
+@Hl7PartTypeMapping({"COMT_IN300001CA"})
 public class AddPatientNoteRequestBean extends HL7MessageBean<TriggerEventBean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

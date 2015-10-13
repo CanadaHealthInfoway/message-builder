@@ -44,7 +44,7 @@ import java.util.Set;
 /**
  * <p>Business Name: ContactPoints</p>
  * 
- * <p>PRLO_MT202015NB.ContactParty: Contact Points</p>
+ * <p>PRLO_MT202015CA.ContactParty: Contact Points</p>
  * 
  * <p>At least one of addr or telecom must be supplied.</p>
  * 
@@ -55,7 +55,7 @@ import java.util.Set;
  * <p>Administrative contacts within a location, allowing for 
  * communication with various departments or areas.</p>
  * 
- * <p>PRLO_MT000002NB.ContactParty: Contact Points</p>
+ * <p>PRLO_MT202014CA.ContactParty: Contact Points</p>
  * 
  * <p>At least one of addr or telecom must be supplied.</p>
  * 
@@ -66,7 +66,7 @@ import java.util.Set;
  * <p>Administrative contacts within a location, allowing for 
  * communication with various departments or areas.</p>
  * 
- * <p>PRLO_MT202014NB.ContactParty: Contact Points</p>
+ * <p>PRLO_MT000002CA.ContactParty: Contact Points</p>
  * 
  * <p>At least one of addr or telecom must be supplied.</p>
  * 
@@ -77,10 +77,10 @@ import java.util.Set;
  * <p>Administrative contacts within a location, allowing for 
  * communication with various departments or areas.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT600201NB.ContactParty","PRLO_MT000002NB.ContactParty","PRLO_MT202014NB.ContactParty","PRLO_MT202015NB.ContactParty"})
+@Hl7PartTypeMapping({"FICR_MT600201CA.ContactParty","PRLO_MT000002CA.ContactParty","PRLO_MT202014CA.ContactParty","PRLO_MT202015CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -91,7 +91,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ContactType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ContactParty.code</p>
+     * <p>Relationship: PRLO_MT202015CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -106,7 +106,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdministrativeContactType</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactParty.code</p>
+     * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -114,7 +114,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ContactParty.code</p>
+     * <p>Relationship: PRLO_MT202014CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -129,7 +129,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ContactParty.code</p>
+     * <p>Relationship: PRLO_MT000002CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -150,7 +150,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ContactType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ContactParty.code</p>
+     * <p>Relationship: PRLO_MT202015CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdministrativeContactType</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactParty.code</p>
+     * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ContactParty.code</p>
+     * <p>Relationship: PRLO_MT202014CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ContactParty.code</p>
+     * <p>Relationship: PRLO_MT000002CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -211,7 +211,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactAddress</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ContactParty.addr</p>
+     * <p>Relationship: PRLO_MT202015CA.ContactParty.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -222,7 +222,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactAddress</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ContactParty.addr</p>
+     * <p>Relationship: PRLO_MT202014CA.ContactParty.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -233,7 +233,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactAddress</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ContactParty.addr</p>
+     * <p>Relationship: PRLO_MT000002CA.ContactParty.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -252,7 +252,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactAddress</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ContactParty.addr</p>
+     * <p>Relationship: PRLO_MT202015CA.ContactParty.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -263,7 +263,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactAddress</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ContactParty.addr</p>
+     * <p>Relationship: PRLO_MT202014CA.ContactParty.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -274,7 +274,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactAddress</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ContactParty.addr</p>
+     * <p>Relationship: PRLO_MT000002CA.ContactParty.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -293,7 +293,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactPhoneNumberAndEmails</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ContactParty.telecom</p>
+     * <p>Relationship: PRLO_MT202015CA.ContactParty.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
      * 
@@ -304,7 +304,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactPhoneNumberAndEmails</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ContactParty.telecom</p>
+     * <p>Relationship: PRLO_MT202014CA.ContactParty.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
      * 
@@ -315,7 +315,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContactPhoneNumberAndEmails</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ContactParty.telecom</p>
+     * <p>Relationship: PRLO_MT000002CA.ContactParty.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
      * 
@@ -335,7 +335,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdministrativeContactID</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactParty.id</p>
+     * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -351,7 +351,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdministrativeContactID</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactParty.id</p>
+     * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -365,7 +365,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactParty.contactPerson</p>
+     * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -377,7 +377,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.ContactParty.contactPerson</p>
+     * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */

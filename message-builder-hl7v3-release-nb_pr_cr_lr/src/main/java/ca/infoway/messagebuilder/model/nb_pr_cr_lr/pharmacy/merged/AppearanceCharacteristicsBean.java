@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: AppearanceCharacteristics</p>
  * 
- * <p>POME_MT010100NB.Characteristic: Appearance 
+ * <p>POME_MT010100CA.Characteristic: Appearance 
  * Characteristics</p>
  * 
  * <p>Used for searching drugs. May be employed as means of 
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The characteristics of a manufactured product that 
  * visually distinguish it from other products.</p>
  * 
- * <p>POME_MT010040NB.Characteristic: Appearance 
+ * <p>POME_MT010040CA.Characteristic: Appearance 
  * Characteristics</p>
  * 
  * <p>Used for searching drugs. May be employed as means of 
@@ -52,10 +52,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The characteristics of a manufactured product that 
  * visually distinguish it from other products.</p>
  */
-@Hl7PartTypeMapping({"POME_MT010040NB.Characteristic","POME_MT010100NB.Characteristic"})
+@Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST value = new STImpl();
 
@@ -65,7 +65,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CharacteristicType</p>
      * 
-     * <p>Relationship: POME_MT010100NB.Characteristic.code</p>
+     * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -80,7 +80,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CharacteristicType</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Characteristic.code</p>
+     * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -103,7 +103,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CharacteristicType</p>
      * 
-     * <p>Relationship: POME_MT010100NB.Characteristic.code</p>
+     * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -118,7 +118,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CharacteristicType</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Characteristic.code</p>
+     * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -141,7 +141,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Characteristic</p>
      * 
-     * <p>Relationship: POME_MT010100NB.Characteristic.value</p>
+     * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -156,7 +156,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Characteristic</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Characteristic.value</p>
+     * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -178,7 +178,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Characteristic</p>
      * 
-     * <p>Relationship: POME_MT010100NB.Characteristic.value</p>
+     * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -193,7 +193,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Characteristic</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Characteristic.value</p>
+     * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

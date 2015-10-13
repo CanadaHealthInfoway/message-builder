@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.RestrictionToPrac
 /**
  * <p>Business Name: PrivilegeCategorization</p>
  * 
- * <p>PRPM_MT303010NB.PrivilegeCategorization: Privilege 
+ * <p>PRPM_MT306011CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
  * <p>Supports the business requirement to provide information 
@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.RestrictionToPrac
  * about a subject. In this instance, regarding restrictions to 
  * practice for a specified healthcare provider.</p>
  * 
- * <p>PRPM_MT309000NB.PrivilegeCategorization: Privilege 
+ * <p>PRPM_MT309000CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
  * <p>Supports the business requirement to provide information 
@@ -55,7 +55,18 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.RestrictionToPrac
  * about a subject. In this instance, regarding restrictions to 
  * practice for a specified healthcare provider.</p>
  * 
- * <p>PRPM_MT301010NB.PrivilegeCategorization: Privilege 
+ * <p>PRPM_MT303010CA.PrivilegeCategorization: Privilege 
+ * Categorization</p>
+ * 
+ * <p>Supports the business requirement to provide information 
+ * about a healthcare provider where privileges have been 
+ * restricted.</p>
+ * 
+ * <p>An act that is intended to result in new information 
+ * about a subject. In this instance, regarding restrictions to 
+ * practice for a specified healthcare provider.</p>
+ * 
+ * <p>PRPM_MT301010CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
  * <p>Supports the business requirement to provide information 
@@ -67,22 +78,11 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.RestrictionToPrac
  * <p>An act that is intended to result in new information 
  * about a subject. In this instance, regarding restrictions to 
  * practice for a specified healthcare provider.</p>
- * 
- * <p>PRPM_MT306011NB.PrivilegeCategorization: Privilege 
- * Categorization</p>
- * 
- * <p>Supports the business requirement to provide information 
- * about a healthcare provider where privileges have been 
- * restricted.</p>
- * 
- * <p>An act that is intended to result in new information 
- * about a subject. In this instance, regarding restrictions to 
- * practice for a specified healthcare provider.</p>
  */
-@Hl7PartTypeMapping({"PRPM_MT301010NB.PrivilegeCategorization","PRPM_MT303010NB.PrivilegeCategorization","PRPM_MT306011NB.PrivilegeCategorization","PRPM_MT309000NB.PrivilegeCategorization"})
+@Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
@@ -93,11 +93,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrivilegeCategorization.code</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -107,7 +107,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.PrivilegeCategorization.code</p>
+     * PRPM_MT309000CA.PrivilegeCategorization.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -121,7 +121,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrivilegeCategorization.code</p>
+     * PRPM_MT301010CA.PrivilegeCategorization.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -135,11 +135,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.PrivilegeCategorization.code</p>
+     * PRPM_MT303010CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -157,11 +157,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrivilegeCategorization.code</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -171,7 +171,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.PrivilegeCategorization.code</p>
+     * PRPM_MT309000CA.PrivilegeCategorization.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -185,7 +185,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.PrivilegeCategorization.code</p>
+     * PRPM_MT301010CA.PrivilegeCategorization.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -199,11 +199,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.PrivilegeCategorization.code</p>
+     * PRPM_MT303010CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -221,53 +221,53 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrivilegeCategorization.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT309000NB.PrivilegeCategorization.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.PrivilegeCategorization.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT306011NB.PrivilegeCategorization.value</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrivilegeCategorization.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrivilegeCategorization.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrivilegeCategorization.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -285,53 +285,53 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.PrivilegeCategorization.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT309000NB.PrivilegeCategorization.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.PrivilegeCategorization.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT306011NB.PrivilegeCategorization.value</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrivilegeCategorization.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrivilegeCategorization.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrivilegeCategorization.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 

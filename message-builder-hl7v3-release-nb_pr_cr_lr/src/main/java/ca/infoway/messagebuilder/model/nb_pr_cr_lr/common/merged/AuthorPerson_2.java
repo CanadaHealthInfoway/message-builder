@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"MFMI_MT700711NB.AuthorPerson","MFMI_MT700751NB.AuthorPerson"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.AuthorPerson","MFMI_MT700751CA.AuthorPerson"})
 public interface AuthorPerson_2 {
 
 }

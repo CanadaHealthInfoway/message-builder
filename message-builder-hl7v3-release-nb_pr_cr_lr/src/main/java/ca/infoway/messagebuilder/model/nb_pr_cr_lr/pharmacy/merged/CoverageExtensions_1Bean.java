@@ -35,15 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: CoverageExtensions</p>
  * 
- * <p>PORX_MT010110NB.Coverage: Coverage Extensions</p>
- * 
- * <p>Allows conveying special coverage information between 
- * providers.</p>
- * 
- * <p>An authorization issued by a payor to cover a device not 
- * previously covered by a patient's drug plan.</p>
- * 
- * <p>PORX_MT010120NB.Coverage: Coverage Extensions</p>
+ * <p>PORX_MT010120CA.Coverage: Coverage Extensions</p>
  * 
  * <p>Allows conveying special coverage information between 
  * providers.</p>
@@ -51,7 +43,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>An authorization issued by a payor to cover a drug not 
  * previously covered by a patient's drug plan.</p>
  * 
- * <p>PORX_MT060040NB.Coverage: Coverage Extensions</p>
+ * <p>PORX_MT060040CA.Coverage: Coverage Extensions</p>
+ * 
+ * <p>Allows conveying special coverage information between 
+ * providers.</p>
+ * 
+ * <p>An authorization issued by a payor to cover a device not 
+ * previously covered by a patient's drug plan.</p>
+ * 
+ * <p>PORX_MT010110CA.Coverage: Coverage Extensions</p>
  * 
  * <p>Allows conveying special coverage information between 
  * providers.</p>
@@ -59,10 +59,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>An authorization issued by a payor to cover a device not 
  * previously covered by a patient's drug plan.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010110NB.Coverage","PORX_MT010120NB.Coverage","PORX_MT060040NB.Coverage"})
+@Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private UnderwriterBean authorUnderwriter;
@@ -73,19 +73,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Coverage.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates to the pharmacy whether they need to check the 
-     * status of coverage prior to dispensing</p>
-     * 
-     * <p>If set to 'EVN', then coverage has been granted. 
-     * Otherwise it has merely been requested.</p>
-     * 
-     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
-     * 
-     * <p>Relationship: PORX_MT010120NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT010120CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -98,7 +86,19 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT010110CA.Coverage.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates to the pharmacy whether they need to check the 
+     * status of coverage prior to dispensing</p>
+     * 
+     * <p>If set to 'EVN', then coverage has been granted. 
+     * Otherwise it has merely been requested.</p>
+     * 
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -119,19 +119,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Coverage.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates to the pharmacy whether they need to check the 
-     * status of coverage prior to dispensing</p>
-     * 
-     * <p>If set to 'EVN', then coverage has been granted. 
-     * Otherwise it has merely been requested.</p>
-     * 
-     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
-     * 
-     * <p>Relationship: PORX_MT010120NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT010120CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -144,7 +132,19 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT010110CA.Coverage.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates to the pharmacy whether they need to check the 
+     * status of coverage prior to dispensing</p>
+     * 
+     * <p>If set to 'EVN', then coverage has been granted. 
+     * Otherwise it has merely been requested.</p>
+     * 
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT010120CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -180,7 +180,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT010110CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -195,7 +195,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT060040CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -218,7 +218,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT010120CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -233,7 +233,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT010110CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -248,7 +248,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT060040CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -269,19 +269,19 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Author.underwriter</p>
+     * <p>Relationship: PORX_MT010120CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Author.underwriter</p>
+     * <p>Relationship: PORX_MT010110CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author2.underwriter</p>
+     * <p>Relationship: PORX_MT060040CA.Author2.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -293,19 +293,19 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Author.underwriter</p>
+     * <p>Relationship: PORX_MT010120CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Author.underwriter</p>
+     * <p>Relationship: PORX_MT010110CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author2.underwriter</p>
+     * <p>Relationship: PORX_MT060040CA.Author2.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT410003NB.NewCommonObservationEvent","REPC_MT420003NB.NewCommonObservationEvent"})
+@Hl7PartTypeMapping({"REPC_MT410003CA.NewCommonObservationEvent","REPC_MT420003CA.NewCommonObservationEvent"})
 public class NewCommonObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -42,14 +42,14 @@ public class NewCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT410003NB.NewCommonObservationEvent.id</p>
+     * REPC_MT410003CA.NewCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003NB.NewCommonObservationEvent.id</p>
+     * REPC_MT420003CA.NewCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -71,14 +71,14 @@ public class NewCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT410003NB.NewCommonObservationEvent.id</p>
+     * REPC_MT410003CA.NewCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003NB.NewCommonObservationEvent.id</p>
+     * REPC_MT420003CA.NewCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: DosagePreconditions</p>
  * 
- * <p>PORX_MT980010NB.ObservationEventCriterion: Dosage 
+ * <p>PORX_MT980010CA.ObservationEventCriterion: Dosage 
  * Preconditions</p>
  * 
  * <p>Allows recommended dosage instructions to be bound to a 
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A condition that must be true for the patient in order 
  * for the specified recommended dosage range to apply.</p>
  * 
- * <p>PORX_MT980030NB.ObservationEventCriterion: Dosage 
+ * <p>PORX_MT980020CA.ObservationEventCriterion: Dosage 
  * Preconditions</p>
  * 
  * <p>Allows recommended dosage instructions to be bound to a 
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A condition that must be true for the patient in order 
  * for the specified recommended dosage range to apply.</p>
  * 
- * <p>PORX_MT980020NB.ObservationEventCriterion: Dosage 
+ * <p>PORX_MT980030CA.ObservationEventCriterion: Dosage 
  * Preconditions</p>
  * 
  * <p>Allows recommended dosage instructions to be bound to a 
@@ -64,10 +64,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A condition that must be true for the patient in order 
  * for the specified recommended dosage range to apply.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT980010NB.ObservationEventCriterion","PORX_MT980020NB.ObservationEventCriterion","PORX_MT980030NB.ObservationEventCriterion"})
+@Hl7PartTypeMapping({"PORX_MT980010CA.ObservationEventCriterion","PORX_MT980020CA.ObservationEventCriterion","PORX_MT980030CA.ObservationEventCriterion"})
 public class DosagePreconditionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private URG<PQ, PhysicalQuantity> value = new URGImpl<PQ, PhysicalQuantity>();
 
@@ -78,7 +78,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.ObservationEventCriterion.code</p>
+     * PORX_MT980010CA.ObservationEventCriterion.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -94,7 +94,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.ObservationEventCriterion.code</p>
+     * PORX_MT980020CA.ObservationEventCriterion.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -110,7 +110,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.ObservationEventCriterion.code</p>
+     * PORX_MT980030CA.ObservationEventCriterion.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -134,7 +134,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.ObservationEventCriterion.code</p>
+     * PORX_MT980010CA.ObservationEventCriterion.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -150,7 +150,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.ObservationEventCriterion.code</p>
+     * PORX_MT980020CA.ObservationEventCriterion.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -166,7 +166,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.ObservationEventCriterion.code</p>
+     * PORX_MT980030CA.ObservationEventCriterion.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -190,7 +190,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.ObservationEventCriterion.value</p>
+     * PORX_MT980010CA.ObservationEventCriterion.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -217,34 +217,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.ObservationEventCriterion.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Minimum Age</p>
-     * 
-     * <p>Maximum Age</p>
-     * 
-     * <p>Allows direct comparison of the patient's characteristics 
-     * with the minimum and maximum values specified.</p><p>The 
-     * element is mandatory because there's no point in identifying 
-     * that the dosage range is based on criteria unless the 
-     * specific criterion used is expressed.</p>
-     * 
-     * <p>If not specified, it means that the range is based on a 
-     * criteria (e.g. weight), but the specific range on which the 
-     * criteria is based is not known.</p>
-     * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * specific range of values must be known.</p>
-     * 
-     * <p>Un-merged Business Name: DosagePreconditionValue</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980020NB.ObservationEventCriterion.value</p>
+     * PORX_MT980020CA.ObservationEventCriterion.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -266,6 +239,33 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * Precondition Type, for which the recommended dosage 
      * applies.</p><p>This includes min-max age range, min-max 
      * weights, etc.</p><p>This attribute is mandatory as the 
+     * specific range of values must be known.</p>
+     * 
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Minimum Age</p>
+     * 
+     * <p>Maximum Age</p>
+     * 
+     * <p>Allows direct comparison of the patient's characteristics 
+     * with the minimum and maximum values specified.</p><p>The 
+     * element is mandatory because there's no point in identifying 
+     * that the dosage range is based on criteria unless the 
+     * specific criterion used is expressed.</p>
+     * 
+     * <p>If not specified, it means that the range is based on a 
+     * criteria (e.g. weight), but the specific range on which the 
+     * criteria is based is not known.</p>
+     * 
+     * <p>A specific value or range of values of the Dosage 
+     * Precondition Type, for which the recommended dosage 
+     * applies.</p><p>This includes min-max age range, min-max 
+     * weights, etc.</p><p>This is a mandatory attribute as the 
      * specific range of values must be known.</p>
      */
     @Hl7XmlMapping({"value"})
@@ -279,7 +279,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.ObservationEventCriterion.value</p>
+     * PORX_MT980010CA.ObservationEventCriterion.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -306,34 +306,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.ObservationEventCriterion.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Minimum Age</p>
-     * 
-     * <p>Maximum Age</p>
-     * 
-     * <p>Allows direct comparison of the patient's characteristics 
-     * with the minimum and maximum values specified.</p><p>The 
-     * element is mandatory because there's no point in identifying 
-     * that the dosage range is based on criteria unless the 
-     * specific criterion used is expressed.</p>
-     * 
-     * <p>If not specified, it means that the range is based on a 
-     * criteria (e.g. weight), but the specific range on which the 
-     * criteria is based is not known.</p>
-     * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * specific range of values must be known.</p>
-     * 
-     * <p>Un-merged Business Name: DosagePreconditionValue</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980020NB.ObservationEventCriterion.value</p>
+     * PORX_MT980020CA.ObservationEventCriterion.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -355,6 +328,33 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * Precondition Type, for which the recommended dosage 
      * applies.</p><p>This includes min-max age range, min-max 
      * weights, etc.</p><p>This attribute is mandatory as the 
+     * specific range of values must be known.</p>
+     * 
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Minimum Age</p>
+     * 
+     * <p>Maximum Age</p>
+     * 
+     * <p>Allows direct comparison of the patient's characteristics 
+     * with the minimum and maximum values specified.</p><p>The 
+     * element is mandatory because there's no point in identifying 
+     * that the dosage range is based on criteria unless the 
+     * specific criterion used is expressed.</p>
+     * 
+     * <p>If not specified, it means that the range is based on a 
+     * criteria (e.g. weight), but the specific range on which the 
+     * criteria is based is not known.</p>
+     * 
+     * <p>A specific value or range of values of the Dosage 
+     * Precondition Type, for which the recommended dosage 
+     * applies.</p><p>This includes min-max age range, min-max 
+     * weights, etc.</p><p>This is a mandatory attribute as the 
      * specific range of values must be known.</p>
      */
     public void setValue(UncertainRange<PhysicalQuantity> value) {

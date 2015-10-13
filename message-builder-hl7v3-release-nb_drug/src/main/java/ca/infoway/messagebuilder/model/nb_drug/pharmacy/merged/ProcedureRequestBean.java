@@ -28,10 +28,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT010110NB.ProcedureRequest","PORX_MT020060NB.ProcedureRequest","PORX_MT060010NB.ProcedureRequest","PORX_MT060040NB.ProcedureRequest","PORX_MT060060NB.ProcedureRequest"})
+@Hl7PartTypeMapping({"PORX_MT010110CA.ProcedureRequest","PORX_MT020060CA.ProcedureRequest","PORX_MT060010CA.ProcedureRequest","PORX_MT060040CA.ProcedureRequest","PORX_MT060060CA.ProcedureRequest"})
 public class ProcedureRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private ST text = new STImpl();
 
 
@@ -40,30 +40,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Usage instructions are a critical part of a 
-     * prescription.</p>
-     * 
-     * <p>Indicates how the prescribed device is intended to be 
-     * used.</p>
-     * 
-     * <p>Un-merged Business Name: UsageInstructions</p>
-     * 
-     * <p>Relationship: PORX_MT010110NB.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Instructions are a key part of the prescription.</p>
-     * 
-     * <p>Indicates how the device should be used by the 
-     * patient.</p>
-     * 
-     * <p>Un-merged Business Name: UsageInstructions</p>
-     * 
-     * <p>Relationship: PORX_MT060010NB.ProcedureRequest.text</p>
+     * <p>Relationship: PORX_MT060010CA.ProcedureRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -74,7 +51,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.ProcedureRequest.text</p>
+     * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -86,12 +63,35 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ProcedureRequest.text</p>
+     * <p>Relationship: PORX_MT060040CA.ProcedureRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Instructions for use are a key part of any 
      * prescription</p>
+     * 
+     * <p>Indicates how the prescribed device is intended to be 
+     * used.</p>
+     * 
+     * <p>Un-merged Business Name: UsageInstructions</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Instructions are a key part of the prescription.</p>
+     * 
+     * <p>Indicates how the device should be used by the 
+     * patient.</p>
+     * 
+     * <p>Un-merged Business Name: UsageInstructions</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Usage instructions are a critical part of a 
+     * prescription.</p>
      * 
      * <p>Indicates how the prescribed device is intended to be 
      * used.</p>
@@ -106,30 +106,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Usage instructions are a critical part of a 
-     * prescription.</p>
-     * 
-     * <p>Indicates how the prescribed device is intended to be 
-     * used.</p>
-     * 
-     * <p>Un-merged Business Name: UsageInstructions</p>
-     * 
-     * <p>Relationship: PORX_MT010110NB.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Instructions are a key part of the prescription.</p>
-     * 
-     * <p>Indicates how the device should be used by the 
-     * patient.</p>
-     * 
-     * <p>Un-merged Business Name: UsageInstructions</p>
-     * 
-     * <p>Relationship: PORX_MT060010NB.ProcedureRequest.text</p>
+     * <p>Relationship: PORX_MT060010CA.ProcedureRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -140,7 +117,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.ProcedureRequest.text</p>
+     * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,12 +129,35 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.ProcedureRequest.text</p>
+     * <p>Relationship: PORX_MT060040CA.ProcedureRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Instructions for use are a key part of any 
      * prescription</p>
+     * 
+     * <p>Indicates how the prescribed device is intended to be 
+     * used.</p>
+     * 
+     * <p>Un-merged Business Name: UsageInstructions</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Instructions are a key part of the prescription.</p>
+     * 
+     * <p>Indicates how the device should be used by the 
+     * patient.</p>
+     * 
+     * <p>Un-merged Business Name: UsageInstructions</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Usage instructions are a critical part of a 
+     * prescription.</p>
      * 
      * <p>Indicates how the prescribed device is intended to be 
      * used.</p>

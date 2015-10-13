@@ -26,10 +26,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PRLO_MT000001NB.IndirectAuthorithyOver","PRLO_MT000002NB.IndirectAuthorithyOver","PRLO_MT202014NB.IndirectAuthorithyOver","PRLO_MT202015NB.IndirectAuthorithyOver"})
+@Hl7PartTypeMapping({"PRLO_MT000001CA.IndirectAuthorithyOver","PRLO_MT000002CA.IndirectAuthorithyOver","PRLO_MT202014CA.IndirectAuthorithyOver","PRLO_MT202015CA.IndirectAuthorithyOver"})
 public class IndirectAuthorithyOverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private TerritorialAuthorityBean territorialAuthority;
 
 
@@ -37,28 +37,28 @@ public class IndirectAuthorithyOverBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000001NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT000001CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000002NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT202014CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202015NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT000002CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202014NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT202015CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -71,28 +71,28 @@ public class IndirectAuthorithyOverBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000001NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT000001CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000002NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT202014CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202015NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT000002CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202014NB.IndirectAuthorithyOver.territorialAuthority</p>
+     * PRLO_MT202015CA.IndirectAuthorithyOver.territorialAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: IssueManagements</p>
  * 
- * <p>PORX_MT980010NB.DetectedIssueManagement: Issue 
+ * <p>PORX_MT980030CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * being performed and additional information already in the 
  * patient's record or system business rules.</p>
  * 
- * <p>PORX_MT980030NB.DetectedIssueManagement: Issue 
+ * <p>PORX_MT980010CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * being performed and additional information already in the 
  * patient's record or system business rules.</p>
  * 
- * <p>PORX_MT980020NB.DetectedIssueManagement: Issue 
+ * <p>PORX_MT980020CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
@@ -71,10 +71,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * performed and additional information already in the 
  * patient's record.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT980010NB.DetectedIssueManagement","PORX_MT980020NB.DetectedIssueManagement","PORX_MT980030NB.DetectedIssueManagement"})
+@Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ManagedByBean author;
@@ -86,7 +86,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.DetectedIssueManagement.code</p>
+     * PORX_MT980030CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -129,7 +129,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.DetectedIssueManagement.code</p>
+     * PORX_MT980010CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -172,7 +172,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.DetectedIssueManagement.code</p>
+     * PORX_MT980020CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -223,7 +223,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.DetectedIssueManagement.code</p>
+     * PORX_MT980030CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -266,7 +266,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.DetectedIssueManagement.code</p>
+     * PORX_MT980010CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -309,7 +309,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.DetectedIssueManagement.code</p>
+     * PORX_MT980020CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -360,7 +360,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.DetectedIssueManagement.text</p>
+     * PORX_MT980030CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -373,7 +373,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.DetectedIssueManagement.text</p>
+     * PORX_MT980010CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -386,7 +386,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.DetectedIssueManagement.text</p>
+     * PORX_MT980020CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -407,7 +407,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.DetectedIssueManagement.text</p>
+     * PORX_MT980030CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -420,7 +420,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.DetectedIssueManagement.text</p>
+     * PORX_MT980010CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -433,7 +433,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.DetectedIssueManagement.text</p>
+     * PORX_MT980020CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -452,21 +452,21 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.DetectedIssueManagement.author</p>
+     * PORX_MT980030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.DetectedIssueManagement.author</p>
+     * PORX_MT980010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.DetectedIssueManagement.author</p>
+     * PORX_MT980020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -479,21 +479,21 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.DetectedIssueManagement.author</p>
+     * PORX_MT980030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030NB.DetectedIssueManagement.author</p>
+     * PORX_MT980010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.DetectedIssueManagement.author</p>
+     * PORX_MT980020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */

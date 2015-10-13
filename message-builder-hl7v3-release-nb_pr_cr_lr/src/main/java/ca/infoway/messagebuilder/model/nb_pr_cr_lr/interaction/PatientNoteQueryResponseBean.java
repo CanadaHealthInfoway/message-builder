@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.comt_mt300002nb.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.comt_mt300003nb.CommentBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.comt_mt300002ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.comt_mt300003ca.CommentBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN300202NB: Patient note query 
+ * <p>Business Name: COMT_IN300202CA: Patient note query 
  * response</p>
  * 
  * <p>Returns the notes that have been recorded against a 
  * particular patient, potentially filtered by note type and/or 
  * date.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT300003NB.Annotation</p>
+ * <p>--> Payload: COMT_MT300003CA.Annotation</p>
  * 
- * <p>--> Payload: COMT_MT300002NB.ParameterList</p>
+ * <p>--> Payload: COMT_MT300002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"COMT_IN300202NB"})
+@Hl7PartTypeMapping({"COMT_IN300202CA"})
 public class PatientNoteQueryResponseBean extends HL7MessageBean<TriggerEventBean<CommentBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

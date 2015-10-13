@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000018nb.PatientMeasurementsBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000018ca.PatientMeasurementsBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000051NB: Record patient basic 
+ * <p>Business Name: REPC_IN000051CA: Record patient basic 
  * observation request</p>
  * 
  * <p>Requests that a basic observation (height, weight, 
  * blood-pressure, etc.) be recorded in a patient's record.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000018NB.CommonObservationEvent</p>
+ * <p>--> Payload: REPC_MT000018CA.CommonObservationEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000051NB"})
+@Hl7PartTypeMapping({"REPC_IN000051CA"})
 public class RecordPatientBasicObservationRequestBean extends HL7MessageBean<TriggerEventBean<PatientMeasurementsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

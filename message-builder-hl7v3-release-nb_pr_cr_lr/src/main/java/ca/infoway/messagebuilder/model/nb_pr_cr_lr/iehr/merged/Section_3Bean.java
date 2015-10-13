@@ -33,10 +33,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT230001NB.Section","REPC_MT230002NB.Section","REPC_MT230003NB.Section"})
+@Hl7PartTypeMapping({"REPC_MT230001CA.Section","REPC_MT230002CA.Section","REPC_MT230003CA.Section"})
 public class Section_3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent_3 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -48,7 +48,7 @@ public class Section_3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Section.text</p>
+     * <p>Relationship: REPC_MT230003CA.Section.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -66,7 +66,7 @@ public class Section_3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Section.text</p>
+     * <p>Relationship: REPC_MT230001CA.Section.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class Section_3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Section.text</p>
+     * <p>Relationship: REPC_MT230003CA.Section.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -110,7 +110,7 @@ public class Section_3Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Section.text</p>
+     * <p>Relationship: REPC_MT230001CA.Section.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -134,30 +134,30 @@ public class Section_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Component4.documentContent</p>
+     * <p>Relationship: REPC_MT230003CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.Component4.documentContent</p>
+     * <p>Relationship: REPC_MT230002CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Component4.documentContent</p>
+     * <p>Relationship: REPC_MT230001CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component/documentContent","component1/documentContent"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component", type="REPC_MT230002NB.Component4"),
-        @Hl7MapByPartType(name="component/documentContent", type="REPC_MT230002NB.DocumentContent"),
-        @Hl7MapByPartType(name="component1", type="REPC_MT230001NB.Component4"),
-        @Hl7MapByPartType(name="component1", type="REPC_MT230003NB.Component4"),
-        @Hl7MapByPartType(name="component1/documentContent", type="REPC_MT230001NB.DocumentContent"),
-        @Hl7MapByPartType(name="component1/documentContent", type="REPC_MT230003NB.DocumentContent")})
+        @Hl7MapByPartType(name="component", type="REPC_MT230002CA.Component4"),
+        @Hl7MapByPartType(name="component/documentContent", type="REPC_MT230002CA.DocumentContent"),
+        @Hl7MapByPartType(name="component1", type="REPC_MT230001CA.Component4"),
+        @Hl7MapByPartType(name="component1", type="REPC_MT230003CA.Component4"),
+        @Hl7MapByPartType(name="component1/documentContent", type="REPC_MT230001CA.DocumentContent"),
+        @Hl7MapByPartType(name="component1/documentContent", type="REPC_MT230003CA.DocumentContent")})
     public DocumentContent_3 getComponent1DocumentContent() {
         return this.component1DocumentContent;
     }
@@ -165,19 +165,19 @@ public class Section_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Component4.documentContent</p>
+     * <p>Relationship: REPC_MT230003CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230002NB.Component4.documentContent</p>
+     * <p>Relationship: REPC_MT230002CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Component4.documentContent</p>
+     * <p>Relationship: REPC_MT230001CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -189,13 +189,13 @@ public class Section_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Component.subSection</p>
+     * <p>Relationship: REPC_MT230003CA.Component.subSection</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Component.subSection</p>
+     * <p>Relationship: REPC_MT230001CA.Component.subSection</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -208,13 +208,13 @@ public class Section_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Component5.reference</p>
+     * <p>Relationship: REPC_MT230003CA.Component5.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Component5.reference</p>
+     * <p>Relationship: REPC_MT230001CA.Component5.reference</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

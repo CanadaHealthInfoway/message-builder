@@ -32,7 +32,21 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.COMP;
 /**
  * <p>Business Name: Includes</p>
  * 
- * <p>PORX_MT060190NB.Component6: f:includes</p>
+ * <p>PORX_MT020070CA.Component2: (no business name)</p>
+ * 
+ * <p>Useful to the providers and the EHR</p>
+ * 
+ * <p>Includes additional detailed information about the 
+ * prescription.</p>
+ * 
+ * <p>PORX_MT020060CA.Component2: (no business name)</p>
+ * 
+ * <p>Useful to the providers and the EHR</p>
+ * 
+ * <p>Includes additional detailed information about the 
+ * prescription.</p>
+ * 
+ * <p>PORX_MT060190CA.Component6: f:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -49,25 +63,11 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.COMP;
  * 
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
- * 
- * <p>PORX_MT020070NB.Component2: (no business name)</p>
- * 
- * <p>Useful to the providers and the EHR</p>
- * 
- * <p>Includes additional detailed information about the 
- * prescription.</p>
- * 
- * <p>PORX_MT020060NB.Component2: (no business name)</p>
- * 
- * <p>Useful to the providers and the EHR</p>
- * 
- * <p>Includes additional detailed information about the 
- * prescription.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020060NB.Component2","PORX_MT020070NB.Component2","PORX_MT060190NB.Component6"})
+@Hl7PartTypeMapping({"PORX_MT020060CA.Component2","PORX_MT020070CA.Component2","PORX_MT060190CA.Component6"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private SupplyRequestBean supplyRequest;
     private CS typeCode = new CSImpl();
 
@@ -75,19 +75,19 @@ public class Component2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.Component2.supplyRequest</p>
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.Component2.supplyRequest</p>
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -99,19 +99,19 @@ public class Component2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.Component2.supplyRequest</p>
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.Component2.supplyRequest</p>
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -123,7 +123,7 @@ public class Component2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.Component2.typeCode</p>
+     * <p>Relationship: PORX_MT020060CA.Component2.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -135,7 +135,7 @@ public class Component2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.Component2.typeCode</p>
+     * <p>Relationship: PORX_MT020060CA.Component2.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

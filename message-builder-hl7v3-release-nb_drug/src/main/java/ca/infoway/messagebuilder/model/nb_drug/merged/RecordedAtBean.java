@@ -30,31 +30,13 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt240003nb.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt240003ca.ServiceLocationBean;
 import java.util.Date;
 
 
 
 /**
- * <p>PORX_MT060160NB.Location: *d:dispensed from</p>
- * 
- * <p>Important for performing follow-up and therefore 
- * mandatory.</p>
- * 
- * <p>Indicates the facility/location where the dispensing was 
- * performed.</p>
- * 
- * <p>REPC_MT000009NB.Location: *i:recorded at</p>
- * 
- * <p>Indicates where records are likely kept for follow-up. 
- * May also be useful in understanding the context in which the 
- * allergy/intolerance was recorded. The location of entry 
- * should always be known, and is therefore mandatory.</p>
- * 
- * <p>Indicates the service delivery location where the allergy 
- * was recorded.</p>
- * 
- * <p>PORX_MT980030NB.Location: *b:dispensed at</p>
+ * <p>PORX_MT980030CA.Location: *b:dispensed at</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
  * 
@@ -65,22 +47,7 @@ import java.util.Date;
  * <p>Indicates the facility where the dispense event was 
  * performed</p>
  * 
- * <p>PORX_MT030040NB.Location: *refused at</p>
- * 
- * <p>Allows follow-up and traceability of the refusal and is 
- * therefore mandatory</p>
- * 
- * <p>Identifies the location where the refusal occurred</p>
- * 
- * <p>PORX_MT060190NB.Location2: *recorded at</p>
- * 
- * <p>Used for follow-up communication on the dispensed 
- * product, and therefore mandatory.</p>
- * 
- * <p>Identification of the service delivery location where the 
- * other active medication was recorded</p>
- * 
- * <p>COMT_MT300003NB.Location: *c:recorded at</p>
+ * <p>COMT_MT300003CA.Location: *c:recorded at</p>
  * 
  * <p>Important for performing follow-up and is therefore 
  * mandatory.</p>
@@ -88,7 +55,54 @@ import java.util.Date;
  * <p>Indicates the facility/location where the patient note 
  * was recorded.</p>
  * 
- * <p>PORX_MT060190NB.Location4: *prescribed at</p>
+ * <p>PORX_MT980020CA.Location: *b:dispensed at</p>
+ * 
+ * <p>A_DetectedMedicationIssue</p>
+ * 
+ * <p>Used for contacting the pharmacy or pharmacist involved 
+ * in the dispense.</p><p>The association is only marked as 
+ * 'populated' because it may be masked.</p>
+ * 
+ * <p>Indicates the facility where the implicated dispense 
+ * event was performed</p>
+ * 
+ * <p>PORX_MT060060CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p>Allows prescriptions to be directed on the request of the 
+ * patient or by legal requirement. Also allows indication of 
+ * which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p>
+ * 
+ * <p>Indicates the pharmacy to which the prescription has been 
+ * directed or which has currently assumed responsibility for 
+ * dispensing the prescription.</p>
+ * 
+ * <p>PORX_MT030040CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p>Allows prescriptions to be directed on the request of the 
+ * patient or by legal requirement. Also allows indication of 
+ * which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p>
+ * 
+ * <p>Indicates the pharmacy to which the prescription has been 
+ * directed or which has currently assumed responsibility for 
+ * dispensing the prescription.</p>
+ * 
+ * <p>PORX_MT060190CA.Location2: *recorded at</p>
+ * 
+ * <p>Used for follow-up communication on the dispensed 
+ * product, and therefore mandatory.</p>
+ * 
+ * <p>Identification of the service delivery location where the 
+ * other active medication was recorded</p>
+ * 
+ * <p>PORX_MT060190CA.Location4: *prescribed at</p>
  * 
  * <p>Identifies where paper records are likely located for 
  * follow-up. This is marked as 'populated' because it won't 
@@ -97,7 +111,7 @@ import java.util.Date;
  * <p>Indicates the clinic or facility which originally issued 
  * the prescription.</p>
  * 
- * <p>PORX_MT060190NB.Location3: *c:targeted to pharmacy</p>
+ * <p>PORX_MT060190CA.Location3: *c:targeted to pharmacy</p>
  * 
  * <p>Allows prescriptions to be directed on the request of the 
  * patient or by legal requirement. Also allows indication of 
@@ -111,73 +125,7 @@ import java.util.Date;
  * directed or which has currently assumed responsibility for 
  * dispensing the prescription.</p>
  * 
- * <p>REPC_MT000007NB.Location: *recorded at</p>
- * 
- * <p>Indicates where records are likely kept for follow-up. 
- * May also be useful in understanding the context in which the 
- * medical condition was recorded. The location of entry should 
- * always be known, and is therefore mandatory.</p>
- * 
- * <p>Indicates the service delivery location where the medical 
- * condition was recorded.</p>
- * 
- * <p>PORX_MT060340NB.Location: *d:dispensed from Service 
- * Delivery Location</p>
- * 
- * <p>Important for performing follow-up and therefore 
- * mandatory.</p>
- * 
- * <p>Indicates the facility/location where the dispensing was 
- * performed.</p>
- * 
- * <p>MCAI_MT700223NB.Location: *a1:created at</p>
- * 
- * <p>Indicates where paper records may be located, and may be 
- * important to determining authorization. The association is 
- * therefore mandatory.</p>
- * 
- * <p>Indicates the facility where the event occurred.</p>
- * 
- * <p>PORX_MT060090NB.Location: *d:dispensed from Service 
- * Delivery Location</p>
- * 
- * <p>Important for performing follow-up and therefore 
- * mandatory.</p>
- * 
- * <p>Indicates the facility/location where the dispensing was 
- * performed.</p>
- * 
- * <p>PORX_MT060020NB.Location: *dispensed from</p>
- * 
- * <p>Used for follow-up communication on the dispensed 
- * product, and therefore mandatory.</p>
- * 
- * <p>Identification of the service delivery location where the 
- * device was dispensed.</p>
- * 
- * <p>PORX_MT030040NB.Location2: *c:targeted to pharmacy</p>
- * 
- * <p>Allows prescriptions to be directed on the request of the 
- * patient or by legal requirement. Also allows indication of 
- * which pharmacy is the current 'custodian' of the 
- * prescription.</p><p>This should always be known or should 
- * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
- * (paper prescription). Thus the association is 
- * 'populated'.</p>
- * 
- * <p>Indicates the pharmacy to which the prescription has been 
- * directed or which has currently assumed responsibility for 
- * dispensing the prescription.</p>
- * 
- * <p>PORX_MT060100NB.Location: *dispensed from</p>
- * 
- * <p>Used for follow-up communication on the dispensed 
- * product, and therefore mandatory.</p>
- * 
- * <p>Identification of the service delivery location where the 
- * medication was dispensed.</p>
- * 
- * <p>PORX_MT980010NB.Location: *b:dispensed at</p>
+ * <p>PORX_MT980010CA.Location: *b:dispensed at</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
  * 
@@ -188,23 +136,7 @@ import java.util.Date;
  * <p>Indicates the facility where the dispense event was 
  * performed</p>
  * 
- * <p>PORX_MT060340NB.Location4: *c:targeted to pharmacy</p>
- * 
- * <p>Prescription.facility</p>
- * 
- * <p>Allows prescriptions to be directed on the request of the 
- * patient or by legal requirement. Also allows indication of 
- * which pharmacy is the current 'custodian' of the 
- * prescription.</p><p>This should always be known or should 
- * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
- * (paper prescription). Thus the association is 
- * 'populated'.</p>
- * 
- * <p>Indicates the pharmacy to which the prescription has been 
- * directed or which has currently assumed responsibility for 
- * dispensing the prescription.</p>
- * 
- * <p>REPC_MT000010NB.Location: *g:recorded at</p>
+ * <p>REPC_MT000010CA.Location: *g:recorded at</p>
  * 
  * <p>Indicates where records are likely kept for follow-up. 
  * May also be useful in understanding the context in which the 
@@ -214,36 +146,70 @@ import java.util.Date;
  * <p>Indicates the service delivery location where the medical 
  * condition was recorded.</p>
  * 
- * <p>POIZ_MT060150NB.Location: *recorded at</p>
- * 
- * <p>Allows communication with the recording facility for 
- * information verification. The recording facility should 
- * always be known and is therefore mandatory.</p>
- * 
- * <p>Identity of the service delivery location where the 
- * immunization information was recorded.</p>
- * 
- * <p>REPC_MT100001NB.Location: *performed at</p>
+ * <p>REPC_MT000007CA.Location: *recorded at</p>
  * 
  * <p>Indicates where records are likely kept for follow-up. 
  * May also be useful in understanding the context in which the 
- * professional service was performed.</p><p>The location of 
- * entry should always exist, and is therefore mandatory.</p>
- * 
- * <p>Indicates where the professional service was performed or 
- * delivered.</p>
- * 
- * <p>REPC_MT000006NB.Location: *i:recorded at</p>
- * 
- * <p>Indicates where records are likely kept for follow-up. 
- * May also be useful in understanding the context in which the 
- * adverse reaction was recorded. The location of entry should 
+ * medical condition was recorded. The location of entry should 
  * always be known, and is therefore mandatory.</p>
  * 
- * <p>Indicates the service delivery location where the adverse 
- * reaction was recorded.</p>
+ * <p>Indicates the service delivery location where the medical 
+ * condition was recorded.</p>
  * 
- * <p>PORX_MT010120NB.Location2: *c:targeted to pharmacy</p>
+ * <p>PORX_MT060340CA.Location: *d:dispensed from Service 
+ * Delivery Location</p>
+ * 
+ * <p>Important for performing follow-up and therefore 
+ * mandatory.</p>
+ * 
+ * <p>Indicates the facility/location where the dispensing was 
+ * performed.</p>
+ * 
+ * <p>MCAI_MT700221CA.Location: *a1:created at</p>
+ * 
+ * <p>Indicates where paper records may be located, and may be 
+ * important to determining authorization. The association is 
+ * therefore mandatory.</p>
+ * 
+ * <p>Indicates the facility where the event occurred.</p>
+ * 
+ * <p>REPC_MT000009CA.Location: *i:recorded at</p>
+ * 
+ * <p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * allergy/intolerance was recorded. The location of entry 
+ * should always be known, and is therefore mandatory.</p>
+ * 
+ * <p>Indicates the service delivery location where the allergy 
+ * was recorded.</p>
+ * 
+ * <p>MCAI_MT700223CA.Location: *a1:created at</p>
+ * 
+ * <p>Indicates where paper records may be located, and may be 
+ * important to determining authorization. The association is 
+ * therefore mandatory.</p>
+ * 
+ * <p>Indicates the facility where the event occurred.</p>
+ * 
+ * <p>PORX_MT060160CA.Location: *d:dispensed from</p>
+ * 
+ * <p>Important for performing follow-up and therefore 
+ * mandatory.</p>
+ * 
+ * <p>Indicates the facility/location where the dispensing was 
+ * performed.</p>
+ * 
+ * <p>REPC_MT000005CA.Location: *i:recorded at</p>
+ * 
+ * <p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * allergy/intolerance was recorded. The location of entry 
+ * should always be known, and is therefore mandatory.</p>
+ * 
+ * <p>Indicates the service delivery location where the allergy 
+ * was recorded.</p>
+ * 
+ * <p>PORX_MT010120CA.Location2: *c:targeted to pharmacy</p>
  * 
  * <p>Allows prescriptions to be directed on the request of the 
  * patient or by legal requirement. Also allows indication of 
@@ -257,7 +223,47 @@ import java.util.Date;
  * directed or which has currently assumed responsibility for 
  * dispensing the prescription.</p>
  * 
- * <p>MCAI_MT700210NB.Location: *a1:created at</p>
+ * <p>PORX_MT060020CA.Location: *dispensed from</p>
+ * 
+ * <p>Used for follow-up communication on the dispensed 
+ * product, and therefore mandatory.</p>
+ * 
+ * <p>Identification of the service delivery location where the 
+ * device was dispensed.</p>
+ * 
+ * <p>PORX_MT060210CA.Location2: *c:recorded at</p>
+ * 
+ * <p>Important for performing follow-up and is therefore 
+ * mandatory.</p>
+ * 
+ * <p>Indicates the facility/location where the other 
+ * medication was recorded.</p>
+ * 
+ * <p>PORX_MT010110CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p>Allows prescriptions to be directed on the request of the 
+ * patient or by legal requirement. Also allows indication of 
+ * which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p>
+ * 
+ * <p>Indicates the pharmacy to which the prescription has been 
+ * directed or which has currently assumed responsibility for 
+ * dispensing the prescription.</p>
+ * 
+ * <p>REPC_MT000006CA.Location: *i:recorded at</p>
+ * 
+ * <p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * adverse reaction was recorded. The location of entry should 
+ * always be known, and is therefore mandatory.</p>
+ * 
+ * <p>Indicates the service delivery location where the adverse 
+ * reaction was recorded.</p>
+ * 
+ * <p>MCAI_MT700210CA.Location: *a1:created at</p>
  * 
  * <p>Indicates where paper records may be located, and may be 
  * important to determining authorization. The association is 
@@ -269,44 +275,18 @@ import java.util.Date;
  * location from which the author is operating, must be 
  * specified.</p>
  * 
- * <p>QUQI_MT020000NB.Location: *c:created at</p>
+ * <p>REPC_MT100001CA.Location: *performed at</p>
  * 
- * <p>Indicates where paper records may be located, and may be 
- * important to determining authorization. The association is 
- * therefore mandatory.</p>
+ * <p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * professional service was performed.</p><p>The location of 
+ * entry should always exist, and is therefore mandatory.</p>
  * 
- * <p>Indicates the service delivery location where the event 
- * occurred.</p>
+ * <p>Indicates where the professional service was performed or 
+ * delivered.</p>
  * 
- * <p>The &ldquo;location&rdquo; element, representing the 
- * location from which the authro is operating, must be 
- * specified.</p>
- * 
- * <p>PORX_MT060340NB.Location2: *refused at</p>
- * 
- * <p>Allows follow-up and traceability of the refusal and is 
- * therefore mandatory</p>
- * 
- * <p>Identifies the location where the refusal occurred</p>
- * 
- * <p>REPC_MT100002NB.Location: *c:recorded at</p>
- * 
- * <p>Enables communication for verification of the 
- * measurement, and is therefore mandatory.</p>
- * 
- * <p>Identity of the service delivery location where the 
- * observation measurement was recorded.</p>
- * 
- * <p>PORX_MT060340NB.Location3: *prescribed at</p>
- * 
- * <p>Identifies where paper records are likely located for 
- * follow-up. This is marked as 'populated' because it won't 
- * always be known for 'inferred prescriptions.</p>
- * 
- * <p>Indicates the clinic or facility which originally issued 
- * the prescription.</p>
- * 
- * <p>PORX_MT060010NB.Location: *d:dispensed from</p>
+ * <p>PORX_MT060090CA.Location: *d:dispensed from Service 
+ * Delivery Location</p>
  * 
  * <p>Important for performing follow-up and therefore 
  * mandatory.</p>
@@ -314,13 +294,26 @@ import java.util.Date;
  * <p>Indicates the facility/location where the dispensing was 
  * performed.</p>
  * 
- * <p>PORX_MT010140NB.Location: *to be dispensed at<
+ * <p>PORX_MT060100CA.Location: *dispensed from</p>
+ * 
+ * <p>Used for follow-up communication on the dispensed 
+ * product, and therefore mandatory.</p>
+ * 
+ * <p>Identification of the service delivery location where the 
+ * medication was dispensed.</p>
+ * 
+ * <p>PORX_MT060160CA.Location5: *c:targeted to pharmacy</p>
+ * 
+ * <p>Prescription.facility</p>
+ * 
+ * <p>Allows prescriptions to be directed on the request of the 
+ * patient or by legal requirement. Also allows indication of
  * ... [rest of documentation truncated due to excessive length]
  */
-@Hl7PartTypeMapping({"COMT_MT300003NB.Location","MCAI_MT700210NB.Location","MCAI_MT700221NB.Location","MCAI_MT700223NB.Location","POIZ_MT060150NB.Location","PORX_MT010110NB.Location2","PORX_MT010120NB.Location2","PORX_MT010140NB.Location","PORX_MT030040NB.Location","PORX_MT030040NB.Location2","PORX_MT060010NB.Location","PORX_MT060020NB.Location","PORX_MT060040NB.Location","PORX_MT060040NB.Location2","PORX_MT060040NB.Location3","PORX_MT060040NB.Location4","PORX_MT060060NB.Location2","PORX_MT060090NB.Location","PORX_MT060100NB.Location","PORX_MT060160NB.Location","PORX_MT060160NB.Location2","PORX_MT060160NB.Location3","PORX_MT060160NB.Location4","PORX_MT060160NB.Location5","PORX_MT060190NB.Location2","PORX_MT060190NB.Location3","PORX_MT060190NB.Location4","PORX_MT060210NB.Location2","PORX_MT060340NB.Location","PORX_MT060340NB.Location2","PORX_MT060340NB.Location3","PORX_MT060340NB.Location4","PORX_MT980010NB.Location","PORX_MT980020NB.Location","PORX_MT980030NB.Location","QUQI_MT020000NB.Location","REPC_MT000005NB.Location","REPC_MT000006NB.Location","REPC_MT000007NB.Location","REPC_MT000009NB.Location","REPC_MT000010NB.Location","REPC_MT100001NB.Location","REPC_MT100002NB.Location"})
+@Hl7PartTypeMapping({"COMT_MT300003CA.Location","MCAI_MT700210CA.Location","MCAI_MT700221CA.Location","MCAI_MT700223CA.Location","POIZ_MT060150CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","PORX_MT980010CA.Location","PORX_MT980020CA.Location","PORX_MT980030CA.Location","QUQI_MT020000CA.Location","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000007CA.Location","REPC_MT000009CA.Location","REPC_MT000010CA.Location","REPC_MT100001CA.Location","REPC_MT100002CA.Location"})
 public class RecordedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private ServiceLocationBean serviceDeliveryLocation;
     private CV substitutionConditionCode = new CVImpl();
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
@@ -330,266 +323,147 @@ public class RecordedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980030NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT980030CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.Location.serviceDeliveryLocation</p>
+     * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COMT_MT300003NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.Location4.serviceDeliveryLocation</p>
+     * PORX_MT980020CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Location3.serviceDeliveryLocation</p>
+     * PORX_MT060060CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000007NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCAI_MT700223NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060090NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060020NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT030040CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060100NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT060190CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT060190CA.Location4.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Location4.serviceDeliveryLocation</p>
+     * PORX_MT060190CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000010NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT060150NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT100001NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000006NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT980010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT000007CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT000010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT060340CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Location3.serviceDeliveryLocation</p>
+     * MCAI_MT700221CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700223CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT100002NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT060020CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT060210CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010140NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location3.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location4.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location5.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCAI_MT700221NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980020NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT010110CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -602,32 +476,151 @@ public class RecordedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.Location3.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.Location4.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000005NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT000006CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.Location2.serviceDeliveryLocation</p>
+     * MCAI_MT700210CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location5.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Un-merged Business Name: (n
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010140CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
@@ -639,266 +632,147 @@ public class RecordedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980030NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT980030CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.Location.serviceDeliveryLocation</p>
+     * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COMT_MT300003NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060190NB.Location4.serviceDeliveryLocation</p>
+     * PORX_MT980020CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Location3.serviceDeliveryLocation</p>
+     * PORX_MT060060CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000007NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCAI_MT700223NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060090NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060020NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT030040CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060100NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT060190CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT060190CA.Location4.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Location4.serviceDeliveryLocation</p>
+     * PORX_MT060190CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000010NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT060150NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT100001NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000006NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT980010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT000007CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT000010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT060340CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Location3.serviceDeliveryLocation</p>
+     * MCAI_MT700221CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700223CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT100002NB.Location.serviceDeliveryLocation</p>
+     * PORX_MT060020CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT060210CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010140NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location3.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location4.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location5.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCAI_MT700221NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980020NB.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110NB.Location2.serviceDeliveryLocation</p>
+     * PORX_MT010110CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -911,32 +785,151 @@ public class RecordedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.Location3.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.Location4.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000005NB.Location.serviceDeliveryLocation</p>
+     * REPC_MT000006CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.Location2.serviceDeliveryLocation</p>
+     * MCAI_MT700210CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location5.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Un-merged Business Name: (n
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010140CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setServiceDeliveryLocation(ServiceLocationBean serviceDeliveryLocation) {
@@ -949,61 +942,7 @@ public class RecordedAtBean extends MessagePartBean {
      * DispenseFacilityNotAssignableIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.Location2.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
-     * priviledged to the targetted facility.</p><p>'Hard' 
-     * assignment (mandated facility) indicates that the 
-     * prescription can be dispensed only at that 
-     * facility.</p><p>'Soft' assignment (usually as a patient 
-     * directive) indicates that the prescription may be dispensed 
-     * at facilities other than the targeted facility.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * AssignedFacilityNotReassignableIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location5.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates whether a dispenser to whom the prescription is 
-     * targeted is a mandated or patient-preferred pharmacy.</p>
-     * 
-     * <p>Un-merged Business Name: DispenseFacilityNotReassignable</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.Location2.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
-     * priviledged to the targetted facility.</p><p>'Hard' 
-     * assignment (mandated facility) indicates that the 
-     * prescription can be dispensed only at that 
-     * facility.</p><p>'Soft' assignment (usually as a patient 
-     * directive) indicates that the prescription may be dispensed 
-     * at facilities other than the targeted facility.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * AssignedFacilityNotReassignableIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.Location4.substitutionConditionCode</p>
+     * PORX_MT060060CA.Location2.substitutionConditionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1018,7 +957,57 @@ public class RecordedAtBean extends MessagePartBean {
      * DispenseFacilityNotAssignableIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Location3.substitutionConditionCode</p>
+     * PORX_MT030040CA.Location2.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * AssignedFacilityNotReassignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates whether a dispenser to whom the prescription is 
+     * targeted is a mandated or patient-preferred pharmacy.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * AssignedFacilityNotReassignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location5.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates whether a dispenser to whom the prescription is 
+     * targeted is a mandated or patient-preferred pharmacy.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * DispenseFacilityNotAssignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.Location3.substitutionConditionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1034,11 +1023,10 @@ public class RecordedAtBean extends MessagePartBean {
      * directive) indicates that the prescription may be dispensed 
      * at facilities other than the targeted facility.</p>
      * 
-     * <p>Un-merged Business Name: 
-     * DispenseFacilityNotAssignableIndicator</p>
+     * <p>Un-merged Business Name: DispenseFacilityNotReassignable</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.Location2.substitutionConditionCode</p>
+     * PORX_MT010120CA.Location2.substitutionConditionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1046,8 +1034,13 @@ public class RecordedAtBean extends MessagePartBean {
      * a service delivery location other than the targeted 
      * dispenser.</p>
      * 
-     * <p>Indicates whether a dispenser to whom the prescription is 
-     * targeted is a mandated or patient-preferred pharmacy.</p>
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
      */
     @Hl7XmlMapping({"substitutionConditionCode"})
     public x_SubstitutionConditionNoneOrUnconditional getSubstitutionConditionCode() {
@@ -1059,61 +1052,7 @@ public class RecordedAtBean extends MessagePartBean {
      * DispenseFacilityNotAssignableIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.Location2.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
-     * priviledged to the targetted facility.</p><p>'Hard' 
-     * assignment (mandated facility) indicates that the 
-     * prescription can be dispensed only at that 
-     * facility.</p><p>'Soft' assignment (usually as a patient 
-     * directive) indicates that the prescription may be dispensed 
-     * at facilities other than the targeted facility.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * AssignedFacilityNotReassignableIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Location5.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates whether a dispenser to whom the prescription is 
-     * targeted is a mandated or patient-preferred pharmacy.</p>
-     * 
-     * <p>Un-merged Business Name: DispenseFacilityNotReassignable</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.Location2.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
-     * priviledged to the targetted facility.</p><p>'Hard' 
-     * assignment (mandated facility) indicates that the 
-     * prescription can be dispensed only at that 
-     * facility.</p><p>'Soft' assignment (usually as a patient 
-     * directive) indicates that the prescription may be dispensed 
-     * at facilities other than the targeted facility.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * AssignedFacilityNotReassignableIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.Location4.substitutionConditionCode</p>
+     * PORX_MT060060CA.Location2.substitutionConditionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1128,7 +1067,57 @@ public class RecordedAtBean extends MessagePartBean {
      * DispenseFacilityNotAssignableIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.Location3.substitutionConditionCode</p>
+     * PORX_MT030040CA.Location2.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * AssignedFacilityNotReassignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates whether a dispenser to whom the prescription is 
+     * targeted is a mandated or patient-preferred pharmacy.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * AssignedFacilityNotReassignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location5.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates whether a dispenser to whom the prescription is 
+     * targeted is a mandated or patient-preferred pharmacy.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * DispenseFacilityNotAssignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.Location3.substitutionConditionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1144,11 +1133,10 @@ public class RecordedAtBean extends MessagePartBean {
      * directive) indicates that the prescription may be dispensed 
      * at facilities other than the targeted facility.</p>
      * 
-     * <p>Un-merged Business Name: 
-     * DispenseFacilityNotAssignableIndicator</p>
+     * <p>Un-merged Business Name: DispenseFacilityNotReassignable</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060NB.Location2.substitutionConditionCode</p>
+     * PORX_MT010120CA.Location2.substitutionConditionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1156,8 +1144,13 @@ public class RecordedAtBean extends MessagePartBean {
      * a service delivery location other than the targeted 
      * dispenser.</p>
      * 
-     * <p>Indicates whether a dispenser to whom the prescription is 
-     * targeted is a mandated or patient-preferred pharmacy.</p>
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
      */
     public void setSubstitutionConditionCode(x_SubstitutionConditionNoneOrUnconditional substitutionConditionCode) {
         this.substitutionConditionCode.setValue(substitutionConditionCode);
@@ -1169,46 +1162,7 @@ public class RecordedAtBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ToBePickedUpWhen</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Location5.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT010120NB.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT060340NB.Location4.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT010110NB.Location2.time</p>
+     * <p>Relationship: PORX_MT010110CA.Location2.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1221,13 +1175,52 @@ public class RecordedAtBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ToBePickedUpWhen</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Location4.time</p>
+     * <p>Relationship: PORX_MT060040CA.Location4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows a prescriber to indicate to the targeted pharmacy, 
      * when patient will be expecting to pick up the dispensed 
      * device.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     * 
+     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Location4.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     * 
+     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Location5.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     * 
+     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Location2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
      * 
      * <p>The date and time on which the dispense is expected to be 
      * picked up.</p>
@@ -1242,46 +1235,7 @@ public class RecordedAtBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ToBePickedUpWhen</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Location5.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT010120NB.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT060340NB.Location4.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT010110NB.Location2.time</p>
+     * <p>Relationship: PORX_MT010110CA.Location2.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -1294,13 +1248,52 @@ public class RecordedAtBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ToBePickedUpWhen</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Location4.time</p>
+     * <p>Relationship: PORX_MT060040CA.Location4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows a prescriber to indicate to the targeted pharmacy, 
      * when patient will be expecting to pick up the dispensed 
      * device.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     * 
+     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Location4.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     * 
+     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Location5.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     * 
+     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Location2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
      * 
      * <p>The date and time on which the dispense is expected to be 
      * picked up.</p>

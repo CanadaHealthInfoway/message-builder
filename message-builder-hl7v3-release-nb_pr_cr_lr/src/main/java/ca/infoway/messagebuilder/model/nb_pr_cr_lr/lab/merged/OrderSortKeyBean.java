@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: OrderSortKey</p>
  * 
- * <p>POLB_MT001010NB.RequestSortKey: Order Sort Key</p>
+ * <p>POLB_MT001001CA.RequestSortKey: Order Sort Key</p>
  * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>String used for sorting of orders.</p>
  * 
- * <p>POLB_MT001999NB.RequestSortKey: Order Sort Key</p>
+ * <p>POLB_MT001000CA.RequestSortKey: Order Sort Key</p>
  * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>String used for sorting of orders.</p>
  * 
- * <p>POLB_MT001001NB.RequestSortKey: Order Sort Key</p>
+ * <p>POLB_MT001999CA.RequestSortKey: Order Sort Key</p>
  * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>String used for sorting of orders.</p>
  * 
- * <p>POLB_MT001000NB.RequestSortKey: Order Sort Key</p>
+ * <p>POLB_MT001010CA.RequestSortKey: Order Sort Key</p>
  * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
@@ -63,10 +63,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>String used for sorting of orders.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT001000NB.RequestSortKey","POLB_MT001001NB.RequestSortKey","POLB_MT001010NB.RequestSortKey","POLB_MT001999NB.RequestSortKey"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.RequestSortKey","POLB_MT001001CA.RequestSortKey","POLB_MT001010CA.RequestSortKey","POLB_MT001999CA.RequestSortKey"})
 public class OrderSortKeyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private ST text = new STImpl();
 
 
@@ -75,7 +75,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -86,7 +86,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001000CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -97,7 +97,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -108,7 +108,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001010CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -127,7 +127,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,7 +138,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001000CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -149,7 +149,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -160,7 +160,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.RequestSortKey.text</p>
+     * <p>Relationship: POLB_MT001010CA.RequestSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

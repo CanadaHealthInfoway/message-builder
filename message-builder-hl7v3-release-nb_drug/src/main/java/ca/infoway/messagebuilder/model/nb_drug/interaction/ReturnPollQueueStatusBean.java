@@ -22,22 +22,22 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000200nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000200ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: MCCI_IN102003NB: Return Poll Queue Status</p>
+ * <p>Business Name: MCCI_IN102003CA: Return Poll Queue Status</p>
  * 
  * <p>Returns an indication of the number and priority of 
  * outstanding interactions (if any) on the application's poll 
  * queue.</p>
  * 
- * <p>Message: MCCI_MT000200NB.Message</p>
+ * <p>Message: MCCI_MT000200CA.Message</p>
  */
-@Hl7PartTypeMapping({"MCCI_IN102003NB"})
+@Hl7PartTypeMapping({"MCCI_IN102003CA"})
 public class ReturnPollQueueStatusBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

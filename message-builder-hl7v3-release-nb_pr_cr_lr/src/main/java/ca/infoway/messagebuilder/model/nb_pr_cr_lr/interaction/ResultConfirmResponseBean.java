@@ -22,27 +22,27 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001103nb.ReferencedRecordBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700226nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001103ca.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700226ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: POLB_IN134000NB: Result Confirm Response</p>
+ * <p>Business Name: POLB_IN134000CA: Result Confirm Response</p>
  * 
  * <p>This is a successful response to a request to record a 
  * result.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700226NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001103NB.ActEvent</p>
+ * <p>--> Payload: COMT_MT001103CA.ActEvent</p>
  */
-@Hl7PartTypeMapping({"POLB_IN134000NB"})
+@Hl7PartTypeMapping({"POLB_IN134000CA"})
 public class ResultConfirmResponseBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

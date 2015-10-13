@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Includes</p>
  * 
- * <p>PORX_MT060040NB.Component6: f:includes</p>
+ * <p>PORX_MT060060CA.Component6: f:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense.</p>
@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed device 
  * should be dispensed to the patient.</p>
  * 
- * <p>PORX_MT060060NB.Component6: f:includes</p>
+ * <p>PORX_MT060040CA.Component6: f:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense.</p>
@@ -45,23 +45,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed device 
  * should be dispensed to the patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060040NB.Component6","PORX_MT060060NB.Component6"})
+@Hl7PartTypeMapping({"PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class Component6Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private DispenseInstructionsBean supplyRequest;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -73,13 +73,13 @@ public class Component6Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

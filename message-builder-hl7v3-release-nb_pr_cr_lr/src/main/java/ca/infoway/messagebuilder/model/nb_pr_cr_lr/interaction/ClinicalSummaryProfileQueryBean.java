@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000008nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000008ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN100000NB: Clinical summary/profile 
+ * <p>Business Name: COMT_IN100000CA: Clinical summary/profile 
  * query</p>
  * 
  * <p>Requests retrieval for matching 'summary' versions of 
  * clinical data based on search criteria.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000008NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"COMT_IN100000NB"})
+@Hl7PartTypeMapping({"COMT_IN100000CA"})
 public class ClinicalSummaryProfileQueryBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

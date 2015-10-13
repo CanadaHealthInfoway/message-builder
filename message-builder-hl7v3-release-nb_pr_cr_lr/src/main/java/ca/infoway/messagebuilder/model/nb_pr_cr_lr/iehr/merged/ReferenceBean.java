@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000083NB.Reference","REPC_MT210001NB.Reference","REPC_MT210003NB.Reference","REPC_MT220001NB.Reference","REPC_MT220003NB.Reference","REPC_MT230001NB.Reference","REPC_MT230003NB.Reference"})
+@Hl7PartTypeMapping({"REPC_MT000083CA.Reference","REPC_MT210001CA.Reference","REPC_MT210003CA.Reference","REPC_MT220001CA.Reference","REPC_MT220003CA.Reference","REPC_MT230001CA.Reference","REPC_MT230003CA.Reference"})
 public class ReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,7 +41,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Reference.id</p>
+     * <p>Relationship: REPC_MT000083CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -58,7 +58,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Reference.id</p>
+     * <p>Relationship: REPC_MT220001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -75,7 +75,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.Reference.id</p>
+     * <p>Relationship: REPC_MT220003CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Reference.id</p>
+     * <p>Relationship: REPC_MT210003CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -109,7 +109,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.Reference.id</p>
+     * <p>Relationship: REPC_MT230001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -126,7 +126,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Reference.id</p>
+     * <p>Relationship: REPC_MT210001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -143,7 +143,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.Reference.id</p>
+     * <p>Relationship: REPC_MT230003CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -168,7 +168,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Reference.id</p>
+     * <p>Relationship: REPC_MT000083CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -185,7 +185,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT230003NB.Reference.id</p>
+     * <p>Relationship: REPC_MT220001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -202,7 +202,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.Reference.id</p>
+     * <p>Relationship: REPC_MT220003CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -219,7 +219,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Reference.id</p>
+     * <p>Relationship: REPC_MT210003CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -236,7 +236,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.Reference.id</p>
+     * <p>Relationship: REPC_MT230001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -253,7 +253,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT230001NB.Reference.id</p>
+     * <p>Relationship: REPC_MT210001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -270,7 +270,7 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.Reference.id</p>
+     * <p>Relationship: REPC_MT230003CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -32,10 +32,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT610001NB.ClinicalDocumentEvent","REPC_MT610002NB.ClinicalDocumentEvent"})
+@Hl7PartTypeMapping({"REPC_MT610001CA.ClinicalDocumentEvent","REPC_MT610002CA.ClinicalDocumentEvent"})
 public class ClinicalDocumentEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
 
@@ -44,14 +44,14 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT610001NB.ClinicalDocumentEvent.classCode</p>
+     * REPC_MT610001CA.ClinicalDocumentEvent.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT610002NB.ClinicalDocumentEvent.classCode</p>
+     * REPC_MT610002CA.ClinicalDocumentEvent.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -64,14 +64,14 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT610001NB.ClinicalDocumentEvent.classCode</p>
+     * REPC_MT610001CA.ClinicalDocumentEvent.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT610002NB.ClinicalDocumentEvent.classCode</p>
+     * REPC_MT610002CA.ClinicalDocumentEvent.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -85,7 +85,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT610001CA.ClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -102,7 +102,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -127,7 +127,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT610001CA.ClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -144,7 +144,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.ClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.nb_drug.merged.RefusedByBean;
 /**
  * <p>Business Name: OrderForService</p>
  * 
- * <p>REPC_MT100001NB.ActRequest: Order for Service</p>
+ * <p>REPC_MT100001CA.ActRequest: Order for Service</p>
  * 
  * <p>Allows linking the service to the person responsible for 
  * requesting it.</p>
@@ -38,23 +38,23 @@ import ca.infoway.messagebuilder.model.nb_drug.merged.RefusedByBean;
  * <p>Represents the order or prescription against which the 
  * service was performed.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000017NB.ActRequest","REPC_MT100001NB.ActRequest"})
+@Hl7PartTypeMapping({"REPC_MT000017CA.ActRequest","REPC_MT100001CA.ActRequest"})
 public class OrderForServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private RefusedByBean author;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100001NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT000017CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000017NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT100001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -66,13 +66,13 @@ public class OrderForServiceBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100001NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT000017CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000017NB.ActRequest.author</p>
+     * <p>Relationship: REPC_MT100001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

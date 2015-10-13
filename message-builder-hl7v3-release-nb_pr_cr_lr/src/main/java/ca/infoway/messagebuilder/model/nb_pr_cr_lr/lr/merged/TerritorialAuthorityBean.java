@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PRLO_MT000001NB.TerritorialAuthority","PRLO_MT000002NB.TerritorialAuthority","PRLO_MT202014NB.TerritorialAuthority","PRLO_MT202015NB.TerritorialAuthority"})
+@Hl7PartTypeMapping({"PRLO_MT000001CA.TerritorialAuthority","PRLO_MT000002CA.TerritorialAuthority","PRLO_MT202014CA.TerritorialAuthority","PRLO_MT202015CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,24 +41,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationRegionId</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.TerritorialAuthority.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>In Canada, many service delivery locations are organized 
-     * into regions for administrative, coordination and/or funding 
-     * reasons. Regions may influence where a patient may go for 
-     * services. They may also be used for searching.</p><p>Because 
-     * not all service delivery locations are associated with a 
-     * region, this element is only 'populated' to allow null 
-     * flavors such as 'NA'.</p>
-     * 
-     * <p>Identifies the health region associated with the service 
-     * delivery location (if any).</p>
-     * 
-     * <p>Un-merged Business Name: LocationRegionId</p>
-     * 
-     * <p>Relationship: PRLO_MT000002NB.TerritorialAuthority.id</p>
+     * <p>Relationship: PRLO_MT000002CA.TerritorialAuthority.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -80,7 +63,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationRegionId</p>
      * 
-     * <p>Relationship: PRLO_MT000001NB.TerritorialAuthority.id</p>
+     * <p>Relationship: PRLO_MT202014CA.TerritorialAuthority.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -97,7 +80,24 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationRegionId</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.TerritorialAuthority.id</p>
+     * <p>Relationship: PRLO_MT202015CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
+     * 
+     * <p>Un-merged Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRLO_MT000001CA.TerritorialAuthority.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -122,24 +122,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationRegionId</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.TerritorialAuthority.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>In Canada, many service delivery locations are organized 
-     * into regions for administrative, coordination and/or funding 
-     * reasons. Regions may influence where a patient may go for 
-     * services. They may also be used for searching.</p><p>Because 
-     * not all service delivery locations are associated with a 
-     * region, this element is only 'populated' to allow null 
-     * flavors such as 'NA'.</p>
-     * 
-     * <p>Identifies the health region associated with the service 
-     * delivery location (if any).</p>
-     * 
-     * <p>Un-merged Business Name: LocationRegionId</p>
-     * 
-     * <p>Relationship: PRLO_MT000002NB.TerritorialAuthority.id</p>
+     * <p>Relationship: PRLO_MT000002CA.TerritorialAuthority.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -161,7 +144,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationRegionId</p>
      * 
-     * <p>Relationship: PRLO_MT000001NB.TerritorialAuthority.id</p>
+     * <p>Relationship: PRLO_MT202014CA.TerritorialAuthority.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -178,7 +161,24 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationRegionId</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.TerritorialAuthority.id</p>
+     * <p>Relationship: PRLO_MT202015CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
+     * 
+     * <p>Un-merged Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRLO_MT000001CA.TerritorialAuthority.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 

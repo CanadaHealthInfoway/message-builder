@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.pome_mt010090nb.DrugQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.pome_mt010100nb.MedicationBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.pome_mt010090ca.DrugQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.pome_mt010100ca.MedicationBean;
 
 
 
 /**
- * <p>Business Name: POME_IN010080NB: Drug search query 
+ * <p>Business Name: POME_IN010080CA: Drug search query 
  * response</p>
  * 
  * <p>Returns a list of basic identifying and descriptive 
  * information about one or more medications.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POME_MT010100NB.Medication</p>
+ * <p>--> Payload: POME_MT010100CA.Medication</p>
  * 
- * <p>--> Payload: POME_MT010090NB.ParameterList</p>
+ * <p>--> Payload: POME_MT010090CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POME_IN010080NB"})
+@Hl7PartTypeMapping({"POME_IN010080CA"})
 public class DrugSearchQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

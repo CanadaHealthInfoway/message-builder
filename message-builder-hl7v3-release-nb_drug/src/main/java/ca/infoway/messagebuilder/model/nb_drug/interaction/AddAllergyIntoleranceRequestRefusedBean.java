@@ -22,13 +22,13 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000014NB: Add allergy/intolerance 
+ * <p>Business Name: REPC_IN000014CA: Add allergy/intolerance 
  * request refused</p>
  * 
  * <p>Indicates that the request to add the specified allergy 
@@ -54,13 +54,13 @@ import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7Message
  * code) with overlapping date ranges already exists.<br /> 
  * </p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700222NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000014NB"})
+@Hl7PartTypeMapping({"REPC_IN000014CA"})
 public class AddAllergyIntoleranceRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

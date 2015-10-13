@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010nb.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010ca.ReferencedRecordBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN300101NB: Deprecate patient note 
+ * <p>Business Name: COMT_IN300101CA: Deprecate patient note 
  * request</p>
  * 
  * <p>Requests that the specified patient annotation be marked 
@@ -50,15 +50,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010nb.Referenc
  * &ldquo;id&rdquo; element in the message path &ldquo;/subject 
  * /actEvent /recordTarget /patient&rdquo;.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990010NB.ActEvent</p>
+ * <p>--> Payload: PORX_MT990010CA.ActEvent</p>
  */
-@Hl7PartTypeMapping({"COMT_IN300101NB"})
+@Hl7PartTypeMapping({"COMT_IN300101CA"})
 public class DeprecatePatientNoteRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

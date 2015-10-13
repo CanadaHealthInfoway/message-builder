@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010140nb.DispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010140ca.DispenseInstructionsBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010100NB: Revise assigned dispense 
+ * <p>Business Name: PORX_IN010100CA: Revise assigned dispense 
  * responsibility req.</p>
  * 
  * <p>Any existing issue with the prescription should be 
  * recorded by specifying each issue as an instance of 
  * &ldquo;/subjectOf1 /detectedIssueEvent&rdquo;.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT010140NB.SupplyRequest</p>
+ * <p>--> Payload: PORX_MT010140CA.SupplyRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010100NB"})
+@Hl7PartTypeMapping({"PORX_IN010100CA"})
 public class ReviseAssignedDispenseResponsibilityReqBean extends HL7MessageBean<TriggerEventBean<DispenseInstructionsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

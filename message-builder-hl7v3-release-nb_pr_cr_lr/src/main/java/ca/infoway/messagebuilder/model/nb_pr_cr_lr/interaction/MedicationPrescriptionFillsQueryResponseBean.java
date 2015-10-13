@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060080nb.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060100nb.DispenseBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060080ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060100ca.DispenseBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060280NB: Medication prescription 
+ * <p>Business Name: PORX_IN060280CA: Medication prescription 
  * fills query response</p>
  * 
  * <p>Returns basic information about all medication dispenses 
  * performed against a particular prescription referenced by 
  * id.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060100NB.MedicationDispense</p>
+ * <p>--> Payload: PORX_MT060100CA.MedicationDispense</p>
  * 
- * <p>--> Payload: PORX_MT060080NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060080CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060280NB"})
+@Hl7PartTypeMapping({"PORX_IN060280CA"})
 public class MedicationPrescriptionFillsQueryResponseBean extends HL7MessageBean<TriggerEventBean<DispenseBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

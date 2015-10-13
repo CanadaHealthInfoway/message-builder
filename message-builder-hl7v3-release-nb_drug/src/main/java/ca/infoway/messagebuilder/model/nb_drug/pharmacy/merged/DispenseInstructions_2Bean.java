@@ -41,7 +41,7 @@ import java.util.Date;
 /**
  * <p>Business Name: DispenseInstructions</p>
  * 
- * <p>PORX_MT030040NB.SupplyRequest: Dispense Instructions</p>
+ * <p>PORX_MT030040CA.SupplyRequest: Dispense Instructions</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
@@ -53,14 +53,92 @@ import java.util.Date;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020070NB.SupplyRequest","PORX_MT030040NB.SupplyRequest","PORX_MT060190NB.SupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
-    private PQ quantity = new PQImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20151013L;
     private CS statusCode = new CSImpl();
+    private PQ quantity = new PQImpl();
     private RecordedAtBean location;
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the dispensing authorization of the prescription 
+     * to be controlled/manipulates as needed.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the dispensing authority 
+     * of the prescription will always be known.</p>
+     * 
+     * <p>This generally mirrors the status for the prescription, 
+     * but in some circumstances may be changed to 'aborted' while 
+     * the prescription is still active. When this occurs, it means 
+     * the prescription may no longer be dispensed, though it may 
+     * still be administered.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionDispenseIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a prescriber to say &quot;Finish what you have on 
+     * hand, but don't get any more.&quot;</p><p>Because the status 
+     * should always be known, this element is mandatory.</p>
+     * 
+     * <p>This generally mirrors the status for the prescription, 
+     * but in some circumstances may be changed to 'aborted' while 
+     * the prescription is still active. When this occurs, it means 
+     * the prescription may no longer be dispensed, though it may 
+     * still be administered.</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the dispensing authorization of the prescription 
+     * to be controlled/manipulates as needed.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the dispensing authority 
+     * of the prescription will always be known.</p>
+     * 
+     * <p>This generally mirrors the status for the prescription, 
+     * but in some circumstances may be changed to 'aborted' while 
+     * the prescription is still active. When this occurs, it means 
+     * the prescription may no longer be dispensed, though it may 
+     * still be administered.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionDispenseIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a prescriber to say &quot;Finish what you have on 
+     * hand, but don't get any more.&quot;</p><p>Because the status 
+     * should always be known, this element is mandatory.</p>
+     * 
+     * <p>This generally mirrors the status for the prescription, 
+     * but in some circumstances may be changed to 'aborted' while 
+     * the prescription is still active. When this occurs, it means 
+     * the prescription may no longer be dispensed, though it may 
+     * still be administered.</p>
+     */
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
+    }
 
 
     /**
@@ -68,14 +146,15 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Critical in understanding the patient's medication 
-     * profile, both past and current. This also allows 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p>
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -84,7 +163,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -102,15 +181,14 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p>
+     * <p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -127,14 +205,15 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Critical in understanding the patient's medication 
-     * profile, both past and current. This also allows 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p>
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -143,7 +222,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -161,15 +240,14 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p>
+     * <p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -182,12 +260,48 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070NB.SupplyRequest.expectedUseTime</p>
+     * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -211,7 +325,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070NB.SupplyRequest.expectedUseTime</p>
+     * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -226,120 +340,6 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: PrescriptionDispenseIndicator</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.SupplyRequest.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a prescriber to say &quot;Finish what you have on 
-     * hand, but don't get any more.&quot;</p><p>Because the status 
-     * should always be known, this element is mandatory.</p>
-     * 
-     * <p>This generally mirrors the status for the prescription, 
-     * but in some circumstances may be changed to 'aborted' while 
-     * the prescription is still active. When this occurs, it means 
-     * the prescription may no longer be dispensed, though it may 
-     * still be administered.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows the dispensing authorization of the prescription 
-     * to be controlled/manipulates as needed.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the dispensing authority 
-     * of the prescription will always be known.</p>
-     * 
-     * <p>This generally mirrors the status for the prescription, 
-     * but in some circumstances may be changed to 'aborted' while 
-     * the prescription is still active. When this occurs, it means 
-     * the prescription may no longer be dispensed, though it may 
-     * still be administered.</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: PrescriptionDispenseIndicator</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.SupplyRequest.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a prescriber to say &quot;Finish what you have on 
-     * hand, but don't get any more.&quot;</p><p>Because the status 
-     * should always be known, this element is mandatory.</p>
-     * 
-     * <p>This generally mirrors the status for the prescription, 
-     * but in some circumstances may be changed to 'aborted' while 
-     * the prescription is still active. When this occurs, it means 
-     * the prescription may no longer be dispensed, though it may 
-     * still be administered.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows the dispensing authorization of the prescription 
-     * to be controlled/manipulates as needed.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the dispensing authority 
-     * of the prescription will always be known.</p>
-     * 
-     * <p>This generally mirrors the status for the prescription, 
-     * but in some circumstances may be changed to 'aborted' while 
-     * the prescription is still active. When this occurs, it means 
-     * the prescription may no longer be dispensed, though it may 
-     * still be administered.</p>
-     */
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
     }
 
 }

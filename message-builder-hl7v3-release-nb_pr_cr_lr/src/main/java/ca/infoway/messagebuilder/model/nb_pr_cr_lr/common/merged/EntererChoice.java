@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"MFMI_MT700711NB.EntererChoice","MFMI_MT700751NB.EntererChoice"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.EntererChoice","MFMI_MT700751CA.EntererChoice"})
 public interface EntererChoice {
 
 }

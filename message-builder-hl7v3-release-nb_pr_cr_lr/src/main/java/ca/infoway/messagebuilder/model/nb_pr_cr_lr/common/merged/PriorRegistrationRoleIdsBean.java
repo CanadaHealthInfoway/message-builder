@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: PriorRegistrationRoleIds</p>
  * 
- * <p>MFMI_MT700746NB.PriorRegisteredRole: Prior Registration 
+ * <p>MFMI_MT700717CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
  * <p>Provides support for merges.</p>
@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * registered item that have been superseded by this 
  * record.</p>
  * 
- * <p>MFMI_MT700716NB.PriorRegisteredRole: Prior Registration 
+ * <p>MFMI_MT700716CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
  * <p>Provides support for merges.</p>
@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * registered item that have been superseded by this 
  * record.</p>
  * 
- * <p>MFMI_MT700717NB.PriorRegisteredRole: Prior Registration 
+ * <p>MFMI_MT700711CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
  * <p>Provides support for merges.</p>
@@ -62,7 +62,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * registered item that have been superseded by this 
  * record.</p>
  * 
- * <p>MFMI_MT700726NB.PriorRegisteredRole: Prior Registration 
+ * <p>MFMI_MT700746CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
  * <p>Provides support for merges.</p>
@@ -71,7 +71,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * registered item that have been superseded by this 
  * record.</p>
  * 
- * <p>MFMI_MT700711NB.PriorRegisteredRole: Prior Registration 
+ * <p>MFMI_MT700726CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
  * <p>Provides support for merges.</p>
@@ -80,10 +80,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * registered item that have been superseded by this 
  * record.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700711NB.PriorRegisteredRole","MFMI_MT700716NB.PriorRegisteredRole","MFMI_MT700717NB.PriorRegisteredRole","MFMI_MT700726NB.PriorRegisteredRole","MFMI_MT700746NB.PriorRegisteredRole"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegisteredRole","MFMI_MT700716CA.PriorRegisteredRole","MFMI_MT700717CA.PriorRegisteredRole","MFMI_MT700726CA.PriorRegisteredRole","MFMI_MT700746CA.PriorRegisteredRole"})
 public class PriorRegistrationRoleIdsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
 
@@ -92,35 +92,35 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700717CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700716CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700711CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700746CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700726CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -133,35 +133,35 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700717CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700716NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700716CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700711CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700746CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711NB.PriorRegisteredRole.classCode</p>
+     * MFMI_MT700726CA.PriorRegisteredRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -175,7 +175,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -187,7 +187,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -199,7 +199,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -211,7 +211,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -223,7 +223,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -243,7 +243,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -255,7 +255,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -267,7 +267,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -279,7 +279,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -291,7 +291,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.PriorRegisteredRole.id</p>
+     * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

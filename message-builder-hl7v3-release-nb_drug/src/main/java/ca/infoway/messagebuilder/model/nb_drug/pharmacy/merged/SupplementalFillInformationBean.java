@@ -28,10 +28,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT010110NB.SupplementalFillInformation","PORX_MT060040NB.SupplementalFillInformation"})
+@Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
@@ -42,14 +42,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplementalFillInformation.repeatNumber</p>
+     * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110NB.SupplementalFillInformation.repeatNumber</p>
+     * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -64,14 +64,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplementalFillInformation.repeatNumber</p>
+     * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110NB.SupplementalFillInformation.repeatNumber</p>
+     * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -86,14 +86,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplementalFillInformation.quantity</p>
+     * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110NB.SupplementalFillInformation.quantity</p>
+     * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -108,14 +108,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.SupplementalFillInformation.quantity</p>
+     * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110NB.SupplementalFillInformation.quantity</p>
+     * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */

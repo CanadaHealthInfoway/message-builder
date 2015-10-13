@@ -35,7 +35,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ParentTest</p>
  * 
- * <p>POLB_MT001001NB.ActParentPointer: Parent Test</p>
+ * <p>POLB_MT001999CA.ActParentPointer: Parent Test</p>
+ * 
+ * <p>Associates a repeating child order with it's parent 
+ * order.</p>
+ * 
+ * <p>Communicates the parent order (id) in a repeating child 
+ * order.</p>
+ * 
+ * <p>POLB_MT001010CA.ActParentPointer: Parent Test</p>
  * 
  * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
  * or '''OBS''' according to the parent order classCode.</p>
@@ -46,7 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Communicates the parent order (id) in a repeating child 
  * order.</p>
  * 
- * <p>POLB_MT001000NB.ActParentPointer: Parent Test</p>
+ * <p>POLB_MT001001CA.ActParentPointer: Parent Test</p>
  * 
  * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
  * or '''OBS''' according to the parent order classCode.</p>
@@ -57,18 +65,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Communicates the parent order (id) in a repeating child 
  * order.</p>
  * 
- * <p>POLB_MT001010NB.ActParentPointer: Parent Test</p>
+ * <p>POLB_MT001000CA.ActParentPointer: Parent Test</p>
  * 
  * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
  * or '''OBS''' according to the parent order classCode.</p>
- * 
- * <p>Associates a repeating child order with it's parent 
- * order.</p>
- * 
- * <p>Communicates the parent order (id) in a repeating child 
- * order.</p>
- * 
- * <p>POLB_MT001999NB.ActParentPointer: Parent Test</p>
  * 
  * <p>Associates a repeating child order with it's parent 
  * order.</p>
@@ -76,10 +76,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Communicates the parent order (id) in a repeating child 
  * order.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT001000NB.ActParentPointer","POLB_MT001001NB.ActParentPointer","POLB_MT001010NB.ActParentPointer","POLB_MT001999NB.ActParentPointer"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.ActParentPointer","POLB_MT001001CA.ActParentPointer","POLB_MT001010CA.ActParentPointer","POLB_MT001999CA.ActParentPointer"})
 public class ParentTestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
 
@@ -87,25 +87,25 @@ public class ParentTestBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001010CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001999CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001001CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001000CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -117,25 +117,25 @@ public class ParentTestBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001010CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001999CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001001CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.ActParentPointer.classCode</p>
+     * <p>Relationship: POLB_MT001000CA.ActParentPointer.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -149,7 +149,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001010CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -161,7 +161,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001999CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001001CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -185,7 +185,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001000CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -205,7 +205,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001001NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001010CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -217,7 +217,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001000NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001999CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -229,7 +229,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001010NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001001CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -241,7 +241,7 @@ public class ParentTestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Relationship: POLB_MT001999NB.ActParentPointer.id</p>
+     * <p>Relationship: POLB_MT001000CA.ActParentPointer.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

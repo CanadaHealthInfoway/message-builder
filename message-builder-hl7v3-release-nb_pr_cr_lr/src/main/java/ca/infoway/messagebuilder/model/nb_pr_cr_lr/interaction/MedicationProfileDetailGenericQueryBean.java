@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060180nb.MedicationProfileGenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060180ca.MedicationProfileGenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060350NB: Medication profile detail 
+ * <p>Business Name: PORX_IN060350CA: Medication profile detail 
  * generic query</p>
  * 
  * <p>Requests retrieval of detailed information about a 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt060180nb.Medi
  * a specific patient filtered by a variety of criteria, 
  * including id, drug, indication, date, etc.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060180NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060180CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060350NB"})
+@Hl7PartTypeMapping({"PORX_IN060350CA"})
 public class MedicationProfileDetailGenericQueryBean extends HL7MessageBean<TriggerEventBean<MedicationProfileGenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010nb.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010ca.ReferencedRecordBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN040080NB: Update other medication 
+ * <p>Business Name: PORX_IN040080CA: Update other medication 
  * request accepted</p>
  * 
  * <p>Indicates that the requested status, comments and/or 
@@ -39,15 +39,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010nb.Referenc
  * <p>The return of this message is a simple confirmation the 
  * record was updated.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700220NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990010NB.ActEvent</p>
+ * <p>--> Payload: PORX_MT990010CA.ActEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN040080NB"})
+@Hl7PartTypeMapping({"PORX_IN040080CA"})
 public class UpdateOtherMedicationRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -31,7 +31,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Includes</p>
  * 
- * <p>PORX_MT060190NB.Component6: f:includes</p>
+ * <p>PORX_MT020070CA.Component2: (no business name)</p>
+ * 
+ * <p>Component must be specified if the id is null and can not 
+ * be specified if the id is not null.</p>
+ * 
+ * <p>PORX_MT030040CA.Component6: f:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -49,12 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
  * 
- * <p>PORX_MT020070NB.Component2: (no business name)</p>
- * 
- * <p>Component must be specified if the id is null and can not 
- * be specified if the id is not null.</p>
- * 
- * <p>PORX_MT030040NB.Component6: f:includes</p>
+ * <p>PORX_MT060190CA.Component6: f:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -72,67 +72,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020070NB.Component2","PORX_MT030040NB.Component6","PORX_MT060190NB.Component6"})
+@Hl7PartTypeMapping({"PORX_MT020070CA.Component2","PORX_MT030040CA.Component6","PORX_MT060190CA.Component6"})
 public class Component6Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
-    private DispenseInstructions_2Bean supplyRequest;
+    private static final long serialVersionUID = 20151013L;
     private BL contextConductionInd = new BLImpl();
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020070NB.Component2.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.Component6.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.Component6.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"supplyRequest"})
-    public DispenseInstructions_2Bean getSupplyRequest() {
-        return this.supplyRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020070NB.Component2.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.Component6.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.Component6.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
-        this.supplyRequest = supplyRequest;
-    }
+    private DispenseInstructions_2Bean supplyRequest;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070NB.Component2.contextConductionInd</p>
+     * PORX_MT020070CA.Component2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -145,12 +97,60 @@ public class Component6Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070NB.Component2.contextConductionInd</p>
+     * PORX_MT020070CA.Component2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"supplyRequest"})
+    public DispenseInstructions_2Bean getSupplyRequest() {
+        return this.supplyRequest;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
+        this.supplyRequest = supplyRequest;
     }
 
 }

@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060090nb.DispenseBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060360nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060090ca.DispenseBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060360ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060220NB: Medication dispense 
+ * <p>Business Name: PORX_IN060220CA: Medication dispense 
  * detail query response</p>
  * 
  * <p>Returns detailed information about a single identified 
@@ -48,17 +48,17 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060360nb.GenericQ
  * not specified, the issue is presently an unmanaged 
  * issue.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060090NB.MedicationDispense</p>
+ * <p>--> Payload: PORX_MT060090CA.MedicationDispense</p>
  * 
- * <p>--> Payload: PORX_MT060360NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060360CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060220NB"})
+@Hl7PartTypeMapping({"PORX_IN060220CA"})
 public class MedicationDispenseDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<DispenseBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

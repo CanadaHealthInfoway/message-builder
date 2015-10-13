@@ -37,7 +37,7 @@ import java.util.Date;
 /**
  * <p>Business Name: FirstDispenseInformation</p>
  * 
- * <p>PORX_MT060340NB.SupplyEventFirstSummary: First Dispense 
+ * <p>PORX_MT030040CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -46,7 +46,7 @@ import java.util.Date;
  * <p>Provides summary information about the first dispense 
  * event on the prescription</p>
  * 
- * <p>PORX_MT030040NB.SupplyEventFirstSummary: First Dispense 
+ * <p>PORX_MT060190CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -55,7 +55,7 @@ import java.util.Date;
  * <p>Provides summary information about the first dispense 
  * event on the prescription</p>
  * 
- * <p>PORX_MT060190NB.SupplyEventFirstSummary: First Dispense 
+ * <p>PORX_MT060160CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -64,7 +64,7 @@ import java.util.Date;
  * <p>Provides summary information about the first dispense 
  * event on the prescription</p>
  * 
- * <p>PORX_MT060160NB.SupplyEventFirstSummary: First Dispense 
+ * <p>PORX_MT060340CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -73,10 +73,10 @@ import java.util.Date;
  * <p>Provides summary information about the first dispense 
  * event on the prescription</p>
  */
-@Hl7PartTypeMapping({"PORX_MT030040NB.SupplyEventFirstSummary","PORX_MT060160NB.SupplyEventFirstSummary","PORX_MT060190NB.SupplyEventFirstSummary","PORX_MT060340NB.SupplyEventFirstSummary"})
+@Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventFirstSummary","PORX_MT060160CA.SupplyEventFirstSummary","PORX_MT060190CA.SupplyEventFirstSummary","PORX_MT060340CA.SupplyEventFirstSummary"})
 public class FirstDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
 
@@ -87,19 +87,7 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SupplyEventFirstSummary.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful in establishing start of therapy.</p>
-     * 
-     * <p>Indicates when the first dispense against the 
-     * prescription was picked up.</p>
-     * 
-     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT030040CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -112,7 +100,7 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060190CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -125,12 +113,24 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060160CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance</p>
+     * 
+     * <p>Indicates when the first dispense against the 
+     * prescription was picked up.</p>
+     * 
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventFirstSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in establishing start of therapy.</p>
      * 
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
@@ -146,19 +146,7 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SupplyEventFirstSummary.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful in establishing start of therapy.</p>
-     * 
-     * <p>Indicates when the first dispense against the 
-     * prescription was picked up.</p>
-     * 
-     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT030040CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -171,7 +159,7 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060190CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -184,12 +172,24 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SupplyEventFirstSummary.effectiveTime</p>
+     * PORX_MT060160CA.SupplyEventFirstSummary.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance</p>
+     * 
+     * <p>Indicates when the first dispense against the 
+     * prescription was picked up.</p>
+     * 
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventFirstSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in establishing start of therapy.</p>
      * 
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
@@ -200,25 +200,10 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.SupplyEventFirstSummary.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Usually establishes trial quantities for a 
-     * prescription.</p><p>Because the quantity should always be 
-     * known if the first dispense is known, this attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Indicates the amount of medication first dispensed on the 
-     * prescription.</p>
-     * 
      * <p>Un-merged Business Name: FirstQuantityDispense</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT030040CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -233,7 +218,7 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060190CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -248,7 +233,22 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060160CA.SupplyEventFirstSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Usually establishes trial quantities for a 
+     * prescription.</p><p>Because the quantity should always be 
+     * known if the first dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates the amount of medication first dispensed on the 
+     * prescription.</p>
+     * 
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -266,25 +266,10 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.SupplyEventFirstSummary.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Usually establishes trial quantities for a 
-     * prescription.</p><p>Because the quantity should always be 
-     * known if the first dispense is known, this attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Indicates the amount of medication first dispensed on the 
-     * prescription.</p>
-     * 
      * <p>Un-merged Business Name: FirstQuantityDispense</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT030040CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -299,7 +284,7 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060190NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060190CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -314,7 +299,22 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SupplyEventFirstSummary.quantity</p>
+     * PORX_MT060160CA.SupplyEventFirstSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Usually establishes trial quantities for a 
+     * prescription.</p><p>Because the quantity should always be 
+     * known if the first dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates the amount of medication first dispensed on the 
+     * prescription.</p>
+     * 
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventFirstSummary.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

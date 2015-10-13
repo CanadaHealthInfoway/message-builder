@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: DispensedIn</p>
  * 
- * <p>POME_MT010100NB.Content: dispensed in</p>
+ * <p>POME_MT010100CA.Content: dispensed in</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
  * 
- * <p>POME_MT010040NB.Content: dispensed in</p>
+ * <p>POME_MT010040CA.Content: dispensed in</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
@@ -55,10 +55,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
  */
-@Hl7PartTypeMapping({"POME_MT010040NB.Content","POME_MT010100NB.Content"})
+@Hl7PartTypeMapping({"POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private RTO<PhysicalQuantity, PhysicalQuantity> quantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
     private CV containerPackagedMedicineFormCode = new CVImpl();
 
@@ -68,7 +68,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PackageQuantity</p>
      * 
-     * <p>Relationship: POME_MT010100NB.Content.quantity</p>
+     * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -86,7 +86,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PackageQuantity</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Content.quantity</p>
+     * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -112,7 +112,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PackageQuantity</p>
      * 
-     * <p>Relationship: POME_MT010100NB.Content.quantity</p>
+     * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -130,7 +130,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PackageQuantity</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Content.quantity</p>
+     * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -156,7 +156,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainerType</p>
      * 
-     * <p>Relationship: POME_MT010100NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -170,7 +170,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainerType</p>
      * 
-     * <p>Relationship: POME_MT010040NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -192,7 +192,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainerType</p>
      * 
-     * <p>Relationship: POME_MT010100NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -206,7 +206,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ContainerType</p>
      * 
-     * <p>Relationship: POME_MT010040NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

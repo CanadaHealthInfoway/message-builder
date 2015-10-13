@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: RefersTo</p>
  * 
- * <p>MCAI_MT700211NB.Subject2: f:refers to</p>
+ * <p>MCAI_MT700210CA.Subject2: f:refers to</p>
  * 
  * <p>Provides information about the thing being created or 
  * modified.</p>
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the item(s) being acted upon by this trigger 
  * event.</p>
  * 
- * <p>MCAI_MT700221NB.Subject2: f:refers to</p>
+ * <p>MCAI_MT700211CA.Subject2: f:refers to</p>
  * 
  * <p>Provides information about the thing being created or 
  * modified.</p>
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the item(s) being acted upon by this trigger 
  * event.</p>
  * 
- * <p>MCAI_MT700220NB.Subject2: f:refers to</p>
+ * <p>MCAI_MT700221CA.Subject2: f:refers to</p>
  * 
  * <p>Provides information about the thing being created or 
  * modified.</p>
@@ -67,7 +67,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the item(s) being acted upon by this trigger 
  * event.</p>
  * 
- * <p>MCAI_MT700210NB.Subject2: f:refers to</p>
+ * <p>QUQI_MT120000CA.Subject2: f:refers to</p>
  * 
  * <p>Provides information about the thing being created or 
  * modified.</p>
@@ -79,7 +79,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the item(s) being acted upon by this trigger 
  * event.</p>
  * 
- * <p>QUQI_MT120000NB.Subject2: f:refers to</p>
+ * <p>MCAI_MT700220CA.Subject2: f:refers to</p>
  * 
  * <p>Provides information about the thing being created or 
  * modified.</p>
@@ -91,84 +91,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the item(s) being acted upon by this trigger 
  * event.</p>
  */
-@Hl7PartTypeMapping({"MCAI_MT700210NB.Subject2","MCAI_MT700211NB.Subject2","MCAI_MT700220NB.Subject2","MCAI_MT700221NB.Subject2","QUQI_MT120000NB.Subject2"})
+@Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","QUQI_MT120000CA.Subject2"})
 public class RefersToBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
-    private ACT act;
+    private static final long serialVersionUID = 20151013L;
     private BL contextConductionInd = new BLImpl();
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700211NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700221NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700220NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700210NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120000NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"act"})
-    public ACT getAct() {
-        return this.act;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700211NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700221NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700220NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700210NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120000NB.Subject2.act</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setAct(ACT act) {
-        this.act = act;
-    }
+    private ACT act;
 
 
     /**
@@ -177,7 +105,7 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Subject2.contextConductionInd</p>
+     * MCAI_MT700210CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -204,7 +132,7 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Subject2.contextConductionInd</p>
+     * MCAI_MT700210CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -222,6 +150,78 @@ public class RefersToBean<ACT> extends MessagePartBean {
      */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"act"})
+    public ACT getAct() {
+        return this.act;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setAct(ACT act) {
+        this.act = act;
     }
 
 }

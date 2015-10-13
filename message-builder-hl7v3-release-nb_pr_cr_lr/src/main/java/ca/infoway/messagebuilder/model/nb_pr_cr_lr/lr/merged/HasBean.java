@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Has</p>
  * 
- * <p>PRLO_MT202014NB.IdentifiedLocation: *k:has</p>
+ * <p>PRLO_MT202014CA.IdentifiedLocation: *k:has</p>
  * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides additional identifiers by which the location may 
  * be known.</p>
  * 
- * <p>PRLO_MT000002NB.IdentifiedLocation: *k:has</p>
+ * <p>PRLO_MT202015CA.IdentifiedLocation: *k:has</p>
  * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides additional identifiers by which the location may 
  * be known.</p>
  * 
- * <p>PRLO_MT202015NB.IdentifiedLocation: *k:has</p>
+ * <p>PRLO_MT000002CA.IdentifiedLocation: *k:has</p>
  * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
@@ -64,10 +64,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides additional identifiers by which the location may 
  * be known.</p>
  */
-@Hl7PartTypeMapping({"PRLO_MT000002NB.IdentifiedLocation","PRLO_MT202014NB.IdentifiedLocation","PRLO_MT202015NB.IdentifiedLocation"})
+@Hl7PartTypeMapping({"PRLO_MT000002CA.IdentifiedLocation","PRLO_MT202014CA.IdentifiedLocation","PRLO_MT202015CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST assigningIdentifierOrganizationName = new STImpl();
@@ -78,7 +78,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Identifier</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.IdentifiedLocation.id</p>
+     * <p>Relationship: PRLO_MT202014CA.IdentifiedLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Identifier</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.IdentifiedLocation.id</p>
+     * <p>Relationship: PRLO_MT000002CA.IdentifiedLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -106,7 +106,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Identifier</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.IdentifiedLocation.id</p>
+     * <p>Relationship: PRLO_MT202015CA.IdentifiedLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -128,7 +128,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Identifier</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.IdentifiedLocation.id</p>
+     * <p>Relationship: PRLO_MT202014CA.IdentifiedLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +142,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Identifier</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.IdentifiedLocation.id</p>
+     * <p>Relationship: PRLO_MT000002CA.IdentifiedLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -156,7 +156,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Identifier</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.IdentifiedLocation.id</p>
+     * <p>Relationship: PRLO_MT202015CA.IdentifiedLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -178,7 +178,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifierType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.IdentifiedLocation.code</p>
+     * <p>Relationship: PRLO_MT202014CA.IdentifiedLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,7 +191,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifierType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.IdentifiedLocation.code</p>
+     * <p>Relationship: PRLO_MT000002CA.IdentifiedLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -204,7 +204,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifierType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.IdentifiedLocation.code</p>
+     * <p>Relationship: PRLO_MT202015CA.IdentifiedLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -225,7 +225,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifierType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.IdentifiedLocation.code</p>
+     * <p>Relationship: PRLO_MT202014CA.IdentifiedLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -238,7 +238,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifierType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.IdentifiedLocation.code</p>
+     * <p>Relationship: PRLO_MT000002CA.IdentifiedLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -251,7 +251,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifierType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.IdentifiedLocation.code</p>
+     * <p>Relationship: PRLO_MT202015CA.IdentifiedLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -272,7 +272,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.IdentifierOrganization.name</p>
+     * <p>Relationship: PRLO_MT202014CA.IdentifierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -287,7 +287,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.IdentifierOrganization.name</p>
+     * <p>Relationship: PRLO_MT000002CA.IdentifierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -302,7 +302,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.IdentifierOrganization.name</p>
+     * <p>Relationship: PRLO_MT202015CA.IdentifierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -325,7 +325,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.IdentifierOrganization.name</p>
+     * <p>Relationship: PRLO_MT202014CA.IdentifierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -340,7 +340,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.IdentifierOrganization.name</p>
+     * <p>Relationship: PRLO_MT000002CA.IdentifierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -355,7 +355,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.IdentifierOrganization.name</p>
+     * <p>Relationship: PRLO_MT202015CA.IdentifierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

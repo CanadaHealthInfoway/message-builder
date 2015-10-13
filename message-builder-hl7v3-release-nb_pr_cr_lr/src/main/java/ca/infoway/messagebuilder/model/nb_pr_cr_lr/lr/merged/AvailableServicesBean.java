@@ -43,7 +43,7 @@ import java.util.Set;
 /**
  * <p>Business Name: AvailableServices</p>
  * 
- * <p>PRLO_MT202014NB.ServiceDefinition: Available Services</p>
+ * <p>PRLO_MT202014CA.ServiceDefinition: Available Services</p>
  * 
  * <p>Useful when searching for a location to provide a 
  * particular service. May be used to filter query 
@@ -52,7 +52,7 @@ import java.util.Set;
  * <p>A list of available services provided by the service 
  * delivery location.</p>
  * 
- * <p>PRLO_MT000002NB.ServiceDefinition: Available Services</p>
+ * <p>PRLO_MT000002CA.ServiceDefinition: Available Services</p>
  * 
  * <p>Useful when searching for a location to provide a 
  * particular service. May be used to filter query 
@@ -61,7 +61,7 @@ import java.util.Set;
  * <p>A list of available services provided by the service 
  * delivery location.</p>
  * 
- * <p>PRLO_MT202015NB.ServiceDefinition: Available Services</p>
+ * <p>PRLO_MT202015CA.ServiceDefinition: Available Services</p>
  * 
  * <p>Useful when searching for a location to provide a 
  * particular service. May be used to filter query 
@@ -70,10 +70,10 @@ import java.util.Set;
  * <p>A list of available services provided by the service 
  * delivery location.</p>
  */
-@Hl7PartTypeMapping({"PRLO_MT000002NB.ServiceDefinition","PRLO_MT202014NB.ServiceDefinition","PRLO_MT202015NB.ServiceDefinition"})
+@Hl7PartTypeMapping({"PRLO_MT000002CA.ServiceDefinition","PRLO_MT202014CA.ServiceDefinition","PRLO_MT202015CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private SET<PIVL, PeriodicIntervalTime> activityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
@@ -84,7 +84,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ServiceDefinition.code</p>
+     * <p>Relationship: PRLO_MT202014CA.ServiceDefinition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -96,7 +96,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ServiceDefinition.code</p>
+     * <p>Relationship: PRLO_MT000002CA.ServiceDefinition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -108,7 +108,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ServiceDefinition.code</p>
+     * <p>Relationship: PRLO_MT202015CA.ServiceDefinition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -128,7 +128,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.ServiceDefinition.code</p>
+     * <p>Relationship: PRLO_MT202014CA.ServiceDefinition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -140,7 +140,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.ServiceDefinition.code</p>
+     * <p>Relationship: PRLO_MT000002CA.ServiceDefinition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,7 +152,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ServiceType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.ServiceDefinition.code</p>
+     * <p>Relationship: PRLO_MT202015CA.ServiceDefinition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202014NB.ServiceDefinition.statusCode</p>
+     * PRLO_MT202014CA.ServiceDefinition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -192,7 +192,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000002NB.ServiceDefinition.statusCode</p>
+     * PRLO_MT000002CA.ServiceDefinition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -211,7 +211,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202015NB.ServiceDefinition.statusCode</p>
+     * PRLO_MT202015CA.ServiceDefinition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -238,7 +238,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202014NB.ServiceDefinition.statusCode</p>
+     * PRLO_MT202014CA.ServiceDefinition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -257,7 +257,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000002NB.ServiceDefinition.statusCode</p>
+     * PRLO_MT000002CA.ServiceDefinition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -276,7 +276,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202015NB.ServiceDefinition.statusCode</p>
+     * PRLO_MT202015CA.ServiceDefinition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -303,7 +303,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailabilityTime</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202014NB.ServiceDefinition.activityTime</p>
+     * PRLO_MT202014CA.ServiceDefinition.activityTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -320,7 +320,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailabilityTime</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT000002NB.ServiceDefinition.activityTime</p>
+     * PRLO_MT000002CA.ServiceDefinition.activityTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -337,7 +337,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Un-merged Business Name: ServiceAvailabilityTime</p>
      * 
      * <p>Relationship: 
-     * PRLO_MT202015NB.ServiceDefinition.activityTime</p>
+     * PRLO_MT202015CA.ServiceDefinition.activityTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

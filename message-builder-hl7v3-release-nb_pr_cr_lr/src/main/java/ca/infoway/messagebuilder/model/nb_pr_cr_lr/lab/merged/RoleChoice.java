@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"POLB_MT004000NB.RoleChoice","POLB_MT004100NB.RoleChoice","POLB_MT004200NB.RoleChoice"})
+@Hl7PartTypeMapping({"POLB_MT004000CA.RoleChoice","POLB_MT004100CA.RoleChoice","POLB_MT004200CA.RoleChoice"})
 public interface RoleChoice {
 
 }

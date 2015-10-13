@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700711nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lr.prlo_mt202015nb.LocationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700711ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lr.prlo_mt202015ca.LocationBean;
 
 
 
 /**
- * <p>Business Name: PRLO_IN202017NB: Update service delivery 
+ * <p>Business Name: PRLO_IN202017CA: Update service delivery 
  * location request</p>
  * 
  * <p>Requests that information about a service delivery 
  * location be updated.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700711NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700711CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRLO_MT202015NB.ServiceDeliveryLocation</p>
+ * <p>--> Payload: PRLO_MT202015CA.ServiceDeliveryLocation</p>
  */
-@Hl7PartTypeMapping({"PRLO_IN202017NB"})
+@Hl7PartTypeMapping({"PRLO_IN202017CA"})
 public class UpdateServiceDeliveryLocationRequestBean extends HL7MessageBean<TriggerEventBean<LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410002nb.QueryDefinitionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410003nb.MeasuredObservationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410002ca.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410003ca.MeasuredObservationBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000055NB: Patient measurement 
+ * <p>Business Name: REPC_IN000055CA: Patient measurement 
  * observations query response</p>
  * 
  * <p>Returns one or more measurement observations associated 
  * with a patient.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT410003NB.CommonObservationEvent</p>
+ * <p>--> Payload: REPC_MT410003CA.CommonObservationEvent</p>
  * 
- * <p>--> Payload: REPC_MT410002NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT410002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000055NB"})
+@Hl7PartTypeMapping({"REPC_IN000055CA"})
 public class PatientMeasurementObservationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<MeasuredObservationBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

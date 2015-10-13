@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: SortControl</p>
  * 
- * <p>MFMI_MT700751NB.SortControl: Sort Control</p>
+ * <p>MFMI_MT700751CA.SortControl: Sort Control</p>
  * 
  * <p>Optional for systems which can receive query requests and 
  * sort the results before returning to the query 
@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Holds specification of sort order for instance matches to 
  * a query.</p>
  * 
- * <p>MFMI_MT700746NB.SortControl: Sort Control</p>
+ * <p>MFMI_MT700746CA.SortControl: Sort Control</p>
  * 
  * <p>Optional for systems which can receive query requests and 
  * sort the results before returning to the query 
@@ -54,10 +54,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Holds specification of sort order for instance matches to 
  * a query.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700746NB.SortControl","MFMI_MT700751NB.SortControl"})
+@Hl7PartTypeMapping({"MFMI_MT700746CA.SortControl","MFMI_MT700751CA.SortControl"})
 public class SortControlBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private INT sequenceNumber = new INTImpl();
     private ST elementName = new STImpl();
     private CS directionCode = new CSImpl();
@@ -68,7 +68,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SequenceNumber</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.SortControl.sequenceNumber</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -80,7 +80,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SequenceNumber</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.SortControl.sequenceNumber</p>
+     * <p>Relationship: MFMI_MT700746CA.SortControl.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -100,7 +100,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SequenceNumber</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.SortControl.sequenceNumber</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -112,7 +112,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SequenceNumber</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.SortControl.sequenceNumber</p>
+     * <p>Relationship: MFMI_MT700746CA.SortControl.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -132,7 +132,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortElementName</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.SortControl.elementName</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +142,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortElementName</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.SortControl.elementName</p>
+     * <p>Relationship: MFMI_MT700746CA.SortControl.elementName</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -160,7 +160,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortElementName</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.SortControl.elementName</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -170,7 +170,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortElementName</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.SortControl.elementName</p>
+     * <p>Relationship: MFMI_MT700746CA.SortControl.elementName</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortControlDirection</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.SortControl.directionCode</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -199,7 +199,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortControlDirection</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.SortControl.directionCode</p>
+     * <p>Relationship: MFMI_MT700746CA.SortControl.directionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -218,7 +218,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortControlDirection</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.SortControl.directionCode</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -229,7 +229,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortControlDirection</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.SortControl.directionCode</p>
+     * <p>Relationship: MFMI_MT700746CA.SortControl.directionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

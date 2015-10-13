@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"POIZ_MT030060NB.InformationSourceRole","POIZ_MT060150NB.InformationSourceRole"})
+@Hl7PartTypeMapping({"POIZ_MT030060CA.InformationSourceRole","POIZ_MT060150CA.InformationSourceRole"})
 public class InformationSourceRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CS classCode = new CSImpl();
 
 
@@ -42,7 +42,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InformationSourceRole.classCode</p>
+     * POIZ_MT060150CA.InformationSourceRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -56,7 +56,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.InformationSourceRole.classCode</p>
+     * POIZ_MT030060CA.InformationSourceRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -78,7 +78,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060NB.InformationSourceRole.classCode</p>
+     * POIZ_MT060150CA.InformationSourceRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150NB.InformationSourceRole.classCode</p>
+     * POIZ_MT030060CA.InformationSourceRole.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

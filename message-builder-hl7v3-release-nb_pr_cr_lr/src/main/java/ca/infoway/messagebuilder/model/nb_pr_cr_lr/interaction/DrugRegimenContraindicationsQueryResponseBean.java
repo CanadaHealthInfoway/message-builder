@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020nb.DetectedIssueEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120008nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050010nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020ca.DetectedIssueEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120008ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050010ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN050020NB: Drug regimen 
+ * <p>Business Name: PORX_IN050020CA: Drug regimen 
  * contraindications query response</p>
  * 
  * <p>Indicates the contraindications (if any) associated with 
@@ -38,17 +38,17 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt050010nb.Gene
  * therapy contraindications because that's all that is 
  * deducible based on a list of medications.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120008NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COCT_MT260020NB.DetectedIssueEvent</p>
+ * <p>--> Payload: COCT_MT260020CA.DetectedIssueEvent</p>
  * 
- * <p>--> Payload: PORX_MT050010NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT050010CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN050020NB"})
+@Hl7PartTypeMapping({"PORX_IN050020CA"})
 public class DrugRegimenContraindicationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<DetectedIssueEventBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

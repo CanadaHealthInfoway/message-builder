@@ -51,18 +51,18 @@ import java.util.Set;
 /**
  * <p>Business Name: HealthcareProvider</p>
  * 
- * <p>COCT_MT490000NB.HealthCareProvider: Healthcare Provider</p>
- * 
- * <p>Person providing healthcare service</p>
- * 
- * <p>COCT_MT290000NB.HealthCareProvider: Healthcare Provider</p>
+ * <p>COCT_MT290000CA.HealthCareProvider: Healthcare Provider</p>
  * 
  * <p>Healthcare Provider</p>
+ * 
+ * <p>COCT_MT490000CA.HealthCareProvider: Healthcare Provider</p>
+ * 
+ * <p>Person providing healthcare service</p>
  */
-@Hl7PartTypeMapping({"COCT_MT290000NB.HealthCareProvider","COCT_MT490000NB.HealthCareProvider"})
+@Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PN healthCareProviderPersonName = new PNImpl();
@@ -77,7 +77,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderIdentifierS</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.HealthCareProvider.id</p>
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
      * 
@@ -85,7 +85,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.HealthCareProvider.id</p>
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
      * 
@@ -100,7 +100,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.HealthCareProvider.code</p>
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -108,7 +108,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: HealthcareProviderCode</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.HealthCareProvider.code</p>
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -122,7 +122,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ProviderType</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.HealthCareProvider.code</p>
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -130,7 +130,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: HealthcareProviderCode</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.HealthCareProvider.code</p>
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -144,7 +144,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: NameOfProvider</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.name</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,7 +152,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.name</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -166,7 +166,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: NameOfProvider</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.name</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -174,7 +174,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderName</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.name</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ContactNo</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.telecom</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -196,7 +196,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderTelecom</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.telecom</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -212,7 +212,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ContactNo</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.telecom</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -220,7 +220,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderTelecom</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.telecom</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -239,7 +239,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.ProviderPerson.administrativeGenderCode</p>
+     * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -249,7 +249,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
-     * COCT_MT490000NB.ProviderPerson.administrativeGenderCode</p>
+     * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -266,7 +266,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.ProviderPerson.administrativeGenderCode</p>
+     * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -276,7 +276,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
-     * COCT_MT490000NB.ProviderPerson.administrativeGenderCode</p>
+     * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -290,7 +290,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ProviderDateOfBirth</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.birthTime</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -299,7 +299,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderBirthDate</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.birthTime</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -313,7 +313,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ProviderDateOfBirth</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.birthTime</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -322,7 +322,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderBirthDate</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.birthTime</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -338,7 +338,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderAddress</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.addr</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -349,7 +349,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderAddress</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.addr</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -365,7 +365,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderAddress</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.ProviderPerson.addr</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -376,7 +376,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProviderAddress</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.ProviderPerson.addr</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

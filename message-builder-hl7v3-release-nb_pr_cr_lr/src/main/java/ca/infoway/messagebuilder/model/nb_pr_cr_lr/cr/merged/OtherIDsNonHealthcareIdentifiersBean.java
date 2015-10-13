@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.OtherIdentifiersR
 /**
  * <p>Business Name: OtherIDsNonHealthcareIdentifiers</p>
  * 
- * <p>PRPA_MT101104NB.OtherIDs: Other IDs Non Healthcare 
+ * <p>PRPA_MT101104CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
  * <p>Provides the ability to capture additional client 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.OtherIdentifiersR
  * organization can be sent in the E_Organization Entity 
  * Class</p>
  * 
- * <p>PRPA_MT101002NB.OtherIDs: Other IDs Non Healthcare 
+ * <p>PRPA_MT101002CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
  * <p>Provides the ability to capture additional client 
@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.OtherIdentifiersR
  * organization can be sent in the E_Organization Entity 
  * Class</p>
  * 
- * <p>PRPA_MT101001NB.OtherIDs: Other IDs Non Healthcare 
+ * <p>PRPA_MT101106CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
  * <p>Provides the ability to capture additional client 
@@ -70,7 +70,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.OtherIdentifiersR
  * organization can be sent in the E_Organization Entity 
  * Class</p>
  * 
- * <p>PRPA_MT101106NB.OtherIDs: Other IDs Non Healthcare 
+ * <p>PRPA_MT101001CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
  * <p>Provides the ability to capture additional client 
@@ -81,10 +81,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.OtherIdentifiersR
  * organization can be sent in the E_Organization Entity 
  * Class</p>
  */
-@Hl7PartTypeMapping({"PRPA_MT101001NB.OtherIDs","PRPA_MT101002NB.OtherIDs","PRPA_MT101104NB.OtherIDs","PRPA_MT101106NB.OtherIDs"})
+@Hl7PartTypeMapping({"PRPA_MT101001CA.OtherIDs","PRPA_MT101002CA.OtherIDs","PRPA_MT101104CA.OtherIDs","PRPA_MT101106CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningIdOrganizationId = new IIImpl();
@@ -96,19 +96,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.OtherIDs.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the identification of the 
-     * client</p>
-     * 
-     * <p>Other non-healthcare identifiers for the Client (e.g. 
-     * Passport, SIN, DND, DIAND, Drivers License)</p>
-     * 
-     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
-     * 
-     * <p>Relationship: PRPA_MT101104NB.OtherIDs.id</p>
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -120,7 +108,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.OtherIDs.id</p>
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -132,7 +120,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Relationship: PRPA_MT101106NB.OtherIDs.id</p>
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -141,6 +129,18 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
+     * 
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Passport, SIN, DND, DIAND, Drivers License)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -152,19 +152,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.OtherIDs.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the identification of the 
-     * client</p>
-     * 
-     * <p>Other non-healthcare identifiers for the Client (e.g. 
-     * Passport, SIN, DND, DIAND, Drivers License)</p>
-     * 
-     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
-     * 
-     * <p>Relationship: PRPA_MT101104NB.OtherIDs.id</p>
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -176,7 +164,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.OtherIDs.id</p>
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +176,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Relationship: PRPA_MT101106NB.OtherIDs.id</p>
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -197,6 +185,18 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
+     * 
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Passport, SIN, DND, DIAND, Drivers License)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -208,7 +208,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -221,7 +221,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101104NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -234,7 +234,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -247,7 +247,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101106NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -268,7 +268,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -281,7 +281,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101104NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -294,7 +294,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -307,7 +307,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Relationship: PRPA_MT101106NB.OtherIDs.code</p>
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -329,7 +329,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -342,7 +342,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101104NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -355,7 +355,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -368,7 +368,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101106NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -389,7 +389,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -402,7 +402,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101104NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -415,7 +415,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -428,7 +428,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRPA_MT101106NB.IdOrganization.id</p>
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -448,7 +448,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.IdOrganization.name</p>
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -459,7 +459,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Relationship: PRPA_MT101104NB.IdOrganization.name</p>
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -470,20 +470,20 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.IdOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * organization assigning the identifier to the client</p>
-     * 
-     * <p>A name for the non-healthcare organization</p>
-     * 
-     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
-     * 
-     * <p>Relationship: PRPA_MT101106NB.IdOrganization.name</p>
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * organization assigning the identifier to the client</p>
@@ -500,7 +500,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Relationship: PRPA_MT101002NB.IdOrganization.name</p>
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -511,7 +511,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Relationship: PRPA_MT101104NB.IdOrganization.name</p>
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -522,20 +522,20 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Relationship: PRPA_MT101001NB.IdOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * organization assigning the identifier to the client</p>
-     * 
-     * <p>A name for the non-healthcare organization</p>
-     * 
-     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
-     * 
-     * <p>Relationship: PRPA_MT101106NB.IdOrganization.name</p>
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * organization assigning the identifier to the client</p>

@@ -22,33 +22,33 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700717nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt301010nb.RoleChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700717ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt301010ca.RoleChoice;
 
 
 
 /**
- * <p>Business Name: PRPM_IN301030NB: Add Provider Notification</p>
+ * <p>Business Name: PRPM_IN301030CA: Add Provider Notification</p>
  * 
  * <p>This interaction notifies of a new provider 
  * registration.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700717NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700717CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT301010NB.RoleChoice</p>
+ * <p>--> Payload: PRPM_MT301010CA.RoleChoice</p>
  * 
- * <p>----> Payload Choice: PRPM_MT301010NB.AssignedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT301010CA.AssignedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT301010NB.QualifiedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT301010CA.QualifiedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT301010NB.HealthCareProvider</p>
+ * <p>----> Payload Choice: PRPM_MT301010CA.HealthCareProvider</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN301030NB"})
+@Hl7PartTypeMapping({"PRPM_IN301030CA"})
 public class AddProviderNotificationBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

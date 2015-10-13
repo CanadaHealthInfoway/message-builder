@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt420001nb.CodedObservationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt420001ca.CodedObservationBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000064NB: Record patient coded 
+ * <p>Business Name: REPC_IN000064CA: Record patient coded 
  * observation request</p>
  * 
  * <p>Requests that a coded observation (for example: APGAR 
  * score, symptom, blood type, smoker, etc.) be recorded in a 
  * patient's record.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT420001NB.CommonObservationEvent</p>
+ * <p>--> Payload: REPC_MT420001CA.CommonObservationEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000064NB"})
+@Hl7PartTypeMapping({"REPC_IN000064CA"})
 public class RecordPatientCodedObservationRequestBean extends HL7MessageBean<TriggerEventBean<CodedObservationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

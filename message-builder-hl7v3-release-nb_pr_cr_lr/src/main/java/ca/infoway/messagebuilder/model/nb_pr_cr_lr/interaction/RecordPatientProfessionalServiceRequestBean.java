@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt610001nb.ProfessionalServiceBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt610001ca.ProfessionalServiceBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000044NB: Record patient 
+ * <p>Business Name: REPC_IN000044CA: Record patient 
  * professional service request</p>
  * 
  * <p>Seeks to add a record of a professional service which has 
  * been delivered to a patient.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT610001NB.ProcedureEvent</p>
+ * <p>--> Payload: REPC_MT610001CA.ProcedureEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000044NB"})
+@Hl7PartTypeMapping({"REPC_IN000044CA"})
 public class RecordPatientProfessionalServiceRequestBean extends HL7MessageBean<TriggerEventBean<ProfessionalServiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

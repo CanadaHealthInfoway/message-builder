@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000015nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000015ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000023NB: Patient health condition 
+ * <p>Business Name: REPC_IN000023CA: Patient health condition 
  * summaries query</p>
  * 
  * <p>Request retrieval of the list of recorded patient health 
  * conditions (symptoms, health problems, diagnosis). Including 
  * past changes.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000015NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000015CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000023NB"})
+@Hl7PartTypeMapping({"REPC_IN000023CA"})
 public class PatientHealthConditionSummariesQueryBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: AmendmentSummary</p>
  * 
- * <p>REPC_MT500004NB.ControlActEvent: Amendment Summary</p>
+ * <p>REPC_MT500004CA.ControlActEvent: Amendment Summary</p>
  * 
  * <p> <i>Provides context information about the record.</i> 
  * </p>
@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * to the Care Composition including when it was made, by whom 
  * and why.</i> </p>
  * 
- * <p>REPC_MT500003NB.ControlActEvent: Amendment Summary</p>
+ * <p>REPC_MT500003CA.ControlActEvent: Amendment Summary</p>
  * 
  * <p> <i>Provides context information about the record.</i> 
  * </p>
@@ -50,10 +50,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * to the Care Composition including when it was made, by whom 
  * and why.</i> </p>
  */
-@Hl7PartTypeMapping({"REPC_MT500003NB.ControlActEvent","REPC_MT500004NB.ControlActEvent"})
+@Hl7PartTypeMapping({"REPC_MT500003CA.ControlActEvent","REPC_MT500004CA.ControlActEvent"})
 public class ControlActEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV reasonCode = new CVImpl();
     private RequestedByBean author;
 
@@ -63,7 +63,7 @@ public class ControlActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AmendReason</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -83,7 +83,7 @@ public class ControlActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AmendReason</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -111,7 +111,7 @@ public class ControlActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AmendReason</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -131,7 +131,7 @@ public class ControlActEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AmendReason</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.ControlActEvent.reasonCode</p>
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -157,13 +157,13 @@ public class ControlActEventBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -175,13 +175,13 @@ public class ControlActEventBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT500003NB.ControlActEvent.author</p>
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

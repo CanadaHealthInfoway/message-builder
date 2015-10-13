@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001201nb.ReferencedRecordBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726nb.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001201ca.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726ca.TriggerEventBean;
 
 
 
 /**
- * <p>Business Name: PRLO_IN202019NB: Update service delivery 
+ * <p>Business Name: PRLO_IN202019CA: Update service delivery 
  * location refused</p>
  * 
  * <p>Indicates that the requested modification to the service 
  * delivery location has been refused.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700726NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700726CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001201NB.Role</p>
+ * <p>--> Payload: COMT_MT001201CA.Role</p>
  */
-@Hl7PartTypeMapping({"PRLO_IN202019NB"})
+@Hl7PartTypeMapping({"PRLO_IN202019CA"})
 public class UpdateServiceDeliveryLocationRefusedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

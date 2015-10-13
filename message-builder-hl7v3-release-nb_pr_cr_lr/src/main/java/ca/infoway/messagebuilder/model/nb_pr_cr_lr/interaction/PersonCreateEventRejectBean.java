@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101106nb.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101106ca.IdentifiedPersonBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101203NB: Person Create Event 
+ * <p>Business Name: PRPA_IN101203CA: Person Create Event 
  * Reject</p>
  * 
  * <p>person registry rejects a request to add a record and 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101106nb.Identified
  * the rejection is returned as a Detected Issue in the Master 
  * File / Reg Notif. Control Act, Role Subject wrapper.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700726NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700726CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101106NB.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101106CA.IdentifiedEntity</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101203NB"})
+@Hl7PartTypeMapping({"PRPA_IN101203CA"})
 public class PersonCreateEventRejectBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

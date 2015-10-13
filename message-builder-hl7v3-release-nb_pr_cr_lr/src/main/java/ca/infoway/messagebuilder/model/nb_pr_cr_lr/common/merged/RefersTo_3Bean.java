@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: RefersTo</p>
  * 
- * <p>MFMI_MT700717NB.Subject2: f:refers to</p>
+ * <p>MFMI_MT700717CA.Subject2: f:refers to</p>
  * 
  * <p>On '''creation''' interactions (where the state 
  * transition is null-&gt;active), this must be true otherwise 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * event.</p><p>Will be mandatory in wrappers with payload 
  * messages, otherwise not present.</p>
  * 
- * <p>MFMI_MT700726NB.Subject2: f:refers to</p>
+ * <p>MFMI_MT700726CA.Subject2: f:refers to</p>
  * 
  * <p>On '''creation''' interactions (where the state 
  * transition is null-&gt;active), this must be true otherwise 
@@ -65,10 +65,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * event.</p><p>Will be mandatory in wrappers with payload 
  * messages, otherwise not present.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700717NB.Subject2","MFMI_MT700726NB.Subject2"})
+@Hl7PartTypeMapping({"MFMI_MT700717CA.Subject2","MFMI_MT700726CA.Subject2"})
 public class RefersTo_3Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL contextConductionInd = new BLImpl();
     private RegistrationEventBean<RR> registrationEvent;
 
@@ -79,7 +79,7 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700717CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,7 +104,7 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700726CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -137,7 +137,7 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700717NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700717CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -162,7 +162,7 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700726NB.Subject2.contextConductionInd</p>
+     * MFMI_MT700726CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -192,13 +192,13 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.Subject2.registrationEvent</p>
+     * <p>Relationship: MFMI_MT700717CA.Subject2.registrationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.Subject2.registrationEvent</p>
+     * <p>Relationship: MFMI_MT700726CA.Subject2.registrationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -210,13 +210,13 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.Subject2.registrationEvent</p>
+     * <p>Relationship: MFMI_MT700717CA.Subject2.registrationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.Subject2.registrationEvent</p>
+     * <p>Relationship: MFMI_MT700726CA.Subject2.registrationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

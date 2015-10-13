@@ -35,11 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Diagnosis</p>
  * 
- * <p>COCT_MT490000NB.Diagnosis: Diagnosis</p>
- * 
- * <p>Patient Diagnosis</p>
- * 
- * <p>COCT_MT290000NB.Diagnosis: Diagnosis</p>
+ * <p>COCT_MT290000CA.Diagnosis: Diagnosis</p>
  * 
  * <p>More than 1 diagnosis may be specified to justify the 
  * performing of a particular service.</p><p>A specific 
@@ -50,26 +46,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Diagnosis</p>
  * 
- * <p>COMT_MT400001NB.Diagnosis: Diagnosis</p>
+ * <p>COCT_MT490000CA.Diagnosis: Diagnosis</p>
+ * 
+ * <p>Patient Diagnosis</p>
+ * 
+ * <p>COMT_MT400001CA.Diagnosis: Diagnosis</p>
  * 
  * <p>Allows masking of items related to a particular medical 
  * condition.</p>
  * 
  * <p>Conveys information about a diagnosis to be masked</p>
  */
-@Hl7PartTypeMapping({"COCT_MT290000NB.Diagnosis","COCT_MT490000NB.Diagnosis","COMT_MT400001NB.Diagnosis"})
+@Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis","COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
-    private CV value = new CVImpl();
     private ST text = new STImpl();
+    private CV value = new CVImpl();
 
 
     /**
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.Diagnosis.code</p>
+     * <p>Relationship: COCT_MT290000CA.Diagnosis.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -77,7 +77,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.Diagnosis.code</p>
+     * <p>Relationship: COCT_MT490000CA.Diagnosis.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -85,7 +85,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: COMT_MT400001NB.Diagnosis.code</p>
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,7 +107,7 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.Diagnosis.code</p>
+     * <p>Relationship: COCT_MT290000CA.Diagnosis.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -115,7 +115,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.Diagnosis.code</p>
+     * <p>Relationship: COCT_MT490000CA.Diagnosis.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -123,7 +123,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisType</p>
      * 
-     * <p>Relationship: COMT_MT400001NB.Diagnosis.code</p>
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -143,9 +143,45 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: DiagnosisDescription</p>
+     * 
+     * <p>Un-merged Business Name: DiagnosisDescription</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.Diagnosis.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Can be used to supplement a diagnostic code</p>
+     * 
+     * <p>Can be used to supplement a diagnostic code</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
+    }
+
+    /**
+     * <p>Business Name: DiagnosisDescription</p>
+     * 
+     * <p>Un-merged Business Name: DiagnosisDescription</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.Diagnosis.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Can be used to supplement a diagnostic code</p>
+     * 
+     * <p>Can be used to supplement a diagnostic code</p>
+     */
+    public void setText(String text) {
+        this.text.setValue(text);
+    }
+
+
+    /**
      * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.Diagnosis.value</p>
+     * <p>Relationship: COCT_MT290000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -153,7 +189,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.Diagnosis.value</p>
+     * <p>Relationship: COCT_MT490000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -161,7 +197,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Diagnosis</p>
      * 
-     * <p>Relationship: COMT_MT400001NB.Diagnosis.value</p>
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -181,7 +217,7 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.Diagnosis.value</p>
+     * <p>Relationship: COCT_MT290000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -189,7 +225,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
-     * <p>Relationship: COCT_MT490000NB.Diagnosis.value</p>
+     * <p>Relationship: COCT_MT490000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -197,7 +233,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Diagnosis</p>
      * 
-     * <p>Relationship: COMT_MT400001NB.Diagnosis.value</p>
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -211,42 +247,6 @@ public class DiagnosisBean extends MessagePartBean {
      */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);
-    }
-
-
-    /**
-     * <p>Business Name: DiagnosisDescription</p>
-     * 
-     * <p>Un-merged Business Name: DiagnosisDescription</p>
-     * 
-     * <p>Relationship: COCT_MT290000NB.Diagnosis.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Can be used to supplement a diagnostic code</p>
-     * 
-     * <p>Can be used to supplement a diagnostic code</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-
-    /**
-     * <p>Business Name: DiagnosisDescription</p>
-     * 
-     * <p>Un-merged Business Name: DiagnosisDescription</p>
-     * 
-     * <p>Relationship: COCT_MT290000NB.Diagnosis.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Can be used to supplement a diagnostic code</p>
-     * 
-     * <p>Can be used to supplement a diagnostic code</p>
-     */
-    public void setText(String text) {
-        this.text.setValue(text);
     }
 
 }

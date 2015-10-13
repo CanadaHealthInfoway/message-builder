@@ -32,10 +32,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"MCCI_MT000100NB.Receiver","MCCI_MT000200NB.Receiver","MCCI_MT000300NB.Receiver","MCCI_MT102001NB.Receiver"})
+@Hl7PartTypeMapping({"MCCI_MT000100CA.Receiver","MCCI_MT000200CA.Receiver","MCCI_MT000300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private II deviceAsAgentRepresentedOrganizationId = new IIImpl();
@@ -47,7 +47,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT000100CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -59,7 +59,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT000200CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -71,21 +71,21 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Receiver.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Indicates where the message should be sent. This is 
-     * optional because not all environments require network 
-     * addresses.</p>
-     * 
-     * <p>The address to which this message is being sent.</p>
-     * 
-     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
-     * 
-     * <p>Relationship: MCCI_MT102001NB.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT102001CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses.</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
@@ -103,7 +103,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT000100CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -115,7 +115,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT000200CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -127,21 +127,21 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Receiver.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Indicates where the message should be sent. This is 
-     * optional because not all environments require network 
-     * addresses.</p>
-     * 
-     * <p>The address to which this message is being sent.</p>
-     * 
-     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
-     * 
-     * <p>Relationship: MCCI_MT102001NB.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT102001CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses.</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
@@ -159,7 +159,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -187,7 +187,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -201,7 +201,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -223,7 +223,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -237,7 +237,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -251,7 +251,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -265,7 +265,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device2.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -287,7 +287,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -301,7 +301,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -315,7 +315,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -329,7 +329,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -351,7 +351,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -365,7 +365,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -379,7 +379,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -393,7 +393,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Organization2.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -415,7 +415,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -428,7 +428,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -441,7 +441,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -454,7 +454,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -475,7 +475,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -488,7 +488,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -501,7 +501,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -514,7 +514,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Place2.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Place2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

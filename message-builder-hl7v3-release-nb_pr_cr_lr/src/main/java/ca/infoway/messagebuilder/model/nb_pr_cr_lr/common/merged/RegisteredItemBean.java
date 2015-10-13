@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: RegisteredItem</p>
  * 
- * <p>MFMI_MT700716NB.Subject4: Registered Item</p>
+ * <p>MFMI_MT700746CA.Subject4: Registered Item</p>
  * 
  * <p>Defines the content of the registration and is therefore 
  * mandatory.</p>
@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
  * 
- * <p>MFMI_MT700717NB.Subject4: Registered Item</p>
+ * <p>MFMI_MT700717CA.Subject4: Registered Item</p>
  * 
  * <p>Defines the content of the registration and is therefore 
  * mandatory.</p>
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
  * 
- * <p>MFMI_MT700746NB.Subject4: Registered Item</p>
+ * <p>MFMI_MT700711CA.Subject4: Registered Item</p>
  * 
  * <p>Defines the content of the registration and is therefore 
  * mandatory.</p>
@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
  * 
- * <p>MFMI_MT700711NB.Subject4: Registered Item</p>
+ * <p>MFMI_MT700726CA.Subject4: Registered Item</p>
  * 
  * <p>Defines the content of the registration and is therefore 
  * mandatory.</p>
@@ -65,7 +65,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
  * 
- * <p>MFMI_MT700726NB.Subject4: Registered Item</p>
+ * <p>MFMI_MT700716CA.Subject4: Registered Item</p>
  * 
  * <p>Defines the content of the registration and is therefore 
  * mandatory.</p>
@@ -74,41 +74,41 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700711NB.Subject4","MFMI_MT700716NB.Subject4","MFMI_MT700717NB.Subject4","MFMI_MT700726NB.Subject4","MFMI_MT700746NB.Subject4"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.Subject4","MFMI_MT700716CA.Subject4","MFMI_MT700717CA.Subject4","MFMI_MT700726CA.Subject4","MFMI_MT700746CA.Subject4"})
 public class RegisteredItemBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private RR registeredRole;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700746CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700717CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700711CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700726CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700716CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -120,31 +120,31 @@ public class RegisteredItemBean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700716NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700746CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700717NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700717CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700711CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700726CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700726NB.Subject4.registeredRole</p>
+     * <p>Relationship: MFMI_MT700716CA.Subject4.registeredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

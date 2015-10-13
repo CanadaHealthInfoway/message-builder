@@ -22,13 +22,13 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN300003NB: Add patient note request 
+ * <p>Business Name: COMT_IN300003CA: Add patient note request 
  * refused</p>
  * 
  * <p>Indicates that the request to record the annotation 
@@ -47,13 +47,13 @@ import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7Message
  * characters in length.<br /> d. One or more code values 
  * supplied in the message were invalid.</p> <p></p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700222NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"COMT_IN300003NB"})
+@Hl7PartTypeMapping({"COMT_IN300003CA"})
 public class AddPatientNoteRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

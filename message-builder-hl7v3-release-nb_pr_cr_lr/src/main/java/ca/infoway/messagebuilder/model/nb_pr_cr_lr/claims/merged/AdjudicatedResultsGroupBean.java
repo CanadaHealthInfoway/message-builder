@@ -45,13 +45,13 @@ import java.util.List;
 /**
  * <p>Business Name: AdjudicatedResultsGroup</p>
  * 
- * <p>FICR_MT610201NB.AdjudResultsGroup: Adjudicated Results 
+ * <p>FICR_MT610201CA.AdjudResultsGroup: Adjudicated Results 
  * Group</p>
  * 
  * <p>A collection of results for invoice elements adjudicated 
  * as a group.</p>
  * 
- * <p>FICR_MT630000NB.AdjudResultsGroup: Adjudicated Results 
+ * <p>FICR_MT630000CA.AdjudResultsGroup: Adjudicated Results 
  * Group</p>
  * 
  * <p>Payor must be specified for the root Act ONLY. Payee is 
@@ -60,10 +60,10 @@ import java.util.List;
  * <p>Group of results for line items/invoice elements 
  * previously adjudicated.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT610201NB.AdjudResultsGroup","FICR_MT630000NB.AdjudResultsGroup"})
+@Hl7PartTypeMapping({"FICR_MT610201CA.AdjudResultsGroup","FICR_MT630000CA.AdjudResultsGroup"})
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -76,7 +76,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudResultsGroup.id</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -98,7 +98,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudResultsGroup.id</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -118,7 +118,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: TypeOfSummary</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudResultsGroup.code</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,7 +138,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BreakdownOfFinancialActivity</p>
      * 
-     * <p>Relationship: FICR_MT630000NB.AdjudResultsGroup.code</p>
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -166,7 +166,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: TypeOfSummary</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudResultsGroup.code</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -186,7 +186,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BreakdownOfFinancialActivity</p>
      * 
-     * <p>Relationship: FICR_MT630000NB.AdjudResultsGroup.code</p>
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -215,7 +215,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Un-merged Business Name: SummaryPeriodDateRange</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroup.effectiveTime</p>
+     * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -229,7 +229,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Un-merged Business Name: TimePeriodForThePayment</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroup.effectiveTime</p>
+     * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -247,7 +247,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Un-merged Business Name: SummaryPeriodDateRange</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroup.effectiveTime</p>
+     * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -261,7 +261,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Un-merged Business Name: TimePeriodForThePayment</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroup.effectiveTime</p>
+     * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -278,7 +278,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: SummaryPeriodAmount</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudResultsGroup.netAmt</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -297,7 +297,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
-     * <p>Relationship: FICR_MT630000NB.AdjudResultsGroup.netAmt</p>
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -318,7 +318,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: SummaryPeriodAmount</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudResultsGroup.netAmt</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -337,7 +337,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
-     * <p>Relationship: FICR_MT630000NB.AdjudResultsGroup.netAmt</p>
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -359,14 +359,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
+     * FICR_MT610201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT630000NB.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
+     * FICR_MT630000CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

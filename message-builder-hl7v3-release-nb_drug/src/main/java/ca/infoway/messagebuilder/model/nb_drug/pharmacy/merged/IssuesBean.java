@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Issues</p>
  * 
- * <p>PORX_MT060340NB.DetectedIssueEvent: Issues</p>
+ * <p>PORX_MT030040CA.DetectedIssueEvent: Issues</p>
  * 
  * <p>Allows a dispenser to assert an issue against a 
  * prescription to be displayed to subsequent dispensers as 
@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Describes an issue associated with a prescription that 
  * resulted in a dispenser refusing to fill it.</p>
  * 
- * <p>PORX_MT060190NB.DetectedIssueEvent: Issues</p>
+ * <p>PORX_MT060160CA.DetectedIssueEvent: Issues</p>
  * 
  * <p>Allows a dispenser to assert an issue against a 
  * prescription to be displayed to subsequent dispensers as 
@@ -54,7 +54,37 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Describes an issue associated with a prescription that 
  * resulted in a dispenser refusing to fill it.</p>
  * 
- * <p>PORX_MT060060NB.DetectedIssueEvent: Issues</p>
+ * <p>PORX_MT060340CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p>Allows a dispenser to assert an issue against a 
+ * prescription to be displayed to subsequent dispensers as 
+ * well as others reviewing the patient's medication 
+ * profile.</p>
+ * 
+ * <p>Describes an issue associated with a prescription that 
+ * resulted in a dispenser refusing to fill it.</p>
+ * 
+ * <p>PORX_MT060190CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p>Allows a dispenser to assert an issue against a 
+ * prescription to be displayed to subsequent dispensers as 
+ * well as others reviewing the patient's medication 
+ * profile.</p>
+ * 
+ * <p>Describes an issue associated with a prescription that 
+ * resulted in a dispenser refusing to fill it.</p>
+ * 
+ * <p>PORX_MT060040CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p>Allows a dispenser to assert an issue against a 
+ * prescription to be displayed to subsequent dispensers as 
+ * well as others reviewing the patient's medication 
+ * profile.</p>
+ * 
+ * <p>Describes an issue associated with a prescription that 
+ * resulted in a dispenser refusing to fill it.</p>
+ * 
+ * <p>PORX_MT060060CA.DetectedIssueEvent: Issues</p>
  * 
  * <p>Allows a dispenser to assert an issue against a 
  * prescription to be displayed to subsequent dispensers as 
@@ -62,41 +92,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Describes an issue associated with a prescription that 
  * resulted in a dispenser refusing to fill it.</p>
- * 
- * <p>PORX_MT060040NB.DetectedIssueEvent: Issues</p>
- * 
- * <p>Allows a dispenser to assert an issue against a 
- * prescription to be displayed to subsequent dispensers as 
- * well as others reviewing the patient's medication 
- * profile.</p>
- * 
- * <p>Describes an issue associated with a prescription that 
- * resulted in a dispenser refusing to fill it.</p>
- * 
- * <p>PORX_MT030040NB.DetectedIssueEvent: Issues</p>
- * 
- * <p>Allows a dispenser to assert an issue against a 
- * prescription to be displayed to subsequent dispensers as 
- * well as others reviewing the patient's medication 
- * profile.</p>
- * 
- * <p>Describes an issue associated with a prescription that 
- * resulted in a dispenser refusing to fill it.</p>
- * 
- * <p>PORX_MT060160NB.DetectedIssueEvent: Issues</p>
- * 
- * <p>Allows a dispenser to assert an issue against a 
- * prescription to be displayed to subsequent dispensers as 
- * well as others reviewing the patient's medication 
- * profile.</p>
- * 
- * <p>Describes an issue associated with a prescription that 
- * resulted in a dispenser refusing to fill it.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT030040NB.DetectedIssueEvent","PORX_MT060040NB.DetectedIssueEvent","PORX_MT060060NB.DetectedIssueEvent","PORX_MT060160NB.DetectedIssueEvent","PORX_MT060190NB.DetectedIssueEvent","PORX_MT060340NB.DetectedIssueEvent"})
+@Hl7PartTypeMapping({"PORX_MT030040CA.DetectedIssueEvent","PORX_MT060040CA.DetectedIssueEvent","PORX_MT060060CA.DetectedIssueEvent","PORX_MT060160CA.DetectedIssueEvent","PORX_MT060190CA.DetectedIssueEvent","PORX_MT060340CA.DetectedIssueEvent"})
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
@@ -106,70 +106,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueType</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed.</p><p>This is mandatory so as to ensure that one 
-     * issue type can be distinguished from another.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed.</p><p>This is mandatory so as to ensure that one 
-     * issue type can be distinguished from another.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT060060NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed and is therefore mandatory.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed.</p><p>This is mandatory so as to ensure that one 
-     * issue type can be distinguished from another.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.DetectedIssueEvent.code</p>
+     * <p>Relationship: PORX_MT030040CA.DetectedIssueEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -185,13 +122,76 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueType</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.DetectedIssueEvent.code</p>
+     * <p>Relationship: PORX_MT060160CA.DetectedIssueEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of issue was detected or is being 
      * managed.</p><p>This is mandatory so as to ensure that one 
      * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed and is therefore mandatory.</p>
      * 
      * <p>A coded value that is used to distinguish between 
      * different kinds of issues. Types of issue include: 
@@ -209,70 +209,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueType</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed.</p><p>This is mandatory so as to ensure that one 
-     * issue type can be distinguished from another.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed.</p><p>This is mandatory so as to ensure that one 
-     * issue type can be distinguished from another.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT060060NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed and is therefore mandatory.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.DetectedIssueEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identifies what kind of issue was detected or is being 
-     * managed.</p><p>This is mandatory so as to ensure that one 
-     * issue type can be distinguished from another.</p>
-     * 
-     * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized identifiers, permission issues, drug-drug 
-     * contraindications, drug-allergy alerts, duplicate therapies, 
-     * suspect fraud etc.</p>
-     * 
-     * <p>Un-merged Business Name: IssueType</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.DetectedIssueEvent.code</p>
+     * <p>Relationship: PORX_MT030040CA.DetectedIssueEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -288,13 +225,76 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueType</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.DetectedIssueEvent.code</p>
+     * <p>Relationship: PORX_MT060160CA.DetectedIssueEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of issue was detected or is being 
      * managed.</p><p>This is mandatory so as to ensure that one 
      * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p>
+     * 
+     * <p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of issue was detected or is being 
+     * managed and is therefore mandatory.</p>
      * 
      * <p>A coded value that is used to distinguish between 
      * different kinds of issues. Types of issue include: 
@@ -312,7 +312,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueComment</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.DetectedIssueEvent.text</p>
+     * <p>Relationship: PORX_MT030040CA.DetectedIssueEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -325,7 +325,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueComment</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.DetectedIssueEvent.text</p>
+     * <p>Relationship: PORX_MT060160CA.DetectedIssueEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -338,7 +338,46 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueComment</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.DetectedIssueEvent.text</p>
+     * <p>Relationship: PORX_MT060340CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.DetectedIssueEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -348,45 +387,6 @@ public class IssuesBean extends MessagePartBean {
      * <p>A free form textual description regarding the issue. This 
      * may be specified in place of, or in addition to the coded 
      * issue.</p>
-     * 
-     * <p>Un-merged Business Name: IssueComment</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.DetectedIssueEvent.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Un-merged Business Name: IssueComment</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.DetectedIssueEvent.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Un-merged Business Name: IssueComment</p>
-     * 
-     * <p>Relationship: PORX_MT060160NB.DetectedIssueEvent.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -398,7 +398,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueComment</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.DetectedIssueEvent.text</p>
+     * <p>Relationship: PORX_MT030040CA.DetectedIssueEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -411,7 +411,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueComment</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.DetectedIssueEvent.text</p>
+     * <p>Relationship: PORX_MT060160CA.DetectedIssueEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -424,7 +424,46 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueComment</p>
      * 
-     * <p>Relationship: PORX_MT060060NB.DetectedIssueEvent.text</p>
+     * <p>Relationship: PORX_MT060340CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.DetectedIssueEvent.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -434,45 +473,6 @@ public class IssuesBean extends MessagePartBean {
      * <p>A free form textual description regarding the issue. This 
      * may be specified in place of, or in addition to the coded 
      * issue.</p>
-     * 
-     * <p>Un-merged Business Name: IssueComment</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.DetectedIssueEvent.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Un-merged Business Name: IssueComment</p>
-     * 
-     * <p>Relationship: PORX_MT030040NB.DetectedIssueEvent.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Un-merged Business Name: IssueComment</p>
-     * 
-     * <p>Relationship: PORX_MT060160NB.DetectedIssueEvent.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

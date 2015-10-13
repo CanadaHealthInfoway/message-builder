@@ -37,7 +37,7 @@ import java.util.Date;
 /**
  * <p>Business Name: CreatedBy</p>
  * 
- * <p>MFMI_MT700751NB.Author: a:*created by</p>
+ * <p>MFMI_MT700751CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -50,7 +50,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MFMI_MT700711NB.Author: a:*created by</p>
+ * <p>MFMI_MT700711CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -66,10 +66,10 @@ import java.util.Date;
  * <p>The &ldquo;author&rdquo; element, representing the person 
  * adding the patient, must be specified.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700711NB.Author","MFMI_MT700751NB.Author"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -81,7 +81,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.time</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -98,7 +98,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.time</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -123,7 +123,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.time</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -140,7 +140,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.time</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.modeCode</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -177,7 +177,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.modeCode</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -197,7 +197,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.modeCode</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -209,7 +209,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.modeCode</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -229,7 +229,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.signatureText</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -243,7 +243,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.signatureText</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -265,7 +265,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.signatureText</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -279,7 +279,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.signatureText</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -299,13 +299,13 @@ public class CreatedBy_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.authorPerson</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.authorPerson</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -317,13 +317,13 @@ public class CreatedBy_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700751NB.Author.authorPerson</p>
+     * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MFMI_MT700711NB.Author.authorPerson</p>
+     * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

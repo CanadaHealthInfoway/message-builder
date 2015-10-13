@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT500003NB.NewPatientCareProvisionEvent","REPC_MT500004NB.NewPatientCareProvisionEvent"})
+@Hl7PartTypeMapping({"REPC_MT500003CA.NewPatientCareProvisionEvent","REPC_MT500004CA.NewPatientCareProvisionEvent"})
 public class NewPatientCareProvisionEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -42,7 +42,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500003NB.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.NewPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -56,7 +56,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004NB.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.NewPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -78,7 +78,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500003NB.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.NewPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004NB.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.NewPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

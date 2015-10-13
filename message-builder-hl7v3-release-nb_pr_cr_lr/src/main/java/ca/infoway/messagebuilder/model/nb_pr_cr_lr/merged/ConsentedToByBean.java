@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt910107nb.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt910107ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.merged.Consenter;
 
 
@@ -36,7 +36,16 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.merged.Consenter;
 /**
  * <p>Business Name: ConsentedToBy</p>
  * 
- * <p>COCT_MT470012NB.Author: b:consented to by</p>
+ * <p>RCMR_MT010001CA.Author: b:consented to by</p>
+ * 
+ * <p>Consent can be provided by the patient or representative 
+ * or be overridden by a provider. It is important to know 
+ * which occurred for audit purposes.</p>
+ * 
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
+ * 
+ * <p>COCT_MT470012CA.Author: b:consented to by</p>
  * 
  * <p>Authorization.Person</p>
  * 
@@ -48,7 +57,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.merged.Consenter;
  * <p>Indicates that the consent was provided by the patient, 
  * client, provider or representative.</p>
  * 
- * <p>COCT_MT470002NB.Author: b:consented to by</p>
+ * <p>COCT_MT470002CA.Author: b:consented to by</p>
  * 
  * <p>Authorization.Person</p>
  * 
@@ -59,24 +68,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.merged.Consenter;
  * 
  * <p>Indicates that the consent was provided by the patient or 
  * representative.</p>
- * 
- * <p>RCMR_MT010001NB.Author: b:consented to by</p>
- * 
- * <p>Consent can be provided by the patient or representative 
- * or be overridden by a provider. It is important to know 
- * which occurred for audit purposes.</p>
- * 
- * <p>Indicates that the consent was provided by the patient or 
- * representative.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT470002NB.Author","COCT_MT470012NB.Author","RCMR_MT010001NB.Author"})
+@Hl7PartTypeMapping({"COCT_MT470002CA.Author","COCT_MT470012CA.Author","RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV modeCode = new CVImpl();
+    private Consenter consenter;
     private ST signatureText = new STImpl();
     private RelatedPersonBean personalRelationship;
-    private Consenter consenter;
 
 
     /**
@@ -84,7 +84,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Relationship: COCT_MT470012NB.Author.modeCode</p>
+     * <p>Relationship: RCMR_MT010001CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -96,7 +96,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Relationship: COCT_MT470002NB.Author.modeCode</p>
+     * <p>Relationship: COCT_MT470012CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -108,7 +108,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Relationship: RCMR_MT010001NB.Author.modeCode</p>
+     * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -128,7 +128,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Relationship: COCT_MT470012NB.Author.modeCode</p>
+     * <p>Relationship: RCMR_MT010001CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -140,7 +140,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Relationship: COCT_MT470002NB.Author.modeCode</p>
+     * <p>Relationship: COCT_MT470012CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -152,7 +152,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Relationship: RCMR_MT010001NB.Author.modeCode</p>
+     * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -168,11 +168,35 @@ public class ConsentedToByBean extends MessagePartBean {
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"consenter"})
+    public Consenter getConsenter() {
+        return this.consenter;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setConsenter(Consenter consenter) {
+        this.consenter = consenter;
+    }
+
+
+    /**
      * <p>Business Name: Keyword</p>
      * 
      * <p>Un-merged Business Name: Keyword</p>
      * 
-     * <p>Relationship: COCT_MT470012NB.Author.signatureText</p>
+     * <p>Relationship: COCT_MT470012CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -184,7 +208,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Keyword</p>
      * 
-     * <p>Relationship: COCT_MT470002NB.Author.signatureText</p>
+     * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -204,7 +228,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Keyword</p>
      * 
-     * <p>Relationship: COCT_MT470012NB.Author.signatureText</p>
+     * <p>Relationship: COCT_MT470012CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -216,7 +240,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Keyword</p>
      * 
-     * <p>Relationship: COCT_MT470002NB.Author.signatureText</p>
+     * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -234,13 +258,13 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470012NB.Author.personalRelationship</p>
+     * <p>Relationship: COCT_MT470012CA.Author.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470002NB.Author.personalRelationship</p>
+     * <p>Relationship: COCT_MT470002CA.Author.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -252,42 +276,18 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470012NB.Author.personalRelationship</p>
+     * <p>Relationship: COCT_MT470012CA.Author.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470002NB.Author.personalRelationship</p>
+     * <p>Relationship: COCT_MT470002CA.Author.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
         this.personalRelationship = personalRelationship;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: RCMR_MT010001NB.Author.consenter</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"consenter"})
-    public Consenter getConsenter() {
-        return this.consenter;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: RCMR_MT010001NB.Author.consenter</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setConsenter(Consenter consenter) {
-        this.consenter = consenter;
     }
 
 }

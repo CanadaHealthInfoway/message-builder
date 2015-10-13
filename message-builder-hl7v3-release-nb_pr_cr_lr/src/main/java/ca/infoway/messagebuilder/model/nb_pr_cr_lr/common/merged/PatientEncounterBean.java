@@ -35,21 +35,21 @@ import java.util.Date;
 /**
  * <p>Business Name: PatientEncounter</p>
  * 
- * <p>COCT_MT300000NB.PatientEncounter: Patient Encounter</p>
+ * <p>COCT_MT300000CA.PatientEncounter: Patient Encounter</p>
  * 
  * <p>Can be used to reference discharge and admit dates for an 
  * encounter in a hospital.</p>
  * 
  * <p>Patient Encounter details</p>
  * 
- * <p>COCT_MT290000NB.PatientEncounter: Patient Encounter</p>
+ * <p>COCT_MT290000CA.PatientEncounter: Patient Encounter</p>
  * 
  * <p>Details of patient Encounter</p>
  */
-@Hl7PartTypeMapping({"COCT_MT290000NB.PatientEncounter","COCT_MT300000NB.PatientEncounter"})
+@Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 
@@ -59,7 +59,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EncounterID</p>
      * 
-     * <p>Relationship: COCT_MT300000NB.PatientEncounter.id</p>
+     * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -68,7 +68,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EncounterID</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.PatientEncounter.id</p>
+     * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -84,7 +84,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EncounterID</p>
      * 
-     * <p>Relationship: COCT_MT300000NB.PatientEncounter.id</p>
+     * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -93,7 +93,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EncounterID</p>
      * 
-     * <p>Relationship: COCT_MT290000NB.PatientEncounter.id</p>
+     * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -108,7 +108,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: EncounterDate</p>
      * 
      * <p>Relationship: 
-     * COCT_MT300000NB.PatientEncounter.effectiveTime</p>
+     * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -120,7 +120,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: AdmitDischargeDate</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.PatientEncounter.effectiveTime</p>
+     * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -135,7 +135,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: EncounterDate</p>
      * 
      * <p>Relationship: 
-     * COCT_MT300000NB.PatientEncounter.effectiveTime</p>
+     * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -147,7 +147,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: AdmitDischargeDate</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.PatientEncounter.effectiveTime</p>
+     * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

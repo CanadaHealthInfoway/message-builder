@@ -25,14 +25,14 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 /**
- * <p>PORX_MT020060NB.Patient: (no business name)</p>
+ * <p>PORX_MT020060CA.Patient: (no business name)</p>
  * 
  * <p>The patient identifier (PDID) to which this dispense was 
  * for must be specified in the &ldquo;id&rdquo; element in the 
  * message path &ldquo;/subject / deviceDispense /subject 
  * /patient1&rdquo;.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020060NB.Patient","PORX_MT020070NB.Patient"})
+@Hl7PartTypeMapping({"PORX_MT020060CA.Patient","PORX_MT020070CA.Patient"})
 public interface Patient {
 
 }

@@ -31,13 +31,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT060160NB.CarrierRole","PORX_MT060340NB.CarrierRole"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.CarrierRole","PORX_MT060340CA.CarrierRole"})
 public class CarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
-    private ST underwritingOrganizationName = new STImpl();
     private ST underwritingCarrierOrganizationName = new STImpl();
+    private ST underwritingOrganizationName = new STImpl();
 
 
     /**
@@ -45,7 +45,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.CarrierRole.id</p>
+     * <p>Relationship: PORX_MT060160CA.CarrierRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -58,7 +58,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.CarrierRole.id</p>
+     * <p>Relationship: PORX_MT060340CA.CarrierRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -79,7 +79,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.CarrierRole.id</p>
+     * <p>Relationship: PORX_MT060160CA.CarrierRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.CarrierRole.id</p>
+     * <p>Relationship: PORX_MT060340CA.CarrierRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -113,45 +113,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
-     * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
-     */
-    @Hl7XmlMapping({"underwritingOrganization/name"})
-    public String getUnderwritingOrganizationName() {
-        return this.underwritingOrganizationName.getValue();
-    }
-
-    /**
-     * <p>Business Name: PayorName</p>
-     * 
-     * <p>Un-merged Business Name: PayorName</p>
-     * 
-     * <p>Relationship: PORX_MT060340NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
-     * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
-     */
-    public void setUnderwritingOrganizationName(String underwritingOrganizationName) {
-        this.underwritingOrganizationName.setValue(underwritingOrganizationName);
-    }
-
-
-    /**
-     * <p>Business Name: PayorName</p>
-     * 
-     * <p>Un-merged Business Name: PayorName</p>
-     * 
-     * <p>Relationship: PORX_MT060160NB.CarrierOrganization.name</p>
+     * <p>Relationship: PORX_MT060160CA.CarrierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -170,7 +132,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.CarrierOrganization.name</p>
+     * <p>Relationship: PORX_MT060160CA.CarrierOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -181,6 +143,44 @@ public class CarrierRoleBean extends MessagePartBean {
      */
     public void setUnderwritingCarrierOrganizationName(String underwritingCarrierOrganizationName) {
         this.underwritingCarrierOrganizationName.setValue(underwritingCarrierOrganizationName);
+    }
+
+
+    /**
+     * <p>Business Name: PayorName</p>
+     * 
+     * <p>Un-merged Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     */
+    @Hl7XmlMapping({"underwritingOrganization/name"})
+    public String getUnderwritingOrganizationName() {
+        return this.underwritingOrganizationName.getValue();
+    }
+
+    /**
+     * <p>Business Name: PayorName</p>
+     * 
+     * <p>Un-merged Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     */
+    public void setUnderwritingOrganizationName(String underwritingOrganizationName) {
+        this.underwritingOrganizationName.setValue(underwritingOrganizationName);
     }
 
 }

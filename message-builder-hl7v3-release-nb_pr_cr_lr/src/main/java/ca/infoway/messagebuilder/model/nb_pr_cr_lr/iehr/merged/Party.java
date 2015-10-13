@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000001NB.Party","REPC_MT000002NB.Party","REPC_MT000005NB.Party","REPC_MT000006NB.Party","REPC_MT000009NB.Party","REPC_MT000013NB.Party"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.Party","REPC_MT000002CA.Party","REPC_MT000005CA.Party","REPC_MT000006CA.Party","REPC_MT000009CA.Party","REPC_MT000013CA.Party"})
 public interface Party {
 
 }

@@ -26,13 +26,19 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107nb.ProviderBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.nb_drug.merged.PrescribedByBean;
 
 
 
 /**
- * <p>PORX_MT020050NB.SupplyRequest: Supply Order</p>
+ * <p>PORX_MT060020CA.SupplyRequest: Prescription Reference</p>
+ * 
+ * <p>Links a dispense with its parent prescription.</p>
+ * 
+ * <p>A reference to the prescription order being dispensed</p>
+ * 
+ * <p>PORX_MT020050CA.SupplyRequest: Supply Order</p>
  * 
  * <p>Ensures that dispenses to offices (non-patient 
  * identifiable dispenses) follow the normal dispensing 
@@ -41,96 +47,14 @@ import ca.infoway.messagebuilder.model.nb_drug.merged.PrescribedByBean;
  * <p>Identification of the supply information. This 
  * prescription will have a supply order portion but no 
  * administration part.</p>
- * 
- * <p>PORX_MT060020NB.SupplyRequest: Prescription Reference</p>
- * 
- * <p>Links a dispense with its parent prescription.</p>
- * 
- * <p>A reference to the prescription order being dispensed</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020050NB.SupplyRequest","PORX_MT060020NB.SupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
+    private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private PrescribedByBean author;
-    private II id = new IIImpl();
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020050NB.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060020NB.ResponsibleParty2.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020050NB.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060020NB.ResponsibleParty2.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020050NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020050NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
 
 
     /**
@@ -138,7 +62,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.id</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -162,7 +86,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.id</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -178,6 +102,82 @@ public class SupplyOrderBean extends MessagePartBean {
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
     }
 
 }

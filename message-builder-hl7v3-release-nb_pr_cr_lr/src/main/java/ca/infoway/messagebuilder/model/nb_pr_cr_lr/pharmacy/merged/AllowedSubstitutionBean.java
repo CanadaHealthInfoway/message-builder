@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: AllowedSubstitution</p>
  * 
- * <p>PORX_MT060340NB.SubstitutionPermission: Allowed 
+ * <p>PORX_MT060340CA.SubstitutionPermission: Allowed 
  * Substitution</p>
  * 
  * <p>May have financial and therapeutic conformance 
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A prescriber's instruction that a specific prescribed 
  * product be dispensed as is, or not.</p>
  * 
- * <p>PORX_MT010120NB.SubstitutionPermission: Allowed 
+ * <p>PORX_MT010120CA.SubstitutionPermission: Allowed 
  * Substitution</p>
  * 
  * <p>May have financial and therapeutic conformance 
@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A prescriber's instruction that a specific prescribed 
  * product be dispensed as is, or not.</p>
  * 
- * <p>PORX_MT060160NB.SubstitutionPermission: Allowed 
+ * <p>PORX_MT060160CA.SubstitutionPermission: Allowed 
  * Substitution</p>
  * 
  * <p>May have financial and therapeutic conformance 
@@ -61,10 +61,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A prescriber's instruction that a specific prescribed 
  * product be dispensed as is, or not.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.SubstitutionPermission","PORX_MT060160NB.SubstitutionPermission","PORX_MT060340NB.SubstitutionPermission"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL negationInd = new BLImpl();
     private CV reasonCode = new CVImpl();
 
@@ -73,7 +73,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubstitutionPermission.negationInd</p>
+     * PORX_MT060340CA.SubstitutionPermission.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -88,7 +88,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubstitutionPermission.negationInd</p>
+     * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -102,7 +102,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubstitutionPermission.negationInd</p>
+     * PORX_MT060160CA.SubstitutionPermission.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -123,7 +123,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubstitutionPermission.negationInd</p>
+     * PORX_MT060340CA.SubstitutionPermission.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,7 +138,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubstitutionPermission.negationInd</p>
+     * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,7 +152,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubstitutionPermission.negationInd</p>
+     * PORX_MT060160CA.SubstitutionPermission.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -173,7 +173,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubstitutionPermission.reasonCode</p>
+     * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -190,7 +190,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubstitutionPermission.reasonCode</p>
+     * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -207,7 +207,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubstitutionPermission.reasonCode</p>
+     * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -230,7 +230,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubstitutionPermission.reasonCode</p>
+     * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -247,7 +247,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubstitutionPermission.reasonCode</p>
+     * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -264,7 +264,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubstitutionPermission.reasonCode</p>
+     * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 

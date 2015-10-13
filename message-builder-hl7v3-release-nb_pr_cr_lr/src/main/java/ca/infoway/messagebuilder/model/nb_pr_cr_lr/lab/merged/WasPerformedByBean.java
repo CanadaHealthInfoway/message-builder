@@ -30,22 +30,58 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>POLB_MT004200NB.Performer: was performed by</p>
+ * <p>POLB_MT004100CA.Performer: Culture Performer Person</p>
+ * 
+ * <p>Performer Clone</p>
+ * 
+ * <p>POLB_MT004200CA.Performer: was performed by</p>
  * 
  * <p>Associates the report with the entity(ies) that performed 
  * or conducted (the observations) which make up the focal 
  * report.</p>
- * 
- * <p>POLB_MT004100NB.Performer: Culture Performer Person</p>
- * 
- * <p>Performer Clone</p>
  */
-@Hl7PartTypeMapping({"POLB_MT004100NB.Performer","POLB_MT004200NB.Performer"})
+@Hl7PartTypeMapping({"POLB_MT004100CA.Performer","POLB_MT004200CA.Performer"})
 public class WasPerformedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
-    private CD functionCode = new CDImpl();
+    private static final long serialVersionUID = 20151013L;
     private RoleChoice roleChoice;
+    private CD functionCode = new CDImpl();
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"roleChoice"})
+    public RoleChoice getRoleChoice() {
+        return this.roleChoice;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setRoleChoice(RoleChoice roleChoice) {
+        this.roleChoice = roleChoice;
+    }
 
 
     /**
@@ -53,7 +89,7 @@ public class WasPerformedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationFunctionType</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.Performer.functionCode</p>
+     * <p>Relationship: POLB_MT004200CA.Performer.functionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -74,7 +110,7 @@ public class WasPerformedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationFunctionType</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.Performer.functionCode</p>
+     * <p>Relationship: POLB_MT004200CA.Performer.functionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -87,42 +123,6 @@ public class WasPerformedByBean extends MessagePartBean {
      */
     public void setFunctionCode(ParticipationFunction functionCode) {
         this.functionCode.setValue(functionCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004200NB.Performer.roleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004100NB.Performer.roleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"roleChoice"})
-    public RoleChoice getRoleChoice() {
-        return this.roleChoice;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004200NB.Performer.roleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004100NB.Performer.roleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setRoleChoice(RoleChoice roleChoice) {
-        this.roleChoice = roleChoice;
     }
 
 }

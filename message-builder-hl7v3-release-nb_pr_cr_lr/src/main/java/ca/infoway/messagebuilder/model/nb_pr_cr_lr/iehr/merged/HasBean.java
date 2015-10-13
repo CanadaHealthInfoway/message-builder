@@ -40,7 +40,7 @@ import java.util.Set;
 /**
  * <p>Business Name: Has</p>
  * 
- * <p>REPC_MT500002NB.Participant: *has</p>
+ * <p>REPC_MT500004CA.Participant: *has</p>
  * 
  * <p>Cardinality is constrained to 200 rather than 1000 
  * because it is exactly equal to the sum of the number of 
@@ -53,7 +53,7 @@ import java.util.Set;
  * <p>Identifies the participants associated with the 
  * particular location.</p>
  * 
- * <p>REPC_MT500001NB.Participant: *has</p>
+ * <p>REPC_MT500002CA.Participant: *has</p>
  * 
  * <p>Cardinality is constrained to 200 rather than 1000 
  * because it is exactly equal to the sum of the number of 
@@ -66,7 +66,7 @@ import java.util.Set;
  * <p>Identifies the participants associated with the 
  * particular location.</p>
  * 
- * <p>REPC_MT500004NB.Participant: *has</p>
+ * <p>REPC_MT500001CA.Participant: *has</p>
  * 
  * <p>Cardinality is constrained to 200 rather than 1000 
  * because it is exactly equal to the sum of the number of 
@@ -79,10 +79,10 @@ import java.util.Set;
  * <p>Identifies the participants associated with the 
  * particular location.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT500001NB.Participant","REPC_MT500002NB.Participant","REPC_MT500004NB.Participant"})
+@Hl7PartTypeMapping({"REPC_MT500001CA.Participant","REPC_MT500002CA.Participant","REPC_MT500004CA.Participant"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV modeCode = new CVImpl();
     private II roleId = new IIImpl();
     private SET<CV, Code> roleConfidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -93,7 +93,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Participant.modeCode</p>
+     * <p>Relationship: REPC_MT500002CA.Participant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -107,7 +107,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Participant.modeCode</p>
+     * <p>Relationship: REPC_MT500004CA.Participant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -121,7 +121,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Participant.modeCode</p>
+     * <p>Relationship: REPC_MT500001CA.Participant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -143,7 +143,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Participant.modeCode</p>
+     * <p>Relationship: REPC_MT500002CA.Participant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -157,7 +157,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Participant.modeCode</p>
+     * <p>Relationship: REPC_MT500004CA.Participant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -171,7 +171,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Participant.modeCode</p>
+     * <p>Relationship: REPC_MT500001CA.Participant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -193,7 +193,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Role.id</p>
+     * <p>Relationship: REPC_MT500002CA.Role.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -209,7 +209,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Role.id</p>
+     * <p>Relationship: REPC_MT500004CA.Role.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -225,7 +225,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Role.id</p>
+     * <p>Relationship: REPC_MT500001CA.Role.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -249,7 +249,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Role.id</p>
+     * <p>Relationship: REPC_MT500002CA.Role.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -265,7 +265,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Role.id</p>
+     * <p>Relationship: REPC_MT500004CA.Role.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -281,7 +281,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500004NB.Role.id</p>
+     * <p>Relationship: REPC_MT500001CA.Role.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -305,7 +305,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantConfidentialities</p>
      * 
-     * <p>Relationship: REPC_MT500002NB.Role.confidentialityCode</p>
+     * <p>Relationship: REPC_MT500002CA.Role.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
@@ -325,29 +325,29 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ParticipantConfidentialities</p>
      * 
-     * <p>Relationship: REPC_MT500001NB.Role.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
-     * 
-     * <p>Provides individual participants in a group encounter 
-     * with complete control over the confidentiality of their 
-     * participation in that encounter.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>This element should only be specified if the id is 
-     * referencing a patient, not a provider.</p><p>Stricter 
-     * confidentiality asserted at the overall encounter level 
-     * overrides looser confidentiality asserted at the participant 
-     * level.</p>
-     * 
-     * <p>Identifies the confidentiality level associated with the 
-     * encounter for this specific participant.</p>
-     * 
-     * <p>Un-merged Business Name: ParticipantConfidentialities</p>
-     * 
-     * <p>Relationship: REPC_MT500004NB.Role.confidentialityCode</p>
+     * <p>Relationship: REPC_MT500004CA.Role.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>Provides individual participants in a group encounter 
+     * with complete control over the confidentiality of their 
+     * participation in that encounter.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>This element should only be specified if the id is 
+     * referencing a patient, not a provider.</p><p>Stricter 
+     * confidentiality asserted at the overall encounter level 
+     * overrides looser confidentiality asserted at the participant 
+     * level.</p>
+     * 
+     * <p>Identifies the confidentiality level associated with the 
+     * encounter for this specific participant.</p>
+     * 
+     * <p>Un-merged Business Name: ParticipantConfidentialities</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Role.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Provides individual participants in a group encounter 
      * with complete control over the confidentiality of their 

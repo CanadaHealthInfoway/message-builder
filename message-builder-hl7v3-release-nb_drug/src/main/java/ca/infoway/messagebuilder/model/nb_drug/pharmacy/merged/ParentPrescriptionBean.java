@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ParentPrescription</p>
  * 
- * <p>PORX_MT060040NB.PriorSupplyRequest: Parent Prescription</p>
+ * <p>PORX_MT060040CA.PriorSupplyRequest: Parent Prescription</p>
  * 
  * <p>Helps link prescriptions together, and subsequently 
  * indications for prescribing.</p>
@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  * 
- * <p>PORX_MT060340NB.PriorCombinedMedicationRequest: Parent 
+ * <p>PORX_MT060340CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
  * <p>Helps link prescriptions together, and subsequently 
@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  * 
- * <p>PORX_MT060160NB.PriorCombinedMedicationRequest: Parent 
+ * <p>PORX_MT060160CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
  * <p>Helps link prescriptions together, and subsequently 
@@ -61,10 +61,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060040NB.PriorSupplyRequest","PORX_MT060160NB.PriorCombinedMedicationRequest","PORX_MT060340NB.PriorCombinedMedicationRequest"})
+@Hl7PartTypeMapping({"PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -73,7 +73,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.PriorSupplyRequest.id</p>
+     * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -90,7 +90,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,7 +107,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -131,7 +131,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.PriorSupplyRequest.id</p>
+     * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -148,7 +148,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

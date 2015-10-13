@@ -31,10 +31,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT010110NB.Underwriter","PORX_MT010120NB.Underwriter","PORX_MT060040NB.Underwriter"})
+@Hl7PartTypeMapping({"PORX_MT010110CA.Underwriter","PORX_MT010120CA.Underwriter","PORX_MT060040CA.Underwriter"})
 public class UnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private ST underwritingOrganizationName = new STImpl();
 
@@ -44,7 +44,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Underwriter.id</p>
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -57,7 +57,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Underwriter.id</p>
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -70,7 +70,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Underwriter.id</p>
+     * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -91,7 +91,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Underwriter.id</p>
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,7 +104,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Underwriter.id</p>
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -117,7 +117,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Underwriter.id</p>
+     * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,18 +138,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
-     * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension</p>
-     * 
-     * <p>Un-merged Business Name: PayorName</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.Organization.name</p>
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -160,7 +149,18 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Organization.name</p>
+     * <p>Relationship: PORX_MT010110CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension</p>
+     * 
+     * <p>Un-merged Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -179,18 +179,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT010110NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
-     * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension</p>
-     * 
-     * <p>Un-merged Business Name: PayorName</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.Organization.name</p>
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -201,7 +190,18 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Organization.name</p>
+     * <p>Relationship: PORX_MT010110CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension</p>
+     * 
+     * <p>Un-merged Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PRPM_MT306011NB.PrimaryPerformer3","PRPM_MT309000NB.PrimaryPerformer3"})
+@Hl7PartTypeMapping({"PRPM_MT306011CA.PrimaryPerformer3","PRPM_MT309000CA.PrimaryPerformer3"})
 public class PrimaryPerformer3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS typeCode = new CSImpl();
     private ActDefinitionOrEventNameBean actDefinitionOrEvent;
 
@@ -40,13 +40,13 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.PrimaryPerformer3.typeCode</p>
+     * <p>Relationship: PRPM_MT306011CA.PrimaryPerformer3.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.PrimaryPerformer3.typeCode</p>
+     * <p>Relationship: PRPM_MT309000CA.PrimaryPerformer3.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -58,13 +58,13 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.PrimaryPerformer3.typeCode</p>
+     * <p>Relationship: PRPM_MT306011CA.PrimaryPerformer3.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.PrimaryPerformer3.typeCode</p>
+     * <p>Relationship: PRPM_MT309000CA.PrimaryPerformer3.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -77,16 +77,16 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.PrimaryPerformer3.actDefinitionOrEvent</p>
+     * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.PrimaryPerformer3.actDefinitionOrEvent</p>
+     * PRPM_MT309000CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"actDefinitionOrEvent"})
     public ActDefinitionOrEventNameBean getActDefinitionOrEvent() {
@@ -97,16 +97,16 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.PrimaryPerformer3.actDefinitionOrEvent</p>
+     * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.PrimaryPerformer3.actDefinitionOrEvent</p>
+     * PRPM_MT309000CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setActDefinitionOrEvent(ActDefinitionOrEventNameBean actDefinitionOrEvent) {
         this.actDefinitionOrEvent = actDefinitionOrEvent;

@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001103nb.ReferencedRecordBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001103ca.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020370NB: Record dispense reversal 
+ * <p>Business Name: PORX_IN020370CA: Record dispense reversal 
  * request</p>
  * 
  * <p>Requests that a previously submitted dispense be marked 
  * as reversed. The medication has been disposed of without 
  * having been picked up nor consumed by the patient.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700211NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001103NB.ActEvent</p>
+ * <p>--> Payload: COMT_MT001103CA.ActEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020370NB"})
+@Hl7PartTypeMapping({"PORX_IN020370CA"})
 public class RecordDispenseReversalRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

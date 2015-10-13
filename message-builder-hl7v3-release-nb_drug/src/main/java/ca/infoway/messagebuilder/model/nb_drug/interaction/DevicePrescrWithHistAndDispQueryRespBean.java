@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060010nb.DispenseBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060280nb.DrugPrescriptionDetailQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060010ca.DispenseBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060280ca.DrugPrescriptionDetailQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060020NB: Device prescr. with hist. 
+ * <p>Business Name: PORX_IN060020CA: Device prescr. with hist. 
  * and disp. query resp.</p>
  * 
  * <p>Returns detailed information about a single identified 
  * device prescription, including history of changes and all 
  * fulfilling dispense events.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060010NB.DeviceDispense</p>
+ * <p>--> Payload: PORX_MT060010CA.DeviceDispense</p>
  * 
- * <p>--> Payload: PORX_MT060280NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060280CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060020NB"})
+@Hl7PartTypeMapping({"PORX_IN060020CA"})
 public class DevicePrescrWithHistAndDispQueryRespBean extends HL7MessageBean<TriggerEventBean<DispenseBean,DrugPrescriptionDetailQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

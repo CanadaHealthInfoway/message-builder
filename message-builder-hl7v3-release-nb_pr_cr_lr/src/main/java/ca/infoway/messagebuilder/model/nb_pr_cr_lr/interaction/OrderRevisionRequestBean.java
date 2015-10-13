@@ -22,35 +22,35 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt001000nb.RequestChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt001000ca.RequestChoice;
 
 
 
 /**
- * <p>Business Name: POLB_IN111102NB: Order Revision Request</p>
+ * <p>Business Name: POLB_IN111102CA: Order Revision Request</p>
  * 
  * <p>This interaction is used when a revision request is 
  * communicated. If the receiving role is a filler, the 
  * expectation is to confirm, reject, or respond with a 
  * revision to the filler's promise.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT001000NB.RequestChoice</p>
+ * <p>--> Payload: POLB_MT001000CA.RequestChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT001000NB.PlacerGroup</p>
+ * <p>----> Payload Choice: POLB_MT001000CA.PlacerGroup</p>
  * 
- * <p>----> Payload Choice: POLB_MT001000NB.BatteryRequest</p>
+ * <p>----> Payload Choice: POLB_MT001000CA.BatteryRequest</p>
  * 
- * <p>----> Payload Choice: POLB_MT001000NB.ObservationRequest</p>
+ * <p>----> Payload Choice: POLB_MT001000CA.ObservationRequest</p>
  */
-@Hl7PartTypeMapping({"POLB_IN111102NB"})
+@Hl7PartTypeMapping({"POLB_IN111102CA"})
 public class OrderRevisionRequestBean extends HL7MessageBean<TriggerEventBean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

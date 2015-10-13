@@ -22,25 +22,25 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120001nb.ProfessionalServiceQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120001ca.ProfessionalServiceQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000041NB: Patient pharmacy prof. 
+ * <p>Business Name: REPC_IN000041CA: Patient pharmacy prof. 
  * services query</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT120001NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT120001CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000041NB"})
+@Hl7PartTypeMapping({"REPC_IN000041CA"})
 public class PatientPharmacyProfServicesQueryBean extends HL7MessageBean<TriggerEventBean<ProfessionalServiceQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

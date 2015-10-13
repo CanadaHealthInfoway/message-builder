@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt309000nb.RoleChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700726ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt309000ca.RoleChoice;
 
 
 
 /**
- * <p>Business Name: PRPM_IN301011NB: Add Provider Confirmation</p>
+ * <p>Business Name: PRPM_IN301011CA: Add Provider Confirmation</p>
  * 
  * <p>This interaction is used to confirm the receipt of the 
  * Add Provider Request interaction. This interaction either 
@@ -38,21 +38,21 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt309000nb.RoleChoice
  * system; or will indicate that the request could not be 
  * fulfilled (with supporting reasons).</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700726NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700726CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT309000NB.RoleChoice</p>
+ * <p>--> Payload: PRPM_MT309000CA.RoleChoice</p>
  * 
- * <p>----> Payload Choice: PRPM_MT309000NB.AssignedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT309000CA.AssignedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT309000NB.QualifiedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT309000CA.QualifiedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT309000NB.HealthCareProvider</p>
+ * <p>----> Payload Choice: PRPM_MT309000CA.HealthCareProvider</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN301011NB"})
+@Hl7PartTypeMapping({"PRPM_IN301011CA"})
 public class AddProviderConfirmationBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

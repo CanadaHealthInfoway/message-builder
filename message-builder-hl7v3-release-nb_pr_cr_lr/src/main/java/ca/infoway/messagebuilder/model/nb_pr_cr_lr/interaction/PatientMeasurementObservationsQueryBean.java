@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410002nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410002ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000054NB: Patient measurement 
+ * <p>Business Name: REPC_IN000054CA: Patient measurement 
  * observations query</p>
  * 
  * <p>Requests retrieval of the measurement observations which 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt410002nb.QueryDef
  * filtered by the type of observation and/or by the date-range 
  * for which the observation was recorded.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT410002NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT410002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000054NB"})
+@Hl7PartTypeMapping({"REPC_IN000054CA"})
 public class PatientMeasurementObservationsQueryBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

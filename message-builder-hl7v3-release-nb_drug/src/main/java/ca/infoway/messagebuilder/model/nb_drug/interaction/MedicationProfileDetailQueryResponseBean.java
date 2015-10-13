@@ -22,37 +22,37 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060160nb.MedicationRecord;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060170nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060160ca.MedicationRecord;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt060170ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN060380NB: Medication profile detail 
+ * <p>Business Name: PORX_IN060380CA: Medication profile detail 
  * query response</p>
  * 
  * <p>Returns detailed information about a patient's 
  * prescriptions, dispenses and other medications for a 
  * specific patient optionally filtered by date.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060160NB.MedicationRecord</p>
+ * <p>--> Payload: PORX_MT060160CA.MedicationRecord</p>
  * 
  * <p>----> Payload Choice: 
- * PORX_MT060160NB.CombinedMedicationRequest</p>
+ * PORX_MT060160CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Payload Choice: PORX_MT060160NB.OtherMedication</p>
+ * <p>----> Payload Choice: PORX_MT060160CA.OtherMedication</p>
  * 
- * <p>--> Payload: PORX_MT060170NB.ParameterList</p>
+ * <p>--> Payload: PORX_MT060170CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PORX_IN060380NB"})
+@Hl7PartTypeMapping({"PORX_IN060380CA"})
 public class MedicationProfileDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationRecord,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

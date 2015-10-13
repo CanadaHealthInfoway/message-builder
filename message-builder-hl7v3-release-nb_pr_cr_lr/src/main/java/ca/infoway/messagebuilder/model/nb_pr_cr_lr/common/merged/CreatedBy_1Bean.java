@@ -37,7 +37,7 @@ import java.util.Date;
 /**
  * <p>Business Name: CreatedBy</p>
  * 
- * <p>MCAI_MT700232NB.Author: a:*created by</p>
+ * <p>MCAI_MT700211CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -55,7 +55,19 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MCAI_MT700211NB.Author: a:*created by</p>
+ * <p>QUQI_MT020002CA.Author: a:*created by</p>
+ * 
+ * <p>If AuthorizationToken is specified and communicates 
+ * author, the bare AuthorRole class must be specified, 
+ * otherwise the R_ActingPerson CMET must be specified.</p>
+ * 
+ * <p>Critical for auditing and for validating permissions and 
+ * therefore mandatory.</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
+ * 
+ * <p>MCAI_MT700212CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -73,19 +85,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>QUQI_MT020002NB.Author: a:*created by</p>
- * 
- * <p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise the R_ActingPerson CMET must be specified.</p>
- * 
- * <p>Critical for auditing and for validating permissions and 
- * therefore mandatory.</p>
- * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
- * <p>MCAI_MT700221NB.Author: a:*created by</p>
+ * <p>MCAI_MT700220CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -103,7 +103,19 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MCAI_MT700222NB.Author: a:*created by</p>
+ * <p>QUQI_MT020000CA.Author: a:*created by</p>
+ * 
+ * <p>If AuthorizationToken is specified and communicates 
+ * author, the bare AuthorRole class must be specified, 
+ * otherwise the R_ActingPerson CMET must be specified.</p>
+ * 
+ * <p>Critical for auditing and for validating permissions and 
+ * therefore mandatory.</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
+ * 
+ * <p>MCAI_MT700232CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -121,19 +133,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>QUQI_MT020000NB.Author: a:*created by</p>
- * 
- * <p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise the R_ActingPerson CMET must be specified.</p>
- * 
- * <p>Critical for auditing and for validating permissions and 
- * therefore mandatory.</p>
- * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
- * <p>MCAI_MT700230NB.Author: a:*created by</p>
+ * <p>MCAI_MT700230CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -151,7 +151,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MCAI_MT700220NB.Author: a:*created by</p>
+ * <p>MCAI_MT700210CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -169,7 +169,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MCAI_MT700212NB.Author: a:*created by</p>
+ * <p>MCAI_MT700231CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -187,7 +187,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MCAI_MT700231NB.Author: a:*created by</p>
+ * <p>MCAI_MT700222CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -205,7 +205,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
- * <p>MCAI_MT700210NB.Author: a:*created by</p>
+ * <p>MCAI_MT700221CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
  * author, the bare AuthorRole class must be specified, 
@@ -223,10 +223,10 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  */
-@Hl7PartTypeMapping({"MCAI_MT700210NB.Author","MCAI_MT700211NB.Author","MCAI_MT700212NB.Author","MCAI_MT700220NB.Author","MCAI_MT700221NB.Author","MCAI_MT700222NB.Author","MCAI_MT700230NB.Author","MCAI_MT700231NB.Author","MCAI_MT700232NB.Author","QUQI_MT020000NB.Author","QUQI_MT020002NB.Author"})
+@Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700220CA.Author","MCAI_MT700221CA.Author","MCAI_MT700222CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedBy_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -238,7 +238,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -255,7 +255,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.time</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -272,7 +272,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -289,7 +289,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -306,7 +306,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -323,7 +323,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.time</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -340,7 +340,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -357,7 +357,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -374,7 +374,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -391,7 +391,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -408,7 +408,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -433,7 +433,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -450,7 +450,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.time</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -467,7 +467,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -484,7 +484,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -501,7 +501,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -518,7 +518,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.time</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -535,7 +535,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -552,7 +552,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -569,7 +569,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -586,7 +586,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -603,7 +603,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.time</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -628,7 +628,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -640,7 +640,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.modeCode</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -652,7 +652,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -664,7 +664,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -676,7 +676,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -688,7 +688,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.modeCode</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -700,7 +700,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -712,7 +712,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -724,7 +724,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -736,7 +736,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -748,7 +748,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -768,7 +768,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -780,7 +780,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.modeCode</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -792,7 +792,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -804,7 +804,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -816,7 +816,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -828,7 +828,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.modeCode</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -840,7 +840,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -852,7 +852,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -864,7 +864,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -876,7 +876,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -888,7 +888,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.modeCode</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -908,7 +908,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -922,7 +922,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.signatureText</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -936,7 +936,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -950,7 +950,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -964,7 +964,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -978,7 +978,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.signatureText</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -992,7 +992,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1006,7 +1006,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1020,7 +1020,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1034,7 +1034,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1048,7 +1048,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1070,7 +1070,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1084,7 +1084,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.signatureText</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1098,7 +1098,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1112,7 +1112,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1126,7 +1126,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1140,7 +1140,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.signatureText</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1154,7 +1154,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1168,7 +1168,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1182,7 +1182,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1196,7 +1196,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1210,7 +1210,7 @@ public class CreatedBy_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DigitalSignature</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.signatureText</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1230,67 +1230,67 @@ public class CreatedBy_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.authorPerson</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.authorPerson</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -1302,67 +1302,67 @@ public class CreatedBy_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700232NB.Author.authorPerson</p>
+     * <p>Relationship: QUQI_MT020002CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020002NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700212CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700221NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700220CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700222NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700232CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700230NB.Author.authorPerson</p>
+     * <p>Relationship: QUQI_MT020000CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700220NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700230CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700212NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700231CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700231NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700221CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Author.authorPerson</p>
+     * <p>Relationship: MCAI_MT700222CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

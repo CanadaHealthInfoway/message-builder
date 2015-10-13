@@ -34,10 +34,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"MFMI_MT700746NB.QueryAck","QUQI_MT120006NB.QueryAck","QUQI_MT120008NB.QueryAck"})
+@Hl7PartTypeMapping({"MFMI_MT700746CA.QueryAck","QUQI_MT120006CA.QueryAck","QUQI_MT120008CA.QueryAck"})
 public class QueryAckBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();
@@ -50,7 +50,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.QueryAck.queryId</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -62,7 +62,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT120008NB.QueryAck.queryId</p>
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -74,7 +74,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT120006NB.QueryAck.queryId</p>
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -94,7 +94,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.QueryAck.queryId</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -106,7 +106,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT120008NB.QueryAck.queryId</p>
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -118,7 +118,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT120006NB.QueryAck.queryId</p>
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,7 +138,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryStatus</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.QueryAck.queryResponseCode</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryResponseCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -149,7 +149,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryStatus</p>
      * 
-     * <p>Relationship: QUQI_MT120008NB.QueryAck.queryResponseCode</p>
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryResponseCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -160,7 +160,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryStatus</p>
      * 
-     * <p>Relationship: QUQI_MT120006NB.QueryAck.queryResponseCode</p>
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryResponseCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -179,7 +179,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryStatus</p>
      * 
-     * <p>Relationship: MFMI_MT700746NB.QueryAck.queryResponseCode</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryResponseCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -190,7 +190,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryStatus</p>
      * 
-     * <p>Relationship: QUQI_MT120008NB.QueryAck.queryResponseCode</p>
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryResponseCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -201,7 +201,7 @@ public class QueryAckBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryStatus</p>
      * 
-     * <p>Relationship: QUQI_MT120006NB.QueryAck.queryResponseCode</p>
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryResponseCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -221,7 +221,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.QueryAck.resultTotalQuantity</p>
+     * QUQI_MT120006CA.QueryAck.resultTotalQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -235,7 +235,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120008NB.QueryAck.resultTotalQuantity</p>
+     * QUQI_MT120008CA.QueryAck.resultTotalQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -249,7 +249,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.QueryAck.resultTotalQuantity</p>
+     * MFMI_MT700746CA.QueryAck.resultTotalQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -271,7 +271,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.QueryAck.resultTotalQuantity</p>
+     * QUQI_MT120006CA.QueryAck.resultTotalQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -285,7 +285,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120008NB.QueryAck.resultTotalQuantity</p>
+     * QUQI_MT120008CA.QueryAck.resultTotalQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -299,7 +299,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.QueryAck.resultTotalQuantity</p>
+     * MFMI_MT700746CA.QueryAck.resultTotalQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -321,38 +321,38 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.QueryAck.resultCurrentQuantity</p>
+     * QUQI_MT120006CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>Identifies the number of rows returned as part of this 
+     * particular query response.</p>
+     * 
+     * <p>Un-merged Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>Identifies the number of rows returned as part of this 
+     * particular query response.</p>
+     * 
+     * <p>Un-merged Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultCurrentQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory</p>
-     * 
-     * <p>Identifies the number of rows returned as part of this 
-     * particular query response.</p>
-     * 
-     * <p>Un-merged Business Name: ReturnedRows</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120008NB.QueryAck.resultCurrentQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides a quick overview of the results of the query and 
-     * is therefore mandatory.</p>
-     * 
-     * <p>Identifies the number of rows returned as part of this 
-     * particular query response.</p>
-     * 
-     * <p>Un-merged Business Name: ReturnedRows</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120006NB.QueryAck.resultCurrentQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides a quick overview of the results of the query and 
-     * is therefore mandatory.</p>
      * 
      * <p>Identifies the number of rows returned as part of this 
      * particular query response.</p>
@@ -368,38 +368,38 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.QueryAck.resultCurrentQuantity</p>
+     * QUQI_MT120006CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>Identifies the number of rows returned as part of this 
+     * particular query response.</p>
+     * 
+     * <p>Un-merged Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>Identifies the number of rows returned as part of this 
+     * particular query response.</p>
+     * 
+     * <p>Un-merged Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultCurrentQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory</p>
-     * 
-     * <p>Identifies the number of rows returned as part of this 
-     * particular query response.</p>
-     * 
-     * <p>Un-merged Business Name: ReturnedRows</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120008NB.QueryAck.resultCurrentQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides a quick overview of the results of the query and 
-     * is therefore mandatory.</p>
-     * 
-     * <p>Identifies the number of rows returned as part of this 
-     * particular query response.</p>
-     * 
-     * <p>Un-merged Business Name: ReturnedRows</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120006NB.QueryAck.resultCurrentQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides a quick overview of the results of the query and 
-     * is therefore mandatory.</p>
      * 
      * <p>Identifies the number of rows returned as part of this 
      * particular query response.</p>
@@ -415,7 +415,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.QueryAck.resultRemainingQuantity</p>
+     * QUQI_MT120006CA.QueryAck.resultRemainingQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -428,7 +428,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120008NB.QueryAck.resultRemainingQuantity</p>
+     * QUQI_MT120008CA.QueryAck.resultRemainingQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -441,7 +441,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.QueryAck.resultRemainingQuantity</p>
+     * MFMI_MT700746CA.QueryAck.resultRemainingQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -462,7 +462,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700746NB.QueryAck.resultRemainingQuantity</p>
+     * QUQI_MT120006CA.QueryAck.resultRemainingQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -475,7 +475,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120008NB.QueryAck.resultRemainingQuantity</p>
+     * QUQI_MT120008CA.QueryAck.resultRemainingQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -488,7 +488,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.QueryAck.resultRemainingQuantity</p>
+     * MFMI_MT700746CA.QueryAck.resultRemainingQuantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

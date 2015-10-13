@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101101nb.ParameterListBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101106nb.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101101ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101106ca.IdentifiedPersonBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101106NB: Find Associated 
+ * <p>Business Name: PRPA_IN101106CA: Find Associated 
  * Identifiers Response</p>
  * 
  * <p>This interaction returns a set of identifiers associated 
  * with a particular person identifier in a Person 
  * Registry.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700746NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101106NB.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101106CA.IdentifiedEntity</p>
  * 
- * <p>--> Payload: PRPA_MT101101NB.ParameterList</p>
+ * <p>--> Payload: PRPA_MT101101CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101106NB"})
+@Hl7PartTypeMapping({"PRPA_IN101106CA"})
 public class FindAssociatedIdentifiersResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

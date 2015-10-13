@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500003nb.CareCompositionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500005nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500003ca.CareCompositionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500005ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN041200NB: Patient care composition 
+ * <p>Business Name: REPC_IN041200CA: Patient care composition 
  * summaries query response</p>
  * 
  * <p>Returns a list of encounters, episodes and similar 
  * structures for a particular patient or group of patients, 
  * potentially filtered by date or other criteria.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT500003NB.PatientCareProvisionEvent</p>
+ * <p>--> Payload: REPC_MT500003CA.PatientCareProvisionEvent</p>
  * 
- * <p>--> Payload: REPC_MT500005NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT500005CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN041200NB"})
+@Hl7PartTypeMapping({"REPC_IN041200CA"})
 public class PatientCareCompositionSummariesQueryResponseBean extends HL7MessageBean<TriggerEventBean<CareCompositionBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

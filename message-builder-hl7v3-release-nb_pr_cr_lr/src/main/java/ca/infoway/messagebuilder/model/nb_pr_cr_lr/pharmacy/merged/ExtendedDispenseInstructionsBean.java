@@ -32,23 +32,13 @@ import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220110nb.DrugProductBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220110ca.DrugProductBean;
 import java.util.Date;
 
 
 
 /**
- * <p>PORX_MT060340NB.SupplyRequestItem: Extended Dispense 
- * Instructions</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p>
- * 
- * <p>Specification of the overall use duration of the 
- * prescrbed medication and/or overall quantity to be 
- * dispensed.</p>
- * 
- * <p>PORX_MT060160NB.SupplyRequestItem: Dispense Instruction 
+ * <p>PORX_MT060160CA.SupplyRequestItem: Dispense Instruction 
  * Details</p>
  * 
  * <p>Sets the parameters within which the dispenser must 
@@ -61,16 +51,26 @@ import java.util.Date;
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
+ * 
+ * <p>PORX_MT060340CA.SupplyRequestItem: Extended Dispense 
+ * Instructions</p>
+ * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
+ * 
+ * <p>Specification of the overall use duration of the 
+ * prescrbed medication and/or overall quantity to be 
+ * dispensed.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060160NB.SupplyRequestItem","PORX_MT060340NB.SupplyRequestItem"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequestItem","PORX_MT060340CA.SupplyRequestItem"})
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
-    private SubsequentSupplyRequestBean component2SubsequentSupplyRequest;
-    private FirstFillBean component1InitialSupplyRequest;
+    private FirstFillBean component2InitialSupplyRequest;
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
 
 
     /**
@@ -78,7 +78,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.SupplyRequestItem.quantity</p>
+     * <p>Relationship: PORX_MT060160CA.SupplyRequestItem.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -96,7 +96,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.SupplyRequestItem.quantity</p>
+     * <p>Relationship: PORX_MT060340CA.SupplyRequestItem.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -122,7 +122,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.SupplyRequestItem.quantity</p>
+     * <p>Relationship: PORX_MT060160CA.SupplyRequestItem.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -140,7 +140,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.SupplyRequestItem.quantity</p>
+     * <p>Relationship: PORX_MT060340CA.SupplyRequestItem.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -167,7 +167,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SupplyRequestItem.expectedUseTime</p>
+     * PORX_MT060160CA.SupplyRequestItem.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -186,7 +186,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SupplyRequestItem.expectedUseTime</p>
+     * PORX_MT060340CA.SupplyRequestItem.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -213,7 +213,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SupplyRequestItem.expectedUseTime</p>
+     * PORX_MT060160CA.SupplyRequestItem.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -232,7 +232,7 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SupplyRequestItem.expectedUseTime</p>
+     * PORX_MT060340CA.SupplyRequestItem.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -256,13 +256,13 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Product1.medication</p>
+     * <p>Relationship: PORX_MT060160CA.Product1.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Product1.medication</p>
+     * <p>Relationship: PORX_MT060340CA.Product1.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -274,13 +274,13 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Product1.medication</p>
+     * <p>Relationship: PORX_MT060160CA.Product1.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Product1.medication</p>
+     * <p>Relationship: PORX_MT060340CA.Product1.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -293,89 +293,89 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component8.subsequentSupplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Component8.subsequentSupplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340NB.Component8"),
-        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340NB.SubsequentSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160NB.Component8"),
-        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160NB.SubsequentSupplyRequest")})
-    public SubsequentSupplyRequestBean getComponent2SubsequentSupplyRequest() {
-        return this.component2SubsequentSupplyRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.Component8.subsequentSupplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.Component8.subsequentSupplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setComponent2SubsequentSupplyRequest(SubsequentSupplyRequestBean component2SubsequentSupplyRequest) {
-        this.component2SubsequentSupplyRequest = component2SubsequentSupplyRequest;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.Component7.initialSupplyRequest</p>
+     * PORX_MT060160CA.Component7.initialSupplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component7.initialSupplyRequest</p>
+     * PORX_MT060340CA.Component7.initialSupplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060160NB.Component7"),
-        @Hl7MapByPartType(name="component1/initialSupplyRequest", type="PORX_MT060160NB.InitialSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060340NB.Component7"),
-        @Hl7MapByPartType(name="component2/initialSupplyRequest", type="PORX_MT060340NB.InitialSupplyRequest")})
-    public FirstFillBean getComponent1InitialSupplyRequest() {
-        return this.component1InitialSupplyRequest;
+        @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
+        @Hl7MapByPartType(name="component1/initialSupplyRequest", type="PORX_MT060160CA.InitialSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component7"),
+        @Hl7MapByPartType(name="component2/initialSupplyRequest", type="PORX_MT060340CA.InitialSupplyRequest")})
+    public FirstFillBean getComponent2InitialSupplyRequest() {
+        return this.component2InitialSupplyRequest;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component7.initialSupplyRequest</p>
+     * PORX_MT060160CA.Component7.initialSupplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component7.initialSupplyRequest</p>
+     * PORX_MT060340CA.Component7.initialSupplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1InitialSupplyRequest(FirstFillBean component1InitialSupplyRequest) {
-        this.component1InitialSupplyRequest = component1InitialSupplyRequest;
+    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
+        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
+        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
+        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
 
 }

@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"MCAI_MT700210NB.AuthorPerson","MCAI_MT700211NB.AuthorPerson","MCAI_MT700212NB.AuthorPerson","MCAI_MT700220NB.AuthorPerson","MCAI_MT700221NB.AuthorPerson","MCAI_MT700222NB.AuthorPerson","MCAI_MT700230NB.AuthorPerson","MCAI_MT700231NB.AuthorPerson","MCAI_MT700232NB.AuthorPerson","QUQI_MT020000NB.AuthorPerson","QUQI_MT020002NB.AuthorPerson"})
+@Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorPerson","MCAI_MT700211CA.AuthorPerson","MCAI_MT700212CA.AuthorPerson","MCAI_MT700220CA.AuthorPerson","MCAI_MT700221CA.AuthorPerson","MCAI_MT700222CA.AuthorPerson","MCAI_MT700230CA.AuthorPerson","MCAI_MT700231CA.AuthorPerson","MCAI_MT700232CA.AuthorPerson","QUQI_MT020000CA.AuthorPerson","QUQI_MT020002CA.AuthorPerson"})
 public interface AuthorPerson_1 {
 
 }

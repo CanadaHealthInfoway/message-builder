@@ -22,27 +22,27 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700211nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN500001NB: Broadcast Message</p>
+ * <p>Business Name: COMT_IN500001CA: Broadcast Message</p>
  * 
  * <p>Sends a broadcast message to all or a subset of users of 
  * a given system; (Used for alerts regarding system outages or 
  * other urgent messages).</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700211NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT500001NB.InformEvent</p>
+ * <p>--> Payload: COMT_MT500001CA.InformEvent</p>
  */
-@Hl7PartTypeMapping({"COMT_IN500001NB"})
-public class BroadcastMessageBean extends HL7MessageBean<TriggerEventBean<ca.infoway.messagebuilder.model.nb_drug.si.comt_mt500001nb.BroadcastMessageBean>> implements InteractionBean {
+@Hl7PartTypeMapping({"COMT_IN500001CA"})
+public class BroadcastMessageBean extends HL7MessageBean<TriggerEventBean<ca.infoway.messagebuilder.model.nb_drug.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

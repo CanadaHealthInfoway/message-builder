@@ -30,17 +30,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"POME_MT010040NB.AssignedEntity1","POME_MT010040NB.AssignedEntity2","POME_MT010040NB.AssignedEntity3","POME_MT010040NB.AssignedEntity4","PORR_MT050016NB.AssignedEntity","PORX_MT980010NB.AssignedEntity","PORX_MT980020NB.AssignedEntity","PORX_MT980030NB.AssignedEntity"})
+@Hl7PartTypeMapping({"POME_MT010040CA.AssignedEntity1","POME_MT010040CA.AssignedEntity2","POME_MT010040CA.AssignedEntity3","POME_MT010040CA.AssignedEntity4","PORR_MT050016CA.AssignedEntity","PORX_MT980010CA.AssignedEntity","PORX_MT980020CA.AssignedEntity","PORX_MT980030CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private ST assignedOrganizationName = new STImpl();
 
 
     /**
      * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.Organization.name</p>
+     * <p>Relationship: PORX_MT980020CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -51,20 +51,9 @@ public class AssignedEntityBean extends MessagePartBean {
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Un-merged Business Name: MonographAuthorName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization1.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps the receiver evaluate the supplied information.</p>
-     * 
-     * <p>The name of the organization responsible for creating the 
-     * monograph</p>
-     * 
      * <p>Un-merged Business Name: MedicationDocumentAuthorName</p>
      * 
-     * <p>Relationship: PORR_MT050016NB.Organization4.name</p>
+     * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -73,59 +62,9 @@ public class AssignedEntityBean extends MessagePartBean {
      * <p>The name of the organization responsible for creating the 
      * medication document.</p>
      * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980010NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
-     * 
-     * <p>Un-merged Business Name: FormularyOwnerName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization3.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the circumstances in which the formulary 
-     * applies.</p>
-     * 
-     * <p>The name of the organization or facility responsible for 
-     * the formulary.</p>
-     * 
-     * <p>Un-merged Business Name: MonitoringOrganizationName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization2.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the program and understand its context. 
-     * May also indicate who to send reports to.</p>
-     * 
-     * <p>The name of the organization responsible for the 
-     * monitoring program</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980030NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
-     * 
      * <p>Un-merged Business Name: RecommendingAuthorityName</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Organization4.name</p>
+     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -135,17 +74,78 @@ public class AssignedEntityBean extends MessagePartBean {
      * 
      * <p>Indicates the name of the organization or agency that 
      * created the dosage recommendation</p>
+     * 
+     * <p>Un-merged Business Name: FormularyOwnerName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps identify the circumstances in which the formulary 
+     * applies.</p>
+     * 
+     * <p>The name of the organization or facility responsible for 
+     * the formulary.</p>
+     * 
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
+     * 
+     * <p>Un-merged Business Name: MonitoringOrganizationName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps identify the program and understand its context. 
+     * May also indicate who to send reports to.</p>
+     * 
+     * <p>The name of the organization responsible for the 
+     * monitoring program</p>
+     * 
+     * <p>Un-merged Business Name: MonographAuthorName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization1.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * monograph</p>
+     * 
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      */
     @Hl7XmlMapping({"assignedOrganization/name","representedOrganization/name"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization1"),
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization2"),
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization3"),
-        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040NB.Organization4"),
-        @Hl7MapByPartType(name="assignedOrganization", type="PORX_MT980010NB.Organization"),
-        @Hl7MapByPartType(name="assignedOrganization", type="PORX_MT980020NB.Organization"),
-        @Hl7MapByPartType(name="assignedOrganization", type="PORX_MT980030NB.Organization"),
-        @Hl7MapByPartType(name="representedOrganization", type="PORR_MT050016NB.Organization4")})
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization1"),
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization2"),
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization3"),
+        @Hl7MapByPartType(name="assignedOrganization", type="POME_MT010040CA.Organization4"),
+        @Hl7MapByPartType(name="assignedOrganization", type="PORX_MT980010CA.Organization"),
+        @Hl7MapByPartType(name="assignedOrganization", type="PORX_MT980020CA.Organization"),
+        @Hl7MapByPartType(name="assignedOrganization", type="PORX_MT980030CA.Organization"),
+        @Hl7MapByPartType(name="representedOrganization", type="PORR_MT050016CA.Organization4")})
     public String getAssignedOrganizationName() {
         return this.assignedOrganizationName.getValue();
     }
@@ -153,7 +153,7 @@ public class AssignedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.Organization.name</p>
+     * <p>Relationship: PORX_MT980020CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -164,20 +164,9 @@ public class AssignedEntityBean extends MessagePartBean {
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Un-merged Business Name: MonographAuthorName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization1.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps the receiver evaluate the supplied information.</p>
-     * 
-     * <p>The name of the organization responsible for creating the 
-     * monograph</p>
-     * 
      * <p>Un-merged Business Name: MedicationDocumentAuthorName</p>
      * 
-     * <p>Relationship: PORR_MT050016NB.Organization4.name</p>
+     * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -186,59 +175,9 @@ public class AssignedEntityBean extends MessagePartBean {
      * <p>The name of the organization responsible for creating the 
      * medication document.</p>
      * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980010NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
-     * 
-     * <p>Un-merged Business Name: FormularyOwnerName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization3.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the circumstances in which the formulary 
-     * applies.</p>
-     * 
-     * <p>The name of the organization or facility responsible for 
-     * the formulary.</p>
-     * 
-     * <p>Un-merged Business Name: MonitoringOrganizationName</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Organization2.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the program and understand its context. 
-     * May also indicate who to send reports to.</p>
-     * 
-     * <p>The name of the organization responsible for the 
-     * monitoring program</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980030NB.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
-     * 
      * <p>Un-merged Business Name: RecommendingAuthorityName</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Organization4.name</p>
+     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -248,6 +187,67 @@ public class AssignedEntityBean extends MessagePartBean {
      * 
      * <p>Indicates the name of the organization or agency that 
      * created the dosage recommendation</p>
+     * 
+     * <p>Un-merged Business Name: FormularyOwnerName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps identify the circumstances in which the formulary 
+     * applies.</p>
+     * 
+     * <p>The name of the organization or facility responsible for 
+     * the formulary.</p>
+     * 
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
+     * 
+     * <p>Un-merged Business Name: MonitoringOrganizationName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps identify the program and understand its context. 
+     * May also indicate who to send reports to.</p>
+     * 
+     * <p>The name of the organization responsible for the 
+     * monitoring program</p>
+     * 
+     * <p>Un-merged Business Name: MonographAuthorName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization1.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * monograph</p>
+     * 
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      */
     public void setAssignedOrganizationName(String assignedOrganizationName) {
         this.assignedOrganizationName.setValue(assignedOrganizationName);

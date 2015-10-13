@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010nb.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990010ca.ReferencedRecordBean;
 
 
 
 /**
- * <p>Business Name: POIZ_IN010100NB: Retract immunization 
+ * <p>Business Name: POIZ_IN010100CA: Retract immunization 
  * request</p>
  * 
  * <p>Asks that a previously recorded immunization should be 
  * &quot;&quot;removed&quot;&quot; from the record; 
  * (Information may be retained for audit purposes).</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990010NB.ActEvent</p>
+ * <p>--> Payload: PORX_MT990010CA.ActEvent</p>
  */
-@Hl7PartTypeMapping({"POIZ_IN010100NB"})
+@Hl7PartTypeMapping({"POIZ_IN010100CA"})
 public class RetractImmunizationRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

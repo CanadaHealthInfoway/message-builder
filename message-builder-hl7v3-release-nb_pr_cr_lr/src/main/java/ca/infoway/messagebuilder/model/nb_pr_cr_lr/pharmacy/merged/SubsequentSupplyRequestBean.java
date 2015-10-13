@@ -37,22 +37,22 @@ import java.util.Date;
 
 
 /**
- * <p>PORX_MT060340NB.SubsequentSupplyRequest: (no business 
+ * <p>PORX_MT060160CA.SubsequentSupplyRequest: (no business 
  * name)</p>
  * 
  * <p>Dispensing instruction for all dispenses subsequent to 
  * the first fill.</p>
  * 
- * <p>PORX_MT060160NB.SubsequentSupplyRequest: (no business 
+ * <p>PORX_MT060340CA.SubsequentSupplyRequest: (no business 
  * name)</p>
  * 
  * <p>Dispensing instruction for all dispenses subsequent to 
  * the first fill.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.SubsequentSupplyRequest","PORX_MT060160NB.SubsequentSupplyRequest","PORX_MT060340NB.SubsequentSupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
@@ -65,7 +65,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.effectiveTime</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -79,7 +79,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.effectiveTime</p>
+     * PORX_MT010120CA.SubsequentSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -93,7 +93,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.effectiveTime</p>
+     * PORX_MT060340CA.SubsequentSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -115,7 +115,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.effectiveTime</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -129,7 +129,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.effectiveTime</p>
+     * PORX_MT010120CA.SubsequentSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -143,7 +143,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.effectiveTime</p>
+     * PORX_MT060340CA.SubsequentSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -165,47 +165,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>D54.03</p>
-     * 
-     * <p>DRU.060-02</p>
-     * 
-     * <p>Claim,415-DF</p>
-     * 
-     * <p>ZDP.15.1</p>
-     * 
-     * <p>Prescription.numberOfRefills</p>
-     * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfFills</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfFills</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.repeatNumber</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -226,6 +186,46 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * 
      * <p>The number of times the prescribed quantity is to be 
      * dispensed, including the initial standard fill.</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>D54.03</p>
+     * 
+     * <p>DRU.060-02</p>
+     * 
+     * <p>Claim,415-DF</p>
+     * 
+     * <p>ZDP.15.1</p>
+     * 
+     * <p>Prescription.numberOfRefills</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -238,47 +238,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>D54.03</p>
-     * 
-     * <p>DRU.060-02</p>
-     * 
-     * <p>Claim,415-DF</p>
-     * 
-     * <p>ZDP.15.1</p>
-     * 
-     * <p>Prescription.numberOfRefills</p>
-     * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfFills</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfFills</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.repeatNumber</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -299,6 +259,46 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * 
      * <p>The number of times the prescribed quantity is to be 
      * dispensed, including the initial standard fill.</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>D54.03</p>
+     * 
+     * <p>DRU.060-02</p>
+     * 
+     * <p>Claim,415-DF</p>
+     * 
+     * <p>ZDP.15.1</p>
+     * 
+     * <p>Prescription.numberOfRefills</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -311,7 +311,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.quantity</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -333,7 +333,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.quantity</p>
+     * PORX_MT010120CA.SubsequentSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -347,7 +347,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.quantity</p>
+     * PORX_MT060340CA.SubsequentSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -377,7 +377,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.quantity</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -399,7 +399,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.quantity</p>
+     * PORX_MT010120CA.SubsequentSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -413,7 +413,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.quantity</p>
+     * PORX_MT060340CA.SubsequentSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -443,7 +443,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.expectedUseTime</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -463,7 +463,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.expectedUseTime</p>
+     * PORX_MT010120CA.SubsequentSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -483,7 +483,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.expectedUseTime</p>
+     * PORX_MT060340CA.SubsequentSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -511,7 +511,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.SubsequentSupplyRequest.expectedUseTime</p>
+     * PORX_MT060160CA.SubsequentSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -531,7 +531,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.SubsequentSupplyRequest.expectedUseTime</p>
+     * PORX_MT010120CA.SubsequentSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -551,7 +551,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.SubsequentSupplyRequest.expectedUseTime</p>
+     * PORX_MT060340CA.SubsequentSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

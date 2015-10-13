@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.DiagnosisBean;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT290000NB.DiagnosisInformation","COCT_MT490000NB.DiagnosisInformation"})
+@Hl7PartTypeMapping({"COCT_MT290000CA.DiagnosisInformation","COCT_MT490000CA.DiagnosisInformation"})
 public class DiagnosisInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private INT sequenceNumber = new INTImpl();
     private DiagnosisBean diagnosis;
 
@@ -41,7 +41,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT490000NB.DiagnosisInformation.sequenceNumber</p>
+     * COCT_MT290000CA.DiagnosisInformation.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -50,7 +50,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.DiagnosisInformation.sequenceNumber</p>
+     * COCT_MT490000CA.DiagnosisInformation.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -65,7 +65,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT490000NB.DiagnosisInformation.sequenceNumber</p>
+     * COCT_MT290000CA.DiagnosisInformation.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -74,7 +74,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.DiagnosisInformation.sequenceNumber</p>
+     * COCT_MT490000CA.DiagnosisInformation.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -89,14 +89,14 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT490000NB.DiagnosisInformation.diagnosis</p>
+     * COCT_MT290000CA.DiagnosisInformation.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.DiagnosisInformation.diagnosis</p>
+     * COCT_MT490000CA.DiagnosisInformation.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -109,14 +109,14 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT490000NB.DiagnosisInformation.diagnosis</p>
+     * COCT_MT290000CA.DiagnosisInformation.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT290000NB.DiagnosisInformation.diagnosis</p>
+     * COCT_MT490000CA.DiagnosisInformation.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

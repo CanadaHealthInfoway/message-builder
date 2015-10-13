@@ -34,13 +34,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReportableToCode;
 /**
  * <p>Business Name: ReportableHealthIndicator</p>
  * 
- * <p>POLB_MT004100NB.ReportableTestIndicator: Reportable 
- * Health Indicator</p>
- * 
- * <p>Indicates whether or not this result is reportable to 
- * another agency, study, or authority.</p>
- * 
- * <p>POLB_MT004200NB.ReportableTestIndicator: Reportable 
+ * <p>POLB_MT004200CA.ReportableTestIndicator: Reportable 
  * Health Indicator</p>
  * 
  * <p>This must not be linked at ObservationReport level.</p>
@@ -48,11 +42,17 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReportableToCode;
  * <p>Indicates whether or not this result is reportable to 
  * another party such as an agency, study, or other 
  * authority.</p>
+ * 
+ * <p>POLB_MT004100CA.ReportableTestIndicator: Reportable 
+ * Health Indicator</p>
+ * 
+ * <p>Indicates whether or not this result is reportable to 
+ * another agency, study, or authority.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT004100NB.ReportableTestIndicator","POLB_MT004200NB.ReportableTestIndicator"})
+@Hl7PartTypeMapping({"POLB_MT004100CA.ReportableTestIndicator","POLB_MT004200CA.ReportableTestIndicator"})
 public class ReportableHealthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
     private BL value = new BLImpl();
 
@@ -64,24 +64,24 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004100NB.ReportableTestIndicator.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Specifies this observation as a reportable test 
-     * indicator</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ObservationTypeReportableIndicator</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004200NB.ReportableTestIndicator.code</p>
+     * POLB_MT004200CA.ReportableTestIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Specifies this observation as indicating whether the 
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ReportableTestIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifies this observation as a reportable test 
+     * indicator</p>
      */
     @Hl7XmlMapping({"code"})
     public ReportableToCode getCode() {
@@ -95,24 +95,24 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004100NB.ReportableTestIndicator.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Specifies this observation as a reportable test 
-     * indicator</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ObservationTypeReportableIndicator</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004200NB.ReportableTestIndicator.code</p>
+     * POLB_MT004200CA.ReportableTestIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Specifies this observation as indicating whether the 
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ReportableTestIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifies this observation as a reportable test 
+     * indicator</p>
      */
     public void setCode(ReportableToCode code) {
         this.code.setValue(code);
@@ -125,22 +125,22 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004100NB.ReportableTestIndicator.value</p>
+     * POLB_MT004200CA.ReportableTestIndicator.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This boolean value set whether this result is reportable 
-     * to another agency, study, panel, authority, etc. 
+     * <p>This boolean value set whether this result is reportable. 
      * True=reportable, false=not reportable.</p>
      * 
      * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004200NB.ReportableTestIndicator.value</p>
+     * POLB_MT004100CA.ReportableTestIndicator.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This boolean value set whether this result is reportable. 
+     * <p>This boolean value set whether this result is reportable 
+     * to another agency, study, panel, authority, etc. 
      * True=reportable, false=not reportable.</p>
      */
     @Hl7XmlMapping({"value"})
@@ -154,22 +154,22 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004100NB.ReportableTestIndicator.value</p>
+     * POLB_MT004200CA.ReportableTestIndicator.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This boolean value set whether this result is reportable 
-     * to another agency, study, panel, authority, etc. 
+     * <p>This boolean value set whether this result is reportable. 
      * True=reportable, false=not reportable.</p>
      * 
      * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT004200NB.ReportableTestIndicator.value</p>
+     * POLB_MT004100CA.ReportableTestIndicator.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This boolean value set whether this result is reportable. 
+     * <p>This boolean value set whether this result is reportable 
+     * to another agency, study, panel, authority, etc. 
      * True=reportable, false=not reportable.</p>
      */
     public void setValue(Boolean value) {

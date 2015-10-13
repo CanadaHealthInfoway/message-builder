@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * <p>Business Name: RecommendedDosage</p>
  * 
- * <p>COCT_MT260030NB.SubstanceAdministrationEventCriterion: 
+ * <p>COCT_MT260030CA.SubstanceAdministrationEventCriterion: 
  * Recommended Dosage</p>
  * 
  * <p>Provides a reference for calculating optimum dose of 
@@ -52,7 +52,7 @@ import java.util.List;
  * the drug-specific recommended dosage ranges for various age 
  * groups and weight classes.</p>
  * 
- * <p>COCT_MT260010NB.SubstanceAdministrationEventCriterion: 
+ * <p>COCT_MT260010CA.SubstanceAdministrationEventCriterion: 
  * Recommended Dosage</p>
  * 
  * <p>Provides a reference for calculating optimum dose of 
@@ -63,10 +63,10 @@ import java.util.List;
  * the drug-specific recommended dosage ranges for various age 
  * groups and weight classes.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010NB.SubstanceAdministrationEventCriterion","COCT_MT260020NB.SubstanceAdministrationEventCriterion","COCT_MT260030NB.SubstanceAdministrationEventCriterion"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministrationEventCriterion","COCT_MT260020CA.SubstanceAdministrationEventCriterion","COCT_MT260030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
@@ -78,7 +78,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * COCT_MT260010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -92,14 +92,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministrationEventCriterion.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: DoseDuration</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * COCT_MT260030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -109,6 +102,13 @@ public class RecommendedDosageBean extends MessagePartBean {
      * 
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
+     * 
+     * <p>Un-merged Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -121,7 +121,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * COCT_MT260010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -135,14 +135,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministrationEventCriterion.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: DoseDuration</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * COCT_MT260030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -152,6 +145,13 @@ public class RecommendedDosageBean extends MessagePartBean {
      * 
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
+     * 
+     * <p>Un-merged Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -164,7 +164,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * COCT_MT260010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -183,14 +183,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministrationEventCriterion.doseQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: DosageRange</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * COCT_MT260030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -205,6 +198,13 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>This is a specification of the range of quantity of 
      * medication (Min/Max figures) that is recommended for the 
      * drug to avoid triggering of dosage issues.</p>
+     * 
+     * <p>Un-merged Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public UncertainRange<PhysicalQuantity> getDoseQuantity() {
@@ -217,7 +217,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * COCT_MT260010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -236,14 +236,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministrationEventCriterion.doseQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: DosageRange</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * COCT_MT260030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -258,6 +251,13 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>This is a specification of the range of quantity of 
      * medication (Min/Max figures) that is recommended for the 
      * drug to avoid triggering of dosage issues.</p>
+     * 
+     * <p>Un-merged Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setDoseQuantity(UncertainRange<PhysicalQuantity> doseQuantity) {
         this.doseQuantity.setValue(doseQuantity);
@@ -268,21 +268,21 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030NB.Component2.observationEventCriterion</p>
+     * COCT_MT260010CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.Component2.observationEventCriterion</p>
+     * COCT_MT260030CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.Component2.observationEventCriterion</p>
+     * COCT_MT260020CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

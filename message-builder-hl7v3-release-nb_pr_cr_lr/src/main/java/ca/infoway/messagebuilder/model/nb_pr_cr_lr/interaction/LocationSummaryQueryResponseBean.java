@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lr.prlo_mt000001nb.LocationBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lr.prlo_mt000003nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lr.prlo_mt000001ca.LocationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lr.prlo_mt000003ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: PRLO_IN202011NB: Location summary query 
+ * <p>Business Name: PRLO_IN202011CA: Location summary query 
  * response</p>
  * 
  * <p>Returns a summary list of Service Delivery Locations 
  * based on search criteria.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700746NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRLO_MT000001NB.ServiceDeliveryLocation</p>
+ * <p>--> Payload: PRLO_MT000001CA.ServiceDeliveryLocation</p>
  * 
- * <p>--> Payload: PRLO_MT000003NB.ParameterList</p>
+ * <p>--> Payload: PRLO_MT000003CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRLO_IN202011NB"})
+@Hl7PartTypeMapping({"PRLO_IN202011CA"})
 public class LocationSummaryQueryResponseBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean,LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt600201nb.CoveredPartyAsPatientChoice;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt600201nb.PatientConsentBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt600201ca.CoveredPartyAsPatientChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt600201ca.PatientConsentBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.CoverageRoleType;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +39,14 @@ import java.util.List;
 /**
  * <p>Business Name: CoveredPartyInformation</p>
  * 
- * <p>FICR_MT600201NB.CoveredPartyAsPatient: Covered Party 
+ * <p>FICR_MT610201CA.CoveredPartyAsPatient: Covered Party 
  * Information</p>
+ * 
+ * <p>For Adjudication Results: Policy information can be 
+ * returned in an EOB in adjudication results to inform a 
+ * Provider of new policy information for a policy that was not 
+ * submitted in the Invoice by the Provider (to be confirmed 
+ * and specified in the NeCST Message Specifications).</p>
  * 
  * <p>For Adjudication Results: Policy information can be 
  * returned in an EOB in adjudication results to inform a 
@@ -55,14 +61,8 @@ import java.util.List;
  * animals.</p><p>Covered party may be a patient who for the 
  * purposes of the invoice is a covered party.</p>
  * 
- * <p>FICR_MT610201NB.CoveredPartyAsPatient: Covered Party 
+ * <p>FICR_MT600201CA.CoveredPartyAsPatient: Covered Party 
  * Information</p>
- * 
- * <p>For Adjudication Results: Policy information can be 
- * returned in an EOB in adjudication results to inform a 
- * Provider of new policy information for a policy that was not 
- * submitted in the Invoice by the Provider (to be confirmed 
- * and specified in the NeCST Message Specifications).</p>
  * 
  * <p>For Adjudication Results: Policy information can be 
  * returned in an EOB in adjudication results to inform a 
@@ -77,15 +77,15 @@ import java.util.List;
  * animals.</p><p>Covered party may be a patient who for the 
  * purposes of the invoice is a covered party.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT600201NB.CoveredPartyAsPatient","FICR_MT610201NB.CoveredPartyAsPatient"})
+@Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
+    private PatientToCoveredPartyPersonalRelationshipBean indirectAuthorityPersonalRelationship;
     private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
     private List<PatientConsentBean> subjectOf = new ArrayList<PatientConsentBean>();
-    private PatientToCoveredPartyPersonalRelationshipBean indirectAuthorityPersonalRelationship;
 
 
     /**
@@ -93,39 +93,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.CoveredPartyAsPatient.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>The insurance policy identifier of the party covered.</p>
-     * 
-     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
-     * 
-     * <p>Relationship: FICR_MT610201NB.CoveredPartyAsPatient.id</p>
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -154,6 +122,38 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * mandatory. Scheme to be confirmed.</p>
      * 
      * <p>The insurance policy identifier of the party covered</p>
+     * 
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>In the absence of a Covered Party identifier, additional 
+     * information to identify the individual may be required (e.g. 
+     * name, date of birth).</p><p>For Invoice: In good faith 
+     * Invoices, the Policy Identifier, Covered Party Identifier 
+     * and Policy Holder Identifier is not present, and therefore 
+     * this attribute cannot be made mandatory.</p><p>For new borns 
+     * &amp; children not registered to date such as adopted 
+     * children (i.e. without a covered party identifier), the 
+     * parents' policy is specified (in PolicyOrAccount.id). The 
+     * new born/child is noted as the covered party.</p>
+     * 
+     * <p>For Invoice, Pre-Determination and Coverage Extension 
+     * requests: If this information is not supplied, the 
+     * Adjudicator may attempt to determine the information from 
+     * other patient information supplied in the message (e.g. 
+     * name, date of birth, gender) and would return this 
+     * information with the response. If this cannot be obtained in 
+     * a real time environment, the message may be rejected, 
+     * depending on the Application Role (if Application Role = 
+     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
+     * Extension results: This information is 
+     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
+     * to be confirmed.</p>
+     * 
+     * <p>The insurance policy identifier of the party covered.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -165,39 +165,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.CoveredPartyAsPatient.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>The insurance policy identifier of the party covered.</p>
-     * 
-     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
-     * 
-     * <p>Relationship: FICR_MT610201NB.CoveredPartyAsPatient.id</p>
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -226,6 +194,38 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * mandatory. Scheme to be confirmed.</p>
      * 
      * <p>The insurance policy identifier of the party covered</p>
+     * 
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>In the absence of a Covered Party identifier, additional 
+     * information to identify the individual may be required (e.g. 
+     * name, date of birth).</p><p>For Invoice: In good faith 
+     * Invoices, the Policy Identifier, Covered Party Identifier 
+     * and Policy Holder Identifier is not present, and therefore 
+     * this attribute cannot be made mandatory.</p><p>For new borns 
+     * &amp; children not registered to date such as adopted 
+     * children (i.e. without a covered party identifier), the 
+     * parents' policy is specified (in PolicyOrAccount.id). The 
+     * new born/child is noted as the covered party.</p>
+     * 
+     * <p>For Invoice, Pre-Determination and Coverage Extension 
+     * requests: If this information is not supplied, the 
+     * Adjudicator may attempt to determine the information from 
+     * other patient information supplied in the message (e.g. 
+     * name, date of birth, gender) and would return this 
+     * information with the response. If this cannot be obtained in 
+     * a real time environment, the message may be rejected, 
+     * depending on the Application Role (if Application Role = 
+     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
+     * Extension results: This information is 
+     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
+     * to be confirmed.</p>
+     * 
+     * <p>The insurance policy identifier of the party covered.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -233,24 +233,9 @@ public class CoveredPartyInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: 
-     * CoveredPartyRelationshipToPolicyHolder</p>
-     * 
-     * <p>Relationship: FICR_MT600201NB.CoveredPartyAsPatient.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Reason for being covered, including spouse, child, 
-     * students, handicapped</p>
-     * 
-     * <p>For Invoice and Pre-Determination Request &amp; all 
-     * Results: Mandatory, otherwise Required.</p>
-     * 
-     * <p>The covered party relationship to the Policy Holder.</p>
-     * 
      * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.CoveredPartyAsPatient.code</p>
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -262,6 +247,21 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * CoveredPartyRelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Reason for being covered, including spouse, child, 
+     * students, handicapped</p>
+     * 
+     * <p>For Invoice and Pre-Determination Request &amp; all 
+     * Results: Mandatory, otherwise Required.</p>
+     * 
+     * <p>The covered party relationship to the Policy Holder.</p>
      */
     @Hl7XmlMapping({"code"})
     public CoverageRoleType getCode() {
@@ -269,24 +269,9 @@ public class CoveredPartyInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: 
-     * CoveredPartyRelationshipToPolicyHolder</p>
-     * 
-     * <p>Relationship: FICR_MT600201NB.CoveredPartyAsPatient.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Reason for being covered, including spouse, child, 
-     * students, handicapped</p>
-     * 
-     * <p>For Invoice and Pre-Determination Request &amp; all 
-     * Results: Mandatory, otherwise Required.</p>
-     * 
-     * <p>The covered party relationship to the Policy Holder.</p>
-     * 
      * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.CoveredPartyAsPatient.code</p>
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -298,6 +283,21 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * CoveredPartyRelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Reason for being covered, including spouse, child, 
+     * students, handicapped</p>
+     * 
+     * <p>For Invoice and Pre-Determination Request &amp; all 
+     * Results: Mandatory, otherwise Required.</p>
+     * 
+     * <p>The covered party relationship to the Policy Holder.</p>
      */
     public void setCode(CoverageRoleType code) {
         this.code.setValue(code);
@@ -308,54 +308,14 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.CoveredPartyAsPatient.coveredPartyAsPatientChoice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"coveredPartyAsPatientChoice"})
-    public CoveredPartyAsPatientChoice getCoveredPartyAsPatientChoice() {
-        return this.coveredPartyAsPatientChoice;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201NB.CoveredPartyAsPatient.coveredPartyAsPatientChoice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setCoveredPartyAsPatientChoice(CoveredPartyAsPatientChoice coveredPartyAsPatientChoice) {
-        this.coveredPartyAsPatientChoice = coveredPartyAsPatientChoice;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201NB.CoveredPartyAsPatient.subjectOf</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
-     */
-    @Hl7XmlMapping({"subjectOf"})
-    public List<PatientConsentBean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201NB.IndirectAuthorithyOver.personalRelationship</p>
+     * FICR_MT610201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.IndirectAuthorithyOver.personalRelationship</p>
+     * FICR_MT600201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -368,19 +328,59 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.IndirectAuthorithyOver.personalRelationship</p>
+     * FICR_MT610201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.IndirectAuthorithyOver.personalRelationship</p>
+     * FICR_MT600201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setIndirectAuthorityPersonalRelationship(PatientToCoveredPartyPersonalRelationshipBean indirectAuthorityPersonalRelationship) {
         this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatient.coveredPartyAsPatientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"coveredPartyAsPatientChoice"})
+    public CoveredPartyAsPatientChoice getCoveredPartyAsPatientChoice() {
+        return this.coveredPartyAsPatientChoice;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatient.coveredPartyAsPatientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setCoveredPartyAsPatientChoice(CoveredPartyAsPatientChoice coveredPartyAsPatientChoice) {
+        this.coveredPartyAsPatientChoice = coveredPartyAsPatientChoice;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatient.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
+    @Hl7XmlMapping({"subjectOf"})
+    public List<PatientConsentBean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 }

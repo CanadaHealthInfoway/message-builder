@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ConsentGivenTo</p>
  * 
- * <p>RCMR_MT010001NB.Receiver: *consent given to</p>
+ * <p>RCMR_MT010001CA.Receiver: *consent given to</p>
  * 
  * <p>Indicates who is being authorized to receive the 
  * information, and is therefore populated.</p>
@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
  * 
- * <p>COCT_MT470000NB.Receiver: *consent given to</p>
+ * <p>COCT_MT470000CA.Receiver: *consent given to</p>
  * 
  * <p>Indicates who is receiving consent to view 
  * information.</p><p>This participation is marked as 
@@ -47,23 +47,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT470000NB.Receiver","RCMR_MT010001NB.Receiver"})
+@Hl7PartTypeMapping({"COCT_MT470000CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private Recipient recipient;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: RCMR_MT010001NB.Receiver.recipient</p>
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470000NB.Receiver.recipient</p>
+     * <p>Relationship: COCT_MT470000CA.Receiver.recipient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -75,13 +75,13 @@ public class ConsentGivenToBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: RCMR_MT010001NB.Receiver.recipient</p>
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470000NB.Receiver.recipient</p>
+     * <p>Relationship: COCT_MT470000CA.Receiver.recipient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

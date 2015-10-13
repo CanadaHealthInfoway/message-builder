@@ -22,33 +22,33 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700711nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt301010nb.RoleChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700711ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt301010ca.RoleChoice;
 
 
 
 /**
- * <p>Business Name: PRPM_IN301010NB: Add Provider Request</p>
+ * <p>Business Name: PRPM_IN301010CA: Add Provider Request</p>
  * 
  * <p>This interaction is used to request that a new provider 
  * record be added to a provider registry system.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700711NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700711CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT301010NB.RoleChoice</p>
+ * <p>--> Payload: PRPM_MT301010CA.RoleChoice</p>
  * 
- * <p>----> Payload Choice: PRPM_MT301010NB.AssignedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT301010CA.AssignedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT301010NB.QualifiedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT301010CA.QualifiedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT301010NB.HealthCareProvider</p>
+ * <p>----> Payload Choice: PRPM_MT301010CA.HealthCareProvider</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN301010NB"})
+@Hl7PartTypeMapping({"PRPM_IN301010CA"})
 public class AddProviderRequestBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

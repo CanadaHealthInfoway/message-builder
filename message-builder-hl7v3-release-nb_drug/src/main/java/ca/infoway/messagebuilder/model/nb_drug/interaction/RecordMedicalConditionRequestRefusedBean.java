@@ -22,25 +22,25 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000030NB: Record medical condition 
+ * <p>Business Name: REPC_IN000030CA: Record medical condition 
  * request refused</p>
  * 
  * <p>Indicates that the request to add the specified medical 
  * condition to the patient record has been refused.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700222NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000030NB"})
+@Hl7PartTypeMapping({"REPC_IN000030CA"})
 public class RecordMedicalConditionRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120008nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.pome_mt010050nb.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porr_mt050016nb.MedicationDocumentsBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120008ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.pome_mt010050ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porr_mt050016ca.MedicationDocumentsBean;
 
 
 
 /**
- * <p>Business Name: POME_IN010020NB: Drug document query 
+ * <p>Business Name: POME_IN010020CA: Drug document query 
  * response</p>
  * 
  * <p>Returns one or more drug, protocol or contraindication 
  * monographs as text, HTML, PDF or CDA documents.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120008NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORR_MT050016NB.Document</p>
+ * <p>--> Payload: PORR_MT050016CA.Document</p>
  * 
- * <p>--> Payload: POME_MT010050NB.ParameterList</p>
+ * <p>--> Payload: POME_MT010050CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POME_IN010020NB"})
+@Hl7PartTypeMapping({"POME_IN010020CA"})
 public class DrugDocumentQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationDocumentsBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

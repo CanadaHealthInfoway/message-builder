@@ -29,30 +29,44 @@ import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.CompliancePackageEntityType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt300000nb.DrugFormBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt300000ca.DrugFormBean;
 
 
 
 /**
- * <p>COCT_MT300000NB.Content: Package Contents</p>
+ * <p>COCT_MT220200CA.Content: drug dispensed in</p>
+ * 
+ * <p>Must specify at least one of Drug Package Quantity and 
+ * Drug Container Type.</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ * 
+ * <p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
+ * 
+ * <p>COCT_MT220210CA.Content: drug dispensed in</p>
+ * 
+ * <p>Must specify at least one of Drug Package Quantity and 
+ * Drug Container Type.</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ * 
+ * <p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
+ * 
+ * <p>COCT_MT300000CA.Content: Package Contents</p>
  * 
  * <p>Details of Product being dispensed</p>
  * 
- * <p>COCT_MT220210NB.Content: drug dispensed in</p>
- * 
- * <p>Must specify at least one of Drug Package Quantity and 
- * Drug Container Type.</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- * 
- * <p>May influence prescribing quantities, and also allows 
- * conveying instructions with respect to special packaging 
- * such as compliance packaging.</p>
- * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
- * <p>COCT_MT220110NB.Content: dispensed in</p>
+ * <p>COCT_MT220110CA.Content: dispensed in</p>
  * 
  * <p>Must specify at least one of Drug Package Quantity and 
  * Drug Container Type</p>
@@ -66,24 +80,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt300000nb.DrugFo
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
  * 
- * <p>COCT_MT220100NB.Content: dispensed in</p>
+ * <p>COCT_MT220100CA.Content: dispensed in</p>
  * 
  * <p>Must specify at least one of Drug Package Quantity and 
  * Drug Container Type</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- * 
- * <p>May influence prescribing quantities, and also allows 
- * conveying instructions with respect to special packaging 
- * such as compliance packaging.</p>
- * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
- * <p>COCT_MT220200NB.Content: drug dispensed in</p>
- * 
- * <p>Must specify at least one of Drug Package Quantity and 
- * Drug Container Type.</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
@@ -94,21 +94,55 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt300000nb.DrugFo
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
  */
-@Hl7PartTypeMapping({"COCT_MT220100NB.Content","COCT_MT220110NB.Content","COCT_MT220200NB.Content","COCT_MT220210NB.Content","COCT_MT300000NB.Content"})
+@Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","COCT_MT300000CA.Content"})
 public class DrugDispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private PQ quantity = new PQImpl();
-    private DrugFormBean containedManufacturedMaterialKind;
     private CV containerPackagedMedicineFormCode = new CVImpl();
+    private DrugFormBean containedManufacturedMaterialKind;
 
 
     /**
      * <p>Business Name: DrugPackageQuantity</p>
      * 
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT300000NB.Content.quantity</p>
+     * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -116,7 +150,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.Content.quantity</p>
+     * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -133,41 +167,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220100NB.Content.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>ZDP.10.2.2</p>
-     * 
-     * <p>ZDP.9.2.2</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p>
-     * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
-     * 
-     * <p>Un-merged Business Name: DrugPackageQuantity</p>
-     * 
-     * <p>Relationship: COCT_MT220110NB.Content.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>ZDP.10.2.2</p>
-     * 
-     * <p>ZDP.9.2.2</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p>
-     * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
-     * 
-     * <p>Un-merged Business Name: DrugPackageQuantity</p>
-     * 
-     * <p>Relationship: COCT_MT220200NB.Content.quantity</p>
+     * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -190,9 +190,43 @@ public class DrugDispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugPackageQuantity</p>
      * 
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT300000NB.Content.quantity</p>
+     * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -200,7 +234,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.Content.quantity</p>
+     * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -217,41 +251,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220100NB.Content.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>ZDP.10.2.2</p>
-     * 
-     * <p>ZDP.9.2.2</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p>
-     * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
-     * 
-     * <p>Un-merged Business Name: DrugPackageQuantity</p>
-     * 
-     * <p>Relationship: COCT_MT220110NB.Content.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>ZDP.10.2.2</p>
-     * 
-     * <p>ZDP.9.2.2</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p>
-     * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
-     * 
-     * <p>Un-merged Business Name: DrugPackageQuantity</p>
-     * 
-     * <p>Relationship: COCT_MT220200NB.Content.quantity</p>
+     * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -272,37 +272,11 @@ public class DrugDispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT300000NB.Content.containedManufacturedMaterialKind</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"containedManufacturedMaterialKind"})
-    public DrugFormBean getContainedManufacturedMaterialKind() {
-        return this.containedManufacturedMaterialKind;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT300000NB.Content.containedManufacturedMaterialKind</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setContainedManufacturedMaterialKind(DrugFormBean containedManufacturedMaterialKind) {
-        this.containedManufacturedMaterialKind = containedManufacturedMaterialKind;
-    }
-
-
-    /**
      * <p>Business Name: DrugContainerType</p>
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -316,7 +290,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220100NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -330,7 +304,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -344,7 +318,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220200NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -366,7 +340,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -380,7 +354,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220100NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -394,7 +368,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -408,7 +382,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugContainerType</p>
      * 
-     * <p>Relationship: COCT_MT220200NB.PackagedMedicine.formCode</p>
+     * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -422,6 +396,32 @@ public class DrugDispensedInBean extends MessagePartBean {
      */
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"containedManufacturedMaterialKind"})
+    public DrugFormBean getContainedManufacturedMaterialKind() {
+        return this.containedManufacturedMaterialKind;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setContainedManufacturedMaterialKind(DrugFormBean containedManufacturedMaterialKind) {
+        this.containedManufacturedMaterialKind = containedManufacturedMaterialKind;
     }
 
 }

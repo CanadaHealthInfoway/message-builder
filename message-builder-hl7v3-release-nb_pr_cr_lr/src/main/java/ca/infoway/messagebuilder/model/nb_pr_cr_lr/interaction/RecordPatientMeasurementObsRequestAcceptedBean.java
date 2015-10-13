@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001101nb.ReferencedRecordBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700226nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.comt_mt001101ca.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700226ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000052NB: Record patient 
+ * <p>Business Name: REPC_IN000052CA: Record patient 
  * measurement obs. request accepted</p>
  * 
  * <p>Indicates that the requested measurement observation (for 
  * example are: height, weight, blood-pressure, temperature) 
  * has been successfully recorded in a patient's record.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700226NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001101NB.ActRequest</p>
+ * <p>--> Payload: COMT_MT001101CA.ActRequest</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000052NB"})
+@Hl7PartTypeMapping({"REPC_IN000052CA"})
 public class RecordPatientMeasurementObsRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

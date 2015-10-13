@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: QueryDefinition</p>
  * 
- * <p>QUQI_MT120000NB.QueryByParameter: Query definition</p>
+ * <p>QUQI_MT020000CA.QueryByParameter: Query definition</p>
  * 
  * <p>initialQuantityCode must be populated if and only if 
  * initialQuantity is populated</p>
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Identifies the content desired within a query.</p>
  * 
- * <p>QUQI_MT020000NB.QueryByParameter: Query definition</p>
+ * <p>QUQI_MT120000CA.QueryByParameter: Query definition</p>
  * 
  * <p>initialQuantityCode must be populated if and only if 
  * initialQuantity is populated</p>
@@ -52,10 +52,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Identifies the content desired within a query.</p>
  */
-@Hl7PartTypeMapping({"QUQI_MT020000NB.QueryByParameter","QUQI_MT120000NB.QueryByParameter"})
+@Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II queryId = new IIImpl();
     private INT initialQuantity = new INTImpl();
     private PL parameterList;
@@ -66,7 +66,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT120000NB.QueryByParameter.queryId</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -77,7 +77,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.QueryByParameter.queryId</p>
+     * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -96,7 +96,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT120000NB.QueryByParameter.queryId</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,7 +107,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT020000NB.QueryByParameter.queryId</p>
+     * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -127,25 +127,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120000NB.QueryByParameter.initialQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>There may be a very large number of matching rows. To 
-     * manage communication bandwidth, a limited set may initially 
-     * be returned with further data retrieved by using query 
-     * continuations. If not specified, the default behavior is to 
-     * return all repetitions. However the recipient of a query may 
-     * always choose to limit the quantity returned to be less than 
-     * the number requested.</p>
-     * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimit</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000NB.QueryByParameter.initialQuantity</p>
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -160,6 +142,24 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * number requested. Regardless of the number specified here, 
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Un-merged Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations. If not specified, the default behavior is to 
+     * return all repetitions. However the recipient of a query may 
+     * always choose to limit the quantity returned to be less than 
+     * the number requested.</p>
      * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
@@ -175,25 +175,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120000NB.QueryByParameter.initialQuantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>There may be a very large number of matching rows. To 
-     * manage communication bandwidth, a limited set may initially 
-     * be returned with further data retrieved by using query 
-     * continuations. If not specified, the default behavior is to 
-     * return all repetitions. However the recipient of a query may 
-     * always choose to limit the quantity returned to be less than 
-     * the number requested.</p>
-     * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimit</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000NB.QueryByParameter.initialQuantity</p>
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -211,6 +193,24 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
+     * 
+     * <p>Un-merged Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations. If not specified, the default behavior is to 
+     * return all repetitions. However the recipient of a query may 
+     * always choose to limit the quantity returned to be less than 
+     * the number requested.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
@@ -221,14 +221,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120000NB.QueryByParameter.parameterList</p>
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.QueryByParameter.parameterList</p>
+     * QUQI_MT120000CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -241,14 +241,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120000NB.QueryByParameter.parameterList</p>
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.QueryByParameter.parameterList</p>
+     * QUQI_MT120000CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

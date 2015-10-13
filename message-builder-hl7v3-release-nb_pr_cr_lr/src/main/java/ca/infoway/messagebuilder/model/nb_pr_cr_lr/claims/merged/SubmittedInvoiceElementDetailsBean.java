@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt280001nb.A_BillableActChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt280001ca.A_BillableActChoice;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ActInvoiceDetailCode;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ import java.util.List;
 /**
  * <p>Business Name: InvoiceElementDetails</p>
  * 
- * <p>FICR_MT600201NB.InvoiceElementDetail: Invoice Element 
+ * <p>FICR_MT600201CA.InvoiceElementDetail: Invoice Element 
  * Details</p>
  * 
  * <p>RTO used to specify 15 pills (each) out of a bottle of 
@@ -59,10 +59,10 @@ import java.util.List;
  * <p>The details of the Invoice item billed for, as in the 
  * product or service.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT600201NB.InvoiceElementDetail","FICR_MT610201NB.InvoiceElementDetail"})
-public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt610201nb.InvoiceElementChoice, ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt600201nb.InvoiceElementChoice {
+@Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail","FICR_MT610201CA.InvoiceElementDetail"})
+public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt610201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt600201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -77,7 +77,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.InvoiceElementDetail.id</p>
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -100,7 +100,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.InvoiceElementDetail.id</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -130,7 +130,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.InvoiceElementDetail.id</p>
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -153,7 +153,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.InvoiceElementDetail.id</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -183,7 +183,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.InvoiceElementDetail.code</p>
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -216,7 +216,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.InvoiceElementDetail.code</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -263,7 +263,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.InvoiceElementDetail.code</p>
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -296,7 +296,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.InvoiceElementDetail.code</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -343,7 +343,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.InvoiceElementDetail.netAmt</p>
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -366,7 +366,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.InvoiceElementDetail.netAmt</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -400,7 +400,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.InvoiceElementDetail.netAmt</p>
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -423,7 +423,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Relationship: FICR_MT600201NB.InvoiceElementDetail.netAmt</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -458,7 +458,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: SubmittedUnitQuantity</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementDetail.unitQuantity</p>
+     * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -494,7 +494,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: SubmittedUnitQuantity</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementDetail.unitQuantity</p>
+     * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -530,7 +530,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: SubmittedUnitAmountPrice</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementDetail.unitPriceAmt</p>
+     * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -569,7 +569,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: SubmittedUnitAmountPrice</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementDetail.unitPriceAmt</p>
+     * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -606,7 +606,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementDetail.factorNumber</p>
+     * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -627,7 +627,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementDetail.factorNumber</p>
+     * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -648,7 +648,7 @@ public class SubmittedInvoiceElementDetailsBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201NB.InvoiceElementReason.billableActChoice</p>
+     * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt220003nb.DischargeCareSummaryBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500006nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt220003ca.DischargeCareSummaryBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500006ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000093NB: Patient discharge / care 
+ * <p>Business Name: REPC_IN000093CA: Patient discharge / care 
  * summary details query rsp</p>
  * 
  * <p>Returns a specific discharge / care summary record by 
  * id</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT220003NB.Document</p>
+ * <p>--> Payload: REPC_MT220003CA.Document</p>
  * 
- * <p>--> Payload: REPC_MT500006NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT500006CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000093NB"})
+@Hl7PartTypeMapping({"REPC_IN000093CA"})
 public class PatientDischargeCareSummaryDetailsQueryRspBean extends HL7MessageBean<TriggerEventBean<DischargeCareSummaryBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

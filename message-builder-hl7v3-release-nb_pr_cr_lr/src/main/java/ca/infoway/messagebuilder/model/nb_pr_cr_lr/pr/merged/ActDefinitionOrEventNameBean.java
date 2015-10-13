@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306011nb.SequelToBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306011ca.SequelToBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * <p>Business Name: ActDefinitionOrEventName</p>
  * 
- * <p>PRPM_MT309000NB.ActDefinitionOrEvent: Act Definition or 
+ * <p>PRPM_MT309000CA.ActDefinitionOrEvent: Act Definition or 
  * Event Name</p>
  * 
  * <p>Acts are the pivot of the RIM; all domain information and 
@@ -59,7 +59,7 @@ import java.util.List;
  * records, vs. records of intended or ordered services, and 
  * the other modalities in which act can appear.</p>
  * 
- * <p>PRPM_MT306011NB.ActDefinitionOrEvent: Act Definition or 
+ * <p>PRPM_MT306011CA.ActDefinitionOrEvent: Act Definition or 
  * Event Name</p>
  * 
  * <p>Acts are the pivot of the RIM; all domain information and 
@@ -81,10 +81,10 @@ import java.util.List;
  * records, vs. records of intended or ordered services, and 
  * the other modalities in which act can appear.</p>
  */
-@Hl7PartTypeMapping({"PRPM_MT306011NB.ActDefinitionOrEvent","PRPM_MT309000NB.ActDefinitionOrEvent"})
+@Hl7PartTypeMapping({"PRPM_MT306011CA.ActDefinitionOrEvent","PRPM_MT309000CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<Location_2Bean> location = new ArrayList<Location_2Bean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
@@ -97,7 +97,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.ActDefinitionOrEvent.effectiveTime</p>
+     * PRPM_MT306011CA.ActDefinitionOrEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -110,7 +110,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ActDefinitionOrEvent.effectiveTime</p>
+     * PRPM_MT309000CA.ActDefinitionOrEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -131,7 +131,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.ActDefinitionOrEvent.effectiveTime</p>
+     * PRPM_MT306011CA.ActDefinitionOrEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -144,7 +144,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ActDefinitionOrEvent.effectiveTime</p>
+     * PRPM_MT309000CA.ActDefinitionOrEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -162,16 +162,16 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000NB.ActDefinitionOrEvent.location</p>
+     * PRPM_MT306011CA.ActDefinitionOrEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-25)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.ActDefinitionOrEvent.location</p>
+     * PRPM_MT309000CA.ActDefinitionOrEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-25)</p>
      */
     @Hl7XmlMapping({"location"})
     public List<Location_2Bean> getLocation() {
@@ -182,7 +182,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.ActDefinitionOrEvent.sequel</p>
+     * <p>Relationship: PRPM_MT306011CA.ActDefinitionOrEvent.sequel</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
      */

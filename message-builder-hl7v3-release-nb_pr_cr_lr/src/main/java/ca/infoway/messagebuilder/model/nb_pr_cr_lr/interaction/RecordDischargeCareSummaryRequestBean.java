@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt220001nb.DischargeCareSummaryBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt220001ca.DischargeCareSummaryBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000076NB: Record discharge/ care 
+ * <p>Business Name: REPC_IN000076CA: Record discharge/ care 
  * summary request</p>
  * 
  * <p>Seeks to add a Discharge/Care Summary that has 
  * occurred.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT220001NB.Document</p>
+ * <p>--> Payload: REPC_MT220001CA.Document</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000076NB"})
+@Hl7PartTypeMapping({"REPC_IN000076CA"})
 public class RecordDischargeCareSummaryRequestBean extends HL7MessageBean<TriggerEventBean<DischargeCareSummaryBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

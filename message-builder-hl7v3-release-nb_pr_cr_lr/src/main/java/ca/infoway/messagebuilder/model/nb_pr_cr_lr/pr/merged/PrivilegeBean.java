@@ -47,7 +47,7 @@ import java.util.List;
 /**
  * <p>Business Name: Privilege</p>
  * 
- * <p>PRPM_MT303010NB.Privilege: Privilege</p>
+ * <p>PRPM_MT303010CA.Privilege: Privilege</p>
  * 
  * <p>Supports the business requirement to identify privileges 
  * associated with the specified healthcare provider</p>
@@ -57,7 +57,7 @@ import java.util.List;
  * instance it is a description of the privilege associated 
  * with the specified healthcare providers' practice</p>
  * 
- * <p>PRPM_MT306011NB.Privilege: Privilege</p>
+ * <p>PRPM_MT309000CA.Privilege: Privilege</p>
  * 
  * <p>Supports the business requirement to identify privileges 
  * associated with the specified healthcare provider</p>
@@ -67,17 +67,7 @@ import java.util.List;
  * instance it is a description of the privilege associated 
  * with the specified healthcare providers' practice</p>
  * 
- * <p>PRPM_MT309000NB.Privilege: Privilege</p>
- * 
- * <p>Supports the business requirement to identify privileges 
- * associated with the specified healthcare provider</p>
- * 
- * <p>A record of something that is being done, has been done, 
- * can be done, or is intended or requested to be done. In this 
- * instance it is a description of the privilege associated 
- * with the specified healthcare providers' practice</p>
- * 
- * <p>PRPM_MT301010NB.Privilege: Privilege</p>
+ * <p>PRPM_MT301010CA.Privilege: Privilege</p>
  * 
  * <p>Supports the business requirement to identify privileges 
  * associated with the specified healthcare provider</p>
@@ -89,11 +79,21 @@ import java.util.List;
  * can be done, or is intended or requested to be done. In this 
  * instance it is a description of the privilege associated 
  * with the specified healthcare providers' practice</p>
+ * 
+ * <p>PRPM_MT306011CA.Privilege: Privilege</p>
+ * 
+ * <p>Supports the business requirement to identify privileges 
+ * associated with the specified healthcare provider</p>
+ * 
+ * <p>A record of something that is being done, has been done, 
+ * can be done, or is intended or requested to be done. In this 
+ * instance it is a description of the privilege associated 
+ * with the specified healthcare providers' practice</p>
  */
-@Hl7PartTypeMapping({"PRPM_MT301010NB.Privilege","PRPM_MT303010NB.Privilege","PRPM_MT306011NB.Privilege","PRPM_MT309000NB.Privilege"})
+@Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -108,7 +108,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.id</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -120,35 +120,35 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.id</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>Unique identifier for the restriction.</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Relationship: PRPM_MT309000NB.Privilege.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>Unique identifier for the restriction.</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -164,7 +164,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.id</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -176,35 +176,35 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.id</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>Unique identifier for the restriction.</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Relationship: PRPM_MT309000NB.Privilege.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>Unique identifier for the restriction.</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -220,7 +220,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.code</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -235,26 +235,26 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>If Restrictions to Practice are included in the message, 
-     * then Type Must Exist</p>
-     * 
-     * <p>Type of restriction.</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
-     * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.code</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>If Restrictions to Practice are included in the message, 
+     * then Type Must Exist</p>
+     * 
+     * <p>Type of restriction.</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -273,7 +273,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.code</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -288,26 +288,26 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>If Restrictions to Practice are included in the message, 
-     * then Type Must Exist</p>
-     * 
-     * <p>Type of restriction.</p>
-     * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
-     * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.code</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>If Restrictions to Practice are included in the message, 
+     * then Type Must Exist</p>
+     * 
+     * <p>Type of restriction.</p>
+     * 
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -327,7 +327,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.negationInd</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -340,7 +340,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.negationInd</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -353,7 +353,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.negationInd</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -374,7 +374,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.negationInd</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -387,7 +387,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.negationInd</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -400,7 +400,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.negationInd</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -420,7 +420,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.text</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -432,7 +432,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.text</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -444,7 +444,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.text</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -464,7 +464,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.text</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -476,7 +476,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.text</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -488,7 +488,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.text</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -507,7 +507,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeEffectiveDate</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -523,11 +523,11 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeEffectiveDate</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -538,7 +538,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -554,11 +554,11 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeEffectiveDate</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -576,7 +576,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeEffectiveDate</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -592,11 +592,11 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeEffectiveDate</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -607,7 +607,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -623,11 +623,11 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * RestrictionsToPracticeEffectiveDate</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.effectiveTime</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -648,7 +648,7 @@ public class PrivilegeBean extends MessagePartBean {
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.Privilege.confidentialityCode</p>
+     * PRPM_MT303010CA.Privilege.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -677,7 +677,22 @@ public class PrivilegeBean extends MessagePartBean {
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.Privilege.confidentialityCode</p>
+     * PRPM_MT301010CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Indicates the degree to which the restriction to practice 
+     * is to be kept confidential.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Privilege.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -698,21 +713,6 @@ public class PrivilegeBean extends MessagePartBean {
      * to patient and or next of kin. There may be professional 
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
-     * 
-     * <p>Indicates the degree to which the restriction to practice 
-     * is to be kept confidential.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * RestrictionsToPracticeConfidentialityCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.Privilege.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
      * 
      * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
@@ -729,7 +729,7 @@ public class PrivilegeBean extends MessagePartBean {
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.Privilege.confidentialityCode</p>
+     * PRPM_MT303010CA.Privilege.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -758,7 +758,22 @@ public class PrivilegeBean extends MessagePartBean {
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.Privilege.confidentialityCode</p>
+     * PRPM_MT301010CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Indicates the degree to which the restriction to practice 
+     * is to be kept confidential.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Privilege.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -782,21 +797,6 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * RestrictionsToPracticeConfidentialityCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.Privilege.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p>
-     * 
-     * <p>Indicates the degree to which the restriction to practice 
-     * is to be kept confidential.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -806,25 +806,25 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT303010NB.Privilege.subjectOf</p>
+     * <p>Relationship: PRPM_MT303010CA.Privilege.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT306011NB.Privilege.subjectOf</p>
+     * <p>Relationship: PRPM_MT301010CA.Privilege.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT309000NB.Privilege.subjectOf</p>
+     * <p>Relationship: PRPM_MT309000CA.Privilege.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PRPM_MT301010NB.Privilege.subjectOf</p>
+     * <p>Relationship: PRPM_MT306011CA.Privilege.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */

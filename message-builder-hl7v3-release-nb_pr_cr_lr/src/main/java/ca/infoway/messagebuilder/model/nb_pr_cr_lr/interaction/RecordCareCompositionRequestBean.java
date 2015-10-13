@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500001nb.CareCompositionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt500001ca.CareCompositionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000070NB: Record care composition 
+ * <p>Business Name: REPC_IN000070CA: Record care composition 
  * request</p>
  * 
  * <p>Seeks to add a record of an encounter, episode or similar 
  * structure for a particular patient or group of patients.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT500001NB.PatientCareProvisionEvent</p>
+ * <p>--> Payload: REPC_MT500001CA.PatientCareProvisionEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000070NB"})
+@Hl7PartTypeMapping({"REPC_IN000070CA"})
 public class RecordCareCompositionRequestBean extends HL7MessageBean<TriggerEventBean<CareCompositionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

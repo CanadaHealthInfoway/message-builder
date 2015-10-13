@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: NotEligibleForTrial</p>
  * 
- * <p>PORX_MT060340NB.Component2: G:not eligible for Trial?</p>
+ * <p>PORX_MT060340CA.Component2: G:not eligible for Trial?</p>
  * 
  * <p>Serves as reminder for dispenser to consider option of 
  * part-filling. In some jurisdictions, the prescription must 
@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates that a prescription is part of a Trial 
  * Program.</p>
  * 
- * <p>PORX_MT060160NB.Component2: G:Not eligible for Trial?</p>
+ * <p>PORX_MT060160CA.Component2: G:Not eligible for Trial?</p>
  * 
  * <p>Serves as reminder for dispenser to consider option of 
  * part-filling. In some jurisdictions, the prescription must 
@@ -52,10 +52,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates that a prescription is part of a Trial 
  * Program.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060160NB.Component2","PORX_MT060340NB.Component2"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.Component2","PORX_MT060340CA.Component2"})
 public class NotEligibleForTrialBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL negationInd = new BLImpl();
 
 
@@ -64,7 +64,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Component2.negationInd</p>
+     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -81,7 +81,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Component2.negationInd</p>
+     * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -106,7 +106,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Component2.negationInd</p>
+     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -123,7 +123,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Component2.negationInd</p>
+     * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

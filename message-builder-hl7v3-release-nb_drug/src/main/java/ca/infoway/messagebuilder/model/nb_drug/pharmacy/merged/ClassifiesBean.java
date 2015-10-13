@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PORX_MT030040NB.Component4: classifies</p>
+ * <p>PORX_MT060340CA.Component4: classifies</p>
  * 
  * <p>Allows prescriptions to be categorized in multiple 
  * ways.</p>
@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the clinical use category in which the 
  * prescription has been put.</p>
  * 
- * <p>PORX_MT060340NB.Component4: classifies</p>
+ * <p>PORX_MT010120CA.Component4: classified by</p>
  * 
  * <p>Allows prescriptions to be categorized in multiple 
  * ways.</p>
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the clinical use category in which the 
  * prescription has been put.</p>
  * 
- * <p>PORX_MT060160NB.Component4: classifies</p>
+ * <p>PORX_MT060160CA.Component4: classifies</p>
  * 
  * <p>Allows prescriptions to be categorized in multiple 
  * ways.</p><p>Attribute is marked &quot;populated' to ensure 
@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the clinical use category in which the 
  * prescription has been put.</p>
  * 
- * <p>PORX_MT060190NB.Component4: classifies</p>
+ * <p>PORX_MT030040CA.Component4: classifies</p>
  * 
  * <p>Allows prescriptions to be categorized in multiple 
  * ways.</p>
@@ -61,7 +61,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the clinical use category in which the 
  * prescription has been put.</p>
  * 
- * <p>PORX_MT010120NB.Component4: classified by</p>
+ * <p>PORX_MT060190CA.Component4: classifies</p>
  * 
  * <p>Allows prescriptions to be categorized in multiple 
  * ways.</p>
@@ -69,41 +69,41 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the clinical use category in which the 
  * prescription has been put.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.Component4","PORX_MT030040NB.Component4","PORX_MT060160NB.Component4","PORX_MT060190NB.Component4","PORX_MT060340NB.Component4"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.Component4","PORX_MT030040CA.Component4","PORX_MT060160CA.Component4","PORX_MT060190CA.Component4","PORX_MT060340CA.Component4"})
 public class ClassifiesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private DrugUseBean workingListEvent;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT060340CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT010120CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT060160CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT030040CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT060190CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -115,31 +115,31 @@ public class ClassifiesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT060340CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT010120CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT060160CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT030040CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.Component4.workingListEvent</p>
+     * <p>Relationship: PORX_MT060190CA.Component4.workingListEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

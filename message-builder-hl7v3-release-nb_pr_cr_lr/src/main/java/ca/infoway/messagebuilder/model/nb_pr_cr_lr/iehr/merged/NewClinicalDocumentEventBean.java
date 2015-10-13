@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000083NB.NewClinicalDocumentEvent","REPC_MT210002NB.NewClinicalDocumentEvent","REPC_MT210003NB.NewClinicalDocumentEvent","REPC_MT220002NB.NewClinicalDocumentEvent","REPC_MT220003NB.NewClinicalDocumentEvent","REPC_MT230002NB.NewClinicalDocumentEvent","REPC_MT230003NB.NewClinicalDocumentEvent"})
+@Hl7PartTypeMapping({"REPC_MT000083CA.NewClinicalDocumentEvent","REPC_MT210002CA.NewClinicalDocumentEvent","REPC_MT210003CA.NewClinicalDocumentEvent","REPC_MT220002CA.NewClinicalDocumentEvent","REPC_MT220003CA.NewClinicalDocumentEvent","REPC_MT230002CA.NewClinicalDocumentEvent","REPC_MT230003CA.NewClinicalDocumentEvent"})
 public class NewClinicalDocumentEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,67 +41,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Discharge-Care Summary.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT230002NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Clinical Observation Document.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT220003NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Discharge-Care Summary.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT230003NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Clinical Observation Document.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT210003NB.NewClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT210002CA.NewClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -116,7 +56,22 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.NewClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT220002CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Discharge-Care Summary.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.NewClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -131,7 +86,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.NewClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT000083CA.NewClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -139,6 +94,51 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * version of the record of this event exists. May also be used 
      * when there is a newer &quot;version&quot; of the type of the 
      * Discharge-Care Summary.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Clinical Observation Document.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Discharge-Care Summary.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Clinical Observation Document.</i> </p>
      * 
      * <p> <i>Used to identify the record that supersedes the 
      * current record. This attribute is set when a new record 
@@ -154,67 +154,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Discharge-Care Summary.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT230002NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Clinical Observation Document.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT220003NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Discharge-Care Summary.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT230003NB.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Clinical Observation Document.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT210003NB.NewClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT210002CA.NewClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -229,7 +169,22 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.NewClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT220002CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Discharge-Care Summary.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.NewClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -244,7 +199,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000083NB.NewClinicalDocumentEvent.id</p>
+     * <p>Relationship: REPC_MT000083CA.NewClinicalDocumentEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -252,6 +207,51 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * version of the record of this event exists. May also be used 
      * when there is a newer &quot;version&quot; of the type of the 
      * Discharge-Care Summary.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Clinical Observation Document.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Discharge-Care Summary.</i> </p>
+     * 
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.NewClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists. May also be used 
+     * when there is a newer &quot;version&quot; of the type of the 
+     * Clinical Observation Document.</i> </p>
      * 
      * <p> <i>Used to identify the record that supersedes the 
      * current record. This attribute is set when a new record 

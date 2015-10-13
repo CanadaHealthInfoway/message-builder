@@ -32,23 +32,23 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt040205nb.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt141007nb.DeviceProductBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt040205ca.ResponsiblePersonBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt141007ca.DeviceProductBean;
 import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT020060NB.SupplyEvent","PORX_MT060010NB.SupplyEvent","PORX_MT060020NB.SupplyEvent","PORX_MT060040NB.SupplyEvent"})
+@Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DeviceProductBean productManufacturedProduct;
-    private ResponsiblePersonBean receiverResponsibleParty;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private ResponsiblePersonBean receiverResponsibleParty;
 
 
     /**
@@ -56,7 +56,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseType</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.code</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -82,7 +82,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseType</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.code</p>
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -108,7 +108,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseType</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.code</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +142,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseType</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.code</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -168,7 +168,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseType</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.code</p>
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -194,7 +194,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseType</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.code</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -228,44 +228,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>ZPB3.9</p>
-     * 
-     * <p>ZDP.17 (high)</p>
-     * 
-     * <p>DRU.040-02 (low, qualifier=07, format=102)</p>
-     * 
-     * <p>DRU.040-02 (low, qualifier=36, format=102)</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Dispense Date</p>
-     * 
-     * <p>Dispense Date</p>
-     * 
-     * <p>DispensedItem.dispenseDate</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Used by the system in calculating expected exhaustion 
-     * time. Valuable in compliance checking. This attribute is 
-     * mandatory because an existing dispense record must at least 
-     * indicate the date it was processed.</p>
-     * 
-     * <p>Represents the date the dispense product was prepared and 
-     * when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p>
-     * 
-     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
-     * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -305,7 +268,44 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPB3.9</p>
+     * 
+     * <p>ZDP.17 (high)</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=07, format=102)</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=36, format=102)</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Dispense Date</p>
+     * 
+     * <p>Dispense Date</p>
+     * 
+     * <p>DispensedItem.dispenseDate</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Used by the system in calculating expected exhaustion 
+     * time. Valuable in compliance checking. This attribute is 
+     * mandatory because an existing dispense record must at least 
+     * indicate the date it was processed.</p>
+     * 
+     * <p>Represents the date the dispense product was prepared and 
+     * when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p>
+     * 
+     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -342,7 +342,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -387,44 +387,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>ZPB3.9</p>
-     * 
-     * <p>ZDP.17 (high)</p>
-     * 
-     * <p>DRU.040-02 (low, qualifier=07, format=102)</p>
-     * 
-     * <p>DRU.040-02 (low, qualifier=36, format=102)</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Dispense Date</p>
-     * 
-     * <p>Dispense Date</p>
-     * 
-     * <p>DispensedItem.dispenseDate</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Used by the system in calculating expected exhaustion 
-     * time. Valuable in compliance checking. This attribute is 
-     * mandatory because an existing dispense record must at least 
-     * indicate the date it was processed.</p>
-     * 
-     * <p>Represents the date the dispense product was prepared and 
-     * when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p>
-     * 
-     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
-     * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -464,7 +427,44 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPB3.9</p>
+     * 
+     * <p>ZDP.17 (high)</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=07, format=102)</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=36, format=102)</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Dispense Date</p>
+     * 
+     * <p>Dispense Date</p>
+     * 
+     * <p>DispensedItem.dispenseDate</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Used by the system in calculating expected exhaustion 
+     * time. Valuable in compliance checking. This attribute is 
+     * mandatory because an existing dispense record must at least 
+     * indicate the date it was processed.</p>
+     * 
+     * <p>Represents the date the dispense product was prepared and 
+     * when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p>
+     * 
+     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -501,7 +501,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -546,7 +546,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -591,7 +591,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -636,7 +636,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -681,7 +681,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -734,7 +734,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -779,7 +779,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -824,7 +824,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -869,7 +869,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.quantity</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.quantity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -920,7 +920,37 @@ public class DispenseDetailsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.expectedUseTime</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>D59(width)</p>
+     * 
+     * <p>ZDP.11</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=ZDS, format=804)</p>
+     * 
+     * <p>Claim.405-D5</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Days Supply</p>
+     * 
+     * <p>DispensedItem.daysSupply</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p>
+     * 
+     * <p>The number of days that the dispensed quantity is 
+     * expected to last.</p>
+     * 
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -952,37 +982,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.expectedUseTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>D59(width)</p>
-     * 
-     * <p>ZDP.11</p>
-     * 
-     * <p>DRU.040-02 (low, qualifier=ZDS, format=804)</p>
-     * 
-     * <p>Claim.405-D5</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Days Supply</p>
-     * 
-     * <p>DispensedItem.daysSupply</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p>
-     * 
-     * <p>The number of days that the dispensed quantity is 
-     * expected to last.</p>
-     * 
-     * <p>Un-merged Business Name: DispensedDaysSupply</p>
-     * 
-     * <p>Relationship: PORX_MT060020NB.SupplyEvent.expectedUseTime</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyEvent.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -1014,7 +1014,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseDaysSupply</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.expectedUseTime</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -1052,7 +1052,37 @@ public class DispenseDetailsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.SupplyEvent.expectedUseTime</p>
+     * <p>Relationship: PORX_MT020060CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>D59(width)</p>
+     * 
+     * <p>ZDP.11</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=ZDS, format=804)</p>
+     * 
+     * <p>Claim.405-D5</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Days Supply</p>
+     * 
+     * <p>DispensedItem.daysSupply</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p>
+     * 
+     * <p>The number of days that the dispensed quantity is 
+     * expected to last.</p>
+     * 
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyEvent.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -1084,37 +1114,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
-     * <p>Relationship: PORX_MT020060NB.SupplyEvent.expectedUseTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>D59(width)</p>
-     * 
-     * <p>ZDP.11</p>
-     * 
-     * <p>DRU.040-02 (low, qualifier=ZDS, format=804)</p>
-     * 
-     * <p>Claim.405-D5</p>
-     * 
-     * <p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Days Supply</p>
-     * 
-     * <p>DispensedItem.daysSupply</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p>
-     * 
-     * <p>The number of days that the dispensed quantity is 
-     * expected to last.</p>
-     * 
-     * <p>Un-merged Business Name: DispensedDaysSupply</p>
-     * 
-     * <p>Relationship: PORX_MT060020NB.SupplyEvent.expectedUseTime</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyEvent.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -1146,7 +1146,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DispenseDaysSupply</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.SupplyEvent.expectedUseTime</p>
+     * <p>Relationship: PORX_MT060040CA.SupplyEvent.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -1185,28 +1185,28 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.Product2.manufacturedProduct</p>
+     * PORX_MT020060CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020060NB.Product2.manufacturedProduct</p>
+     * PORX_MT060010CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060020NB.Product2.manufacturedProduct</p>
+     * PORX_MT060020CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.Product2.manufacturedProduct</p>
+     * PORX_MT060040CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -1219,28 +1219,28 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.Product2.manufacturedProduct</p>
+     * PORX_MT020060CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020060NB.Product2.manufacturedProduct</p>
+     * PORX_MT060010CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060020NB.Product2.manufacturedProduct</p>
+     * PORX_MT060020CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.Product2.manufacturedProduct</p>
+     * PORX_MT060040CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -1252,58 +1252,22 @@ public class DispenseDetailsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060010NB.Receiver2.responsibleParty</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.Receiver2.responsibleParty</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public ResponsiblePersonBean getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060010NB.Receiver2.responsibleParty</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060040NB.Receiver2.responsibleParty</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
-        this.receiverResponsibleParty = receiverResponsibleParty;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
-     * PORX_MT060010NB.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT020060CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020060NB.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060010CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060040CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -1316,26 +1280,62 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060010NB.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT020060CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020060NB.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060010CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060040CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public ResponsiblePersonBean getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
+        this.receiverResponsibleParty = receiverResponsibleParty;
     }
 
 }

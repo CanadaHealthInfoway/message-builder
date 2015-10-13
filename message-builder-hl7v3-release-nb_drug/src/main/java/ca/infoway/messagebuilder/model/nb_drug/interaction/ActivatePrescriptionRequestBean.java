@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010120nb.PrescriptionBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010120ca.PrescriptionBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010380NB: Activate prescription 
+ * <p>Business Name: PORX_IN010380CA: Activate prescription 
  * request</p>
  * 
  * <p>Requests that a medication prescription be recorded 
@@ -43,15 +43,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010120nb.Prescrip
  * 2: Vendor Implementation Guide - Volume C - Messaging 
  * Specifications&quot; document).</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT010120NB.CombinedMedicationRequest</p>
+ * <p>--> Payload: PORX_MT010120CA.CombinedMedicationRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010380NB"})
+@Hl7PartTypeMapping({"PORX_IN010380CA"})
 public class ActivatePrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

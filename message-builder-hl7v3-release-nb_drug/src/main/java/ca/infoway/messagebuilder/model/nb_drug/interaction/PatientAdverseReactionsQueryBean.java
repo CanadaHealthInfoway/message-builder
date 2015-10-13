@@ -22,25 +22,25 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000016nb.AdverseReactionsQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000016ca.AdverseReactionsQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000001NB: Patient adverse reactions 
+ * <p>Business Name: REPC_IN000001CA: Patient adverse reactions 
  * query</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000016NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000016CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000001NB"})
+@Hl7PartTypeMapping({"REPC_IN000001CA"})
 public class PatientAdverseReactionsQueryBean extends HL7MessageBean<TriggerEventBean<AdverseReactionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

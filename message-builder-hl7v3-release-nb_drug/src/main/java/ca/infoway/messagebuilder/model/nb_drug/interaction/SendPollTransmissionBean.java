@@ -22,21 +22,21 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt102001nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt102001ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: MCCI_IN102001NB: Send Poll Transmission</p>
+ * <p>Business Name: MCCI_IN102001CA: Send Poll Transmission</p>
  * 
  * <p>Sends HL7 Poll Transmission to an HL7 interaction queue 
  * manager.</p>
  * 
- * <p>Message: MCCI_MT102001NB.Message</p>
+ * <p>Message: MCCI_MT102001CA.Message</p>
  */
-@Hl7PartTypeMapping({"MCCI_IN102001NB"})
+@Hl7PartTypeMapping({"MCCI_IN102001CA"})
 public class SendPollTransmissionBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

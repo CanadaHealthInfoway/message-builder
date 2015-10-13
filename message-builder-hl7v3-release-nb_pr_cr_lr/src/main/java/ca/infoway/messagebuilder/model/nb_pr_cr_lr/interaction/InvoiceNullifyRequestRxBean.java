@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt620000nb.InvoiceTypeBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt620000ca.InvoiceTypeBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: FICR_IN620102NB: Invoice Nullify Request, 
+ * <p>Business Name: FICR_IN620102CA: Invoice Nullify Request, 
  * Rx</p>
  * 
  * <p>The sender sends an Invoice Nullify Request message to 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7Mes
  * Adjudication Request for Pharmacy services and/or 
  * products.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700211NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: FICR_MT620000NB.InvoiceElementGroup</p>
+ * <p>--> Payload: FICR_MT620000CA.InvoiceElementGroup</p>
  */
-@Hl7PartTypeMapping({"FICR_IN620102NB"})
+@Hl7PartTypeMapping({"FICR_IN620102CA"})
 public class InvoiceNullifyRequestRxBean extends HL7MessageBean<TriggerEventBean<InvoiceTypeBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

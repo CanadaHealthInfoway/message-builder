@@ -29,22 +29,22 @@ import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt610201nb.InsuranceCarrierRoleBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.claims.ficr_mt610201ca.InsuranceCarrierRoleBean;
 
 
 
 /**
  * <p>Business Name: AdjudicatorRole</p>
  * 
- * <p>FICR_MT610201NB.AdjudicatorRole: Adjudicator Role</p>
+ * <p>FICR_MT610201CA.AdjudicatorRole: Adjudicator Role</p>
  * 
  * <p>Third Party appointed by carrier to adjudicate 
  * invoices.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT610201NB.AdjudicatorRole","QUCR_MT830201NB.AdjudicatorRole"})
+@Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole","QUCR_MT830201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private PN playingAdjudicatorPersonName = new PNImpl();
     private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
@@ -55,7 +55,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdjudicatorID</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudicatorRole.id</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -64,7 +64,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUCR_MT830201NB.AdjudicatorRole.id</p>
+     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -81,7 +81,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdjudicatorID</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudicatorRole.id</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -90,7 +90,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUCR_MT830201NB.AdjudicatorRole.id</p>
+     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,7 +107,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdjudicatorPersonName</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudicatorPerson.name</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -123,7 +123,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: AdjudicatorPersonName</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.AdjudicatorPerson.name</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -138,7 +138,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.DirectAuthorityOver.insuranceCarrierRole</p>
+     * FICR_MT610201CA.DirectAuthorityOver.insuranceCarrierRole</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -151,7 +151,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201NB.DirectAuthorityOver.insuranceCarrierRole</p>
+     * FICR_MT610201CA.DirectAuthorityOver.insuranceCarrierRole</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

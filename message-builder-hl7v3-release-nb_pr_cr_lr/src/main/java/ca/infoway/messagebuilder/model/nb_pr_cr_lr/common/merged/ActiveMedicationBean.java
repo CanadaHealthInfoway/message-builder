@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdministrationCode;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodRequestEvent;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220100nb.DrugProductBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220100ca.DrugProductBean;
 import java.util.Date;
 import java.util.Set;
 
@@ -55,7 +55,7 @@ import java.util.Set;
 /**
  * <p>Business Name: ActiveMedication</p>
  * 
- * <p>COCT_MT260010NB.SubstanceAdministration: Active 
+ * <p>COCT_MT260010CA.SubstanceAdministration: Active 
  * Medication</p>
  * 
  * <p>Allows providers to identify the offending drugs when 
@@ -66,10 +66,10 @@ import java.util.Set;
  * patient'''s record and which contributed to triggering the 
  * issue.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010NB.SubstanceAdministration","COCT_MT260020NB.SubstanceAdministration"})
-public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020nb.CausalActs, ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260010nb.CausalActs {
+@Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration"})
+public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260020ca.CausalActs, ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt260010ca.CausalActs {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -86,7 +86,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.moodCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -101,7 +101,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.moodCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -116,7 +116,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.moodCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -131,7 +131,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.moodCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -145,7 +145,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.SubstanceAdministration.id</p>
+     * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -168,7 +168,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.SubstanceAdministration.id</p>
+     * <p>Relationship: COCT_MT260020CA.SubstanceAdministration.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -182,7 +182,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.SubstanceAdministration.id</p>
+     * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -205,7 +205,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.SubstanceAdministration.id</p>
+     * <p>Relationship: COCT_MT260020CA.SubstanceAdministration.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -220,7 +220,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.code</p>
+     * COCT_MT260010CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -236,7 +236,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.code</p>
+     * COCT_MT260020CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -251,7 +251,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.code</p>
+     * COCT_MT260010CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -267,7 +267,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.code</p>
+     * COCT_MT260020CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -282,7 +282,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.statusCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -300,7 +300,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.statusCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -315,7 +315,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.statusCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -333,7 +333,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.statusCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -348,7 +348,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -363,7 +363,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -378,7 +378,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -393,7 +393,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -408,7 +408,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.confidentialityCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
@@ -423,7 +423,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.confidentialityCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      */
@@ -439,7 +439,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -458,7 +458,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -473,7 +473,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010NB.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -492,7 +492,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020NB.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -504,13 +504,13 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -522,13 +522,13 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

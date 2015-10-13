@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.comt_mt111111nb.Summary;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000008nb.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.comt_mt111111ca.Summary;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000008ca.QueryDefinitionBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN200000NB: Clinical summary/profile 
+ * <p>Business Name: COMT_IN200000CA: Clinical summary/profile 
  * query response</p>
  * 
  * <p>Return the 'summary' versions of all demographics, 
@@ -38,25 +38,25 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000008nb.QueryDef
  * observations, procedures, encounters, referrals and other 
  * clinical data.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT111111NB.Summary</p>
+ * <p>--> Payload: COMT_MT111111CA.Summary</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111NB.RenderedContent</p>
+ * <p>----> Payload Choice: COMT_MT111111CA.RenderedContent</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111NB.SHR</p>
+ * <p>----> Payload Choice: COMT_MT111111CA.SHR</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111NB.Pharmacy</p>
+ * <p>----> Payload Choice: COMT_MT111111CA.Pharmacy</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111NB.Lab</p>
+ * <p>----> Payload Choice: COMT_MT111111CA.Lab</p>
  * 
- * <p>--> Payload: REPC_MT000008NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"COMT_IN200000NB"})
+@Hl7PartTypeMapping({"COMT_IN200000CA"})
 public class ClinicalSummaryProfileQueryResponseBean extends HL7MessageBean<TriggerEventBean<Summary,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

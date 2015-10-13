@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020030nb.PrescriptionDispenseResponseBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt020030ca.PrescriptionDispenseResponseBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020130NB: Record dispense 
+ * <p>Business Name: PORX_IN020130CA: Record dispense 
  * processing request accepted</p>
  * 
  * <p>Indicates that the requested medication dispense 
  * processing information has been successfully recorded in the 
  * patient's record.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700220NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT020030NB.SupplyEvent</p>
+ * <p>--> Payload: PORX_MT020030CA.SupplyEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020130NB"})
+@Hl7PartTypeMapping({"PORX_IN020130CA"})
 public class RecordDispenseProcessingRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<PrescriptionDispenseResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

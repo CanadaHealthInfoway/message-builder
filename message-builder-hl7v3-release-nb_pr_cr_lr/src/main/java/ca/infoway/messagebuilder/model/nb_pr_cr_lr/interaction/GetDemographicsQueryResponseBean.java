@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101101nb.ParameterListBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101102nb.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101101ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101102ca.IdentifiedPersonBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101102NB: Get Demographics Query 
+ * <p>Business Name: PRPA_IN101102CA: Get Demographics Query 
  * Response</p>
  * 
  * <p>This interaction sends a response from a Person Registry 
  * with demographic information for a specific person 
  * identifier.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700746NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101102NB.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101102CA.IdentifiedEntity</p>
  * 
- * <p>--> Payload: PRPA_MT101101NB.ParameterList</p>
+ * <p>--> Payload: PRPA_MT101101CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101102NB"})
+@Hl7PartTypeMapping({"PRPA_IN101102CA"})
 public class GetDemographicsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

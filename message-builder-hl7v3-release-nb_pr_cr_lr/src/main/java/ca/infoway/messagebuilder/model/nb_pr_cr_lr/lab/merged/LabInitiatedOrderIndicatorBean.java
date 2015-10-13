@@ -28,10 +28,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"POLB_MT001000NB.LabInitiatedOrderIndicator","POLB_MT001001NB.LabInitiatedOrderIndicator","POLB_MT001010NB.LabInitiatedOrderIndicator","POLB_MT001999NB.LabInitiatedOrderIndicator"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.LabInitiatedOrderIndicator","POLB_MT001001CA.LabInitiatedOrderIndicator","POLB_MT001010CA.LabInitiatedOrderIndicator","POLB_MT001999CA.LabInitiatedOrderIndicator"})
 public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL negationInd = new BLImpl();
 
 
@@ -41,7 +41,7 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001000NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001000CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -51,21 +51,21 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001999NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001001NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001010CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001010NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -80,7 +80,7 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001000NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001000CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -90,21 +90,21 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001999NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001001NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001010CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001010NB.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

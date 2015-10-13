@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107nb.ProviderBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.coct_mt090107ca.ProviderBean;
 import java.util.Date;
 
 
@@ -38,33 +38,7 @@ import java.util.Date;
 /**
  * <p>Business Name: PrescribedBy</p>
  * 
- * <p>PORX_MT060160NB.Author4: *b:prescribed by</p>
- * 
- * <p>Prescription.Prescriber</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- * 
- * <p>To be a legal order, the person responsible for its 
- * creation must be identified. Thus the association is 
- * mandatory.</p>
- * 
- * <p>This is the provider who authorized the medication to be 
- * dispensed to the patient.</p>
- * 
- * <p>PORX_MT060340NB.Author4: *b:prescribed by</p>
- * 
- * <p>Prescription.Prescriber</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- * 
- * <p>To be a legal order, the person responsible for its 
- * creation must be identified. Thus the association is 
- * mandatory.</p>
- * 
- * <p>This is the provider who authorized the medication to be 
- * dispensed to the patient.</p>
- * 
- * <p>PORX_MT060040NB.Author4: *b:prescribed by</p>
+ * <p>PORX_MT060040CA.Author4: *b:prescribed by</p>
  * 
  * <p>Prescription.Prescriber</p>
  * 
@@ -76,11 +50,37 @@ import java.util.Date;
  * 
  * <p>This is the provider who authorized the device to be 
  * dispensed to the patient.</p>
+ * 
+ * <p>PORX_MT060340CA.Author4: *b:prescribed by</p>
+ * 
+ * <p>Prescription.Prescriber</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ * 
+ * <p>To be a legal order, the person responsible for its 
+ * creation must be identified. Thus the association is 
+ * mandatory.</p>
+ * 
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
+ * 
+ * <p>PORX_MT060160CA.Author4: *b:prescribed by</p>
+ * 
+ * <p>Prescription.Prescriber</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ * 
+ * <p>To be a legal order, the person responsible for its 
+ * creation must be identified. Thus the association is 
+ * mandatory.</p>
+ * 
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060040NB.Author4","PORX_MT060160NB.Author4","PORX_MT060340NB.Author4"})
+@Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -92,7 +92,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescribedDate</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.time</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -111,17 +111,17 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p>
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p>
      * 
-     * <p>The date at which the drug was prescribed. This may 
+     * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * valid to be dispensed or used for two weeks.</p>
      * 
      * <p>Un-merged Business Name: PrescribedDate</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.time</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -151,7 +151,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescribedDate</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.time</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -170,13 +170,13 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p>
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p>
      * 
-     * <p>The date at which the device was prescribed. This may 
+     * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
+     * valid to be dispensed or administered for two weeks.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -188,7 +188,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescribedDate</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.time</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -207,17 +207,17 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p>
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p>
      * 
-     * <p>The date at which the drug was prescribed. This may 
+     * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * valid to be dispensed or used for two weeks.</p>
      * 
      * <p>Un-merged Business Name: PrescribedDate</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.time</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -247,7 +247,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescribedDate</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.time</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -266,13 +266,13 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p>
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p>
      * 
-     * <p>The date at which the device was prescribed. This may 
+     * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
+     * valid to be dispensed or administered for two weeks.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -284,7 +284,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.modeCode</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -302,7 +302,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.modeCode</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -320,7 +320,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.modeCode</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -346,7 +346,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.modeCode</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -364,7 +364,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.modeCode</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -382,7 +382,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.modeCode</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -408,7 +408,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Signature</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.signatureText</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -423,7 +423,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Signature</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.signatureText</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -438,7 +438,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Signature</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.signatureText</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -461,7 +461,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Signature</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.signatureText</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -476,7 +476,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Signature</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.signatureText</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -491,7 +491,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: Signature</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.signatureText</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -512,19 +512,19 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.assignedPerson</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.assignedPerson</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.assignedPerson</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -536,19 +536,19 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author4.assignedPerson</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author4.assignedPerson</p>
+     * <p>Relationship: PORX_MT060340CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040NB.Author4.assignedPerson</p>
+     * <p>Relationship: PORX_MT060160CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

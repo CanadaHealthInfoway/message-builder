@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000017nb.ProfessionalServiceBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000017ca.ProfessionalServiceBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000044NB: Record pharmacy prof. 
+ * <p>Business Name: REPC_IN000044CA: Record pharmacy prof. 
  * service request</p>
  * 
  * <p>Seeks to add a record of a professional service 
  * (training, counseling, medication reviews, etc.) which has 
  * been delivered to a patient.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000017NB.ProcedureEvent</p>
+ * <p>--> Payload: REPC_MT000017CA.ProcedureEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000044NB"})
+@Hl7PartTypeMapping({"REPC_IN000044CA"})
 public class RecordPharmacyProfServiceRequestBean extends HL7MessageBean<TriggerEventBean<ProfessionalServiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

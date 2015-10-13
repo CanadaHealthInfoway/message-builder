@@ -22,15 +22,15 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300002nb.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300003nb.CommentBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300002ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300003ca.CommentBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN300202NB: Patient note query 
+ * <p>Business Name: COMT_IN300202CA: Patient note query 
  * response</p>
  * 
  * <p>Returns the notes that have been recorded against a 
@@ -47,17 +47,17 @@ import ca.infoway.messagebuilder.model.nb_drug.si.comt_mt300003nb.CommentBean;
  * elements in the &ldquo;/subject /annotation&rdquo; message 
  * path.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT300003NB.Annotation</p>
+ * <p>--> Payload: COMT_MT300003CA.Annotation</p>
  * 
- * <p>--> Payload: COMT_MT300002NB.ParameterList</p>
+ * <p>--> Payload: COMT_MT300002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"COMT_IN300202NB"})
+@Hl7PartTypeMapping({"COMT_IN300202CA"})
 public class PatientNoteQueryResponseBean extends HL7MessageBean<TriggerEventBean<CommentBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

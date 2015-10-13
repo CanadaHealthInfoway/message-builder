@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000003nb.HealthConditionBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000003ca.HealthConditionBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000028NB: Record health condition 
+ * <p>Business Name: REPC_IN000028CA: Record health condition 
  * request</p>
  * 
  * <p>Requests that a medical condition record be recorded 
  * against the specified patient.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000003NB.ConditionEvent</p>
+ * <p>--> Payload: REPC_MT000003CA.ConditionEvent</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000028NB"})
+@Hl7PartTypeMapping({"REPC_IN000028CA"})
 public class RecordHealthConditionRequestBean extends HL7MessageBean<TriggerEventBean<HealthConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

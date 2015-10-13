@@ -22,38 +22,38 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306050nb.ParameterListBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306051nb.RoleChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306050ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306051ca.RoleChoice;
 
 
 
 /**
- * <p>Business Name: PRPM_IN306051NB: Provider Associated 
+ * <p>Business Name: PRPM_IN306051CA: Provider Associated 
  * Identifiers Query Response</p>
  * 
  * <p>This interaction is used to respond to a Provider 
  * Associated Identifiers Query interaction and will contain 
  * the requested records from the provider registry system.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700746NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT306051NB.RoleChoice</p>
+ * <p>--> Payload: PRPM_MT306051CA.RoleChoice</p>
  * 
- * <p>----> Payload Choice: PRPM_MT306051NB.AssignedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT306051CA.AssignedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT306051NB.QualifiedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT306051CA.QualifiedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT306051NB.HealthCareProvider</p>
+ * <p>----> Payload Choice: PRPM_MT306051CA.HealthCareProvider</p>
  * 
- * <p>--> Payload: PRPM_MT306050NB.ParameterList</p>
+ * <p>--> Payload: PRPM_MT306050CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN306051NB"})
+@Hl7PartTypeMapping({"PRPM_IN306051CA"})
 public class ProviderAssociatedIdentifiersQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

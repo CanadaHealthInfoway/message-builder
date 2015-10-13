@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT000001NB.Records","REPC_MT000013NB.Records"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.Records","REPC_MT000013CA.Records"})
 public interface Records {
 
 }

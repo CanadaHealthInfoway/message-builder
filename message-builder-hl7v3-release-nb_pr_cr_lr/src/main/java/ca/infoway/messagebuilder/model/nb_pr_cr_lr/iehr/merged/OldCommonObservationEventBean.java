@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT410001NB.OldCommonObservationEvent","REPC_MT410003NB.OldCommonObservationEvent","REPC_MT420001NB.OldCommonObservationEvent","REPC_MT420003NB.OldCommonObservationEvent"})
+@Hl7PartTypeMapping({"REPC_MT410001CA.OldCommonObservationEvent","REPC_MT410003CA.OldCommonObservationEvent","REPC_MT420001CA.OldCommonObservationEvent","REPC_MT420003CA.OldCommonObservationEvent"})
 public class OldCommonObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -42,7 +42,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420001NB.OldCommonObservationEvent.id</p>
+     * REPC_MT420001CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -65,7 +65,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003NB.OldCommonObservationEvent.id</p>
+     * REPC_MT420003CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -88,7 +88,14 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT410001NB.OldCommonObservationEvent.id</p>
+     * REPC_MT410003CA.OldCommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT410001CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,13 +114,6 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * cause the referenced records to be marked as 
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT410003NB.OldCommonObservationEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -126,7 +126,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420001NB.OldCommonObservationEvent.id</p>
+     * REPC_MT420001CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -149,7 +149,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003NB.OldCommonObservationEvent.id</p>
+     * REPC_MT420003CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -172,7 +172,14 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT410001NB.OldCommonObservationEvent.id</p>
+     * REPC_MT410003CA.OldCommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT410001CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,13 +198,6 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * cause the referenced records to be marked as 
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT410003NB.OldCommonObservationEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

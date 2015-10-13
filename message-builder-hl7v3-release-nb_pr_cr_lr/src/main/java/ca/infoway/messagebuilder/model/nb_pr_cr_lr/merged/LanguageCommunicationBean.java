@@ -34,17 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PRPA_MT101002NB.LanguageCommunication: 
- * LanguageCommunication</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
- * 
- * <p>Information about what language(s) should be used to 
- * communicate with the focal person can be sent in the 
- * LanguageCommunication class.</p>
- * 
- * <p>PRPM_MT303010NB.LanguageCommunication: Language of 
+ * <p>PRPM_MT306011CA.LanguageCommunication: Language of 
  * Communication</p>
  * 
  * <p>Supports the business requirement to identify languages 
@@ -54,33 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * communicate with the focal person can be sent in the 
  * LanguageCommunication class.</p>
  * 
- * <p>PRPA_MT101104NB.LanguageCommunication: 
- * LanguageCommunication</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
- * 
- * <p>Information about what language(s) should be used to 
- * communicate with the focal person can be sent in the 
- * LanguageCommunication class.</p>
- * 
- * <p>Although &ldquo;languageCommunication&rdquo; is an HL7 
- * populated field, the CR does not store this information and 
- * thus will be set to nullFlavor; i.e. 
- * &lt;languageCommunication nullFlavor=&rdquo;NI&rdquo;/&gt; 
- * .</p>
- * 
- * <p>PRPM_MT301010NB.LanguageCommunication: Language of 
- * Communication</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by the provider for the purposes of communication</p>
- * 
- * <p>Information about what language(s) should be used to 
- * communicate with the focal person can be sent in the 
- * LanguageCommunication class.</p>
- * 
- * <p>PRPA_MT101102NB.LanguageCommunication: Language 
+ * <p>PRPA_MT101102CA.LanguageCommunication: Language 
  * Communication</p>
  * 
  * <p>Supports the business requirement to identify languages 
@@ -90,17 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * communicate with the focal person can be sent in the 
  * LanguageCommunication class.</p>
  * 
- * <p>PRPM_MT306011NB.LanguageCommunication: Language of 
- * Communication</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
- * 
- * <p>Information about what language(s) should be used to 
- * communicate with the focal person can be sent in the 
- * LanguageCommunication class.</p>
- * 
- * <p>PRPA_MT101001NB.LanguageCommunication: 
+ * <p>PRPA_MT101001CA.LanguageCommunication: 
  * LanguageCommunication</p>
  * 
  * <p>Supports the business requirement to identify languages 
@@ -116,15 +70,61 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * thus shall be set to nullFlavor; i.e. 
  * &lt;languageCommunication 
  * nullFlavor=&rdquo;NI&rdquo;/&gt;</p>
+ * 
+ * <p>PRPA_MT101002CA.LanguageCommunication: 
+ * LanguageCommunication</p>
+ * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
+ * 
+ * <p>Information about what language(s) should be used to 
+ * communicate with the focal person can be sent in the 
+ * LanguageCommunication class.</p>
+ * 
+ * <p>PRPA_MT101104CA.LanguageCommunication: 
+ * LanguageCommunication</p>
+ * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
+ * 
+ * <p>Information about what language(s) should be used to 
+ * communicate with the focal person can be sent in the 
+ * LanguageCommunication class.</p>
+ * 
+ * <p>Although &ldquo;languageCommunication&rdquo; is an HL7 
+ * populated field, the CR does not store this information and 
+ * thus will be set to nullFlavor; i.e. 
+ * &lt;languageCommunication nullFlavor=&rdquo;NI&rdquo;/&gt; 
+ * .</p>
+ * 
+ * <p>PRPM_MT303010CA.LanguageCommunication: Language of 
+ * Communication</p>
+ * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
+ * 
+ * <p>Information about what language(s) should be used to 
+ * communicate with the focal person can be sent in the 
+ * LanguageCommunication class.</p>
+ * 
+ * <p>PRPM_MT301010CA.LanguageCommunication: Language of 
+ * Communication</p>
+ * 
+ * <p>Supports the business requirement to identify languages 
+ * used by the provider for the purposes of communication</p>
+ * 
+ * <p>Information about what language(s) should be used to 
+ * communicate with the focal person can be sent in the 
+ * LanguageCommunication class.</p>
  */
-@Hl7PartTypeMapping({"PRPA_MT101001NB.LanguageCommunication","PRPA_MT101002NB.LanguageCommunication","PRPA_MT101102NB.LanguageCommunication","PRPA_MT101104NB.LanguageCommunication","PRPM_MT301010NB.LanguageCommunication","PRPM_MT303010NB.LanguageCommunication","PRPM_MT306011NB.LanguageCommunication"})
+@Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication","PRPM_MT301010CA.LanguageCommunication","PRPM_MT303010CA.LanguageCommunication","PRPM_MT306011CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV languageCode = new CVImpl();
-    private BL preferenceInd = new BLImpl();
     private CV modeCode = new CVImpl();
     private CV proficiencyLevelCode = new CVImpl();
+    private BL preferenceInd = new BLImpl();
 
 
     /**
@@ -133,7 +133,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
-     * PRPA_MT101002NB.LanguageCommunication.languageCode</p>
+     * PRPA_MT101102CA.LanguageCommunication.languageCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -145,55 +145,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
-     * PRPA_MT101104NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101102NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.languageCode</p>
+     * PRPM_MT306011CA.LanguageCommunication.languageCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -205,12 +157,60 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
-     * PRPA_MT101001NB.LanguageCommunication.languageCode</p>
+     * PRPA_MT101001CA.LanguageCommunication.languageCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in.</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
      * 
      * <p>A code indicating the language of communication</p>
      */
@@ -225,7 +225,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
-     * PRPA_MT101002NB.LanguageCommunication.languageCode</p>
+     * PRPA_MT101102CA.LanguageCommunication.languageCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -237,55 +237,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
-     * PRPA_MT101104NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101102NB.LanguageCommunication.languageCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p>
-     * 
-     * <p>A code indicating the language of communication</p>
-     * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.languageCode</p>
+     * PRPM_MT306011CA.LanguageCommunication.languageCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -297,7 +249,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
-     * PRPA_MT101001NB.LanguageCommunication.languageCode</p>
+     * PRPA_MT101001CA.LanguageCommunication.languageCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -305,235 +257,57 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * message elements are to be transmitted in.</p>
      * 
      * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
      */
     public void setLanguageCode(HumanLanguage languageCode) {
         this.languageCode.setValue(languageCode);
-    }
-
-
-    /**
-     * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101002NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101104NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101102NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101001NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     */
-    @Hl7XmlMapping({"preferenceInd"})
-    public Boolean getPreferenceInd() {
-        return this.preferenceInd.getValue();
-    }
-
-    /**
-     * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101002NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101104NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101102NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PRPA_MT101001NB.LanguageCommunication.preferenceInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute that supports the business requirement 
-     * to indicate the preferred language for all 
-     * communications.</p>
-     * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
-     */
-    public void setPreferenceInd(Boolean preferenceInd) {
-        this.preferenceInd.setValue(preferenceInd);
     }
 
 
@@ -544,7 +318,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.modeCode</p>
+     * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -560,7 +334,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.modeCode</p>
+     * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -576,7 +350,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.modeCode</p>
+     * PRPM_MT303010CA.LanguageCommunication.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -600,7 +374,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.modeCode</p>
+     * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -616,7 +390,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.modeCode</p>
+     * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -632,7 +406,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.modeCode</p>
+     * PRPM_MT303010CA.LanguageCommunication.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -657,7 +431,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.proficiencyLevelCode</p>
+     * PRPM_MT306011CA.LanguageCommunication.proficiencyLevelCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -673,7 +447,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.proficiencyLevelCode</p>
+     * PRPM_MT301010CA.LanguageCommunication.proficiencyLevelCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -689,7 +463,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.proficiencyLevelCode</p>
+     * PRPM_MT303010CA.LanguageCommunication.proficiencyLevelCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -714,7 +488,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010NB.LanguageCommunication.proficiencyLevelCode</p>
+     * PRPM_MT306011CA.LanguageCommunication.proficiencyLevelCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -730,7 +504,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT301010NB.LanguageCommunication.proficiencyLevelCode</p>
+     * PRPM_MT301010CA.LanguageCommunication.proficiencyLevelCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -746,7 +520,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011NB.LanguageCommunication.proficiencyLevelCode</p>
+     * PRPM_MT303010CA.LanguageCommunication.proficiencyLevelCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -760,6 +534,232 @@ public class LanguageCommunicationBean extends MessagePartBean {
      */
     public void setProficiencyLevelCode(LanguageAbilityProficiency proficiencyLevelCode) {
         this.proficiencyLevelCode.setValue(proficiencyLevelCode);
+    }
+
+
+    /**
+     * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101001CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     */
+    @Hl7XmlMapping({"preferenceInd"})
+    public Boolean getPreferenceInd() {
+        return this.preferenceInd.getValue();
+    }
+
+    /**
+     * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101001CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     */
+    public void setPreferenceInd(Boolean preferenceInd) {
+        this.preferenceInd.setValue(preferenceInd);
     }
 
 }

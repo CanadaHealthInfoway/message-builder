@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120002nb.CommonObservationQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120002ca.CommonObservationQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000054NB: Patient basic 
+ * <p>Business Name: REPC_IN000054CA: Patient basic 
  * observations query</p>
  * 
  * <p>Requests retrieval of the basic observations (height, 
@@ -38,15 +38,15 @@ import ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt120002nb.CommonObserv
  * observation and/or by the date-range for which the 
  * observation was recorded.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT120002NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT120002CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000054NB"})
+@Hl7PartTypeMapping({"REPC_IN000054CA"})
 public class PatientBasicObservationsQueryBean extends HL7MessageBean<TriggerEventBean<CommonObservationQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

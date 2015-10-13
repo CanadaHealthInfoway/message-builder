@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.rcmr_mt010001nb.ConsentBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.rcmr_mt010001ca.ConsentBean;
 
 
 
 /**
- * <p>Business Name: RCMR_IN010003NB: Record consent or 
+ * <p>Business Name: RCMR_IN010003CA: Record consent or 
  * override request</p>
  * 
  * <p>Requests that a consent, revocation of consent or consent 
  * override be recorded for a particular patient.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700211NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: RCMR_MT010001NB.ConsentEvent</p>
+ * <p>--> Payload: RCMR_MT010001CA.ConsentEvent</p>
  */
-@Hl7PartTypeMapping({"RCMR_IN010003NB"})
+@Hl7PartTypeMapping({"RCMR_IN010003CA"})
 public class RecordConsentOrOverrideRequestBean extends HL7MessageBean<TriggerEventBean<ConsentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

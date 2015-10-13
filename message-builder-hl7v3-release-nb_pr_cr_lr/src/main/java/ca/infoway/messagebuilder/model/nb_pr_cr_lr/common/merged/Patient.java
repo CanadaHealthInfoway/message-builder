@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"MCAI_MT700210NB.Patient","MCAI_MT700211NB.Patient","MCAI_MT700216NB.Patient","MCAI_MT700217NB.Patient","MCAI_MT700220NB.Patient","MCAI_MT700221NB.Patient","MCAI_MT700226NB.Patient","MCAI_MT700227NB.Patient","MCAI_MT700230NB.Patient","MCAI_MT700231NB.Patient","MCAI_MT700236NB.Patient","MCAI_MT700237NB.Patient","QUQI_MT020000NB.Patient","QUQI_MT120006NB.Patient"})
+@Hl7PartTypeMapping({"MCAI_MT700210CA.Patient","MCAI_MT700211CA.Patient","MCAI_MT700216CA.Patient","MCAI_MT700217CA.Patient","MCAI_MT700220CA.Patient","MCAI_MT700221CA.Patient","MCAI_MT700226CA.Patient","MCAI_MT700227CA.Patient","MCAI_MT700230CA.Patient","MCAI_MT700231CA.Patient","MCAI_MT700236CA.Patient","MCAI_MT700237CA.Patient","QUQI_MT020000CA.Patient","QUQI_MT120006CA.Patient"})
 public interface Patient {
 
 }

@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.comt_mt400001nb.MaskableRecordBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.comt_mt400001ca.MaskableRecordBean;
 
 
 
 /**
- * <p>Business Name: COMT_IN400001NB: Change item masking 
+ * <p>Business Name: COMT_IN400001CA: Change item masking 
  * request</p>
  * 
  * <p>Requests that an identified item, group of items 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.ra.comt_mt400001nb.MaskableRe
  * items for a particular patient should have their 
  * confidentiality code changed to the specified value.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT400001NB.MaskableActType</p>
+ * <p>--> Payload: COMT_MT400001CA.MaskableActType</p>
  */
-@Hl7PartTypeMapping({"COMT_IN400001NB"})
+@Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7MessageBean<TriggerEventBean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700751nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306010nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700751ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306010ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: PRPM_IN306010NB: Provider Details Query</p>
+ * <p>Business Name: PRPM_IN306010CA: Provider Details Query</p>
  * 
  * <p>This interaction is used to request details about a 
  * provider. It is expected that the receiving application will 
@@ -37,15 +37,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pr.prpm_mt306010nb.ParameterL
  * the requested information from the provider registry 
  * system.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700751NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT306010NB.ParameterList</p>
+ * <p>--> Payload: PRPM_MT306010CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPM_IN306010NB"})
+@Hl7PartTypeMapping({"PRPM_IN306010CA"})
 public class ProviderDetailsQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

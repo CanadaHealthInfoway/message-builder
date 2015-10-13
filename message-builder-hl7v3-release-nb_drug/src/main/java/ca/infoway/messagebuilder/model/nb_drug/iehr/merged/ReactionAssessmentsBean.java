@@ -33,19 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>REPC_MT000002NB.CausalityAssessment: Reaction Assessments</p>
- * 
- * <p>value is mandatory if not using SNOMED</p>
- * 
- * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
- * 
- * <p>Indicates both the product and how related they are 
- * determined to be to the reaction.</p>
- * 
- * <p>This is a recording of the exposures and causality 
- * assessment deemed to be related to the reaction.</p>
- * 
- * <p>REPC_MT000012NB.CausalityAssessment: Reaction Assessments</p>
+ * <p>REPC_MT000012CA.CausalityAssessment: Reaction Assessments</p>
  * 
  * <p>If code is SNOMED, value is not permitted. Otherise code 
  * must be '''RXNASSESS''' and value must be '''RELATED'''</p>
@@ -56,23 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>This is a recording of the exposures and causality 
  * assessment deemed to be related to the reaction.</p>
  * 
- * <p>REPC_MT000009NB.CausalityAssessment: Reported Reactions</p>
- * 
- * <p>Value is required if not using SNOME code must be 
- * '''RXNASSESS if not SNOMED</p>
- * 
- * <p>Helps providers to distinguish between proper allergies 
- * and intolerances. Allows the provider recording the allergy 
- * to assign appropriate severity to the allergy. May give 
- * insight on how to mitigate an intolerance that is likely to 
- * be triggered by administering a substance. (E.g. If a given 
- * drug typically causes nausea in the patient, an additional 
- * medication may be co-prescribed to manage the nausea.)</p>
- * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
- * 
- * <p>REPC_MT000006NB.CausalityAssessment: Reaction Assessments</p>
+ * <p>REPC_MT000006CA.CausalityAssessment: Reaction Assessments</p>
  * 
  * <p>Value is mandatory if not using SNOMED</p>
  * 
@@ -84,24 +56,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>This is a recording of the exposures and causality 
  * assessment deemed to be related to the reaction.</p>
  * 
- * <p>REPC_MT000005NB.CausalityAssessment: Reported Reactions</p>
- * 
- * <p>Value is mandatory if not using SNOMED</p>
- * 
- * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
- * 
- * <p>Helps providers to distinguish between proper allergies 
- * and intolerances. Allows the provider recording the allergy 
- * to assign appropriate severity to the allergy. May give 
- * insight on how to mitigate an intolerance that is likely to 
- * be triggered by administering a substance. (E.g. If a given 
- * drug typically causes nausea in the patient, an additional 
- * medication may be co-prescribed to manage the nausea.)</p>
- * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
- * 
- * <p>REPC_MT000013NB.CausalityAssessment: Reported Reactions</p>
+ * <p>REPC_MT000013CA.CausalityAssessment: Reported Reactions</p>
  * 
  * <p>If code is SNOMED, value is not permitted otherwise code 
  * must be '''RXNASSESS''' and value must be '''RELATED'''</p>
@@ -117,7 +72,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>This is a recording of a patient reaction that is 
  * believed to be associated with the allergy/intolerance.</p>
  * 
- * <p>REPC_MT000001NB.CausalityAssessment: Reported Reactions</p>
+ * <p>REPC_MT000002CA.CausalityAssessment: Reaction Assessments</p>
+ * 
+ * <p>value is mandatory if not using SNOMED</p>
+ * 
+ * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
+ * 
+ * <p>Indicates both the product and how related they are 
+ * determined to be to the reaction.</p>
+ * 
+ * <p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p>
+ * 
+ * <p>REPC_MT000001CA.CausalityAssessment: Reported Reactions</p>
  * 
  * <p>Value is required if not using SNOMED</p>
  * 
@@ -134,11 +101,44 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>This is a recording of a patient reaction that is 
  * believed to be associated with the allergy/intolerance.</p>
+ * 
+ * <p>REPC_MT000009CA.CausalityAssessment: Reported Reactions</p>
+ * 
+ * <p>Value is required if not using SNOME code must be 
+ * '''RXNASSESS if not SNOMED</p>
+ * 
+ * <p>Helps providers to distinguish between proper allergies 
+ * and intolerances. Allows the provider recording the allergy 
+ * to assign appropriate severity to the allergy. May give 
+ * insight on how to mitigate an intolerance that is likely to 
+ * be triggered by administering a substance. (E.g. If a given 
+ * drug typically causes nausea in the patient, an additional 
+ * medication may be co-prescribed to manage the nausea.)</p>
+ * 
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
+ * 
+ * <p>REPC_MT000005CA.CausalityAssessment: Reported Reactions</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ * 
+ * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+ * 
+ * <p>Helps providers to distinguish between proper allergies 
+ * and intolerances. Allows the provider recording the allergy 
+ * to assign appropriate severity to the allergy. May give 
+ * insight on how to mitigate an intolerance that is likely to 
+ * be triggered by administering a substance. (E.g. If a given 
+ * drug typically causes nausea in the patient, an additional 
+ * medication may be co-prescribed to manage the nausea.)</p>
+ * 
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001NB.CausalityAssessment","REPC_MT000002NB.CausalityAssessment","REPC_MT000005NB.CausalityAssessment","REPC_MT000006NB.CausalityAssessment","REPC_MT000009NB.CausalityAssessment","REPC_MT000012NB.CausalityAssessment","REPC_MT000013NB.CausalityAssessment"})
-public class ReactionAssessmentsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000001nb.Records, ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000005nb.Records, ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000013nb.Records, ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000009nb.Records {
+@Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment"})
+public class ReactionAssessmentsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000013ca.Records, ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000009ca.Records, ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000001ca.Records, ca.infoway.messagebuilder.model.nb_drug.iehr.repc_mt000005ca.Records {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
@@ -150,39 +150,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: AssessmentType</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSES.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000012NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSES.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000009NB.CausalityAssessment.code</p>
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -198,39 +166,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: AssessmentType</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSESS.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000005NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSESS.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000001NB.CausalityAssessment.code</p>
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -246,7 +182,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: AssessmentType</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.CausalityAssessment.code</p>
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -257,6 +193,70 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSES.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSES.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSES.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
      * <p>Indicates the type of assessment being made</p>
      */
@@ -270,39 +270,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: AssessmentType</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSES.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000012NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSES.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000009NB.CausalityAssessment.code</p>
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -318,39 +286,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: AssessmentType</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSESS.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000005NB.CausalityAssessment.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment. For 
-     * non-SNOMED, this should be fixed to RXNASSESS.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Un-merged Business Name: AssessmentType</p>
-     * 
-     * <p>Relationship: REPC_MT000001NB.CausalityAssessment.code</p>
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -366,7 +302,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: AssessmentType</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.CausalityAssessment.code</p>
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -377,6 +313,70 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSES.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSES.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSES.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Un-merged Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment. For 
+     * non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
      * <p>Indicates the type of assessment being made</p>
      */
@@ -390,7 +390,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -408,7 +408,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -426,7 +426,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -444,7 +444,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -462,7 +462,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -480,7 +480,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -498,7 +498,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -524,7 +524,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -542,7 +542,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -560,7 +560,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -578,7 +578,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -596,7 +596,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -614,7 +614,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -632,7 +632,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.CausalityAssessment.value</p>
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -657,49 +657,49 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000002NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000006CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000012NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000012CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000006NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000002CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -712,49 +712,49 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000002NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000006CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000012NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000012CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000006NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000002CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.StartsAfterStartOf.exposureEvent</p>
+     * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -766,25 +766,25 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000013CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000001CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000009CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000005CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -796,25 +796,25 @@ public class ReactionAssessmentsBean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000013CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000001CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000009CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.Subject6.observationEvent</p>
+     * <p>Relationship: REPC_MT000005CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

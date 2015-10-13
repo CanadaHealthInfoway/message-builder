@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt040010nb.OtherMedicationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt040010ca.OtherMedicationBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN040020NB: Record other medication 
+ * <p>Business Name: PORX_IN040020CA: Record other medication 
  * request</p>
  * 
  * <p>Requests that a medication be recorded against the 
  * patient's record.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT040010NB.OtherMedication</p>
+ * <p>--> Payload: PORX_MT040010CA.OtherMedication</p>
  */
-@Hl7PartTypeMapping({"PORX_IN040020NB"})
+@Hl7PartTypeMapping({"PORX_IN040020CA"})
 public class RecordOtherMedicationRequestBean extends HL7MessageBean<TriggerEventBean<OtherMedicationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

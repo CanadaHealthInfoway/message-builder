@@ -22,32 +22,32 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101103nb.ParameterListBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101104nb.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700746ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101103ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101104ca.IdentifiedPersonBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101104NB: Find Candidates Response</p>
+ * <p>Business Name: PRPA_IN101104CA: Find Candidates Response</p>
  * 
  * <p>This interaction returns a list of candidates from a 
  * Person Registry that match a particular set of person 
  * demographics. The response may also include a score 
  * indicating the probability of match for each candidate.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700746NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101104NB.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101104CA.IdentifiedEntity</p>
  * 
- * <p>--> Payload: PRPA_MT101103NB.ParameterList</p>
+ * <p>--> Payload: PRPA_MT101103CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101104NB"})
+@Hl7PartTypeMapping({"PRPA_IN101104CA"})
 public class FindCandidatesResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

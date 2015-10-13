@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: DrugContains</p>
  * 
- * <p>COCT_MT220110NB.Ingredient: drug contains</p>
+ * <p>POME_MT010040CA.Ingredient: drug contains</p>
  * 
  * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not contained) in a drug, along with their respective 
  * quantities.</p>
  * 
- * <p>COCT_MT220210NB.Ingredient: drug contains</p>
+ * <p>POME_MT010100CA.Ingredient: drug contains</p>
  * 
  * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not contained) in a drug, along with their respective 
  * quantities.</p>
  * 
- * <p>POME_MT010100NB.Ingredient: drug contains</p>
+ * <p>COCT_MT220100CA.Ingredient: drug contains</p>
  * 
  * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
@@ -73,7 +73,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not contained) in a drug, along with their respective 
  * quantities.</p>
  * 
- * <p>POME_MT010040NB.Ingredient: drug contains</p>
+ * <p>COCT_MT220200CA.Ingredient: drug contains</p>
  * 
  * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
@@ -86,7 +86,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not contained) in a drug, along with their respective 
  * quantities.</p>
  * 
- * <p>COCT_MT220100NB.Ingredient: drug contains</p>
+ * <p>COCT_MT220210CA.Ingredient: drug contains</p>
  * 
  * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
@@ -99,7 +99,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not contained) in a drug, along with their respective 
  * quantities.</p>
  * 
- * <p>COCT_MT220200NB.Ingredient: drug contains</p>
+ * <p>COCT_MT220110CA.Ingredient: drug contains</p>
  * 
  * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
@@ -112,19 +112,83 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not contained) in a drug, along with their respective 
  * quantities.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT220100NB.Ingredient","COCT_MT220110NB.Ingredient","COCT_MT220200NB.Ingredient","COCT_MT220210NB.Ingredient","POME_MT010040NB.Ingredient","POME_MT010100NB.Ingredient"})
+@Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
     private DrugIngredientsBean ingredient;
 
 
     /**
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
      * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.Ingredient.negationInd</p>
+     * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -141,7 +205,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.Ingredient.negationInd</p>
+     * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -152,70 +216,6 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must contain&quot; and &quot;does/must not 
      * contain&quot; is essential, however in some circumstances it 
      * is necessary to say &quot;may contain&quot;.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: POME_MT010100NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: COCT_MT220100NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
-     * attribute is 'mandatory' because the distinction between 
-     * &quot;does/must contain&quot; and &quot;does/must not 
-     * contain&quot; is essential.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: COCT_MT220200NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
-     * attribute is 'mandatory' because the distinction between 
-     * &quot;does/must contain&quot; and &quot;does/must not 
-     * contain&quot; is essential.</p>
      * 
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
@@ -226,9 +226,73 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
      * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.Ingredient.negationInd</p>
+     * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -245,7 +309,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.Ingredient.negationInd</p>
+     * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -256,70 +320,6 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must contain&quot; and &quot;does/must not 
      * contain&quot; is essential, however in some circumstances it 
      * is necessary to say &quot;may contain&quot;.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: POME_MT010040NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: POME_MT010100NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: COCT_MT220100NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
-     * attribute is 'mandatory' because the distinction between 
-     * &quot;does/must contain&quot; and &quot;does/must not 
-     * contain&quot; is essential.</p>
-     * 
-     * <p>An indication that a drug does not contain the specified 
-     * ingredient (active or inactive).</p>
-     * 
-     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
-     * 
-     * <p>Relationship: COCT_MT220200NB.Ingredient.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Useful for filtering searches. Allows providers to search 
-     * for drugs not containing a specific active ingredients or 
-     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
-     * attribute is 'mandatory' because the distinction between 
-     * &quot;does/must contain&quot; and &quot;does/must not 
-     * contain&quot; is essential.</p>
      * 
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
@@ -330,48 +330,9 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.Ingredient.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>CompoundIngredient.amount(numerator)</p>
-     * 
-     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
-     * .1mg/1mg)</p>
-     * 
-     * <p>ZPC.4(quantity)</p>
-     * 
-     * <p>ZPC.5(unit)</p>
-     * 
-     * <p>ZPJ1.4(quantity)</p>
-     * 
-     * <p>ZPJ1.5(unit)</p>
-     * 
-     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
-     * 
-     * <p>ZCP.3</p>
-     * 
-     * <p>ZDU.4.3</p>
-     * 
-     * <p>ZDU.6.1.2</p>
-     * 
-     * <p>Compound.448-ED (quantity)</p>
-     * 
-     * <p>Compound.451-EG (unit)</p>
-     * 
-     * <p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p>
-     * 
-     * <p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p>
-     * 
-     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
-     * 
-     * <p>Relationship: COCT_MT220210NB.Ingredient.quantity</p>
+     * <p>Relationship: POME_MT010040CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -410,46 +371,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Ingredient.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>CompoundIngredient.amount(numerator)</p>
-     * 
-     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
-     * .1mg/1mg)</p>
-     * 
-     * <p>ZPC.4(quantity)</p>
-     * 
-     * <p>ZPC.5(unit)</p>
-     * 
-     * <p>ZPJ1.4(quantity)</p>
-     * 
-     * <p>ZPJ1.5(unit)</p>
-     * 
-     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
-     * 
-     * <p>ZCP.3</p>
-     * 
-     * <p>ZDU.4.3</p>
-     * 
-     * <p>ZDU.6.1.2</p>
-     * 
-     * <p>Compound.448-ED (quantity)</p>
-     * 
-     * <p>Compound.451-EG (unit)</p>
-     * 
-     * <p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p>
-     * 
-     * <p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p>
-     * 
-     * <p>Un-merged Business Name: IngredientQuantity</p>
-     * 
-     * <p>Relationship: POME_MT010100NB.Ingredient.quantity</p>
+     * <p>Relationship: POME_MT010100CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -488,7 +410,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220100NB.Ingredient.quantity</p>
+     * <p>Relationship: COCT_MT220100CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -527,7 +449,85 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220200NB.Ingredient.quantity</p>
+     * <p>Relationship: COCT_MT220200CA.Ingredient.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p>
+     * 
+     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
+     * .1mg/1mg)</p>
+     * 
+     * <p>ZPC.4(quantity)</p>
+     * 
+     * <p>ZPC.5(unit)</p>
+     * 
+     * <p>ZPJ1.4(quantity)</p>
+     * 
+     * <p>ZPJ1.5(unit)</p>
+     * 
+     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
+     * 
+     * <p>ZCP.3</p>
+     * 
+     * <p>ZDU.4.3</p>
+     * 
+     * <p>ZDU.6.1.2</p>
+     * 
+     * <p>Compound.448-ED (quantity)</p>
+     * 
+     * <p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Ingredient.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p>
+     * 
+     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
+     * .1mg/1mg)</p>
+     * 
+     * <p>ZPC.4(quantity)</p>
+     * 
+     * <p>ZPC.5(unit)</p>
+     * 
+     * <p>ZPJ1.4(quantity)</p>
+     * 
+     * <p>ZPJ1.5(unit)</p>
+     * 
+     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
+     * 
+     * <p>ZCP.3</p>
+     * 
+     * <p>ZDU.4.3</p>
+     * 
+     * <p>ZDU.6.1.2</p>
+     * 
+     * <p>Compound.448-ED (quantity)</p>
+     * 
+     * <p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -570,48 +570,9 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.Ingredient.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>CompoundIngredient.amount(numerator)</p>
-     * 
-     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
-     * .1mg/1mg)</p>
-     * 
-     * <p>ZPC.4(quantity)</p>
-     * 
-     * <p>ZPC.5(unit)</p>
-     * 
-     * <p>ZPJ1.4(quantity)</p>
-     * 
-     * <p>ZPJ1.5(unit)</p>
-     * 
-     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
-     * 
-     * <p>ZCP.3</p>
-     * 
-     * <p>ZDU.4.3</p>
-     * 
-     * <p>ZDU.6.1.2</p>
-     * 
-     * <p>Compound.448-ED (quantity)</p>
-     * 
-     * <p>Compound.451-EG (unit)</p>
-     * 
-     * <p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p>
-     * 
-     * <p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p>
-     * 
-     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
-     * 
-     * <p>Relationship: COCT_MT220210NB.Ingredient.quantity</p>
+     * <p>Relationship: POME_MT010040CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -650,46 +611,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Ingredient.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>CompoundIngredient.amount(numerator)</p>
-     * 
-     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
-     * .1mg/1mg)</p>
-     * 
-     * <p>ZPC.4(quantity)</p>
-     * 
-     * <p>ZPC.5(unit)</p>
-     * 
-     * <p>ZPJ1.4(quantity)</p>
-     * 
-     * <p>ZPJ1.5(unit)</p>
-     * 
-     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
-     * 
-     * <p>ZCP.3</p>
-     * 
-     * <p>ZDU.4.3</p>
-     * 
-     * <p>ZDU.6.1.2</p>
-     * 
-     * <p>Compound.448-ED (quantity)</p>
-     * 
-     * <p>Compound.451-EG (unit)</p>
-     * 
-     * <p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p>
-     * 
-     * <p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p>
-     * 
-     * <p>Un-merged Business Name: IngredientQuantity</p>
-     * 
-     * <p>Relationship: POME_MT010100NB.Ingredient.quantity</p>
+     * <p>Relationship: POME_MT010100CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -728,7 +650,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220100NB.Ingredient.quantity</p>
+     * <p>Relationship: COCT_MT220100CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -767,7 +689,85 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
-     * <p>Relationship: COCT_MT220200NB.Ingredient.quantity</p>
+     * <p>Relationship: COCT_MT220200CA.Ingredient.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p>
+     * 
+     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
+     * .1mg/1mg)</p>
+     * 
+     * <p>ZPC.4(quantity)</p>
+     * 
+     * <p>ZPC.5(unit)</p>
+     * 
+     * <p>ZPJ1.4(quantity)</p>
+     * 
+     * <p>ZPJ1.5(unit)</p>
+     * 
+     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
+     * 
+     * <p>ZCP.3</p>
+     * 
+     * <p>ZDU.4.3</p>
+     * 
+     * <p>ZDU.6.1.2</p>
+     * 
+     * <p>Compound.448-ED (quantity)</p>
+     * 
+     * <p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Ingredient.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p>
+     * 
+     * <p>CompoundIngredient.proportionOfFinal(e.g. 10% = 
+     * .1mg/1mg)</p>
+     * 
+     * <p>ZPC.4(quantity)</p>
+     * 
+     * <p>ZPC.5(unit)</p>
+     * 
+     * <p>ZPJ1.4(quantity)</p>
+     * 
+     * <p>ZPJ1.5(unit)</p>
+     * 
+     * <p>ZPJ1.6(e.g. 10% = .1mg/1mg)</p>
+     * 
+     * <p>ZCP.3</p>
+     * 
+     * <p>ZDU.4.3</p>
+     * 
+     * <p>ZDU.6.1.2</p>
+     * 
+     * <p>Compound.448-ED (quantity)</p>
+     * 
+     * <p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Ingredient.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -812,39 +812,39 @@ public class DrugContainsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.Ingredient.ingredient</p>
+     * <p>Relationship: POME_MT010040CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.Ingredient.ingredient</p>
+     * <p>Relationship: POME_MT010100CA.Ingredient.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Ingredient.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Ingredient.ingredient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POME_MT010100NB.Ingredient.ingredient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT220100NB.Ingredient.ingredient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT220200NB.Ingredient.ingredient</p>
+     * <p>Relationship: COCT_MT220210CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Ingredient.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"ingredient"})
     public DrugIngredientsBean getIngredient() {
@@ -854,39 +854,39 @@ public class DrugContainsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT220110NB.Ingredient.ingredient</p>
+     * <p>Relationship: POME_MT010040CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT220210NB.Ingredient.ingredient</p>
+     * <p>Relationship: POME_MT010100CA.Ingredient.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Ingredient.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POME_MT010040NB.Ingredient.ingredient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POME_MT010100NB.Ingredient.ingredient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT220100NB.Ingredient.ingredient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT220200NB.Ingredient.ingredient</p>
+     * <p>Relationship: COCT_MT220210CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Ingredient.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setIngredient(DrugIngredientsBean ingredient) {
         this.ingredient = ingredient;

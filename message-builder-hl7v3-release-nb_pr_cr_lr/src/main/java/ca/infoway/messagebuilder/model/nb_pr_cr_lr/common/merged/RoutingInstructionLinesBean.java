@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: RoutingInstructionLines</p>
  * 
- * <p>MCCI_MT002100NB.AttentionLine: Routing Instruction Lines</p>
+ * <p>MCCI_MT102001CA.AttentionLine: Routing Instruction Lines</p>
  * 
  * <p>Allows direction of messages within complex applications. 
  * This association is optional because not all applications 
@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides information on how the message should be routed 
  * within the receiving application.</p>
  * 
- * <p>MCCI_MT002300NB.AttentionLine: Routing Instruction Lines</p>
+ * <p>MCCI_MT002300CA.AttentionLine: Routing Instruction Lines</p>
  * 
  * <p>Allows direction of messages within complex applications. 
  * This association is optional because not all applications 
@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides information on how the message should be routed 
  * within the receiving application.</p>
  * 
- * <p>MCCI_MT102001NB.AttentionLine: Routing Instruction Lines</p>
+ * <p>MCCI_MT002100CA.AttentionLine: Routing Instruction Lines</p>
  * 
  * <p>Allows direction of messages within complex applications. 
  * This association is optional because not all applications 
@@ -58,10 +58,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides information on how the message should be routed 
  * within the receiving application.</p>
  */
-@Hl7PartTypeMapping({"MCCI_MT002100NB.AttentionLine","MCCI_MT002300NB.AttentionLine","MCCI_MT102001NB.AttentionLine"})
+@Hl7PartTypeMapping({"MCCI_MT002100CA.AttentionLine","MCCI_MT002300CA.AttentionLine","MCCI_MT102001CA.AttentionLine"})
 public class RoutingInstructionLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private ST keyWordText = new STImpl();
     private ST value = new STImpl();
 
@@ -71,7 +71,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingType</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.AttentionLine.keyWordText</p>
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -84,7 +84,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingType</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AttentionLine.keyWordText</p>
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -97,7 +97,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingType</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.AttentionLine.keyWordText</p>
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -118,7 +118,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingType</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.AttentionLine.keyWordText</p>
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -131,7 +131,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingType</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AttentionLine.keyWordText</p>
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -144,7 +144,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingType</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.AttentionLine.keyWordText</p>
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingName</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.AttentionLine.value</p>
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -175,7 +175,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingName</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AttentionLine.value</p>
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -185,7 +185,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingName</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.AttentionLine.value</p>
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -203,7 +203,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingName</p>
      * 
-     * <p>Relationship: MCCI_MT002100NB.AttentionLine.value</p>
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -213,7 +213,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingName</p>
      * 
-     * <p>Relationship: MCCI_MT002300NB.AttentionLine.value</p>
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -223,7 +223,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: RoutingName</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.AttentionLine.value</p>
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

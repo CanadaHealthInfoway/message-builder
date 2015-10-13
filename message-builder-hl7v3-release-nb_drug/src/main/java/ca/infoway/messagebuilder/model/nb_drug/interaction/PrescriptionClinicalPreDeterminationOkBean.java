@@ -22,13 +22,13 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700222ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010640NB: Prescription clinical 
+ * <p>Business Name: PORX_IN010640CA: Prescription clinical 
  * pre-determination ok</p>
  * 
  * <p>Indicates that the specified issues were found in 
@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7Message
  * simple response that does not require any significant 
  * processing.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700222NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010640NB"})
+@Hl7PartTypeMapping({"PORX_IN010640CA"})
 public class PrescriptionClinicalPreDeterminationOkBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

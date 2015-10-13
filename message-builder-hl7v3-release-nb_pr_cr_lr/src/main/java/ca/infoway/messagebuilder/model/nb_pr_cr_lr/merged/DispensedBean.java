@@ -23,14 +23,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220200nb.DrugProductBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220200ca.DrugProductBean;
 
 
 
 /**
  * <p>Business Name: Dispensed</p>
  * 
- * <p>PORX_MT020070NB.Product2: *e:dispensed</p>
+ * <p>PORX_MT020070CA.Product2: *e:dispensed</p>
  * 
  * <p>Identifies the drug as part of the patient's medication 
  * profile. The drug is one of the most important parts of the 
@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220200nb.DrugPr
  * provides information on compound ingredients and 
  * instructions and packaging requirements</p>
  * 
- * <p>PORX_MT020050NB.Product2: *c:dispensed</p>
+ * <p>PORX_MT020050CA.Product2: *c:dispensed</p>
  * 
  * <p>The drug being supplied must be identified and and is 
  * therefore mandatory.</p>
@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220200nb.DrugPr
  * provides information on compound ingredients and 
  * instructions and packaging requirements</p>
  * 
- * <p>COCT_MT260010NB.Product: *a:dispensed</p>
+ * <p>COCT_MT260010CA.Product: *a:dispensed</p>
  * 
  * <p>Important information for issue management.</p><p>The 
  * association is marked as populated because it may be 
@@ -57,35 +57,35 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt220200nb.DrugPr
  * 
  * <p>Indicates the drug that was dispensed</p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010NB.Product","COCT_MT260020NB.Product","PORX_MT020050NB.Product2","PORX_MT020070NB.Product2"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.Product","COCT_MT260020CA.Product","PORX_MT020050CA.Product2","PORX_MT020070CA.Product2"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private DrugProductBean medication;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.Product.medication</p>
+     * <p>Relationship: COCT_MT260020CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.Product2.medication</p>
+     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020050NB.Product2.medication</p>
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Product.medication</p>
+     * <p>Relationship: COCT_MT260010CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -97,25 +97,25 @@ public class DispensedBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020NB.Product.medication</p>
+     * <p>Relationship: COCT_MT260020CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.Product2.medication</p>
+     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020050NB.Product2.medication</p>
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010NB.Product.medication</p>
+     * <p>Relationship: COCT_MT260010CA.Product.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

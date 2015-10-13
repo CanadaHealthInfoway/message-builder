@@ -22,31 +22,31 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000004nb.AllergyIntoleranceQueryParametersBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000005nb.AllergyIntoleranceBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000004ca.AllergyIntoleranceQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000005ca.AllergyIntoleranceBean;
 
 
 
 /**
- * <p>Business Name: REPC_IN000016NB: Patient 
+ * <p>Business Name: REPC_IN000016CA: Patient 
  * allergy/intolerance query response</p>
  * 
  * <p>Returns the details of one or more allergy and 
  * intolerance records.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000005NB.IntoleranceCondition</p>
+ * <p>--> Payload: REPC_MT000005CA.IntoleranceCondition</p>
  * 
- * <p>--> Payload: REPC_MT000004NB.ParameterList</p>
+ * <p>--> Payload: REPC_MT000004CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"REPC_IN000016NB"})
+@Hl7PartTypeMapping({"REPC_IN000016CA"})
 public class PatientAllergyIntoleranceQueryResponseBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean,AllergyIntoleranceQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

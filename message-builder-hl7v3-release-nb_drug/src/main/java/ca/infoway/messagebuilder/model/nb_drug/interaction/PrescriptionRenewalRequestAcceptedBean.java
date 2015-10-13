@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700221nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020nb.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700221ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020ca.ReferencedRecordBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010730NB: Prescription renewal 
+ * <p>Business Name: PORX_IN010730CA: Prescription renewal 
  * request accepted</p>
  * 
  * <p>Indicates that the requested prescription has been 
  * renewed by a new prescription, referenced by identifier.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700221NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700221CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990020NB.ActRequest</p>
+ * <p>--> Payload: PORX_MT990020CA.ActRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010730NB"})
+@Hl7PartTypeMapping({"PORX_IN010730CA"})
 public class PrescriptionRenewalRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

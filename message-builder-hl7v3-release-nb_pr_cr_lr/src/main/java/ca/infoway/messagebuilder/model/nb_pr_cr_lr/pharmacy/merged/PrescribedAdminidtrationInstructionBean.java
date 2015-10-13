@@ -31,10 +31,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.SubstanceAdminist
 
 
 
-@Hl7PartTypeMapping({"PORX_MT030040NB.AdministrationInstructions","PORX_MT060100NB.AdministrationInstructions"})
+@Hl7PartTypeMapping({"PORX_MT030040CA.AdministrationInstructions","PORX_MT060100CA.AdministrationInstructions"})
 public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
@@ -45,13 +45,13 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.AdministrationInstructions.code</p>
+     * PORX_MT060100CA.AdministrationInstructions.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
+     * Mandatory</p>
      * 
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
@@ -59,13 +59,13 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060100NB.AdministrationInstructions.code</p>
+     * PORX_MT030040CA.AdministrationInstructions.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
-     * Mandatory</p>
+     * Mandatory.</p>
      * 
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
@@ -81,13 +81,13 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.AdministrationInstructions.code</p>
+     * PORX_MT060100CA.AdministrationInstructions.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
+     * Mandatory</p>
      * 
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
@@ -95,13 +95,13 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060100NB.AdministrationInstructions.code</p>
+     * PORX_MT030040CA.AdministrationInstructions.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
-     * Mandatory</p>
+     * Mandatory.</p>
      * 
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
@@ -117,29 +117,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.AdministrationInstructions.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
-     * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.AdministrationInstructions.text</p>
+     * PORX_MT060100CA.AdministrationInstructions.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -155,6 +133,28 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * space allocated, a string such as &quot;Complex dose&quot; 
      * or &quot;Scaling dose&quot; or something similar should be 
      * sent. Dosage instructions should never be truncated.</p>
+     * 
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
+     * 
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -174,29 +174,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
-     * PORX_MT030040NB.AdministrationInstructions.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
-     * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100NB.AdministrationInstructions.text</p>
+     * PORX_MT060100CA.AdministrationInstructions.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -212,6 +190,28 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * space allocated, a string such as &quot;Complex dose&quot; 
      * or &quot;Scaling dose&quot; or something similar should be 
      * sent. Dosage instructions should never be truncated.</p>
+     * 
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
+     * 
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 

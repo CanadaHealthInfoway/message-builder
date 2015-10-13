@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActCareProvisionRequestType;
 import ca.infoway.messagebuilder.domainvalue.x_ActStatusActiveComplete;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt240007nb.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt240007ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.BecauseOfIndicationsBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,7 +44,7 @@ import java.util.List;
 /**
  * <p>Business Name: Referral</p>
  * 
- * <p>REPC_MT210003NB.PatientCareProvisionRequest: C:Referral</p>
+ * <p>REPC_MT210002CA.PatientCareProvisionRequest: C:Referral</p>
  * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
@@ -52,7 +52,7 @@ import java.util.List;
  * <p>Discrete information about the type of care being 
  * requested.</p>
  * 
- * <p>REPC_MT210002NB.PatientCareProvisionRequest: C:Referral</p>
+ * <p>REPC_MT210001CA.PatientCareProvisionRequest: C:Referral</p>
  * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
@@ -60,7 +60,7 @@ import java.util.List;
  * <p>Discrete information about the type of care being 
  * requested.</p>
  * 
- * <p>REPC_MT210001NB.PatientCareProvisionRequest: C:Referral</p>
+ * <p>REPC_MT210003CA.PatientCareProvisionRequest: C:Referral</p>
  * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
@@ -68,10 +68,10 @@ import java.util.List;
  * <p>Discrete information about the type of care being 
  * requested.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT210001NB.PatientCareProvisionRequest","REPC_MT210002NB.PatientCareProvisionRequest","REPC_MT210003NB.PatientCareProvisionRequest"})
+@Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionRequest","REPC_MT210002CA.PatientCareProvisionRequest","REPC_MT210003CA.PatientCareProvisionRequest"})
 public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -88,7 +88,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.PatientCareProvisionRequest.code</p>
+     * REPC_MT210002CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -111,7 +111,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.PatientCareProvisionRequest.code</p>
+     * REPC_MT210001CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -134,7 +134,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.PatientCareProvisionRequest.code</p>
+     * REPC_MT210003CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.PatientCareProvisionRequest.code</p>
+     * REPC_MT210002CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.PatientCareProvisionRequest.code</p>
+     * REPC_MT210001CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -211,7 +211,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.PatientCareProvisionRequest.code</p>
+     * REPC_MT210003CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -242,7 +242,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.PatientCareProvisionRequest.statusCode</p>
+     * REPC_MT210002CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -267,7 +267,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.PatientCareProvisionRequest.statusCode</p>
+     * REPC_MT210001CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -292,7 +292,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.PatientCareProvisionRequest.statusCode</p>
+     * REPC_MT210003CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -325,7 +325,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.PatientCareProvisionRequest.statusCode</p>
+     * REPC_MT210002CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -350,7 +350,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.PatientCareProvisionRequest.statusCode</p>
+     * REPC_MT210001CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -375,7 +375,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.PatientCareProvisionRequest.statusCode</p>
+     * REPC_MT210003CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -408,7 +408,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.PatientCareProvisionRequest.effectiveTime</p>
+     * REPC_MT210002CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -426,7 +426,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.PatientCareProvisionRequest.effectiveTime</p>
+     * REPC_MT210001CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -444,7 +444,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.PatientCareProvisionRequest.effectiveTime</p>
+     * REPC_MT210003CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -470,7 +470,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.PatientCareProvisionRequest.effectiveTime</p>
+     * REPC_MT210002CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -488,7 +488,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.PatientCareProvisionRequest.effectiveTime</p>
+     * REPC_MT210001CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -506,7 +506,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.PatientCareProvisionRequest.effectiveTime</p>
+     * REPC_MT210003CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -529,19 +529,19 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Performer.assignedEntity</p>
+     * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Performer.assignedEntity</p>
+     * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Performer.assignedEntity</p>
+     * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -553,19 +553,19 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Performer.assignedEntity</p>
+     * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Performer.assignedEntity</p>
+     * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Performer.assignedEntity</p>
+     * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -578,21 +578,21 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.Location3.serviceDeliveryLocation</p>
+     * REPC_MT210002CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.Location3.serviceDeliveryLocation</p>
+     * REPC_MT210001CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.Location3.serviceDeliveryLocation</p>
+     * REPC_MT210003CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -605,21 +605,21 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.Location3.serviceDeliveryLocation</p>
+     * REPC_MT210002CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.Location3.serviceDeliveryLocation</p>
+     * REPC_MT210001CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.Location3.serviceDeliveryLocation</p>
+     * REPC_MT210003CA.Location3.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -631,19 +631,19 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT210002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT210001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT210003CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */
@@ -656,19 +656,19 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Component8.actRequest</p>
+     * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Component8.actRequest</p>
+     * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Component8.actRequest</p>
+     * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -680,19 +680,19 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003NB.Component8.actRequest</p>
+     * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002NB.Component8.actRequest</p>
+     * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001NB.Component8.actRequest</p>
+     * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -705,21 +705,21 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * REPC_MT210002CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * REPC_MT210001CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * REPC_MT210003CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -732,21 +732,21 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210003NB.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * REPC_MT210002CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002NB.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * REPC_MT210001CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210001NB.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * REPC_MT210003CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

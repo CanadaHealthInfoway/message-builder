@@ -22,37 +22,37 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120008nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt004999nb.ResultInstancePayloadChoice;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt310000nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120008ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt004999ca.ResultInstancePayloadChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt310000ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: POLB_IN364006NB: Results Query Response 
+ * <p>Business Name: POLB_IN364006CA: Results Query Response 
  * Provider or Location</p>
  * 
  * <p>This interaction is used in response to a lab result 
  * query, by location or provider.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120008NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT004999NB.ResultInstancePayloadChoice</p>
+ * <p>--> Payload: POLB_MT004999CA.ResultInstancePayloadChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT004000NB.ResultChoice</p>
+ * <p>----> Payload Choice: POLB_MT004000CA.ResultChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT004100NB.ObservationReport</p>
+ * <p>----> Payload Choice: POLB_MT004100CA.ObservationReport</p>
  * 
- * <p>----> Payload Choice: POLB_MT004200NB.ObservationChoice</p>
+ * <p>----> Payload Choice: POLB_MT004200CA.ObservationChoice</p>
  * 
- * <p>--> Payload: POLB_MT310000NB.ParameterList</p>
+ * <p>--> Payload: POLB_MT310000CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POLB_IN364006NB"})
+@Hl7PartTypeMapping({"POLB_IN364006CA"})
 public class ResultsQueryResponseProviderOrLocationBean extends HL7MessageBean<TriggerEventBean<ResultInstancePayloadChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

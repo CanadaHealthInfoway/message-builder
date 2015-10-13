@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700717nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101002nb.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mfmi_mt700717ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101002ca.IdentifiedPersonBean;
 
 
 
 /**
- * <p>Business Name: PRPA_IN101004NB: Resolve Duplicate Person 
+ * <p>Business Name: PRPA_IN101004CA: Resolve Duplicate Person 
  * Registrations</p>
  * 
  * <p>A person registry sends this notification after resolving 
@@ -41,15 +41,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.cr.prpa_mt101002nb.Identified
  * &quot;&quot;obsolete&quot;&quot;). A copy of the surviving 
  * person record is sent in the payload message.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MFMI_MT700717NB.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700717CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101002NB.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101002CA.IdentifiedEntity</p>
  */
-@Hl7PartTypeMapping({"PRPA_IN101004NB"})
+@Hl7PartTypeMapping({"PRPA_IN101004CA"})
 public class ResolveDuplicatePersonRegistrationsBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

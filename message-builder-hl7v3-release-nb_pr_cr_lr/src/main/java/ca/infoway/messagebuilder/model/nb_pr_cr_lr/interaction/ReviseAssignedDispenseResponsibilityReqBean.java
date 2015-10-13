@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt010140nb.DispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt010140ca.DispenseInstructionsBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010100NB: Revise assigned dispense 
+ * <p>Business Name: PORX_IN010100CA: Revise assigned dispense 
  * responsibility req.</p>
  * 
  * <p>Requests that the responsibility for fulfilling the 
@@ -41,15 +41,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt010140nb.Disp
  * responsibility has been transferred to a facility outside 
  * the list of registered facilities.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700211NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT010140NB.SupplyRequest</p>
+ * <p>--> Payload: PORX_MT010140CA.SupplyRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010100NB"})
+@Hl7PartTypeMapping({"PORX_IN010100CA"})
 public class ReviseAssignedDispenseResponsibilityReqBean extends HL7MessageBean<TriggerEventBean<DispenseInstructionsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

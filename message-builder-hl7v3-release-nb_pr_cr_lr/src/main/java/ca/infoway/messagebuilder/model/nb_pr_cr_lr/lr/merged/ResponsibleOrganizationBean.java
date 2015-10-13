@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: ResponsibleOrganization</p>
  * 
- * <p>PRLO_MT202015NB.Organization: B:Responsible Organization</p>
+ * <p>PRLO_MT000002CA.Organization: B:Responsible Organization</p>
  * 
  * <p>To provide additional information regarding the 
  * management and administration of the service delivery 
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The organization responsible for the operations of the 
  * service delivery location.</p>
  * 
- * <p>PRLO_MT000002NB.Organization: B:Responsible Organization</p>
+ * <p>PRLO_MT202015CA.Organization: B:Responsible Organization</p>
  * 
  * <p>To provide additional information regarding the 
  * management and administration of the service delivery 
@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The organization responsible for the operations of the 
  * service delivery location.</p>
  * 
- * <p>PRLO_MT202014NB.Organization: B:Responsible Organization</p>
+ * <p>PRLO_MT202014CA.Organization: B:Responsible Organization</p>
  * 
  * <p>To provide additional information regarding the 
  * management and administration of the service delivery 
@@ -61,10 +61,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The organization responsible for the operations of the 
  * service delivery location.</p>
  */
-@Hl7PartTypeMapping({"PRLO_MT000002NB.Organization","PRLO_MT202014NB.Organization","PRLO_MT202015NB.Organization"})
+@Hl7PartTypeMapping({"PRLO_MT000002CA.Organization","PRLO_MT202014CA.Organization","PRLO_MT202015CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
@@ -75,7 +75,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.Organization.id</p>
+     * <p>Relationship: PRLO_MT000002CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -93,7 +93,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Organization.id</p>
+     * <p>Relationship: PRLO_MT202015CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -111,7 +111,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Organization.id</p>
+     * <p>Relationship: PRLO_MT202014CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -137,7 +137,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.Organization.id</p>
+     * <p>Relationship: PRLO_MT000002CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -155,7 +155,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Organization.id</p>
+     * <p>Relationship: PRLO_MT202015CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -173,7 +173,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Organization.id</p>
+     * <p>Relationship: PRLO_MT202014CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -198,7 +198,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.Organization.name</p>
+     * <p>Relationship: PRLO_MT000002CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -210,7 +210,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Organization.name</p>
+     * <p>Relationship: PRLO_MT202015CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -222,7 +222,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Organization.name</p>
+     * <p>Relationship: PRLO_MT202014CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -242,7 +242,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.Organization.name</p>
+     * <p>Relationship: PRLO_MT000002CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -254,7 +254,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.Organization.name</p>
+     * <p>Relationship: PRLO_MT202015CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -266,7 +266,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.Organization.name</p>
+     * <p>Relationship: PRLO_MT202014CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

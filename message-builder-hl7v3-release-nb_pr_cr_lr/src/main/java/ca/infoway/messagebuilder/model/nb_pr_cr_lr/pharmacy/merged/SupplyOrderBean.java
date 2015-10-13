@@ -31,14 +31,20 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090108nb.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.PrescribedByBean;
 import java.util.Set;
 
 
 
 /**
- * <p>PORX_MT020050NB.SupplyRequest: Supply Order</p>
+ * <p>PORX_MT060020CA.SupplyRequest: Prescription Reference</p>
+ * 
+ * <p>Links a dispense with its parent prescription.</p>
+ * 
+ * <p>A reference to the prescription order being dispensed</p>
+ * 
+ * <p>PORX_MT020050CA.SupplyRequest: Supply Order</p>
  * 
  * <p>Ensures that dispenses to offices (non-patient 
  * identifiable dispenses) follow the normal dispensing 
@@ -47,97 +53,15 @@ import java.util.Set;
  * <p>Identification of the supply information. This 
  * prescription will have a supply order portion but no 
  * administration part.</p>
- * 
- * <p>PORX_MT060020NB.SupplyRequest: Prescription Reference</p>
- * 
- * <p>Links a dispense with its parent prescription.</p>
- * 
- * <p>A reference to the prescription order being dispensed</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020050NB.SupplyRequest","PORX_MT060020NB.SupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private static final long serialVersionUID = 20151013L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020050NB.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060020NB.ResponsibleParty2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020050NB.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060020NB.ResponsibleParty2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020050NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020050NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private PrescribedByBean author;
 
 
     /**
@@ -145,7 +69,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.id</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
@@ -170,7 +94,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.statusCode</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -189,7 +113,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
-     * <p>Relationship: PORX_MT060020NB.SupplyRequest.statusCode</p>
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -200,6 +124,82 @@ public class SupplyOrderBean extends MessagePartBean {
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
     }
 
 }

@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.domainvalue.ActCareEventType;
 import ca.infoway.messagebuilder.domainvalue.EncounterDischargeDisposition;
 import ca.infoway.messagebuilder.domainvalue.x_ActStatusActiveComplete;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt240007nb.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt240007ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.BecauseOfIndicationsBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,7 +50,7 @@ import java.util.List;
 /**
  * <p>Business Name: DischargeCareSummaryReport</p>
  * 
- * <p>REPC_MT220003NB.PatientCareProvisionEvent: B: 
+ * <p>REPC_MT220001CA.PatientCareProvisionEvent: B: 
  * Discharge/Care Summary Report</p>
  * 
  * <p>Provides contextual overview information for searching 
@@ -60,7 +60,7 @@ import java.util.List;
  * other event for which the discharge or care report is being 
  * written.</p>
  * 
- * <p>REPC_MT220002NB.PatientCareProvisionEvent: B: 
+ * <p>REPC_MT220002CA.PatientCareProvisionEvent: B: 
  * Discharge/Care Summary Report</p>
  * 
  * <p>Provides contextual overview information for searching 
@@ -70,7 +70,7 @@ import java.util.List;
  * other event for which the discharge or care report is being 
  * written.</p>
  * 
- * <p>REPC_MT220001NB.PatientCareProvisionEvent: B: 
+ * <p>REPC_MT220003CA.PatientCareProvisionEvent: B: 
  * Discharge/Care Summary Report</p>
  * 
  * <p>Provides contextual overview information for searching 
@@ -80,10 +80,10 @@ import java.util.List;
  * other event for which the discharge or care report is being 
  * written.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT220001NB.PatientCareProvisionEvent","REPC_MT220002NB.PatientCareProvisionEvent","REPC_MT220003NB.PatientCareProvisionEvent"})
+@Hl7PartTypeMapping({"REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class PatientCareProvisionEventBean extends MessagePartBean implements DocumentContent_2 {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -101,7 +101,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.id</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -114,7 +114,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.id</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -127,7 +127,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.id</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -148,7 +148,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.id</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -161,7 +161,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.id</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -174,7 +174,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.id</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -195,7 +195,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.code</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -221,7 +221,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.code</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -247,7 +247,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.code</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -281,7 +281,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.code</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -307,7 +307,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.code</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -333,7 +333,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.code</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -367,7 +367,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -388,7 +388,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -409,7 +409,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -438,7 +438,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -459,7 +459,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -480,7 +480,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -509,7 +509,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -526,7 +526,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -543,7 +543,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -568,7 +568,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -585,7 +585,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -602,7 +602,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -627,7 +627,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -643,7 +643,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -659,7 +659,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -683,7 +683,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220001CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -699,7 +699,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -715,7 +715,7 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -737,21 +737,21 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.Location2.serviceDeliveryLocation</p>
+     * REPC_MT220001CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.Location2.serviceDeliveryLocation</p>
+     * REPC_MT220002CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.Location2.serviceDeliveryLocation</p>
+     * REPC_MT220003CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -764,21 +764,21 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003NB.Location2.serviceDeliveryLocation</p>
+     * REPC_MT220001CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002NB.Location2.serviceDeliveryLocation</p>
+     * REPC_MT220002CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220001NB.Location2.serviceDeliveryLocation</p>
+     * REPC_MT220003CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -790,19 +790,19 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.Outcome.conditionEvent</p>
+     * <p>Relationship: REPC_MT220001CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.Outcome.conditionEvent</p>
+     * <p>Relationship: REPC_MT220002CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.Outcome.conditionEvent</p>
+     * <p>Relationship: REPC_MT220003CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -815,19 +815,19 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220001CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -839,19 +839,19 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220001CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -863,19 +863,19 @@ public class PatientCareProvisionEventBean extends MessagePartBean implements Do
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220001NB.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220003CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */

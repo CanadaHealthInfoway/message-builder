@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000012nb.Choice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.iehr.repc_mt000012ca.Choice;
 import java.util.Date;
 
 
@@ -33,7 +33,7 @@ import java.util.Date;
 /**
  * <p>Business Name: ReportedBy</p>
  * 
- * <p>REPC_MT000001NB.Informant: d:reported by</p>
+ * <p>REPC_MT000005CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -43,7 +43,7 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
- * <p>REPC_MT000013NB.Informant: d:reported by</p>
+ * <p>REPC_MT000001CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -53,7 +53,7 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
- * <p>REPC_MT000012NB.Informant: d:reported by</p>
+ * <p>REPC_MT000013CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -63,7 +63,7 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
- * <p>REPC_MT000002NB.Informant: d:reported by</p>
+ * <p>REPC_MT000006CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -73,7 +73,7 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
- * <p>REPC_MT000009NB.Informant: d:reported by</p>
+ * <p>REPC_MT000012CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -83,7 +83,7 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
- * <p>REPC_MT000006NB.Informant: d:reported by</p>
+ * <p>REPC_MT000009CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -93,7 +93,7 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
- * <p>REPC_MT000005NB.Informant: d:reported by</p>
+ * <p>REPC_MT000002CA.Informant: d:reported by</p>
  * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance.</p>
@@ -103,10 +103,10 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001NB.Informant","REPC_MT000002NB.Informant","REPC_MT000005NB.Informant","REPC_MT000006NB.Informant","REPC_MT000009NB.Informant","REPC_MT000012NB.Informant","REPC_MT000013NB.Informant"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private TS time = new TSImpl();
     private Party party;
     private Choice choice;
@@ -115,7 +115,7 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000005CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -128,19 +128,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.Informant.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for establishment of timelines between reaction 
-     * onset date, reported date and recorded date, and is 
-     * therefore mandatory.</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Un-merged Business Name: ReportedDate</p>
-     * 
-     * <p>Relationship: REPC_MT000013NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000001CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -153,19 +141,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.Informant.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Un-merged Business Name: ReportedDate</p>
-     * 
-     * <p>Relationship: REPC_MT000009NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000013CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -178,7 +154,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedTimestamp</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000006CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -190,7 +166,19 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000012CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for establishment of timelines between reaction 
+     * onset date, reported date and recorded date, and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -200,6 +188,18 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -209,7 +209,7 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000005CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -222,19 +222,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.Informant.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for establishment of timelines between reaction 
-     * onset date, reported date and recorded date, and is 
-     * therefore mandatory.</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Un-merged Business Name: ReportedDate</p>
-     * 
-     * <p>Relationship: REPC_MT000013NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000001CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -247,19 +235,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.Informant.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Un-merged Business Name: ReportedDate</p>
-     * 
-     * <p>Relationship: REPC_MT000009NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000013CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -272,7 +248,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedTimestamp</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000006CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -284,7 +260,19 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReportedDate</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Informant.time</p>
+     * <p>Relationship: REPC_MT000012CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for establishment of timelines between reaction 
+     * onset date, reported date and recorded date, and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -294,6 +282,18 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -303,37 +303,37 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000005CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000001CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000013CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000006CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000009CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000002CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -345,37 +345,37 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000005CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000001CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000013CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000006CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000009CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.Informant.party</p>
+     * <p>Relationship: REPC_MT000002CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -387,7 +387,7 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.Informant.choice</p>
+     * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -399,7 +399,7 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.Informant.choice</p>
+     * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

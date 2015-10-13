@@ -22,28 +22,28 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020002nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt310000nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt020002ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt310000ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: POLB_IN354005NB: Request Query Results 
+ * <p>Business Name: POLB_IN354005CA: Request Query Results 
  * Provider or Location</p>
  * 
  * <p>This interaction is used to query lab results from a lab 
  * system, by location or provider.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020002NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT310000NB.ParameterList</p>
+ * <p>--> Payload: POLB_MT310000CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POLB_IN354005NB"})
+@Hl7PartTypeMapping({"POLB_IN354005CA"})
 public class RequestQueryResultsProviderOrLocationBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

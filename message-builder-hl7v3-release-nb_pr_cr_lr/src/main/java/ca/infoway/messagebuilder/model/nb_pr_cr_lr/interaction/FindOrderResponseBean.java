@@ -22,36 +22,36 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt001999nb.RequestChoice;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt330000nb.ParameterListBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt001999ca.RequestChoice;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.lab.polb_mt330000ca.ParameterListBean;
 
 
 
 /**
- * <p>Business Name: POLB_IN361000NB: Find Order Response</p>
+ * <p>Business Name: POLB_IN361000CA: Find Order Response</p>
  * 
  * <p>This interaction is used in response to a lab order 
  * query.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT120006NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT001999NB.RequestChoice</p>
+ * <p>--> Payload: POLB_MT001999CA.RequestChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT001999NB.PlacerGroup</p>
+ * <p>----> Payload Choice: POLB_MT001999CA.PlacerGroup</p>
  * 
- * <p>----> Payload Choice: POLB_MT001999NB.BatteryRequest</p>
+ * <p>----> Payload Choice: POLB_MT001999CA.BatteryRequest</p>
  * 
- * <p>----> Payload Choice: POLB_MT001999NB.ObservationRequest</p>
+ * <p>----> Payload Choice: POLB_MT001999CA.ObservationRequest</p>
  * 
- * <p>--> Payload: POLB_MT330000NB.ParameterList</p>
+ * <p>--> Payload: POLB_MT330000CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POLB_IN361000NB"})
+@Hl7PartTypeMapping({"POLB_IN361000CA"})
 public class FindOrderResponseBean extends HL7MessageBean<TriggerEventBean<RequestChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

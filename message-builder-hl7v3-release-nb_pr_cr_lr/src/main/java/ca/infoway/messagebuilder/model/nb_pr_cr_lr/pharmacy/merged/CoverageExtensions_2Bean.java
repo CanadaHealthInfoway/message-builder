@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.CarrierRoleBean;
 /**
  * <p>Business Name: CoverageExtensions</p>
  * 
- * <p>PORX_MT060160NB.Coverage: Coverage Extensions</p>
+ * <p>PORX_MT060160CA.Coverage: Coverage Extensions</p>
  * 
  * <p>Allows conveying special coverage information between 
  * providers.</p>
@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.CarrierRoleBean;
  * <p>An authorization issued by a payor to cover a drug not 
  * previously covered by a patient's drug plan.</p>
  * 
- * <p>PORX_MT060340NB.Coverage: Coverage Extensions</p>
+ * <p>PORX_MT060340CA.Coverage: Coverage Extensions</p>
  * 
  * <p>Allows conveying special coverage information between 
  * providers.</p>
@@ -52,10 +52,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.merged.CarrierRoleBean;
  * <p>An authorization issued by a payor to cover a drug not 
  * previously covered by a patient's drug plan.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060160NB.Coverage","PORX_MT060340NB.Coverage"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.Coverage","PORX_MT060340CA.Coverage"})
 public class CoverageExtensions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CarrierRoleBean authorCarrierRole;
@@ -66,7 +66,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT060160CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -79,7 +79,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT060340CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -100,7 +100,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT060160CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -113,7 +113,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Coverage.moodCode</p>
+     * <p>Relationship: PORX_MT060340CA.Coverage.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -134,7 +134,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT060160CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -149,7 +149,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT060340CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -172,7 +172,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT060160CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -187,7 +187,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Coverage.id</p>
+     * <p>Relationship: PORX_MT060340CA.Coverage.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -208,13 +208,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author2.carrierRole</p>
+     * <p>Relationship: PORX_MT060160CA.Author2.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author2.carrierRole</p>
+     * <p>Relationship: PORX_MT060340CA.Author2.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -226,13 +226,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.Author2.carrierRole</p>
+     * <p>Relationship: PORX_MT060160CA.Author2.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.Author2.carrierRole</p>
+     * <p>Relationship: PORX_MT060340CA.Author2.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

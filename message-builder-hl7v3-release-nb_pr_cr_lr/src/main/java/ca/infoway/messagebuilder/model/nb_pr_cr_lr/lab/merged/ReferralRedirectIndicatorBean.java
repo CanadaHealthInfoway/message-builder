@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReferralRedirectI
 /**
  * <p>Business Name: ReferralRedirectIndicator</p>
  * 
- * <p>POLB_MT001001NB.ReferralRedirectIndicator: Referral 
+ * <p>POLB_MT001000CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
  * <p>OLIS needs a flag at the ObservationRequest level test 
@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReferralRedirectI
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
  * 
- * <p>POLB_MT001000NB.ReferralRedirectIndicator: Referral 
+ * <p>POLB_MT001001CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
  * <p>OLIS needs a flag at the ObservationRequest level test 
@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReferralRedirectI
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
  * 
- * <p>POLB_MT001010NB.ReferralRedirectIndicator: Referral 
+ * <p>POLB_MT001999CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
  * <p>OLIS needs a flag at the ObservationRequest level test 
@@ -83,7 +83,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReferralRedirectI
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
  * 
- * <p>POLB_MT001999NB.ReferralRedirectIndicator: Referral 
+ * <p>POLB_MT001010CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
  * <p>OLIS needs a flag at the ObservationRequest level test 
@@ -100,10 +100,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.ReferralRedirectI
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT001000NB.ReferralRedirectIndicator","POLB_MT001001NB.ReferralRedirectIndicator","POLB_MT001010NB.ReferralRedirectIndicator","POLB_MT001999NB.ReferralRedirectIndicator"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.ReferralRedirectIndicator","POLB_MT001001CA.ReferralRedirectIndicator","POLB_MT001010CA.ReferralRedirectIndicator","POLB_MT001999CA.ReferralRedirectIndicator"})
 public class ReferralRedirectIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
 
 
@@ -113,7 +113,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001000NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001000CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -123,7 +123,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001001NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -133,7 +133,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001010NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001010CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -143,7 +143,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001999NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -161,7 +161,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001000NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001000CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -171,7 +171,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001001NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -181,7 +181,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001010NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001010CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,7 +191,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
-     * POLB_MT001999NB.ReferralRedirectIndicator.code</p>
+     * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

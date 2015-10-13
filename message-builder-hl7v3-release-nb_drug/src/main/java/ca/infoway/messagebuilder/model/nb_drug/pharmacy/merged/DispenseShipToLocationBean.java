@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: DispenseShipToLocation</p>
  * 
- * <p>PORX_MT060160NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT060160CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  * 
- * <p>PORX_MT060040NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT060040CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  * 
- * <p>PORX_MT020070NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT060340CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  * 
- * <p>PORX_MT020060NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT020070CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -68,7 +68,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  * 
- * <p>PORX_MT060090NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT020060CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -77,7 +77,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  * 
- * <p>PORX_MT060010NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT060090CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -86,7 +86,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  * 
- * <p>PORX_MT060340NB.ServiceDeliveryLocation: Dispense Ship-To 
+ * <p>PORX_MT060010CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
  * <p>Important as part of a claim for justifying shipping 
@@ -95,10 +95,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>The location where the dispensed product is expected to 
  * be delivered.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010110NB.ServiceDeliveryLocation","PORX_MT010120NB.ServiceDeliveryLocation","PORX_MT020060NB.ServiceDeliveryLocation","PORX_MT020070NB.ServiceDeliveryLocation","PORX_MT060010NB.ServiceDeliveryLocation","PORX_MT060040NB.ServiceDeliveryLocation","PORX_MT060040NB.ServiceDeliveryLocation2","PORX_MT060090NB.ServiceDeliveryLocation","PORX_MT060160NB.ServiceDeliveryLocation","PORX_MT060160NB.ServiceDeliveryLocation2","PORX_MT060340NB.ServiceDeliveryLocation","PORX_MT060340NB.ServiceDeliveryLocation2"})
+@Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2"})
 public class DispenseShipToLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private AD addr = new ADImpl();
 
 
@@ -106,7 +106,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -118,19 +118,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +130,37 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.ServiceDeliveryLocation2.addr</p>
+     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -157,7 +175,31 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020060NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -169,7 +211,46 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -180,87 +261,6 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates the location the dispensed device should be 
      * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.ServiceDeliveryLocation2.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060090NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.ServiceDeliveryLocation2.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -271,7 +271,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -283,19 +283,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -307,7 +295,37 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040NB.ServiceDeliveryLocation2.addr</p>
+     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -322,7 +340,31 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020060NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -334,7 +376,46 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110NB.ServiceDeliveryLocation.addr</p>
+     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -345,87 +426,6 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates the location the dispensed device should be 
      * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.ServiceDeliveryLocation2.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060090NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.ServiceDeliveryLocation2.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060340NB.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);

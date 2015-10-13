@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020nb.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020ca.ReferencedRecordBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010440NB: Suspend prescription 
+ * <p>Business Name: PORX_IN010440CA: Suspend prescription 
  * request</p>
  * 
  * <p>Requests that the specified prescription be 
@@ -40,15 +40,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020nb.Referenc
  * processed. Any other state will result in a rejection 
  * message from the DIS.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990020NB.ActRequest</p>
+ * <p>--> Payload: PORX_MT990020CA.ActRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010440NB"})
+@Hl7PartTypeMapping({"PORX_IN010440CA"})
 public class SuspendPrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

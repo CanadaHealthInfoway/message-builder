@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT610001NB.OldProcedureEvent","REPC_MT610002NB.OldProcedureEvent"})
+@Hl7PartTypeMapping({"REPC_MT610001CA.OldProcedureEvent","REPC_MT610002CA.OldProcedureEvent"})
 public class OldProcedureEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,7 +41,7 @@ public class OldProcedureEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.OldProcedureEvent.id</p>
+     * <p>Relationship: REPC_MT610002CA.OldProcedureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -63,7 +63,7 @@ public class OldProcedureEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.OldProcedureEvent.id</p>
+     * <p>Relationship: REPC_MT610001CA.OldProcedureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -93,7 +93,7 @@ public class OldProcedureEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT610002NB.OldProcedureEvent.id</p>
+     * <p>Relationship: REPC_MT610002CA.OldProcedureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -115,7 +115,7 @@ public class OldProcedureEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.OldProcedureEvent.id</p>
+     * <p>Relationship: REPC_MT610001CA.OldProcedureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

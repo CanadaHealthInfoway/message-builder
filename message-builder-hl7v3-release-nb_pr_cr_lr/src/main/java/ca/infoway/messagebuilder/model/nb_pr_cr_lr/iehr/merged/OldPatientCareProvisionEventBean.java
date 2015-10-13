@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT500001NB.OldPatientCareProvisionEvent","REPC_MT500003NB.OldPatientCareProvisionEvent","REPC_MT500004NB.OldPatientCareProvisionEvent"})
+@Hl7PartTypeMapping({"REPC_MT500001CA.OldPatientCareProvisionEvent","REPC_MT500003CA.OldPatientCareProvisionEvent","REPC_MT500004CA.OldPatientCareProvisionEvent"})
 public class OldPatientCareProvisionEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -42,7 +42,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500001NB.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500001CA.OldPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -65,7 +65,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500003NB.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.OldPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -88,7 +88,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004NB.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.OldPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -119,7 +119,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500001NB.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500001CA.OldPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,7 +142,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500003NB.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.OldPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004NB.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.OldPatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

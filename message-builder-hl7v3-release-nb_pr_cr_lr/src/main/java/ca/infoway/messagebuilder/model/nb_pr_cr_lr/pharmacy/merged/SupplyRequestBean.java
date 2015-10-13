@@ -41,7 +41,7 @@ import java.util.Date;
 
 
 /**
- * <p>PORX_MT020070NB.SupplyRequest: (no business name)</p>
+ * <p>PORX_MT020070CA.SupplyRequest: (no business name)</p>
  * 
  * <p>Important in understanding the patient's treatment. May 
  * also be required by the EHR repository.</p>
@@ -49,7 +49,7 @@ import java.util.Date;
  * <p>Additional information about the prescription being 
  * fulfilled.</p>
  * 
- * <p>PORX_MT020060NB.SupplyRequest2: (no business name)</p>
+ * <p>PORX_MT020060CA.SupplyRequest2: (no business name)</p>
  * 
  * <p>Important in understanding the patient's treatment. May 
  * also be required by the EHR repository.</p>
@@ -57,269 +57,15 @@ import java.util.Date;
  * <p>Additional information about the prescription being 
  * fulfilled.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020060NB.SupplyRequest2","PORX_MT020070NB.SupplyRequest","PORX_MT060190NB.SupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT020060CA.SupplyRequest2","PORX_MT020070CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class SupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
-    private INT repeatNumber = new INTImpl();
-    private PQ quantity = new PQImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20151013L;
     private CS statusCode = new CSImpl();
+    private PQ quantity = new PQImpl();
     private TargetedToPharmacyBean location;
-
-
-    /**
-     * <p>Business Name: NumberOfAuthorizedFills</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
-     * 
-     * <p>Relationship: PORX_MT020070NB.SupplyRequest.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Regulation prevents this number from being calculated in 
-     * some jurisdictions.</p>
-     * 
-     * <p>Records the total number of fills authorized</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
-     * 
-     * <p>Relationship: PORX_MT020060NB.SupplyRequest2.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Regulation prevents this number from being calculated in 
-     * some jurisdictions.</p>
-     * 
-     * <p>Records the total number of fills authorized</p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getRepeatNumber() {
-        return this.repeatNumber.getValue();
-    }
-
-    /**
-     * <p>Business Name: NumberOfAuthorizedFills</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
-     * 
-     * <p>Relationship: PORX_MT020070NB.SupplyRequest.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Regulation prevents this number from being calculated in 
-     * some jurisdictions.</p>
-     * 
-     * <p>Records the total number of fills authorized</p>
-     * 
-     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
-     * 
-     * <p>Relationship: PORX_MT020060NB.SupplyRequest2.repeatNumber</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Regulation prevents this number from being calculated in 
-     * some jurisdictions.</p>
-     * 
-     * <p>Records the total number of fills authorized</p>
-     */
-    public void setRepeatNumber(Integer repeatNumber) {
-        this.repeatNumber.setValue(repeatNumber);
-    }
-
-
-    /**
-     * <p>Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT020070NB.SupplyRequest.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Critical in understanding the patient's medication 
-     * profile, both past and current. This also allows 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT020060NB.SupplyRequest2.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Critical in understanding the patient's profile, both 
-     * past and current. This also allows determination of the 
-     * amount that remains to be dispensed against the 
-     * prescription.</p>
-     * 
-     * <p>The overall amount to be dispensed under this 
-     * prescription. Includes the initial standard fill plus all 
-     * refills</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-
-    /**
-     * <p>Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT020070NB.SupplyRequest.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Critical in understanding the patient's medication 
-     * profile, both past and current. This also allows 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT020060NB.SupplyRequest2.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Critical in understanding the patient's profile, both 
-     * past and current. This also allows determination of the 
-     * amount that remains to be dispensed against the 
-     * prescription.</p>
-     * 
-     * <p>The overall amount to be dispensed under this 
-     * prescription. Includes the initial standard fill plus all 
-     * refills</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
-     */
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
-    }
-
-
-    /**
-     * <p>Business Name: TotalDaysSupply</p>
-     * 
-     * <p>Un-merged Business Name: TotalDaysSupply</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020070NB.SupplyRequest.expectedUseTime</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy').</p><p>As it should always be known and for the 
-     * reasons cited, the attribute is Mandatory.</p>
-     * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p>
-     * 
-     * <p>Un-merged Business Name: TotalDaysSupply</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020060NB.SupplyRequest2.expectedUseTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy').</p>
-     * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getExpectedUseTime() {
-        return this.expectedUseTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: TotalDaysSupply</p>
-     * 
-     * <p>Un-merged Business Name: TotalDaysSupply</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020070NB.SupplyRequest.expectedUseTime</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy').</p><p>As it should always be known and for the 
-     * reasons cited, the attribute is Mandatory.</p>
-     * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p>
-     * 
-     * <p>Un-merged Business Name: TotalDaysSupply</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020060NB.SupplyRequest2.expectedUseTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy').</p>
-     * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p>
-     */
-    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
-        this.expectedUseTime.setValue(expectedUseTime);
-    }
+    private INT repeatNumber = new INTImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -327,7 +73,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.statusCode</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -352,7 +98,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.statusCode</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -373,9 +119,121 @@ public class SupplyRequestBean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.SupplyRequest2.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Critical in understanding the patient's profile, both 
+     * past and current. This also allows determination of the 
+     * amount that remains to be dispensed against the 
+     * prescription.</p>
+     * 
+     * <p>The overall amount to be dispensed under this 
+     * prescription. Includes the initial standard fill plus all 
+     * refills</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+
+    /**
+     * <p>Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.SupplyRequest2.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Critical in understanding the patient's profile, both 
+     * past and current. This also allows determination of the 
+     * amount that remains to be dispensed against the 
+     * prescription.</p>
+     * 
+     * <p>The overall amount to be dispensed under this 
+     * prescription. Includes the initial standard fill plus all 
+     * refills</p>
+     */
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
+    }
+
+
+    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.location</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -387,12 +245,154 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190NB.SupplyRequest.location</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>Business Name: NumberOfAuthorizedFills</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Regulation prevents this number from being calculated in 
+     * some jurisdictions.</p>
+     * 
+     * <p>Records the total number of fills authorized</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.SupplyRequest2.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Regulation prevents this number from being calculated in 
+     * some jurisdictions.</p>
+     * 
+     * <p>Records the total number of fills authorized</p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
+    }
+
+    /**
+     * <p>Business Name: NumberOfAuthorizedFills</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Regulation prevents this number from being calculated in 
+     * some jurisdictions.</p>
+     * 
+     * <p>Records the total number of fills authorized</p>
+     * 
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.SupplyRequest2.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Regulation prevents this number from being calculated in 
+     * some jurisdictions.</p>
+     * 
+     * <p>Records the total number of fills authorized</p>
+     */
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
+    }
+
+
+    /**
+     * <p>Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy').</p><p>As it should always be known and for the 
+     * reasons cited, the attribute is Mandatory.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.SupplyRequest2.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
+    }
+
+    /**
+     * <p>Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy').</p><p>As it should always be known and for the 
+     * reasons cited, the attribute is Mandatory.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.SupplyRequest2.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
+     */
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

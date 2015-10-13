@@ -6,9 +6,9 @@ Build-Jdk: 1.6.0_45
 Implementation-Title: message-builder-hl7v3-release-nb_drug
 Implementation-Vendor-Id: ca.infoway.messagebuilder
 Application-Name: message-builder-hl7v3-release-nb_drug
-Implementation-Build-Date: 2015-09-01_10-47-42
-Implementation-Version: 2.1.1
+Implementation-Build-Date: 2015-10-13_11-01-36
+Implementation-Version: 2.1.2-SNAPSHOT
 MBT-Message-Set: /messageSet_nb_drug.xml
 MBT-Model-Version-Numbers: V01R04_3_NB
-MBT-Version: 2.1.1
+MBT-Version: 2.1.2-SNAPSHOT
 

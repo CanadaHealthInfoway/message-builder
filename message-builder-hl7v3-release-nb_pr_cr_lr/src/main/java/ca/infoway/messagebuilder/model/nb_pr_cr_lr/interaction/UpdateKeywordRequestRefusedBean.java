@@ -22,25 +22,25 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700236nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300nb.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700236ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 /**
- * <p>Business Name: RCMR_IN010005NB: Update keyword request 
+ * <p>Business Name: RCMR_IN010005CA: Update keyword request 
  * refused</p>
  * 
  * <p>Indicates that the request to revise the patient's 
  * keyword has been refused.</p>
  * 
- * <p>Message: MCCI_MT002300NB.Message</p>
+ * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700236NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700236CA.ControlActEvent</p>
  */
-@Hl7PartTypeMapping({"RCMR_IN010005NB"})
+@Hl7PartTypeMapping({"RCMR_IN010005CA"})
 public class UpdateKeywordRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

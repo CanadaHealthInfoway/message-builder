@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Substitution</p>
  * 
- * <p>PORX_MT060160NB.SubstitutionMade: Substitution</p>
+ * <p>PORX_MT060160CA.SubstitutionMade: Substitution</p>
  * 
  * <p>May explain why prescribed and dispensed medications 
  * differ.</p>
@@ -41,34 +41,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>An indication of what kind of substitution made, if 
  * any.</p>
  * 
- * <p>PORX_MT020070NB.SubstitutionMade: Substitution</p>
+ * <p>PORX_MT060090CA.SubstitutionMade: Substitution</p>
+ * 
+ * <p>May explain why prescribed and dispensed medications 
+ * differ.</p>
+ * 
+ * <p>An indication of what kind of substitution made, if 
+ * any.</p>
+ * 
+ * <p>PORX_MT060340CA.SubstitutionMade: Substitution</p>
+ * 
+ * <p>May explain why prescribed and dispensed medications 
+ * differ.</p>
+ * 
+ * <p>An indication of what kind of substitution made, if 
+ * any.</p>
+ * 
+ * <p>PORX_MT020070CA.SubstitutionMade: Substitution</p>
  * 
  * <p>May explain why prescribed and dispensed medications may 
  * differ.</p>
  * 
  * <p>An indication of what kind of substitution was made, if 
  * any.</p>
- * 
- * <p>PORX_MT060340NB.SubstitutionMade: Substitution</p>
- * 
- * <p>May explain why prescribed and dispensed medications 
- * differ.</p>
- * 
- * <p>An indication of what kind of substitution made, if 
- * any.</p>
- * 
- * <p>PORX_MT060090NB.SubstitutionMade: Substitution</p>
- * 
- * <p>May explain why prescribed and dispensed medications 
- * differ.</p>
- * 
- * <p>An indication of what kind of substitution made, if 
- * any.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020070NB.SubstitutionMade","PORX_MT060090NB.SubstitutionMade","PORX_MT060160NB.SubstitutionMade","PORX_MT060340NB.SubstitutionMade"})
+@Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
@@ -79,7 +79,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -92,7 +92,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -105,7 +105,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -118,7 +118,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -139,7 +139,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,7 +152,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -165,7 +165,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -178,7 +178,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.SubstitutionMade.code</p>
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -195,9 +195,33 @@ public class SubstitutionBean extends MessagePartBean {
 
 
     /**
+     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
      * <p>Un-merged Business Name: ProductSelectionCode</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.SubstitutionMade.reasonCode</p>
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>Un-merged Business Name: ProductSelectionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -209,7 +233,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.SubstitutionMade.reasonCode</p>
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -218,30 +242,6 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Indicates the reason for the substitution of (or lack of 
      * substitution) from what was prescribed.</p>
-     * 
-     * <p>Un-merged Business Name: ProductSelectionCode</p>
-     * 
-     * <p>Relationship: PORX_MT060340NB.SubstitutionMade.reasonCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Standardized reasons for substitution performed (or not 
-     * performed). Useful in analysis of dispensing patterns.</p>
-     * 
-     * <p>Indicates the reason for the substitution of (or failure 
-     * to substitute) the medication from what was prescribed.</p>
-     * 
-     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
-     * 
-     * <p>Relationship: PORX_MT060090NB.SubstitutionMade.reasonCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Standardized reasons for substitution performed (or not 
-     * performed). Useful in analysis of dispensing patterns.</p>
-     * 
-     * <p>Indicates the reason for the substitution of (or failure 
-     * to substitute) the medication from what was prescribed.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionReason getReasonCode() {
@@ -249,9 +249,33 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
     /**
+     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
      * <p>Un-merged Business Name: ProductSelectionCode</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.SubstitutionMade.reasonCode</p>
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>Un-merged Business Name: ProductSelectionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -263,7 +287,7 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.SubstitutionMade.reasonCode</p>
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -272,30 +296,6 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Indicates the reason for the substitution of (or lack of 
      * substitution) from what was prescribed.</p>
-     * 
-     * <p>Un-merged Business Name: ProductSelectionCode</p>
-     * 
-     * <p>Relationship: PORX_MT060340NB.SubstitutionMade.reasonCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Standardized reasons for substitution performed (or not 
-     * performed). Useful in analysis of dispensing patterns.</p>
-     * 
-     * <p>Indicates the reason for the substitution of (or failure 
-     * to substitute) the medication from what was prescribed.</p>
-     * 
-     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
-     * 
-     * <p>Relationship: PORX_MT060090NB.SubstitutionMade.reasonCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Standardized reasons for substitution performed (or not 
-     * performed). Useful in analysis of dispensing patterns.</p>
-     * 
-     * <p>Indicates the reason for the substitution of (or failure 
-     * to substitute) the medication from what was prescribed.</p>
      */
     public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
@@ -305,25 +305,25 @@ public class SubstitutionBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -335,25 +335,25 @@ public class SubstitutionBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060090NB.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

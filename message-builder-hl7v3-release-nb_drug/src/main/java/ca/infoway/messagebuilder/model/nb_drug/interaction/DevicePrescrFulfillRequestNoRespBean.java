@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010110nb.PrescriptionBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt010110ca.PrescriptionBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010940NB: Device prescr. fulfill 
+ * <p>Business Name: PORX_IN010940CA: Device prescr. fulfill 
  * request (no resp.)</p>
  * 
  * <p>Requests that the specified facility dispense the device 
  * prescription transmitted by this interaction and does not 
  * expect a response interaction</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700220NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT010110NB.DeviceRequest</p>
+ * <p>--> Payload: PORX_MT010110CA.DeviceRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010940NB"})
+@Hl7PartTypeMapping({"PORX_IN010940CA"})
 public class DevicePrescrFulfillRequestNoRespBean extends HL7MessageBean<TriggerEventBean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

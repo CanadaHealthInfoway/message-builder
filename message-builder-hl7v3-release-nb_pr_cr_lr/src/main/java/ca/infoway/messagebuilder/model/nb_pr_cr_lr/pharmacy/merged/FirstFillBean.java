@@ -37,7 +37,7 @@ import java.util.Date;
 /**
  * <p>Business Name: FirstFill</p>
  * 
- * <p>PORX_MT060340NB.InitialSupplyRequest: First Fill</p>
+ * <p>PORX_MT060160CA.InitialSupplyRequest: First Fill</p>
  * 
  * <p>Allows a different amount to be dispensed on an initial 
  * fill, either as a trial or to synchronize refill dates 
@@ -46,16 +46,7 @@ import java.util.Date;
  * <p>Special instructions regarding the very first supply of 
  * medication to a patient.</p>
  * 
- * <p>PORX_MT060160NB.InitialSupplyRequest: First Fill</p>
- * 
- * <p>Allows a different amount to be dispensed on an initial 
- * fill, either as a trial or to synchronize refill dates 
- * across multiple patient prescriptions</p>
- * 
- * <p>Special instructions regarding the very first supply of 
- * medication to a patient.</p>
- * 
- * <p>PORX_MT010120NB.InitialSupplyRequest: First Fill</p>
+ * <p>PORX_MT010120CA.InitialSupplyRequest: First Fill</p>
  * 
  * <p>Allows a different amount to be dispensed on an initial 
  * fill, either as a trial or to synchronize refill dates 
@@ -63,11 +54,20 @@ import java.util.Date;
  * 
  * <p>Special instructions regarding the very first supply of 
  * medication to a patient.</p>
+ * 
+ * <p>PORX_MT060340CA.InitialSupplyRequest: First Fill</p>
+ * 
+ * <p>Allows a different amount to be dispensed on an initial 
+ * fill, either as a trial or to synchronize refill dates 
+ * across multiple patient prescriptions</p>
+ * 
+ * <p>Special instructions regarding the very first supply of 
+ * medication to a patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120NB.InitialSupplyRequest","PORX_MT060160NB.InitialSupplyRequest","PORX_MT060340NB.InitialSupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT010120CA.InitialSupplyRequest","PORX_MT060160CA.InitialSupplyRequest","PORX_MT060340CA.InitialSupplyRequest"})
 public class FirstFillBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
@@ -79,25 +79,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.InitialSupplyRequest.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Some jurisdictions have distinct stale-date periods for 
-     * the initial fill of a prescription from the overall 
-     * dispensing of the prescription. E.g. 'The first fill must be 
-     * made within 1 year, all fills must be complete within 1.5 
-     * years'. (This attribute would be used for the '1 year'.)</p>
-     * 
-     * <p>The date before which an initial dispense can be made 
-     * against the prescription. If an initial fill has not been 
-     * made against the prescription in this time-period, it may 
-     * not be dispensed.</p>
-     * 
-     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.InitialSupplyRequest.effectiveTime</p>
+     * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -116,7 +98,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.InitialSupplyRequest.effectiveTime</p>
+     * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -132,6 +114,24 @@ public class FirstFillBean extends MessagePartBean {
      * been made against the prescription in this time-period, then 
      * the prescription is no longer deemed valid and it may not be 
      * dispensed.</p>
+     * 
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have distinct stale-date periods for 
+     * the initial fill of a prescription from the overall 
+     * dispensing of the prescription. E.g. 'The first fill must be 
+     * made within 1 year, all fills must be complete within 1.5 
+     * years'. (This attribute would be used for the '1 year'.)</p>
+     * 
+     * <p>The date before which an initial dispense can be made 
+     * against the prescription. If an initial fill has not been 
+     * made against the prescription in this time-period, it may 
+     * not be dispensed.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -144,25 +144,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.InitialSupplyRequest.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Some jurisdictions have distinct stale-date periods for 
-     * the initial fill of a prescription from the overall 
-     * dispensing of the prescription. E.g. 'The first fill must be 
-     * made within 1 year, all fills must be complete within 1.5 
-     * years'. (This attribute would be used for the '1 year'.)</p>
-     * 
-     * <p>The date before which an initial dispense can be made 
-     * against the prescription. If an initial fill has not been 
-     * made against the prescription in this time-period, it may 
-     * not be dispensed.</p>
-     * 
-     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160NB.InitialSupplyRequest.effectiveTime</p>
+     * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -181,7 +163,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.InitialSupplyRequest.effectiveTime</p>
+     * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -197,6 +179,24 @@ public class FirstFillBean extends MessagePartBean {
      * been made against the prescription in this time-period, then 
      * the prescription is no longer deemed valid and it may not be 
      * dispensed.</p>
+     * 
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have distinct stale-date periods for 
+     * the initial fill of a prescription from the overall 
+     * dispensing of the prescription. E.g. 'The first fill must be 
+     * made within 1 year, all fills must be complete within 1.5 
+     * years'. (This attribute would be used for the '1 year'.)</p>
+     * 
+     * <p>The date before which an initial dispense can be made 
+     * against the prescription. If an initial fill has not been 
+     * made against the prescription in this time-period, it may 
+     * not be dispensed.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -209,7 +209,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.InitialSupplyRequest.quantity</p>
+     * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -224,11 +224,9 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.InitialSupplyRequest.quantity</p>
+     * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Prescription.coordinatingAmount</p>
      * 
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
@@ -239,9 +237,11 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.InitialSupplyRequest.quantity</p>
+     * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Prescription.coordinatingAmount</p>
      * 
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
@@ -260,7 +260,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.InitialSupplyRequest.quantity</p>
+     * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -275,11 +275,9 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.InitialSupplyRequest.quantity</p>
+     * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Prescription.coordinatingAmount</p>
      * 
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
@@ -290,9 +288,11 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.InitialSupplyRequest.quantity</p>
+     * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Prescription.coordinatingAmount</p>
      * 
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
@@ -311,7 +311,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.InitialSupplyRequest.expectedUseTime</p>
+     * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -326,7 +326,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.InitialSupplyRequest.expectedUseTime</p>
+     * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -341,7 +341,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.InitialSupplyRequest.expectedUseTime</p>
+     * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -364,7 +364,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.InitialSupplyRequest.expectedUseTime</p>
+     * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -379,7 +379,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.InitialSupplyRequest.expectedUseTime</p>
+     * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -394,7 +394,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120NB.InitialSupplyRequest.expectedUseTime</p>
+     * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

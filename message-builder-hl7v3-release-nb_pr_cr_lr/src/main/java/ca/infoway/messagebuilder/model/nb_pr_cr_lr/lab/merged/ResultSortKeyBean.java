@@ -34,7 +34,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.SCTEMP;
 /**
  * <p>Business Name: ResultSortKey</p>
  * 
- * <p>POLB_MT004200NB.ResultSortKey: Result Sort Key</p>
+ * <p>POLB_MT004000CA.ResultSortKey: Result Sort Key</p>
+ * 
+ * <p>OLIS needs an alphanumeric sort key string to a test 
+ * result to allow a laboratory to provide sorting information 
+ * for test results.</p>
+ * 
+ * <p>String used for sorting of results.</p>
+ * 
+ * <p>POLB_MT004200CA.ResultSortKey: Result Sort Key</p>
  * 
  * <p>This must not be linked at ObservationReport level.</p>
  * 
@@ -43,19 +51,11 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.SCTEMP;
  * for test results.</p>
  * 
  * <p>String used for sorting of results.</p>
- * 
- * <p>POLB_MT004000NB.ResultSortKey: Result Sort Key</p>
- * 
- * <p>OLIS needs an alphanumeric sort key string to a test 
- * result to allow a laboratory to provide sorting information 
- * for test results.</p>
- * 
- * <p>String used for sorting of results.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT004000NB.ResultSortKey","POLB_MT004100NB.ResultSortKey","POLB_MT004200NB.ResultSortKey"})
+@Hl7PartTypeMapping({"POLB_MT004000CA.ResultSortKey","POLB_MT004100CA.ResultSortKey","POLB_MT004200CA.ResultSortKey"})
 public class ResultSortKeyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
@@ -65,7 +65,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyType</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ResultSortKey.code</p>
+     * <p>Relationship: POLB_MT004000CA.ResultSortKey.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -73,19 +73,19 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyType</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ResultSortKey.code</p>
+     * <p>Relationship: POLB_MT004200CA.ResultSortKey.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act as a sort key.</p>
+     * 
+     * <p>Un-merged Business Name: SortKeyType</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ResultSortKey.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Type of observation sort key.</p>
-     * 
-     * <p>Un-merged Business Name: SortKeyType</p>
-     * 
-     * <p>Relationship: POLB_MT004000NB.ResultSortKey.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Describes this act as a sort key.</p>
      */
     @Hl7XmlMapping({"code"})
     public SCTEMP getCode() {
@@ -97,7 +97,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyType</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ResultSortKey.code</p>
+     * <p>Relationship: POLB_MT004000CA.ResultSortKey.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -105,19 +105,19 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyType</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ResultSortKey.code</p>
+     * <p>Relationship: POLB_MT004200CA.ResultSortKey.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act as a sort key.</p>
+     * 
+     * <p>Un-merged Business Name: SortKeyType</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ResultSortKey.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Type of observation sort key.</p>
-     * 
-     * <p>Un-merged Business Name: SortKeyType</p>
-     * 
-     * <p>Relationship: POLB_MT004000NB.ResultSortKey.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Describes this act as a sort key.</p>
      */
     public void setCode(SCTEMP code) {
         this.code.setValue(code);
@@ -129,7 +129,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ResultSortKey.text</p>
+     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -140,13 +140,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: SortKeyText</p>
-     * 
-     * <p>Relationship: POLB_MT004000NB.ResultSortKey.text</p>
+     * <p>Relationship: POLB_MT004200CA.ResultSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -154,6 +148,12 @@ public class ResultSortKeyBean extends MessagePartBean {
      * value.</p>
      * 
      * <p>Value used for sorting results.</p>
+     * 
+     * <p>Un-merged Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -165,7 +165,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT004200NB.ResultSortKey.text</p>
+     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -176,13 +176,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SortKeyText</p>
      * 
-     * <p>Relationship: POLB_MT004100NB.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: SortKeyText</p>
-     * 
-     * <p>Relationship: POLB_MT004000NB.ResultSortKey.text</p>
+     * <p>Relationship: POLB_MT004200CA.ResultSortKey.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -190,6 +184,12 @@ public class ResultSortKeyBean extends MessagePartBean {
      * value.</p>
      * 
      * <p>Value used for sorting results.</p>
+     * 
+     * <p>Un-merged Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_pr_cr_lr.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt020060nb.PrescriptionDispenseBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt020060ca.PrescriptionDispenseBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN020060NB: Record device dispense 
+ * <p>Business Name: PORX_IN020060CA: Record device dispense 
  * processing request</p>
  * 
  * <p>Requests that the device dispense processing (drug 
@@ -38,15 +38,15 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.pharmacy.porx_mt020060nb.Pres
  * been performed and the medication is awaiting pickup ne 
  * recorded.</p>
  * 
- * <p>Message: MCCI_MT002100NB.Message</p>
+ * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700210NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT020060NB.DeviceDispense</p>
+ * <p>--> Payload: PORX_MT020060CA.DeviceDispense</p>
  */
-@Hl7PartTypeMapping({"PORX_IN020060NB"})
+@Hl7PartTypeMapping({"PORX_IN020060CA"})
 public class RecordDeviceDispenseProcessingRequestBean extends HL7MessageBean<TriggerEventBean<PrescriptionDispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
 
 }

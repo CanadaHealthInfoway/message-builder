@@ -44,7 +44,7 @@ import java.util.Date;
 /**
  * <p>Business Name: Dispense</p>
  * 
- * <p>PORX_MT980010NB.SupplyEvent: Dispense</p>
+ * <p>PORX_MT980020CA.SupplyEvent: Dispense</p>
  * 
  * <p>Used when the issue pertains to the supply of the drug 
  * rather than the drug itself. E.g. Duplicate pharmacy, refill 
@@ -53,7 +53,7 @@ import java.util.Date;
  * <p>Indicates a particular dispense event that resulted in 
  * the issue.</p>
  * 
- * <p>PORX_MT980020NB.SupplyEvent: Dispense</p>
+ * <p>PORX_MT980010CA.SupplyEvent: Dispense</p>
  * 
  * <p>Used when the issue pertains to the supply of the drug 
  * rather than the drug itself. E.g. Duplicate pharmacy, refill 
@@ -62,10 +62,10 @@ import java.util.Date;
  * <p>Indicates a particular dispense event that resulted in 
  * the issue.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT980010NB.SupplyEvent","PORX_MT980020NB.SupplyEvent"})
+@Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -79,21 +79,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows provider to drill down and retrieve additional 
-     * information about the dispense event for consideration in 
-     * their issue management decision.</p><p>The attribute is 
-     * marked as populated because it may be masked.</p>
-     * 
-     * <p>Unique identifier of the dispensed event that triggered 
-     * the issue.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
-     * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.id</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -103,6 +89,20 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * marked as 'populated' because it may be masked.</p>
      * 
      * <p>Unique identifier of the dispense event that triggered 
+     * the issue.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is 
+     * marked as populated because it may be masked.</p>
+     * 
+     * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
      */
     @Hl7XmlMapping({"id"})
@@ -115,21 +115,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows provider to drill down and retrieve additional 
-     * information about the dispense event for consideration in 
-     * their issue management decision.</p><p>The attribute is 
-     * marked as populated because it may be masked.</p>
-     * 
-     * <p>Unique identifier of the dispensed event that triggered 
-     * the issue.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
-     * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.id</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -139,6 +125,20 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * marked as 'populated' because it may be masked.</p>
      * 
      * <p>Unique identifier of the dispense event that triggered 
+     * the issue.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is 
+     * marked as populated because it may be masked.</p>
+     * 
+     * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
      */
     public void setId(Identifier id) {
@@ -151,7 +151,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.statusCode</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -168,7 +168,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.statusCode</p>
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -193,7 +193,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.statusCode</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -210,7 +210,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: DispenseStatus</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.statusCode</p>
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -235,26 +235,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: DispensedDate</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ZDU.4.5</p>
-     * 
-     * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p>
-     * 
-     * <p>Applications should specify a null flavor of &quot;Not 
-     * Applicable&quot; for dispenses that have not yet been picked 
-     * up.</p>
-     * 
-     * <p>The date and time on which the product was issued to the 
-     * patient.</p>
-     * 
-     * <p>Un-merged Business Name: DispensedDate</p>
-     * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -271,6 +252,25 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>The date and time on which the product was dispensed to 
      * the patient.</p>
+     * 
+     * <p>Un-merged Business Name: DispensedDate</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ZDU.4.5</p>
+     * 
+     * <p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as 'populated' as a 
+     * dispense record may not exist without processing date.</p>
+     * 
+     * <p>Applications should specify a null flavor of &quot;Not 
+     * Applicable&quot; for dispenses that have not yet been picked 
+     * up.</p>
+     * 
+     * <p>The date and time on which the product was issued to the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -282,26 +282,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Un-merged Business Name: DispensedDate</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ZDU.4.5</p>
-     * 
-     * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p>
-     * 
-     * <p>Applications should specify a null flavor of &quot;Not 
-     * Applicable&quot; for dispenses that have not yet been picked 
-     * up.</p>
-     * 
-     * <p>The date and time on which the product was issued to the 
-     * patient.</p>
-     * 
-     * <p>Un-merged Business Name: DispensedDate</p>
-     * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.effectiveTime</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -318,6 +299,25 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>The date and time on which the product was dispensed to 
      * the patient.</p>
+     * 
+     * <p>Un-merged Business Name: DispensedDate</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ZDU.4.5</p>
+     * 
+     * <p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as 'populated' as a 
+     * dispense record may not exist without processing date.</p>
+     * 
+     * <p>Applications should specify a null flavor of &quot;Not 
+     * Applicable&quot; for dispenses that have not yet been picked 
+     * up.</p>
+     * 
+     * <p>The date and time on which the product was issued to the 
+     * patient.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -325,25 +325,10 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>Un-merged Business Name: DispenseMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980010NB.SupplyEvent.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p>
-     * 
      * <p>Un-merged Business Name: DispenseMaskedIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.SupplyEvent.confidentialityCode</p>
+     * PORX_MT980020CA.SupplyEvent.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -352,6 +337,21 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: DispenseMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SupplyEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      */
@@ -361,25 +361,10 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>Un-merged Business Name: DispenseMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT980010NB.SupplyEvent.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p>
-     * 
      * <p>Un-merged Business Name: DispenseMaskedIndicator</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980020NB.SupplyEvent.confidentialityCode</p>
+     * PORX_MT980020CA.SupplyEvent.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -388,6 +373,21 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: DispenseMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SupplyEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      */
@@ -399,13 +399,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -417,13 +417,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -435,13 +435,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.location</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.location</p>
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -453,13 +453,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010NB.SupplyEvent.location</p>
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020NB.SupplyEvent.location</p>
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

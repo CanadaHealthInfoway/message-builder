@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Exposures</p>
  * 
- * <p>REPC_MT000012NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000005CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  * 
- * <p>REPC_MT000006NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000006CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -57,7 +57,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  * 
- * <p>REPC_MT000001NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000001CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -67,7 +67,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  * 
- * <p>REPC_MT000009NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000012CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -77,7 +77,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  * 
- * <p>REPC_MT000013NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000009CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -87,7 +87,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  * 
- * <p>REPC_MT000005NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000013CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -97,7 +97,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  * 
- * <p>REPC_MT000002NB.ExposureEvent: Exposures</p>
+ * <p>REPC_MT000002CA.ExposureEvent: Exposures</p>
  * 
  * <p>Communicates the cause of the adverse reaction.</p>
  * 
@@ -107,10 +107,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * a substance (drug, food, etc) to the patient, Patient coming 
  * into contact with an environmental material, etc.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001NB.ExposureEvent","REPC_MT000002NB.ExposureEvent","REPC_MT000005NB.ExposureEvent","REPC_MT000006NB.ExposureEvent","REPC_MT000009NB.ExposureEvent","REPC_MT000012NB.ExposureEvent","REPC_MT000013NB.ExposureEvent"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV routeCode = new CVImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
@@ -121,7 +121,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -134,7 +134,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -147,7 +147,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -160,7 +160,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -173,7 +173,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -186,7 +186,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -199,7 +199,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -220,7 +220,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -233,7 +233,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -246,7 +246,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -259,7 +259,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -272,7 +272,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -285,7 +285,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000005NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -298,7 +298,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Relationship: REPC_MT000013NB.ExposureEvent.id</p>
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -319,7 +319,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -330,7 +330,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -341,7 +341,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -352,7 +352,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -363,33 +363,33 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Un-merged Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Un-merged Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>routeCode is required if not using SNOMED</p>
-     * 
-     * <p>Helps evaluate the cause of the reaction.</p>
-     * 
-     * <p>The method by which the patient was exposed to the 
-     * substance.</p>
-     * 
-     * <p>Un-merged Business Name: ExposureMethod</p>
-     * 
-     * <p>Relationship: REPC_MT000005NB.ExposureEvent.routeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Helps evaluate the cause of the reaction.</p>
-     * 
-     * <p>The method by which the patient was exposed to the 
-     * substance.</p>
-     * 
-     * <p>Un-merged Business Name: ExposureMethod</p>
-     * 
-     * <p>Relationship: REPC_MT000013NB.ExposureEvent.routeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
@@ -406,7 +406,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000012NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -417,7 +417,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000006NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -428,7 +428,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000001NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -439,7 +439,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000009NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -450,33 +450,33 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ExposureMethod</p>
      * 
-     * <p>Relationship: REPC_MT000002NB.ExposureEvent.routeCode</p>
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Un-merged Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Un-merged Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>routeCode is required if not using SNOMED</p>
-     * 
-     * <p>Helps evaluate the cause of the reaction.</p>
-     * 
-     * <p>The method by which the patient was exposed to the 
-     * substance.</p>
-     * 
-     * <p>Un-merged Business Name: ExposureMethod</p>
-     * 
-     * <p>Relationship: REPC_MT000005NB.ExposureEvent.routeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Helps evaluate the cause of the reaction.</p>
-     * 
-     * <p>The method by which the patient was exposed to the 
-     * substance.</p>
-     * 
-     * <p>Un-merged Business Name: ExposureMethod</p>
-     * 
-     * <p>Relationship: REPC_MT000013NB.ExposureEvent.routeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
@@ -492,75 +492,75 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000012NB.AdministerableMaterial.administerableMaterialKind</p>
+     * REPC_MT000005CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000006NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000001CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.AdministerableMaterial.administerableMaterialKind</p>
+     * REPC_MT000009CA.AdministerableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000002NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000013CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000002CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind","consumable/administrableMaterial/administerableMaterialKind"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000001NB.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000002NB.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000005NB.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000006NB.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000009NB.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000012NB.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000013NB.Consumable"),
-        @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000009NB.AdministerableMaterial"),
-        @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000012NB.AdministerableMaterial"),
-        @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000009NB.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000012NB.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000001NB.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000002NB.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000005NB.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000006NB.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000013NB.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000001NB.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000002NB.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000005NB.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000006NB.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000013NB.MaterialKind")})
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000001CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000002CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000005CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000006CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000009CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000012CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000013CA.Consumable"),
+        @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000009CA.AdministerableMaterial"),
+        @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000012CA.AdministerableMaterial"),
+        @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000009CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000012CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000001CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000002CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000005CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000006CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000013CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000001CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000002CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000005CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000006CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000013CA.MaterialKind")})
     public AgentCategoryBean getConsumableAdministrableMaterialAdministerableMaterialKind() {
         return this.consumableAdministrableMaterialAdministerableMaterialKind;
     }
@@ -569,49 +569,49 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000012NB.AdministerableMaterial.administerableMaterialKind</p>
+     * REPC_MT000005CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000006NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000001NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000001CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000009NB.AdministerableMaterial.administerableMaterialKind</p>
+     * REPC_MT000009CA.AdministerableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000002NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000013CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000013NB.AdministrableMaterial.administerableMaterialKind</p>
+     * REPC_MT000002CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

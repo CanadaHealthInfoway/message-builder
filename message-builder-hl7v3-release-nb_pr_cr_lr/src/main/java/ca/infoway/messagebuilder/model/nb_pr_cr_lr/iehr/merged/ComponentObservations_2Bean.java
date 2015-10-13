@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.CommonCodedClinic
 /**
  * <p>Business Name: ComponentObservations</p>
  * 
- * <p>REPC_MT420001NB.SubObservationEvent: Component 
+ * <p>REPC_MT420003CA.SubObservationEvent: Component 
  * Observations</p>
  * 
  * <p>Not all observations can be expressed as a single code or 
@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.CommonCodedClinic
  * <p>Captures components of a more complex observation, such 
  * as apgar or blood pressure.</p>
  * 
- * <p>REPC_MT420003NB.SubObservationEvent: Component 
+ * <p>REPC_MT420001CA.SubObservationEvent: Component 
  * Observations</p>
  * 
  * <p>Not all observations can be expressed as a single code or 
@@ -51,10 +51,10 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.CommonCodedClinic
  * <p>Captures components of a more complex observation, such 
  * as apgar or blood pressure.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT420001NB.SubObservationEvent","REPC_MT420003NB.SubObservationEvent"})
+@Hl7PartTypeMapping({"REPC_MT420001CA.SubObservationEvent","REPC_MT420003CA.SubObservationEvent"})
 public class ComponentObservations_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CD code = new CDImpl();
     private CD value = new CDImpl();
 
@@ -64,7 +64,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
-     * <p>Relationship: REPC_MT420001NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT420001CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -98,7 +98,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT420003CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -140,7 +140,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
-     * <p>Relationship: REPC_MT420001NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT420001CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -174,7 +174,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.SubObservationEvent.code</p>
+     * <p>Relationship: REPC_MT420003CA.SubObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -216,7 +216,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
-     * <p>Relationship: REPC_MT420001NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT420001CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -244,7 +244,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT420003CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -280,7 +280,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
-     * <p>Relationship: REPC_MT420001NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT420001CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -308,7 +308,7 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.SubObservationEvent.value</p>
+     * <p>Relationship: REPC_MT420003CA.SubObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

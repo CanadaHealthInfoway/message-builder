@@ -39,10 +39,10 @@ import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"MCCI_MT000100NB.Sender","MCCI_MT000200NB.Sender","MCCI_MT000300NB.Sender","MCCI_MT102001NB.Sender"})
+@Hl7PartTypeMapping({"MCCI_MT000100CA.Sender","MCCI_MT000200CA.Sender","MCCI_MT000300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -59,7 +59,20 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Sender.telecom</p>
+     * <p>Relationship: MCCI_MT000300CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Sender.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -72,7 +85,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Sender.telecom</p>
+     * <p>Relationship: MCCI_MT000100CA.Sender.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -85,20 +98,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Sender.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>May be important for sender validation. Usually also the 
-     * address to which responses are sent. This is optional 
-     * because not all environments require network addresses.</p>
-     * 
-     * <p>The network address of the application which sent the 
-     * message.</p>
-     * 
-     * <p>Un-merged Business Name: SendingNetworkAddress</p>
-     * 
-     * <p>Relationship: MCCI_MT000200NB.Sender.telecom</p>
+     * <p>Relationship: MCCI_MT000200CA.Sender.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -119,7 +119,20 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Sender.telecom</p>
+     * <p>Relationship: MCCI_MT000300CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Sender.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -132,7 +145,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Sender.telecom</p>
+     * <p>Relationship: MCCI_MT000100CA.Sender.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -145,20 +158,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Sender.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>May be important for sender validation. Usually also the 
-     * address to which responses are sent. This is optional 
-     * because not all environments require network addresses.</p>
-     * 
-     * <p>The network address of the application which sent the 
-     * message.</p>
-     * 
-     * <p>Un-merged Business Name: SendingNetworkAddress</p>
-     * 
-     * <p>Relationship: MCCI_MT000200NB.Sender.telecom</p>
+     * <p>Relationship: MCCI_MT000200CA.Sender.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -179,7 +179,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -191,7 +191,19 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -210,19 +222,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Because this is the key identifier of where the message 
-     * is intended to go, this attribute is mandatory.</p>
-     * 
-     * <p>The unique identifier of the application or system to 
-     * whom the message is being routed.</p>
-     * 
-     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
-     * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -242,7 +242,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -254,7 +254,19 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -273,19 +285,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Because this is the key identifier of where the message 
-     * is intended to go, this attribute is mandatory.</p>
-     * 
-     * <p>The unique identifier of the application or system to 
-     * whom the message is being routed.</p>
-     * 
-     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
-     * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -305,7 +305,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -316,7 +316,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -327,7 +327,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -338,7 +338,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -357,7 +357,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -368,7 +368,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -379,7 +379,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -390,7 +390,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.name</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -410,7 +410,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -423,7 +423,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -436,7 +436,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -449,7 +449,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -470,7 +470,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -483,7 +483,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -496,7 +496,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -509,7 +509,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.desc</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -529,7 +529,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -541,7 +541,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -553,7 +553,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -565,7 +565,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -585,7 +585,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -597,7 +597,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -609,7 +609,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -621,7 +621,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.existenceTime</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -642,7 +642,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT102001NB.Device1.manufacturerModelName</p>
+     * MCCI_MT000300CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -655,7 +655,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000100NB.Device1.manufacturerModelName</p>
+     * MCCI_MT102001CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -668,7 +668,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Device1.manufacturerModelName</p>
+     * MCCI_MT000100CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -681,7 +681,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Device1.manufacturerModelName</p>
+     * MCCI_MT000200CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -702,7 +702,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT102001NB.Device1.manufacturerModelName</p>
+     * MCCI_MT000300CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -715,7 +715,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000100NB.Device1.manufacturerModelName</p>
+     * MCCI_MT102001CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -728,7 +728,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000300NB.Device1.manufacturerModelName</p>
+     * MCCI_MT000100CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -741,7 +741,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
-     * MCCI_MT000200NB.Device1.manufacturerModelName</p>
+     * MCCI_MT000200CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -761,7 +761,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -773,7 +773,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -785,7 +785,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -797,7 +797,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -817,7 +817,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT000300CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -829,7 +829,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT102001CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -841,7 +841,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT000100CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -853,7 +853,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Device1.softwareName</p>
+     * <p>Relationship: MCCI_MT000200CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -873,7 +873,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -888,7 +888,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -903,7 +903,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -918,7 +918,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -941,7 +941,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -956,7 +956,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -971,7 +971,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -986,7 +986,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Organization1.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Organization1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1009,7 +1009,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1022,7 +1022,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1035,7 +1035,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1048,7 +1048,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1069,7 +1069,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT102001NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT000300CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1082,7 +1082,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000100NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT102001CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1095,7 +1095,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000300NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT000100CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -1108,7 +1108,7 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT000200NB.Place1.id</p>
+     * <p>Relationship: MCCI_MT000200CA.Place1.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: SubLocations</p>
  * 
- * <p>PRLO_MT202014NB.SubLocation: Sub-Locations</p>
+ * <p>PRLO_MT000002CA.SubLocation: Sub-Locations</p>
  * 
  * <p>Allows a more thorough understanding of the capabilities 
  * of the service delivery location, as well as drill-down to 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * the described &quot;parent&quot; service delivery 
  * location.</p>
  * 
- * <p>PRLO_MT000002NB.SubLocation: Sub-Locations</p>
+ * <p>PRLO_MT202015CA.SubLocation: Sub-Locations</p>
  * 
  * <p>Allows a more thorough understanding of the capabilities 
  * of the service delivery location, as well as drill-down to 
@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * the described &quot;parent&quot; service delivery 
  * location.</p>
  * 
- * <p>PRLO_MT202015NB.SubLocation: Sub-Locations</p>
+ * <p>PRLO_MT202014CA.SubLocation: Sub-Locations</p>
  * 
  * <p>Allows a more thorough understanding of the capabilities 
  * of the service delivery location, as well as drill-down to 
@@ -68,10 +68,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * the described &quot;parent&quot; service delivery 
  * location.</p>
  */
-@Hl7PartTypeMapping({"PRLO_MT000002NB.SubLocation","PRLO_MT202014NB.SubLocation","PRLO_MT202015NB.SubLocation"})
+@Hl7PartTypeMapping({"PRLO_MT000002CA.SubLocation","PRLO_MT202014CA.SubLocation","PRLO_MT202015CA.SubLocation"})
 public class SubLocationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST name = new STImpl();
@@ -83,7 +83,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubLocation.id</p>
+     * <p>Relationship: PRLO_MT000002CA.SubLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -96,7 +96,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubLocation.id</p>
+     * <p>Relationship: PRLO_MT202015CA.SubLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -109,7 +109,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubLocation.id</p>
+     * <p>Relationship: PRLO_MT202014CA.SubLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -130,7 +130,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubLocation.id</p>
+     * <p>Relationship: PRLO_MT000002CA.SubLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -143,7 +143,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubLocation.id</p>
+     * <p>Relationship: PRLO_MT202015CA.SubLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -156,7 +156,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubLocation.id</p>
+     * <p>Relationship: PRLO_MT202014CA.SubLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -177,7 +177,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubLocation.code</p>
+     * <p>Relationship: PRLO_MT000002CA.SubLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -192,7 +192,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubLocation.code</p>
+     * <p>Relationship: PRLO_MT202015CA.SubLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -207,7 +207,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubLocation.code</p>
+     * <p>Relationship: PRLO_MT202014CA.SubLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -230,7 +230,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubLocation.code</p>
+     * <p>Relationship: PRLO_MT000002CA.SubLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -245,7 +245,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubLocation.code</p>
+     * <p>Relationship: PRLO_MT202015CA.SubLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -260,7 +260,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubLocation.code</p>
+     * <p>Relationship: PRLO_MT202014CA.SubLocation.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -283,7 +283,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationName</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubLocation.name</p>
+     * <p>Relationship: PRLO_MT000002CA.SubLocation.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -295,7 +295,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationName</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubLocation.name</p>
+     * <p>Relationship: PRLO_MT202015CA.SubLocation.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -307,7 +307,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationName</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubLocation.name</p>
+     * <p>Relationship: PRLO_MT202014CA.SubLocation.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -327,7 +327,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationName</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubLocation.name</p>
+     * <p>Relationship: PRLO_MT000002CA.SubLocation.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -339,7 +339,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationName</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubLocation.name</p>
+     * <p>Relationship: PRLO_MT202015CA.SubLocation.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -351,7 +351,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationName</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubLocation.name</p>
+     * <p>Relationship: PRLO_MT202014CA.SubLocation.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -371,7 +371,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubPlace.code</p>
+     * <p>Relationship: PRLO_MT000002CA.SubPlace.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -386,7 +386,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubPlace.code</p>
+     * <p>Relationship: PRLO_MT202015CA.SubPlace.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -401,7 +401,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubPlace.code</p>
+     * <p>Relationship: PRLO_MT202014CA.SubPlace.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -424,7 +424,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT202014NB.SubPlace.code</p>
+     * <p>Relationship: PRLO_MT000002CA.SubPlace.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -439,7 +439,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT000002NB.SubPlace.code</p>
+     * <p>Relationship: PRLO_MT202015CA.SubPlace.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -454,7 +454,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Relationship: PRLO_MT202015NB.SubPlace.code</p>
+     * <p>Relationship: PRLO_MT202014CA.SubPlace.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

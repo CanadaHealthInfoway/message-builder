@@ -32,33 +32,33 @@ import ca.infoway.messagebuilder.model.nb_pr_cr_lr.domainvalue.FamilyMember;
 /**
  * <p>Business Name: PatientToCoveredPartyPersonalRelationship</p>
  * 
- * <p>FICR_MT610201NB.PersonalRelationship: Patient to covered 
+ * <p>FICR_MT610201CA.PersonalRelationship: Patient to covered 
  * party Personal Relationship</p>
  * 
  * <p>Relationship of covered party to patient</p>
  */
-@Hl7PartTypeMapping({"FICR_MT600201NB.PersonalRelationship","FICR_MT610201NB.PersonalRelationship"})
+@Hl7PartTypeMapping({"FICR_MT600201CA.PersonalRelationship","FICR_MT610201CA.PersonalRelationship"})
 public class PatientToCoveredPartyPersonalRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private CV code = new CVImpl();
 
 
     /**
+     * <p>Un-merged Business Name: ExamplesAreSpouseChild</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Un-merged Business Name: PersonalRelationshipCode</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.PersonalRelationship.code</p>
+     * <p>Relationship: FICR_MT610201CA.PersonalRelationship.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code indicating Personal Relationship eg, family 
      * member.</p>
-     * 
-     * <p>Un-merged Business Name: ExamplesAreSpouseChild</p>
-     * 
-     * <p>Relationship: FICR_MT600201NB.PersonalRelationship.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public FamilyMember getCode() {
@@ -66,20 +66,20 @@ public class PatientToCoveredPartyPersonalRelationshipBean extends MessagePartBe
     }
 
     /**
+     * <p>Un-merged Business Name: ExamplesAreSpouseChild</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Un-merged Business Name: PersonalRelationshipCode</p>
      * 
-     * <p>Relationship: FICR_MT610201NB.PersonalRelationship.code</p>
+     * <p>Relationship: FICR_MT610201CA.PersonalRelationship.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code indicating Personal Relationship eg, family 
      * member.</p>
-     * 
-     * <p>Un-merged Business Name: ExamplesAreSpouseChild</p>
-     * 
-     * <p>Relationship: FICR_MT600201NB.PersonalRelationship.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(FamilyMember code) {
         this.code.setValue(code);

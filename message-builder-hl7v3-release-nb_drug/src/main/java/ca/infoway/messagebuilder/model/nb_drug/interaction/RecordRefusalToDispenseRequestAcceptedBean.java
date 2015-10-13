@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020nb.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcai_mt700220ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020ca.ReferencedRecordBean;
 
 
 
 /**
- * <p>Business Name: PORX_IN010070NB: Record refusal to 
+ * <p>Business Name: PORX_IN010070CA: Record refusal to 
  * dispense request accepted</p>
  * 
  * <p>Indicates that the requested &quot;&quot;refusal to 
@@ -45,15 +45,15 @@ import ca.infoway.messagebuilder.model.nb_drug.pharmacy.porx_mt990020nb.Referenc
  * to the existing prescription / refusal to dispense may also 
  * be returned in this confirmation message.</p>
  * 
- * <p>Message: MCCI_MT000300NB.Message</p>
+ * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Control Act: MCAI_MT700220NB.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990020NB.ActRequest</p>
+ * <p>--> Payload: PORX_MT990020CA.ActRequest</p>
  */
-@Hl7PartTypeMapping({"PORX_IN010070NB"})
+@Hl7PartTypeMapping({"PORX_IN010070CA"})
 public class RecordRefusalToDispenseRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

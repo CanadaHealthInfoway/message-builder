@@ -22,29 +22,29 @@ package ca.infoway.messagebuilder.model.nb_drug.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100nb.HL7MessageBean;
-import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000nb.TriggerEventBean;
-import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt060140nb.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.nb_drug.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.nb_drug.immunization.poiz_mt060140ca.GenericQueryParametersBean;
 
 
 
 /**
- * <p>Business Name: POIZ_IN020010NB: Immunizations query</p>
+ * <p>Business Name: POIZ_IN020010CA: Immunizations query</p>
  * 
  * <p>Requests retrieval of detailed information about a 
  * patient's immunizations, potentially filtered by time-range 
  * of the immunization, time-range the immunization was last 
  * updated, and/or type of immunization.</p>
  * 
- * <p>Message: MCCI_MT000100NB.Message</p>
+ * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Control Act: QUQI_MT020000NB.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POIZ_MT060140NB.ParameterList</p>
+ * <p>--> Payload: POIZ_MT060140CA.ParameterList</p>
  */
-@Hl7PartTypeMapping({"POIZ_IN020010NB"})
+@Hl7PartTypeMapping({"POIZ_IN020010CA"})
 public class ImmunizationsQueryBean extends HL7MessageBean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150901L;
+    private static final long serialVersionUID = 20151013L;
 
 }

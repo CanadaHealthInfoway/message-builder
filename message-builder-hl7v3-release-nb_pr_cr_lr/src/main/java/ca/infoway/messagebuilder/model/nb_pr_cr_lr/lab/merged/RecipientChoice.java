@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"POLB_MT001000NB.RecipientChoice","POLB_MT001001NB.RecipientChoice","POLB_MT001010NB.RecipientChoice","POLB_MT001999NB.RecipientChoice"})
+@Hl7PartTypeMapping({"POLB_MT001000CA.RecipientChoice","POLB_MT001001CA.RecipientChoice","POLB_MT001010CA.RecipientChoice","POLB_MT001999CA.RecipientChoice"})
 public interface RecipientChoice {
 
 }

@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"REPC_MT410001NB.ActDefinition","REPC_MT410003NB.ActDefinition","REPC_MT420001NB.ActDefinition","REPC_MT420003NB.ActDefinition","REPC_MT610001NB.ActDefinition","REPC_MT610002NB.ActDefinition"})
+@Hl7PartTypeMapping({"REPC_MT410001CA.ActDefinition","REPC_MT410003CA.ActDefinition","REPC_MT420001CA.ActDefinition","REPC_MT420003CA.ActDefinition","REPC_MT610001CA.ActDefinition","REPC_MT610002CA.ActDefinition"})
 public class ActDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private II id = new IIImpl();
 
 
@@ -41,7 +41,35 @@ public class ActDefinitionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProtocolIds</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.ActDefinition.id</p>
+     * <p>Relationship: REPC_MT610001CA.ActDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Allows linking together a series of observations, 
+     * procedures, drug administrations and other clinical actions 
+     * as part of a particular protocol. Useful in clinical studies 
+     * and may also provide context around why the action was 
+     * performed. The element also allows providers to filter 
+     * searches to only expose data related to a particular 
+     * protocol.</i> </p><p> <i>This element is optional because 
+     * the use of and need to reference protocols will not apply to 
+     * all healthcare providers. PoS applications should choose 
+     * whether to support the element based on the perceived needs 
+     * of their client base.</i> </p>
+     * 
+     * <p> <i>Indicates that the action described by the 
+     * Professional Service record was performed as part of a 
+     * particular protocol.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.ActDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT420001CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -63,7 +91,29 @@ public class ActDefinitionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProtocolIds</p>
      * 
-     * <p>Relationship: REPC_MT410001NB.ActDefinition.id</p>
+     * <p>Relationship: REPC_MT420003CA.ActDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Allows linking together a series of observations, 
+     * procedures, drug administrations and other clinical actions 
+     * as part of a particular protocol. Useful in clinical studies 
+     * and may also provide context around why the action was 
+     * performed. The element also allows providers to filter 
+     * searches to only expose data related to a particular 
+     * protocol.</i> </p><p> <i>This element is optional because 
+     * the use of and need to reference protocols will not apply to 
+     * all healthcare providers. PoS applications should choose 
+     * whether to support the element based on the perceived needs 
+     * of their client base.</i> </p>
+     * 
+     * <p> <i>Indicates that the action described by the Coded 
+     * Observation record was performed as part of a particular 
+     * protocol.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT410001CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -85,7 +135,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProtocolIds</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActDefinition.id</p>
+     * <p>Relationship: REPC_MT610002CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,56 +154,6 @@ public class ActDefinitionBean extends MessagePartBean {
      * <p> <i>Indicates that the action described by the 
      * Professional Service record was performed as part of a 
      * particular protocol.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIds</p>
-     * 
-     * <p>Relationship: REPC_MT610002NB.ActDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Allows linking together a series of observations, 
-     * procedures, drug administrations and other clinical actions 
-     * as part of a particular protocol. Useful in clinical studies 
-     * and may also provide context around why the action was 
-     * performed. The element also allows providers to filter 
-     * searches to only expose data related to a particular 
-     * protocol.</i> </p><p> <i>This element is optional because 
-     * the use of and need to reference protocols will not apply to 
-     * all healthcare providers. PoS applications should choose 
-     * whether to support the element based on the perceived needs 
-     * of their client base.</i> </p>
-     * 
-     * <p> <i>Indicates that the action described by the 
-     * Professional Service record was performed as part of a 
-     * particular protocol.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIds</p>
-     * 
-     * <p>Relationship: REPC_MT410003NB.ActDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIds</p>
-     * 
-     * <p>Relationship: REPC_MT420001NB.ActDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Allows linking together a series of observations, 
-     * procedures, drug administrations and other clinical actions 
-     * as part of a particular protocol. Useful in clinical studies 
-     * and may also provide context around why the action was 
-     * performed. The element also allows providers to filter 
-     * searches to only expose data related to a particular 
-     * protocol.</i> </p><p> <i>This element is optional because 
-     * the use of and need to reference protocols will not apply to 
-     * all healthcare providers. PoS applications should choose 
-     * whether to support the element based on the perceived needs 
-     * of their client base.</i> </p>
-     * 
-     * <p> <i>Indicates that the action described by the Coded 
-     * Observation record was performed as part of a particular 
-     * protocol.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -165,7 +165,35 @@ public class ActDefinitionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProtocolIds</p>
      * 
-     * <p>Relationship: REPC_MT420003NB.ActDefinition.id</p>
+     * <p>Relationship: REPC_MT610001CA.ActDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Allows linking together a series of observations, 
+     * procedures, drug administrations and other clinical actions 
+     * as part of a particular protocol. Useful in clinical studies 
+     * and may also provide context around why the action was 
+     * performed. The element also allows providers to filter 
+     * searches to only expose data related to a particular 
+     * protocol.</i> </p><p> <i>This element is optional because 
+     * the use of and need to reference protocols will not apply to 
+     * all healthcare providers. PoS applications should choose 
+     * whether to support the element based on the perceived needs 
+     * of their client base.</i> </p>
+     * 
+     * <p> <i>Indicates that the action described by the 
+     * Professional Service record was performed as part of a 
+     * particular protocol.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.ActDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT420001CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -187,7 +215,29 @@ public class ActDefinitionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProtocolIds</p>
      * 
-     * <p>Relationship: REPC_MT410001NB.ActDefinition.id</p>
+     * <p>Relationship: REPC_MT420003CA.ActDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Allows linking together a series of observations, 
+     * procedures, drug administrations and other clinical actions 
+     * as part of a particular protocol. Useful in clinical studies 
+     * and may also provide context around why the action was 
+     * performed. The element also allows providers to filter 
+     * searches to only expose data related to a particular 
+     * protocol.</i> </p><p> <i>This element is optional because 
+     * the use of and need to reference protocols will not apply to 
+     * all healthcare providers. PoS applications should choose 
+     * whether to support the element based on the perceived needs 
+     * of their client base.</i> </p>
+     * 
+     * <p> <i>Indicates that the action described by the Coded 
+     * Observation record was performed as part of a particular 
+     * protocol.</i> </p>
+     * 
+     * <p>Un-merged Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT410001CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -209,7 +259,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProtocolIds</p>
      * 
-     * <p>Relationship: REPC_MT610001NB.ActDefinition.id</p>
+     * <p>Relationship: REPC_MT610002CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -228,56 +278,6 @@ public class ActDefinitionBean extends MessagePartBean {
      * <p> <i>Indicates that the action described by the 
      * Professional Service record was performed as part of a 
      * particular protocol.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIds</p>
-     * 
-     * <p>Relationship: REPC_MT610002NB.ActDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Allows linking together a series of observations, 
-     * procedures, drug administrations and other clinical actions 
-     * as part of a particular protocol. Useful in clinical studies 
-     * and may also provide context around why the action was 
-     * performed. The element also allows providers to filter 
-     * searches to only expose data related to a particular 
-     * protocol.</i> </p><p> <i>This element is optional because 
-     * the use of and need to reference protocols will not apply to 
-     * all healthcare providers. PoS applications should choose 
-     * whether to support the element based on the perceived needs 
-     * of their client base.</i> </p>
-     * 
-     * <p> <i>Indicates that the action described by the 
-     * Professional Service record was performed as part of a 
-     * particular protocol.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIds</p>
-     * 
-     * <p>Relationship: REPC_MT410003NB.ActDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: ProtocolIds</p>
-     * 
-     * <p>Relationship: REPC_MT420001NB.ActDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Allows linking together a series of observations, 
-     * procedures, drug administrations and other clinical actions 
-     * as part of a particular protocol. Useful in clinical studies 
-     * and may also provide context around why the action was 
-     * performed. The element also allows providers to filter 
-     * searches to only expose data related to a particular 
-     * protocol.</i> </p><p> <i>This element is optional because 
-     * the use of and need to reference protocols will not apply to 
-     * all healthcare providers. PoS applications should choose 
-     * whether to support the element based on the perceived needs 
-     * of their client base.</i> </p>
-     * 
-     * <p> <i>Indicates that the action described by the Coded 
-     * Observation record was performed as part of a particular 
-     * protocol.</i> </p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

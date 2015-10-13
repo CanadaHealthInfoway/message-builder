@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Includes</p>
  * 
- * <p>PORX_MT060160NB.Component3: g:includes</p>
+ * <p>PORX_MT060340CA.Component3: a:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
  * 
- * <p>PORX_MT060340NB.Component3: a:includes</p>
+ * <p>PORX_MT060160CA.Component3: g:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -65,10 +65,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060160NB.Component3","PORX_MT060340NB.Component3"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.Component3","PORX_MT060340CA.Component3"})
 public class Component3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private ExtendedDispenseInstructionsBean supplyRequestItem;
 
 
@@ -76,14 +76,14 @@ public class Component3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component3.supplyRequestItem</p>
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component3.supplyRequestItem</p>
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -96,14 +96,14 @@ public class Component3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060160NB.Component3.supplyRequestItem</p>
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340NB.Component3.supplyRequestItem</p>
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

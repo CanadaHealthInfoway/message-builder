@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: CareCompositions</p>
  * 
- * <p>QUQI_MT020000NB.Component: Care Compositions</p>
+ * <p>QUQI_MT020000CA.Component: Care Compositions</p>
  * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * general care-based collections such as &quot;gynecological 
  * care&quot;.</p>
  * 
- * <p>MCAI_MT700211NB.Component: Care Compositions</p>
+ * <p>MCAI_MT700211CA.Component: Care Compositions</p>
  * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * general care-based collections such as &quot;gynecological 
  * care&quot;.</p>
  * 
- * <p>QUQI_MT120006NB.Component: Care Compositions</p>
+ * <p>MCAI_MT700210CA.Component: Care Compositions</p>
  * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
@@ -73,7 +73,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * general care-based collections such as &quot;gynecological 
  * care&quot;.</p>
  * 
- * <p>MCAI_MT700210NB.Component: Care Compositions</p>
+ * <p>QUQI_MT120006CA.Component: Care Compositions</p>
  * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
@@ -86,12 +86,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * general care-based collections such as &quot;gynecological 
  * care&quot;.</p>
  */
-@Hl7PartTypeMapping({"MCAI_MT700210NB.Component","MCAI_MT700211NB.Component","QUQI_MT020000NB.Component","QUQI_MT120006NB.Component"})
+@Hl7PartTypeMapping({"MCAI_MT700210CA.Component","MCAI_MT700211CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151013L;
     private BL contextConductionInd = new BLImpl();
-    private ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt011001nb.CareCompositionsBean patientCareProvisionEvent;
+    private ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
     private CS typeCode = new CSImpl();
 
 
@@ -99,28 +99,28 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.Component.contextConductionInd</p>
+     * QUQI_MT020000CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700211NB.Component.contextConductionInd</p>
+     * MCAI_MT700210CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.Component.contextConductionInd</p>
+     * MCAI_MT700211CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Component.contextConductionInd</p>
+     * QUQI_MT120006CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -133,28 +133,28 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.Component.contextConductionInd</p>
+     * QUQI_MT020000CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700211NB.Component.contextConductionInd</p>
+     * MCAI_MT700210CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.Component.contextConductionInd</p>
+     * MCAI_MT700211CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Component.contextConductionInd</p>
+     * QUQI_MT120006CA.Component.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -167,33 +167,33 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.Component.patientCareProvisionEvent</p>
+     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700211NB.Component.patientCareProvisionEvent</p>
+     * MCAI_MT700210CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.Component.patientCareProvisionEvent</p>
+     * MCAI_MT700211CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Component.patientCareProvisionEvent</p>
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"patientCareProvisionEvent"})
-    public ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt011001nb.CareCompositionsBean getPatientCareProvisionEvent() {
+    public ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
         return this.patientCareProvisionEvent;
     }
 
@@ -201,32 +201,32 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000NB.Component.patientCareProvisionEvent</p>
+     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700211NB.Component.patientCareProvisionEvent</p>
+     * MCAI_MT700210CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT120006NB.Component.patientCareProvisionEvent</p>
+     * MCAI_MT700211CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MCAI_MT700210NB.Component.patientCareProvisionEvent</p>
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt011001nb.CareCompositionsBean patientCareProvisionEvent) {
+    public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.nb_pr_cr_lr.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
         this.patientCareProvisionEvent = patientCareProvisionEvent;
     }
 
@@ -234,19 +234,19 @@ public class CareCompositionsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Component.typeCode</p>
+     * <p>Relationship: MCAI_MT700210CA.Component.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT120006NB.Component.typeCode</p>
+     * <p>Relationship: MCAI_MT700211CA.Component.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Component.typeCode</p>
+     * <p>Relationship: QUQI_MT120006CA.Component.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -258,19 +258,19 @@ public class CareCompositionsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211NB.Component.typeCode</p>
+     * <p>Relationship: MCAI_MT700210CA.Component.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT120006NB.Component.typeCode</p>
+     * <p>Relationship: MCAI_MT700211CA.Component.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210NB.Component.typeCode</p>
+     * <p>Relationship: QUQI_MT120006CA.Component.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
