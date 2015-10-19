@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.DiagnosisInformation","COCT_MT490000CA.DiagnosisInformation"})
 public class DiagnosisInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150811L;
+    private static final long serialVersionUID = 20151019L;
     private INT sequenceNumber = new INTImpl();
     private DiagnosisBean diagnosis;
 

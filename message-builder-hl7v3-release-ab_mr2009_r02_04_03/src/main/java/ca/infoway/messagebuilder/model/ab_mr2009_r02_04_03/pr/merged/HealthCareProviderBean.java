@@ -38,7 +38,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT303011AB.HealthCareProvider","PRPM_MT303012AB.HealthCareProvider","PRPM_MT303013AB.HealthCareProvider"})
 public class HealthCareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150811L;
+    private static final long serialVersionUID = 20151019L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
 

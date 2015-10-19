@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.OtherIden
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifiedEntity"})
 public class OtherIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150811L;
+    private static final long serialVersionUID = 20151019L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 

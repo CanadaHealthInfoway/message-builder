@@ -34,7 +34,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RegistrationEvent","PRPM_MT303010CA.RegistrationEvent","PRPM_MT306011CA.RegistrationEvent"})
 public class RegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150811L;
+    private static final long serialVersionUID = 20151019L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
