@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.prpm_mt303013ab.He
 @Hl7PartTypeMapping({"PRPM_IN301063AB"})
 public class NullifyProviderLicenseNotificationBean extends HL7MessageBean<TriggerEventBean<HealthcareWorkerBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20151019L;
 
 }

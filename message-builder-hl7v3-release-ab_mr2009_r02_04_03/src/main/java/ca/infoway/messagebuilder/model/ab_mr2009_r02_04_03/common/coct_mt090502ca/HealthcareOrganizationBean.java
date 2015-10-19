@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.merged.Respons
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.merged.AuthorPerson_2, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt911102ca.ActingPerson, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.merged.EntererChoice, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt011001ca.Assignees {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20151019L;
     private ResponsibleOrganizationBean representedOrganization;
 
 

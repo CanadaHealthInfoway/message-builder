@@ -37,6 +37,6 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.mcci_mt002200c
 @Hl7PartTypeMapping({"MCCI_IN100003CA"})
 public class SendPollMessageAcceptAckBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20151019L;
 
 }
