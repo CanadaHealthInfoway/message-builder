@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActInvoic
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
 public class InvoiceElementIntent2Bean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();

@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.SpecimenI
 @Hl7PartTypeMapping({"COCT_MT080100CA.IdentifiedEntity"})
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ResponsibleOrganizationBean assigningOrganization;

@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.MedicalDe
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private CV manufacturedClinicalDeviceCode = new CVImpl();
     private ST manufacturedClinicalDeviceName = new STImpl();
     private ST manufacturedClinicalDeviceDesc = new STImpl();

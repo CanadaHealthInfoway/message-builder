@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PN;
+import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
@@ -38,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
+import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -53,6 +55,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.Registratio
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 
@@ -76,8 +79,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20150902L;
-    private II id = new IIImpl();
+    private static final long serialVersionUID = 20151019L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -97,7 +100,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Relationship: PRPM_MT303010CA.AssignedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -106,25 +109,8 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * play within an organization.</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-
-    /**
-     * <p>Business Name: Functional Role Identifier</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * healthcare provider</p>
-     * 
-     * <p>Identifies specific functional role that a provider may 
-     * play within an organization.</p>
-     */
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 

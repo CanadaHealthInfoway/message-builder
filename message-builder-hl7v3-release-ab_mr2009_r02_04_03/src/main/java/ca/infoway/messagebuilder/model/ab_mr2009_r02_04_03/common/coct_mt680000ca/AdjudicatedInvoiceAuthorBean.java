@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private ED<String> signatureText = new EDImpl<String>();
     private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
 

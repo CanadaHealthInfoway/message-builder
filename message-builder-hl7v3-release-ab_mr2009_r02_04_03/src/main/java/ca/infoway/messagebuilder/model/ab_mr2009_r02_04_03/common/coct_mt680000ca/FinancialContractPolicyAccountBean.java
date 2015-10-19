@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActInsura
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private CV code = new CVImpl();
     private II authorCarrierRoleId = new IIImpl();
 

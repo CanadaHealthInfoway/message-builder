@@ -40,7 +40,7 @@ import java.util.Date;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> relatedToEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean relatedToHealthcareWorker;

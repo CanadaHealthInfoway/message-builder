@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PresriberRole"})
 public class PlayingPrescribePersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private II id = new IIImpl();
     private PersonPrescribingBean playingPrescriberPerson;
 

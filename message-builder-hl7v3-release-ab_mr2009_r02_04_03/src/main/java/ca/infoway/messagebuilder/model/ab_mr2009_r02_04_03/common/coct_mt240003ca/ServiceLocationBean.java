@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt470002ca.Recipient {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();

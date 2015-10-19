@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActRegist
 @Hl7PartTypeMapping({"PRPA_MT101991AB.RegistrationEvent"})
 public class RegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private CD code = new CDImpl();
 
 

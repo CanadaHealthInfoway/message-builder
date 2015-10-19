@@ -48,7 +48,7 @@ import java.util.Date;
 @Hl7RootType
 public class PayeeAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST title = new STImpl();

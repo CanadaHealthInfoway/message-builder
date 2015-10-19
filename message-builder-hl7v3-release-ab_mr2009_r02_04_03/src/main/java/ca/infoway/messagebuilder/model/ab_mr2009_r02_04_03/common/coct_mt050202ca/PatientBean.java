@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.merged.Patient {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private PN patientPersonName = new PNImpl();
     private CV patientPersonAdministrativeGenderCode = new CVImpl();

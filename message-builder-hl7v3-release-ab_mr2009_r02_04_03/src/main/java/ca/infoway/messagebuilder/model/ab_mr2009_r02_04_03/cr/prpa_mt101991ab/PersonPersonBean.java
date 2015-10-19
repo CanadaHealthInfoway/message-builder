@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101991AB.Person"})
 public class PersonPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CV administrativeGenderCode = new CVImpl();

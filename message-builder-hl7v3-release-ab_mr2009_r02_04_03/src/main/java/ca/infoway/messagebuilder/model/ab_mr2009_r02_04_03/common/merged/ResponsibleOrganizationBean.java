@@ -85,7 +85,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT080100CA.Organization","COCT_MT090102CA.Organization","COCT_MT090108CA.Organization","COCT_MT090502CA.Organization","COCT_MT090508CA.Organization","COCT_MT260010CA.Organization","COCT_MT260020CA.Organization","COCT_MT260030CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
     private ST name = new STImpl();
     private II id = new IIImpl();
     private CV assignedOrganizationCode = new CVImpl();

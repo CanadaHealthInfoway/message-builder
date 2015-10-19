@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.prpm_mt303011ab.He
 @Hl7PartTypeMapping({"PRPM_IN301056AB"})
 public class LinkProviderNotificationBean extends HL7MessageBean<TriggerEventBean<HealthcareWorkerBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20151019L;
 
 }
