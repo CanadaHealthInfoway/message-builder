@@ -843,7 +843,7 @@ public class CdaTemplateProcessor {
 				parseNestedAttributeConstraint(template, subconstraint, className, relationship.getName());
 			}
 			
-			if ("@nullFlavor".equals(subconstraint.getContext()) && subconstraint.isConformanceShallNot()) {
+			if ("@nullFlavor".equals(subconstraint.getContext()) && (subconstraint.isConformanceShallNot() || Cardinality.create(subconstraint.getCardinality()).isForbidden())) {
 				// if the constraint prohibits nullFlavor, promote P to M
 				delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
 			} else if ("@root".equals(subconstraint.getContext()) && subconstraint.getSingleValueCode() != null) {
@@ -1101,7 +1101,7 @@ public class CdaTemplateProcessor {
 	}
 	
 	private String lookupValueSet(String oid) {
-		String string = this.valueSetMap.get(oid);
+		String string = this.valueSetMap.get(normalizeOid(oid));
 		if (string == null) {
 			this.outputUI.log(WARN, "No value set defined for " + oid);
 		}
@@ -1109,11 +1109,20 @@ public class CdaTemplateProcessor {
 	}
 
 	private String lookupCodeSystem(String oid) {
-		String string = this.codeSystemMap.get(oid);
+		String string = this.codeSystemMap.get(normalizeOid(oid));
 		if (string == null) {
 			this.outputUI.log(WARN, "No code system defined for " + oid);
 		}
 		return string;
+	}
+	
+	private String normalizeOid(String oid) {
+		String oidPrefix = "urn:oid:";
+		String result = oid;
+		if (StringUtils.startsWith(oid, oidPrefix)) {
+			result = StringUtils.substring(oid, oidPrefix.length());
+		}
+		return result;
 	}
 	
 }

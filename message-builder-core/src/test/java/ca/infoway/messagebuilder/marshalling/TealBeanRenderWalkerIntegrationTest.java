@@ -56,6 +56,9 @@ import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionServic
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
 
+/**
+ * @sharpen.ignore - due to difference in method signature on .NET side (dynamic assembly loading + MessageBeanRegistry state issue)
+ */
 public class TealBeanRenderWalkerIntegrationTest {
 
 	private TealBeanRenderWalker walker;

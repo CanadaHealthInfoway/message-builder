@@ -77,6 +77,14 @@ public class Cardinality {
 	}
 	
 	/**
+	 * <p>A convenience method to see if the cardinality of "0".
+	 * @return true if the maximum cardinality is 0; false otherwise.
+	 */
+	public boolean isForbidden() {
+		return 0 == this.max;
+	}
+	
+	/**
 	 * <p>A convenience method to see if the maximum cardinality is greater than
 	 * one.
 	 * @return true if the cardinality is not single; false otherwise.
