@@ -60,7 +60,7 @@ public class SimplifiableType implements Named, NamedType {
 		this.messagePart = messagePart;
 		this.rootType = rootType;
 		this.category = category;
-		this.isCdaDocumentRoot = (this.rootType && StringUtils.contains(messagePart.getName(), "ClinicalDocument"));	// EXPERIMENT
+		this.isCdaDocumentRoot = (this.rootType && StringUtils.endsWith(messagePart.getName(), "ClinicalDocument"));	// EXPERIMENT
 	}
 
 	public SimplifiableType(MessagePart messagePart, boolean rootType) {

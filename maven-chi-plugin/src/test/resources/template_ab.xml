@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TemplateExport xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.lantanagroup.com">
+  <!--
+          The export template XML file format definition is subject to change without notice, and continued
+          availability should not be construed as a commitment by Lantana Consulting Group LLC.
+          Lantana Consulting Group LLC assumes no responsibility or liability including incomplete data,
+          errors, or impacts caused by changes to this XML file format definition.
+        -->
+  <Template organizationName="HL7" owningImplementationGuideName="Alberta Transcribed Reports CDA Implementation Guide" context="ClinicalDocument" identifier="urn:hl7ii:2.16.840.1.113883.3.163.10.2.2:20121215" publishStatus="Draft" bookmark="D_CAAB_Transcribed_Reports" title="CA-AB Transcribed Reports" templateType="document" isOpen="true" contextType="ClinicalDocument" implementationGuideType="CDA">
+    <Description>This section describes constraints that apply to the header for all documents within the scope of this implementation guide. Header constraints specific to each document type are described in the appropriate document-specific section below.</Description>
+    <Constraint isStatic="true" cardinality="1..1" number="398" context="@classCode" isVerbose="false" conformance="SHALL">
+      <SingleValueCode code="DOCCLIN" />
+      <CodeSystem oid="urn:oid:2.16.840.1.113883.5.6" />
+      <NarrativeText>SHALL contain exactly one [1..1] @classCode="DOCCLIN" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:CONF-TR-1.2).</NarrativeText>
+    </Constraint>
+    <Constraint cardinality="1..1" number="399" context="@moodCode" isVerbose="false" conformance="SHALL">
+      <SingleValueCode code="EVN" />
+      <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1001" />
+      <NarrativeText>SHALL contain exactly one [1..1] @moodCode="EVN" (CodeSystem: ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:CONF-TR-1.3).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="384" context="realmCode" isVerbose="false" conformance="SHALL">
+      <SingleValueCode code="AB" displayName="" />
+      <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1124" />
+      <NarrativeText>SHALL contain exactly one [1..1] realmCode="AB" (CodeSystem: HL7Realm urn:oid:2.16.840.1.113883.5.1124 STATIC) (CONF:CONF-TR-1.4).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="23" context="typeId" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] typeId (CONF:CONF-TR-1.5).</NarrativeText>
+      <Constraint isStatic="true" cardinality="1..1" number="167" context="@root" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="2.16.840.1.113883.1.3" displayName="" />
+        <NarrativeText>This typeId SHALL contain exactly one [1..1] @root="2.16.840.1.113883.1.3" (CONF:CONF-TR-1.5a).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="168" context="@extension" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="POCD_HD000040" />
+        <NarrativeText>This typeId SHALL contain exactly one [1..1] @extension="POCD_HD000040" (CONF:CONF-TR-1.5b).</NarrativeText>
+      </Constraint>
+    </Constraint>
+    <Constraint isBranch="true" isInheritable="false" isStatic="true" cardinality="1..1" number="106" context="templateId" isVerbose="false" conformance="SHALL">
+      <SingleValueCode code="2.16.840.1.113883.3.163.10.2.2" />
+      <NarrativeText>SHALL contain exactly one [1..1] templateId="2.16.840.1.113883.3.163.10.2.2" (CONF:CONF-TR-1.6).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="24" context="id" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] id (CONF:CONF-TR-1.7).</NarrativeText>
+      <Constraint isSchRooted="true" isStatic="true" isPrimitive="true" number="169" isVerbose="false" conformance="SHALL">
+        <SchematronTest>.</SchematronTest>
+        <NarrativeText>This id SHALL be a globally unique identifier for the document</NarrativeText>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" dataType="CV" number="1" context="code" isVerbose="false" conformance="SHALL">
+      <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.392" name="AlbertaTranscribedReportType" />
+      <NarrativeText>SHALL contain exactly one [1..1] code with @xsi:type="CV", where the code SHALL be selected from ValueSet AlbertaTranscribedReportType urn:oid:2.16.840.1.113883.2.20.3.392 STATIC (CONF:CONF-TR-1.8).</NarrativeText>
+      <Constraint cardinality="1..1" number="112" context="@nullFlavor" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="OTH" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1008" />
+        <NarrativeText>This code SHALL contain exactly one [1..1] @nullFlavor="OTH" (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:2216-112).</NarrativeText>
+      </Constraint>
+      <Constraint isSchRooted="true" isStatic="true" isPrimitive="true" number="111" isVerbose="false" conformance="SHALL">
+        <SchematronTest>.</SchematronTest>
+        <NarrativeText>This code SHALL specify the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note)</NarrativeText>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="382" context="title" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] title (CONF:CONF-TR-1.9).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="2" context="effectiveTime" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] effectiveTime (CONF:CONF-TR-1.10).</NarrativeText>
+      <Constraint cardinality="1..1" number="113" context="@value" isVerbose="false" conformance="SHALL">
+        <NarrativeText>This effectiveTime SHALL contain exactly one [1..1] @value (CONF:CONF-TR-1.10a).</NarrativeText>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" dataType="CV" number="381" context="confidentialityCode" isVerbose="false" conformance="SHALL">
+      <CodeSystem oid="urn:oid:2.16.840.1.113883.5.25" />
+      <NarrativeText>SHALL contain exactly one [1..1] confidentialityCode, where the code SHALL be selected from CodeSystem ConfidentialityCode (urn:oid:2.16.840.1.113883.5.25) STATIC (CONF:CONF-TR-1.11).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="383" context="languageCode" isVerbose="false" conformance="SHALL">
+      <SingleValueCode code="en-CA" displayName="English Canadian" />
+      <CodeSystem oid="urn:oid:1.0.639.3" />
+      <NarrativeText>SHALL contain exactly one [1..1] languageCode="en-CA" English Canadian (CodeSystem: ISO 639-3 urn:oid:1.0.639.3 STATIC) (CONF:CONF-TR-1.12).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..1" number="3" context="setId" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain zero or one [0..1] setId (CONF:CONF-TR-1.13).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..1" number="4" context="versionNumber" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain zero or one [0..1] versionNumber (CONF:CONF-TR-1.14).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="5" context="recordTarget" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] recordTarget (CONF:CONF-TR-10.1).</NarrativeText>
+      <Constraint cardinality="1..1" number="165" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="RCT" displayName="Record Target" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.90" />
+        <NarrativeText>This recordTarget SHALL contain exactly one [1..1] @typeCode="RCT" Record Target (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:CONF-TR-10.2).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="166" context="@contextControlCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="OP" displayName="Overriding Propagating" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1057" />
+        <NarrativeText>This recordTarget SHALL contain exactly one [1..1] @contextControlCode="OP" Overriding Propagating (CodeSystem: HL7 Context Control Code urn:oid:2.16.840.1.113883.5.1057) (CONF:CONF-TR-10.3).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="6" context="patientRole" isVerbose="false" conformance="SHALL">
+        <NarrativeText>This recordTarget SHALL contain exactly one [1..1] patientRole (CONF:CONF-TR-10.4).</NarrativeText>
+        <Constraint cardinality="1..1" number="164" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="PAT" displayName="Patient" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+          <NarrativeText>This patientRole SHALL contain exactly one [1..1] @classCode="PAT" Patient (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-10.5).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="22" context="id" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This patientRole SHALL contain exactly one [1..1] id (CONF:CONF-TR-10.6).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="7" context="addr" isVerbose="false">
+          <NarrativeText>This patientRole SHALL NOT contain [0..0] addr (CONF:CONF-TR-10.7).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="8" context="telecom" isVerbose="false">
+          <NarrativeText>This patientRole SHALL NOT contain [0..0] telecom (CONF:CONF-TR-10.8).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="9" context="patient" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This patientRole SHALL contain exactly one [1..1] patient (CONF:2216-9).</NarrativeText>
+          <Constraint cardinality="1..1" number="152" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="PSN" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+            <NarrativeText>This patient SHALL contain exactly one [1..1] @classCode="PSN" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:2216-152).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="153" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>This patient SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:2216-153).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" number="10" context="name" isVerbose="false" conformance="SHALL">
+            <NarrativeText>This patient SHALL contain exactly one [1..1] name (CONF:CONF-TR-10.11).</NarrativeText>
+            <Constraint cardinality="0..0" number="126" context="@nullFlavor" isVerbose="false">
+              <NarrativeText>This name SHALL NOT contain [0..0] @nullFlavor (CONF:2216-126).</NarrativeText>
+            </Constraint>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" dataType="CV" number="150" context="administrativeGenderCode" isVerbose="false" conformance="SHALL">
+            <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.1.11.1" name="Administrative Gender (HL7 V3)" />
+            <NarrativeText>This patient SHALL contain exactly one [1..1] administrativeGenderCode, where the code SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 STATIC (CONF:CONF-TR-10.12).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" number="11" context="birthTime" isVerbose="false" conformance="SHALL">
+            <NarrativeText>This patient SHALL contain exactly one [1..1] birthTime (CONF:CONF-TR-10.13).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="149" context="maritalStatusCode" isVerbose="false">
+            <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.1.11.12212" name="Marital Status" />
+            <NarrativeText>This patient SHALL NOT contain [0..0] maritalStatusCode, where the code SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 STATIC (CONF:CONF-TR-10.14).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="0..0" dataType="CV" number="154" context="religiousAffiliationCode" isVerbose="false">
+            <NarrativeText>This patient SHALL NOT contain [0..0] religiousAffiliationCode (CONF:CONF-TR-10.15).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="0..0" dataType="CV" number="155" context="raceCode" isVerbose="false">
+            <NarrativeText>This patient SHALL NOT contain [0..0] raceCode (CONF:CONF-TR-10.16).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="0..*" number="18" context="languageCommunication" isVerbose="false" conformance="SHOULD">
+            <NarrativeText>This patient SHOULD contain zero or more [0..*] languageCommunication (CONF:2216-18).</NarrativeText>
+            <Constraint isStatic="true" cardinality="0..0" number="145" context="languageCode" isVerbose="false">
+              <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.51   " name="HumanLanguage" />
+              <NarrativeText>The languageCommunication, if present, SHALL NOT contain [0..0] languageCode, which SHALL be selected from ValueSet HumanLanguage urn:oid:2.16.840.1.113883.2.20.3.51    STATIC (CONF:CONF-TR-10.18).</NarrativeText>
+            </Constraint>
+            <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="146" context="modeCode" isVerbose="false">
+              <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.324" name="LanguageAbilityMode" />
+              <NarrativeText>The languageCommunication, if present, SHALL NOT contain [0..0] modeCode, where the code SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.2.20.3.324 STATIC (CONF:CONF-TR-10.19).</NarrativeText>
+            </Constraint>
+            <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="148" context="proficiencyLevelCode" isVerbose="false">
+              <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.325" name="LanguageAbilityProficiency" />
+              <NarrativeText>The languageCommunication, if present, SHALL NOT contain [0..0] proficiencyLevelCode, where the code SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.2.20.3.325 STATIC (CONF:CONF-TR-10.20).</NarrativeText>
+            </Constraint>
+            <Constraint isStatic="true" cardinality="0..0" number="147" context="preferenceInd" isVerbose="false">
+              <NarrativeText>The languageCommunication, if present, SHALL NOT contain [0..0] preferenceInd (CONF:CONF-TR-20.21).</NarrativeText>
+            </Constraint>
+          </Constraint>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..*" number="29" context="author" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain at least one [1..*] author (CONF:CONF-TR-3.1).</NarrativeText>
+      <Constraint cardinality="0..1" number="401" context="@nullFlavor" isVerbose="false" conformance="MAY">
+        <NarrativeText>Such authors MAY contain zero or one [0..1] @nullFlavor (CONF:2216-401).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="206" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="AUT" displayName="Author" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.90" />
+        <NarrativeText>Such authors SHALL contain exactly one [1..1] @typeCode="AUT" Author (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:CONF-TR-3.2).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="207" context="@contextControlCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="OP" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1057" />
+        <NarrativeText>Such authors SHALL contain exactly one [1..1] @contextControlCode="OP" (CodeSystem: HL7 Context Control Code urn:oid:2.16.840.1.113883.5.1057) (CONF:CONF-TR-3.3).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="205" context="functionCode" isVerbose="false">
+        <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.87" name="ParticipationFunction" />
+        <NarrativeText>Such authors SHALL NOT contain [0..0] functionCode, where the code SHALL be selected from ValueSet ParticipationFunction urn:oid:2.16.840.1.113883.2.20.3.87 STATIC (CONF:CONF-TR-3.5).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="37" context="time" isVerbose="false" conformance="SHALL">
+        <NarrativeText>Such authors SHALL contain exactly one [1..1] time (CONF:CONF-TR-3.4).</NarrativeText>
+        <Constraint cardinality="0..1" number="203" context="@value" isVerbose="false" conformance="MAY">
+          <NarrativeText>This time MAY contain zero or one [0..1] @value (CONF:2216-203).</NarrativeText>
+        </Constraint>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="30" context="assignedAuthor" isVerbose="false" conformance="SHALL">
+        <NarrativeText>Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:2216-30).</NarrativeText>
+        <Constraint cardinality="1..1" number="201" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="ASSIGNED" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+          <NarrativeText>This assignedAuthor SHALL contain exactly one [1..1] @classCode="ASSIGNED" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-3.6).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="36" context="id" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This assignedAuthor SHALL contain exactly one [1..1] id (CONF:CONF-TR-3.7).</NarrativeText>
+          <Constraint cardinality="0..1" number="196" context="@nullFlavor" isVerbose="false" conformance="MAY">
+            <NarrativeText>This id MAY contain zero or one [0..1] @nullFlavor (CONF:2216-196).</NarrativeText>
+          </Constraint>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="197" context="addr" isVerbose="false">
+          <NarrativeText>This assignedAuthor SHALL NOT contain [0..0] addr (CONF:CONF-TR-3.8).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="195" context="telecom" isVerbose="false">
+          <NarrativeText>This assignedAuthor SHALL NOT contain [0..0] telecom (CONF:CONF-TR-3.9).</NarrativeText>
+        </Constraint>
+        <Constraint isSchRooted="true" isStatic="true" cardinality="1..1" number="31" context="assignedPerson" isVerbose="false" conformance="SHALL">
+          <SchematronTest>not(tested-here)</SchematronTest>
+          <NarrativeText>This assignedAuthor SHALL contain exactly one [1..1] assignedPerson (CONF:CONF-TR-3.10).</NarrativeText>
+          <Constraint cardinality="1..1" number="183" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="PSN" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] @classCode="PSN" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-3.11).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="184" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-3.12).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" number="182" context="name" isVerbose="false" conformance="SHALL">
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] name (CONF:CONF-TR-3.13).</NarrativeText>
+          </Constraint>
+        </Constraint>
+        <Constraint cardinality="0..0" number="403" context="assignedAuthoringDevice" isVerbose="false">
+          <NarrativeText>This assignedAuthor SHALL NOT contain [0..0] assignedAuthoringDevice (CONF:CONF-TR-3.14).</NarrativeText>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..1" number="25" context="dataEnterer" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain zero or one [0..1] dataEnterer (CONF:CONF-TR-5.1).</NarrativeText>
+      <Constraint cardinality="1..1" number="180" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="ENT" displayName="Transcriptionist" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.90" />
+        <NarrativeText>The dataEnterer, if present, SHALL contain exactly one [1..1] @typeCode="ENT" Transcriptionist (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:CONF-TR-5.2).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="181" context="@contextControlCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="OP" displayName="Overriding Propagating" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1057" />
+        <NarrativeText>The dataEnterer, if present, SHALL contain exactly one [1..1] @contextControlCode="OP" Overriding Propagating (CodeSystem: HL7 Context Control Code urn:oid:2.16.840.1.113883.5.1057) (CONF:CONF-TR-5.3).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="0..1" number="179" context="time" isVerbose="false" conformance="SHALL">
+        <NarrativeText>The dataEnterer, if present, SHALL contain zero or one [0..1] time (CONF:CONF-TR-5.4).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="0..1" number="26" context="assignedEntity" isVerbose="false" conformance="SHALL">
+        <NarrativeText>The dataEnterer, if present, SHALL contain zero or one [0..1] assignedEntity (CONF:CONF-TR-5.5).</NarrativeText>
+        <Constraint cardinality="0..1" number="178" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="ASSIGNED" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+          <NarrativeText>The assignedEntity, if present, SHALL contain zero or one [0..1] @classCode="ASSIGNED" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-5.6).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="1..1" number="28" context="id" isVerbose="false" conformance="SHALL">
+          <NarrativeText>The assignedEntity, if present, SHALL contain exactly one [1..1] id (CONF:CONF-TR-5.7).</NarrativeText>
+          <Constraint cardinality="1..1" number="174" context="@nullFlavor" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="UNK" displayName="" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1008" />
+            <NarrativeText>This id SHALL contain exactly one [1..1] @nullFlavor="UNK" (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:2216-174).</NarrativeText>
+          </Constraint>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="177" context="code" isVerbose="false">
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.111" />
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] code with @xsi:type="CV", where the code SHALL be selected from CodeSystem RoleCode (urn:oid:2.16.840.1.113883.5.111) STATIC (CONF:CONF-TR-5.8).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="175" context="addr" isVerbose="false">
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] addr (CONF:CONF-TR-5.9).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="176" context="telecom" isVerbose="false">
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] telecom (CONF:CONF-TR-5.10).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="27" context="assignedPerson" isVerbose="false" conformance="SHALL">
+          <NarrativeText>The assignedEntity, if present, SHALL contain exactly one [1..1] assignedPerson (CONF:CONF-TR-5.11).</NarrativeText>
+          <Constraint cardinality="1..1" number="172" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="PSN" displayName="Person" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] @classCode="PSN" Person (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-5.12).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="173" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-5.13).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" number="171" context="name" isVerbose="false" conformance="SHALL">
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] name (CONF:CONF-TR-5.14).</NarrativeText>
+          </Constraint>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint cardinality="0..0" number="388" context="informant" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] informant (CONF:CONF-TR-7.1).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="1..1" number="38" context="custodian" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] custodian (CONF:CONF-TR-4.1).</NarrativeText>
+      <Constraint cardinality="0..1" number="404" context="@nullFlavor" isVerbose="false" conformance="MAY">
+        <NarrativeText>This custodian MAY contain zero or one [0..1] @nullFlavor (CONF:2216-404).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="217" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="CST" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.90" />
+        <NarrativeText>This custodian SHALL contain exactly one [1..1] @typeCode="CST" (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:CONF-TR-4.2).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="39" context="assignedCustodian" isVerbose="false" conformance="SHALL">
+        <NarrativeText>This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:CONF-TR-4.3).</NarrativeText>
+        <Constraint cardinality="0..1" number="215" context="@nullFlavor" isVerbose="false" conformance="MAY">
+          <NarrativeText>This assignedCustodian MAY contain zero or one [0..1] @nullFlavor (CONF:2216-215).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="1..1" number="214" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="ASSIGNED" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+          <NarrativeText>This assignedCustodian SHALL contain exactly one [1..1] @classCode="ASSIGNED" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-4.4).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="40" context="representedCustodianOrganization" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:CONF-TR-4.5).</NarrativeText>
+          <Constraint cardinality="0..1" number="402" context="@nullFlavor" isVerbose="false" conformance="MAY">
+            <NarrativeText>This representedCustodianOrganization MAY contain zero or one [0..1] @nullFlavor (CONF:2216-402).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="211" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="ORG" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+            <NarrativeText>This representedCustodianOrganization SHALL contain exactly one [1..1] @classCode="ORG" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-4.6).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="212" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>This representedCustodianOrganization SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-4.7).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" number="41" context="id" isVerbose="false" conformance="SHALL">
+            <NarrativeText>This representedCustodianOrganization SHALL contain exactly one [1..1] id (CONF:CONF-TR-4.8).</NarrativeText>
+            <Constraint cardinality="0..0" number="208" context="@nullFlavor" isVerbose="false" conformance="SHALL">
+              <NarrativeText>This id SHALL contain [0..0] @nullFlavor (CONF:2216-208).</NarrativeText>
+            </Constraint>
+          </Constraint>
+          <Constraint cardinality="0..0" number="213" context="name" isVerbose="false">
+            <NarrativeText>This representedCustodianOrganization SHALL NOT contain [0..0] name (CONF:CONF-TR-4.9).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="0..0" number="209" context="telecom" isVerbose="false">
+            <NarrativeText>This representedCustodianOrganization SHALL NOT contain [0..0] telecom (CONF:CONF-TR-4.10).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="0..0" number="210" context="addr" isVerbose="false">
+            <NarrativeText>This representedCustodianOrganization SHALL NOT contain [0..0] addr (CONF:CONF-TR-4.11).</NarrativeText>
+          </Constraint>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..*" number="42" context="informationRecipient" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain zero or more [0..*] informationRecipient (CONF:CONF-TR-8.1).</NarrativeText>
+      <Constraint isStatic="true" cardinality="1..1" number="235" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.1.11.19366" name="x_InformationRecipient" />
+        <NarrativeText>The informationRecipient, if present, SHALL contain exactly one [1..1] @typeCode (ValueSet: x_InformationRecipient urn:oid:2.16.840.1.113883.1.11.19366 STATIC) (CONF:2216-235).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="43" context="intendedRecipient" isVerbose="false" conformance="SHALL">
+        <NarrativeText>The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:CONF-TR-8.3).</NarrativeText>
+        <Constraint cardinality="1..1" number="234" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="ASSIGNED" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+          <NarrativeText>This intendedRecipient SHALL contain exactly one [1..1] @classCode="ASSIGNED" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-8.4).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="0..0" number="231" context="id" isVerbose="false">
+          <NarrativeText>This intendedRecipient SHALL NOT contain [0..0] id (CONF:CONF-TR-8.5).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="0..0" number="232" context="addr" isVerbose="false">
+          <NarrativeText>This intendedRecipient SHALL NOT contain [0..0] addr (CONF:CONF-TR-8.8).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="0..0" number="233" context="telecom" isVerbose="false">
+          <NarrativeText>This intendedRecipient SHALL NOT contain [0..0] telecom (CONF:CONF-TR-8.9).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..1" number="44" context="informationRecipient" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This intendedRecipient SHALL contain zero or one [0..1] informationRecipient (CONF:CONF-TR-8.10).</NarrativeText>
+          <Constraint cardinality="1..1" number="220" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="PSN" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+            <NarrativeText>The informationRecipient, if present, SHALL contain exactly one [1..1] @classCode="PSN" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-8.11).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="221" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>The informationRecipient, if present, SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-8.12).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..1" number="45" context="name" isVerbose="false" conformance="SHALL">
+            <NarrativeText>The informationRecipient, if present, SHALL contain exactly one [1..1] name (CONF:CONF-TR-8.13).</NarrativeText>
+          </Constraint>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..1" number="46" context="receivedOrganization" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This intendedRecipient SHALL contain zero or one [0..1] receivedOrganization (CONF:CONF-TR-8.14).</NarrativeText>
+          <Constraint cardinality="1..1" number="228" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="ORG" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+            <NarrativeText>The receivedOrganization, if present, SHALL contain exactly one [1..1] @classCode="ORG" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-8.15).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="229" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>The receivedOrganization, if present, SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-8.16).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="48" context="id" isVerbose="false" conformance="SHALL">
+            <NarrativeText>The receivedOrganization, if present, SHALL contain exactly one [1..1] id (CONF:CONF-TR-8.17).</NarrativeText>
+            <Constraint cardinality="0..1" number="224" context="@nullFlavor" isVerbose="false" conformance="MAY">
+              <NarrativeText>This id MAY contain zero or one [0..1] @nullFlavor (CONF:2216-224).</NarrativeText>
+            </Constraint>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="0..1" number="47" context="name" isVerbose="false" conformance="SHALL">
+            <NarrativeText>The receivedOrganization, if present, SHALL contain zero or one [0..1] name (CONF:CONF-TR-8.18).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="0..0" number="225" context="telecom" isVerbose="false">
+            <NarrativeText>The receivedOrganization, if present, SHALL NOT contain [0..0] telecom (CONF:CONF-TR-8.19).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="0..1" number="226" context="addr" isVerbose="false">
+            <NarrativeText>The receivedOrganization, if present, SHALL NOT contain zero or one [0..1] addr (CONF:CONF-TR-8.20).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="0..0" number="230" context="standardIndustryClassCode" isVerbose="false">
+            <NarrativeText>The receivedOrganization, if present, SHALL NOT contain [0..0] standardIndustryClassCode (CONF:CONF-TR-8.21).</NarrativeText>
+          </Constraint>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..0" number="49" context="legalAuthenticator" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] legalAuthenticator (CONF:CONF-TR-9.1).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..1" number="55" context="authenticator" isVerbose="false" conformance="MAY">
+      <NarrativeText>MAY contain zero or one [0..1] authenticator (CONF:CONF-TR-2.1).</NarrativeText>
+      <Constraint cardinality="1..1" number="271" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="AUTHEN" />
+        <NarrativeText>The authenticator, if present, SHALL contain exactly one [1..1] @typeCode="AUTHEN" (CONF:CONF-TR-2.2).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="269" context="time" isVerbose="false" conformance="SHALL">
+        <NarrativeText>The authenticator, if present, SHALL contain exactly one [1..1] time (CONF:CONF-TR-2.3).</NarrativeText>
+        <Constraint cardinality="0..1" number="405" context="@nullFlavor" isVerbose="false" conformance="MAY">
+          <NarrativeText>This time MAY contain zero or one [0..1] @nullFlavor (CONF:2216-405).</NarrativeText>
+        </Constraint>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="62" context="signatureCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="NA" displayName="nullFlavor" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.89" />
+        <NarrativeText>The authenticator, if present, SHALL contain exactly one [1..1] signatureCode="NA" nullFlavor (CodeSystem: Participationsignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:CONF-TR-2.4).</NarrativeText>
+        <Constraint cardinality="0..1" number="270" context="@nullFlavor" isVerbose="false" conformance="MAY">
+          <SingleValueCode code="NA" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1008" />
+          <NarrativeText>This signatureCode MAY contain zero or one [0..1] @nullFlavor="NA" (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:2216-270).</NarrativeText>
+        </Constraint>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="0..1" number="56" context="assignedEntity" isVerbose="false" conformance="SHALL">
+        <NarrativeText>The authenticator, if present, SHALL contain zero or one [0..1] assignedEntity (CONF:CONF-TR-2.5).</NarrativeText>
+        <Constraint cardinality="1..1" number="268" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="ASSIGNED" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+          <NarrativeText>The assignedEntity, if present, SHALL contain exactly one [1..1] @classCode="ASSIGNED" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-2.6).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="61" context="id" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="UNK" displayName="" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1008" />
+          <NarrativeText>The assignedEntity, if present, SHALL contain exactly one [1..1] id="UNK" (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008 STATIC) (CONF:CONF-TR-2.7).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="267" context="code" isVerbose="false">
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.111" />
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] code, which SHALL be selected from CodeSystem RoleCode (urn:oid:2.16.840.1.113883.5.111) STATIC (CONF:CONF-TR-2.8).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="265" context="addr" isVerbose="false">
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] addr (CONF:CONF-TR-2.9).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="266" context="telecom" isVerbose="false">
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] telecom (CONF:CONF-TR-2.10).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" number="57" context="assignedPerson" isVerbose="false" conformance="SHALL">
+          <NarrativeText>The assignedEntity, if present, SHALL contain exactly one [1..1] assignedPerson (CONF:CONF-TR-2.11).</NarrativeText>
+          <Constraint cardinality="1..1" number="255" context="@classCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="PSN" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] @classCode="PSN" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-2.12).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="1..1" number="256" context="@determinerCode" isVerbose="false" conformance="SHALL">
+            <SingleValueCode code="INSTANCE" />
+            <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+            <NarrativeText>This assignedPerson SHALL contain exactly one [1..1] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-2.13).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="1..*" number="254" context="name" isVerbose="false" conformance="SHALL">
+            <NarrativeText>This assignedPerson SHALL contain at least one [1..*] name (CONF:CONF-TR-2.14).</NarrativeText>
+          </Constraint>
+        </Constraint>
+        <Constraint cardinality="0..0" number="400" context="representedOrganization" isVerbose="false">
+          <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] representedOrganization (CONF:CONF-TR-2.15).</NarrativeText>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint cardinality="0..0" number="389" context="participant" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] participant (CONF:CONF-TR-6.1).</NarrativeText>
+    </Constraint>
+    <Constraint cardinality="0..0" number="390" context="inFulfillmentOf" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] inFulfillmentOf (CONF:CONF-TR-14.1).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..1" number="84" context="documentationOf" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain zero or one [0..1] documentationOf (CONF:CONF-TR-13.1).</NarrativeText>
+      <Constraint cardinality="1..1" number="341" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="DOC" displayName="Documentation Of" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1002" />
+        <NarrativeText>The documentationOf, if present, SHALL contain exactly one [1..1] @typeCode="DOC" Documentation Of (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:CONF-TR-13.2).</NarrativeText>
+      </Constraint>
+      <Constraint isStatic="true" cardinality="1..1" number="85" context="serviceEvent" isVerbose="false" conformance="SHALL">
+        <NarrativeText>The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:CONF-TR-13.3).</NarrativeText>
+        <Constraint isStatic="true" cardinality="1..1" number="337" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="ACT" displayName="Act" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.6" />
+          <NarrativeText>This serviceEvent SHALL contain exactly one [1..1] @classCode="ACT" Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:CONF-TR-13.4).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="1..1" number="340" context="@moodCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="EVN" displayName="Event" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1001" />
+          <NarrativeText>This serviceEvent SHALL contain exactly one [1..1] @moodCode="EVN" Event (CodeSystem: ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:CONF-TR-13.5).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="0..0" number="338" context="id" isVerbose="false">
+          <NarrativeText>This serviceEvent SHALL NOT contain [0..0] id (CONF:CONF-TR-13.6).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="1..1" dataType="CV" number="94" context="code" isVerbose="false" conformance="SHALL">
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.4" />
+          <NarrativeText>This serviceEvent SHALL contain exactly one [1..1] code with @xsi:type="CV", where the code SHALL be selected from CodeSystem ActCode (urn:oid:2.16.840.1.113883.5.4) STATIC (CONF:CONF-TR-13.7).</NarrativeText>
+          <Constraint cardinality="0..1" number="339" context="@nullFlavor" isVerbose="false" conformance="MAY">
+            <NarrativeText>This code MAY contain zero or one [0..1] @nullFlavor (CONF:2216-339).</NarrativeText>
+          </Constraint>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="336" context="effectiveTime" isVerbose="false">
+          <NarrativeText>This serviceEvent SHALL NOT contain [0..0] effectiveTime (CONF:CONF-TR-13.8).</NarrativeText>
+        </Constraint>
+        <Constraint isStatic="true" cardinality="0..0" number="86" context="performer" isVerbose="false">
+          <NarrativeText>This serviceEvent SHALL NOT contain [0..0] performer (CONF:CONF-TR-13.9).</NarrativeText>
+          <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="334" context="functionCode" isVerbose="false">
+            <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.87" name="ParticipationFunction" />
+            <NarrativeText>The performer, if present, SHALL NOT contain [0..0] functionCode, where the code SHALL be selected from ValueSet ParticipationFunction urn:oid:2.16.840.1.113883.2.20.3.87 STATIC (CONF:CONF-TR-13.11).</NarrativeText>
+          </Constraint>
+          <Constraint cardinality="0..0" number="335" context="time" isVerbose="false">
+            <NarrativeText>The performer, if present, SHALL NOT contain [0..0] time (CONF:CONF-TR-13.12).</NarrativeText>
+          </Constraint>
+          <Constraint isStatic="true" cardinality="0..0" number="88" context="assignedEntity" isVerbose="false">
+            <NarrativeText>The performer, if present, SHALL NOT contain [0..0] assignedEntity (CONF:CONF-TR-13.13).</NarrativeText>
+            <Constraint cardinality="0..0" number="333" context="@classCode" isVerbose="false">
+              <SingleValueCode code="ASSIGNED" />
+              <CodeSystem oid="urn:oid:2.16.840.1.113883.5.110" />
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] @classCode="ASSIGNED" (CodeSystem: RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:CONF-TR-13.14).</NarrativeText>
+            </Constraint>
+            <Constraint isStatic="true" cardinality="0..0" number="93" context="id" isVerbose="false">
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] id (CONF:CONF-TR-13.15).</NarrativeText>
+            </Constraint>
+            <Constraint isStatic="true" cardinality="0..0" dataType="CV" number="330" context="code" isVerbose="false">
+              <ValueSet isStatic="true" oid="urn:oid:2.16.840.1.113883.2.20.3.265" name="ProviderRoleCode" />
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] code with @xsi:type="CV", where the code SHALL be selected from ValueSet ProviderRoleCode urn:oid:2.16.840.1.113883.2.20.3.265 STATIC (CONF:CONF-TR-13.16).</NarrativeText>
+            </Constraint>
+            <Constraint cardinality="0..0" number="331" context="addr" isVerbose="false">
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] addr (CONF:CONF-TR-13.17).</NarrativeText>
+            </Constraint>
+            <Constraint cardinality="0..0" number="332" context="telecom" isVerbose="false">
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] telecom (CONF:CONF-TR-13.18).</NarrativeText>
+            </Constraint>
+            <Constraint cardinality="0..0" number="89" context="assignedPerson" isVerbose="false">
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] assignedPerson (CONF:CONF-TR-13.19).</NarrativeText>
+              <Constraint cardinality="0..0" number="321" context="@classCode" isVerbose="false">
+                <SingleValueCode code="PSN" />
+                <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+                <NarrativeText>The assignedPerson, if present, SHALL NOT contain [0..0] @classCode="PSN" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-13.20).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="322" context="@determinerCode" isVerbose="false">
+                <SingleValueCode code="INSTANCE" />
+                <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+                <NarrativeText>The assignedPerson, if present, SHALL NOT contain [0..0] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-13.21).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="90" context="name" isVerbose="false">
+                <NarrativeText>The assignedPerson, if present, SHALL NOT contain [0..0] name (CONF:CONF-TR-13.22).</NarrativeText>
+              </Constraint>
+            </Constraint>
+            <Constraint cardinality="0..0" number="91" context="representedOrganization" isVerbose="false">
+              <NarrativeText>The assignedEntity, if present, SHALL NOT contain [0..0] representedOrganization (CONF:CONF-TR-13.23).</NarrativeText>
+              <Constraint cardinality="0..0" number="326" context="@classCode" isVerbose="false">
+                <SingleValueCode code="ORG" />
+                <CodeSystem oid="urn:oid:2.16.840.1.113883.5.41" />
+                <NarrativeText>The representedOrganization, if present, SHALL NOT contain [0..0] @classCode="ORG" (CodeSystem: EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:CONF-TR-13.24).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="327" context="@determinerCode" isVerbose="false">
+                <SingleValueCode code="INSTANCE" />
+                <CodeSystem oid="urn:oid:2.16.840.1.113883.5.30" />
+                <NarrativeText>The representedOrganization, if present, SHALL NOT contain [0..0] @determinerCode="INSTANCE" (CodeSystem: EntityDeterminer urn:oid:2.16.840.1.113883.5.30) (CONF:CONF-TR-13.25).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="328" context="id" isVerbose="false">
+                <NarrativeText>The representedOrganization, if present, SHALL NOT contain [0..0] id (CONF:CONF-TR-13.26).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="92" context="name" isVerbose="false">
+                <NarrativeText>The representedOrganization, if present, SHALL NOT contain [0..0] name (CONF:CONF-TR-13.27).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="324" context="telecom" isVerbose="false">
+                <NarrativeText>The representedOrganization, if present, SHALL NOT contain [0..0] telecom (CONF:CONF-TR-13.30).</NarrativeText>
+              </Constraint>
+              <Constraint cardinality="0..0" number="325" context="addr" isVerbose="false">
+                <NarrativeText>The representedOrganization, if present, SHALL NOT contain [0..0] addr (CONF:CONF-TR-13.28).</NarrativeText>
+              </Constraint>
+            </Constraint>
+          </Constraint>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+    <Constraint cardinality="0..0" number="95" context="relatedDocument" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] relatedDocument (CONF:CONF-TR-12.1).</NarrativeText>
+    </Constraint>
+    <Constraint cardinality="0..0" number="107" context="authorization" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] authorization (CONF:CONF-TR-15.1).</NarrativeText>
+    </Constraint>
+    <Constraint isStatic="true" cardinality="0..0" number="63" context="componentOf" isVerbose="false">
+      <NarrativeText>SHALL NOT contain [0..0] componentOf (CONF:CONF-TR-16.1).</NarrativeText>
+    </Constraint>
+    <Constraint cardinality="1..1" number="109" context="component" isVerbose="false" conformance="SHALL">
+      <NarrativeText>SHALL contain exactly one [1..1] component (CONF:CONF-TR-17.1).</NarrativeText>
+      <Constraint cardinality="1..1" number="391" context="@typeCode" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="COMP" displayName="Component" />
+        <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1002" />
+        <NarrativeText>This component SHALL contain exactly one [1..1] @typeCode="COMP" Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:CONF-TR-17.2).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="392" context="@contextConductionInd" isVerbose="false" conformance="SHALL">
+        <SingleValueCode code="TRUE" />
+        <NarrativeText>This component SHALL contain exactly one [1..1] @contextConductionInd="TRUE" (CONF:CONF-TR-17.3).</NarrativeText>
+      </Constraint>
+      <Constraint cardinality="1..1" number="110" context="nonXMLBody" isVerbose="false" conformance="SHALL">
+        <NarrativeText>This component SHALL contain exactly one [1..1] nonXMLBody (CONF:CONF-TR-17.5).</NarrativeText>
+        <Constraint cardinality="1..1" number="393" context="@classCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="DOCBODY" displayName="Document Body" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.6" />
+          <NarrativeText>This nonXMLBody SHALL contain exactly one [1..1] @classCode="DOCBODY" Document Body (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:CONF-TR-17.6).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="1..1" number="394" context="@moodCode" isVerbose="false" conformance="SHALL">
+          <SingleValueCode code="EVN" displayName="Event" />
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.1001" />
+          <NarrativeText>This nonXMLBody SHALL contain exactly one [1..1] @moodCode="EVN" Event (CodeSystem: ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:CONF-TR-17.7).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="1..1" number="395" context="text" isVerbose="false" conformance="SHALL">
+          <NarrativeText>This nonXMLBody SHALL contain exactly one [1..1] text (CONF:CONF-TR-17.8).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="0..1" number="396" context="confidentialityCode" isVerbose="false" conformance="SHALL">
+          <CodeSystem oid="urn:oid:2.16.840.1.113883.5.25" />
+          <NarrativeText>This nonXMLBody SHALL contain zero or one [0..1] confidentialityCode (CodeSystem: ConfidentialityCode urn:oid:2.16.840.1.113883.5.25) (CONF:CONF-TR-17.9).</NarrativeText>
+        </Constraint>
+        <Constraint cardinality="0..1" number="397" context="languageCode" isVerbose="false" conformance="MAY">
+          <CodeSystem oid="urn:oid:1.0.639.3" />
+          <NarrativeText>This nonXMLBody MAY contain zero or one [0..1] languageCode (CodeSystem: ISO 639-3 urn:oid:1.0.639.3 DYNAMIC) (CONF:CONF-TR-17.10).</NarrativeText>
+        </Constraint>
+      </Constraint>
+    </Constraint>
+  </Template>
+</TemplateExport>

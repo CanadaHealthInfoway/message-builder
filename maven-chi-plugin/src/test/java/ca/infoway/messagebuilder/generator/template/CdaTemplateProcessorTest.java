@@ -69,6 +69,7 @@ import ca.infoway.messagebuilder.xml.template.TemplateSet;
 public class CdaTemplateProcessorTest {
 	
 	private static Serializer serializer = new Persister(new AnnotationStrategy());
+	private static MessageSet messageSet = new MessageSet();
 	private static TemplateSet templateSet = new TemplateSet();
 	
 	@BeforeClass
@@ -78,7 +79,6 @@ public class CdaTemplateProcessorTest {
 		Schema schema = (Schema) serializer.read(Schema.class, CdaTemplateProcessorTest.class.getResourceAsStream("/POCD_MT000040_SDTC.xsd"));
 		Schema supplementalSchema = (Schema) serializer.read(Schema.class, CdaTemplateProcessorTest.class.getResourceAsStream("/SDTC.xsd"));
 		
-		MessageSet messageSet = new MessageSet();
 		new CdaXsdProcessor(outputUI).processSchema(schema, supplementalSchema, messageSet);
 		
 		TemplateExport templateExport = (TemplateExport) serializer.read(TemplateExport.class, CdaTemplateProcessorTest.class.getResourceAsStream("/Consolidation.xml"));
@@ -1253,6 +1253,50 @@ public class CdaTemplateProcessorTest {
 		assertTrue(codeSystemConstraintFound);
 		
 		
+	}
+
+	@Test
+	public void shouldHandlePrefixInVocabularyOids() throws Exception {
+		OutputUI outputUI = Mockito.mock(OutputUI.class);
+		
+		TemplateSet localTemplateSet = new TemplateSet();
+		TemplateExport templateExport = (TemplateExport) serializer.read(TemplateExport.class, CdaTemplateProcessorTest.class.getResourceAsStream("/template_ab.xml"));
+		ValueSetDefinition valueSetDefinition = (ValueSetDefinition) serializer.read(ValueSetDefinition.class, CdaTemplateProcessorTest.class.getResourceAsStream("/voc_ab.xml"));
+		
+		new CdaTemplateProcessor(valueSetDefinition, outputUI).parseTemplate(templateExport, messageSet, localTemplateSet);
+		
+		Template template = localTemplateSet.getByOid("2.16.840.1.113883.3.163.10.2.2");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean codeConstraintFound = false;
+		boolean confidentialityConstraintFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("CAABTranscribedReports.ClinicalDocument") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(cloneConstraint);
+				assertEquals("CAABTranscribedReports.ClinicalDocument", ((CloneConstraint) cloneConstraint).getClassName());
+				assertEquals("BaseModel.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("CAABTranscribedReports.ClinicalDocument") && delta.getRelationshipName().equals("code")) {
+				Constraint bindingConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
+				assertNotNull(bindingConstraint);
+				codeConstraintFound = true;
+				assertEquals(DomainSource.VALUE_SET, ((VocabularyBindingConstraint) bindingConstraint).getNewDomainSource());
+				assertEquals("AlbertaTranscribedReportType", ((VocabularyBindingConstraint) bindingConstraint).getNewDomainType());
+
+			} else if (delta.getClassName().equals("CAABTranscribedReports.ClinicalDocument") && delta.getRelationshipName().equals("confidentialityCode")) {
+				Constraint bindingConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
+				assertNotNull(bindingConstraint);
+				confidentialityConstraintFound = true;
+				assertEquals(DomainSource.CODE_SYSTEM, ((VocabularyBindingConstraint) bindingConstraint).getNewDomainSource());
+				assertEquals("ConfidentialityCode", ((VocabularyBindingConstraint) bindingConstraint).getNewDomainType());
+				
+			}
+		}
+		assertTrue(codeConstraintFound);
+		assertTrue(confidentialityConstraintFound);
 	}
 
 	@Test

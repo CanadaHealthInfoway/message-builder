@@ -70,6 +70,7 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public static final SpecificationVersion V02R02_AB = new SpecificationVersion("V02R02_AB", "Alberta (V02R02)", Hl7BaseVersion.MR2007);
 	public static final SpecificationVersion R02_04_03_AB = new SpecificationVersion("R02_04_03_AB", "Alberta (R02_04_03)", Hl7BaseVersion.MR2009);
 	public static final SpecificationVersion R02_04_03_IMM_AB = new SpecificationVersion("R02_04_03_IMM_AB", "Alberta (Immunization)", Hl7BaseVersion.MR2009);
+	public static final SpecificationVersion R02_04_03_SHR_AB = new SpecificationVersion("R02_04_03_SHR_AB", "Alberta (Shared Health Record)", Hl7BaseVersion.MR2009);
 
 	// ON Drug
 	public static final SpecificationVersion V01R04_3_ON = new SpecificationVersion("V01R04_3_ON", "ON Drug", Hl7BaseVersion.CERX);
@@ -90,6 +91,10 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public static final SpecificationVersion CCDA_R1_1 = new SpecificationVersion("CCDA_R1_1", "CDA (CCDA_R1_1)", Hl7BaseVersion.MR2009);
 	public static final SpecificationVersion CCDA_PCS_R1_1 = new SpecificationVersion("CCDA_PCS_R1_1", "CDA (CCDA_PCS_R1_1)", Hl7BaseVersion.MR2009);
 	public static final SpecificationVersion PCS_CDA_R1_2 = new SpecificationVersion("PCS_CDA_R1_2", "CDA (PCS_CDA_R1_2)", Hl7BaseVersion.MR2009);
+	
+	// AB CDA
+	public static final SpecificationVersion CDA_AB_SHR = new SpecificationVersion("CDA_AB_SHR", "Alberta CDA (Shared Health Record)", Hl7BaseVersion.MR2009);
+
 	
 	static{ /*static init block for translation purposes. Please do not remove.*/ 
 		V01R04_3.registerHl7ReleaseByDatatype("II.BUS", Hl7BaseVersion.MR2009);
