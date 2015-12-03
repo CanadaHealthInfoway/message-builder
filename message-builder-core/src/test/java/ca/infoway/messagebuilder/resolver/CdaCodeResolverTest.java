@@ -33,6 +33,7 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.domainvalue.ActClass;
 import ca.infoway.messagebuilder.terminology.domainvalue.Displayable;
 import ca.infoway.messagebuilder.terminology.proxy.TypedCodeFactory;
 
@@ -112,5 +113,34 @@ public class CdaCodeResolverTest {
 		
 		code = fixture.<BasicConfidentialityKind>lookup(TYPE, "n", "2.16.840.1.113883.5.25", false);
 		assertNull(code);
+	}
+	
+	@Test
+	public void shouldReturnNullForUnsupportedVocabInStrictMode() {
+		// unsupported value set
+		ActClass actClassCode = fixture.<ActClass>lookup(ActClass.class, "OBS", "2.16.840.1.113883.5.6");
+		assertNull(actClassCode);
+		
+		// unsupported code in known value set
+		BasicConfidentialityKind confidentialityCode = fixture.<BasicConfidentialityKind>lookup(TYPE, "XXX", "2.16.840.1.113883.5.25");
+		assertNull(confidentialityCode);
+	}
+	
+	@Test
+	public void shouldReturnProxyForUnsupportedVocabInLenientMode() {
+		CdaCodeResolver lenientFixture = new CdaCodeResolver(new TypedCodeFactory(), 
+				CdaCodeResolverTest.class.getResourceAsStream("/voc.xml"),
+				CdaCodeResolverTest.class.getResourceAsStream("/vocabNameMap.xml"),
+				CdaCodeResolver.MODE_LENIENT);
+
+		// unsupported code in known value set still returns null
+		BasicConfidentialityKind confidentialityCode = lenientFixture.<BasicConfidentialityKind>lookup(TYPE, "XXX", "2.16.840.1.113883.5.25");
+		assertNull(confidentialityCode);
+
+		// unsupported value set delegates to proxy strategy
+		ActClass actClassCode = lenientFixture.<ActClass>lookup(ActClass.class, "OBS", "2.16.840.1.113883.5.6");
+		assertNotNull(actClassCode);
+		assertEquals("OBS", actClassCode.getCodeValue());
+		assertEquals("2.16.840.1.113883.5.6", actClassCode.getCodeSystem());
 	}
 }
