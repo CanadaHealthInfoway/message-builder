@@ -50,6 +50,9 @@ import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinitionSystem;
  */
 public class CdaCodeResolver implements CodeResolver {
 	
+	public static final String MODE_STRICT = "STRICT";
+	public static final String MODE_LENIENT = "LENIENT";
+	
 	private static class ValueSet {
 		private final Map<String, List<CodedValue>> codes = new HashMap<String, List<CodedValue>>();
 		private final Map<String, List<CodedValue>> codesByLowerCase = new HashMap<String, List<CodedValue>>();
@@ -129,6 +132,8 @@ public class CdaCodeResolver implements CodeResolver {
 	private final TypedCodeFactory codeFactory;
 
 	private final Map<String, ValueSet> valueSetsByTypeName = new HashMap<String, ValueSet>();
+	
+	private TrivialCodeResolver fallbackResolver;
 
 	/**
 	 * Create and initialize the code resolver.
@@ -138,6 +143,18 @@ public class CdaCodeResolver implements CodeResolver {
 	 * @param valueSetNameMappingFile an input stream containing the mapping from value set OIDs to interface names.
 	 */
 	public CdaCodeResolver(TypedCodeFactory codeFactory, InputStream vocabularyDefinitionsFile, InputStream valueSetNameMappingFile) {
+		this(codeFactory, vocabularyDefinitionsFile, valueSetNameMappingFile, MODE_STRICT);
+	}
+
+	/**
+	 * Create and initialize the code resolver.
+	 * 
+	 * @param codeFactory the code factory.
+	 * @param vocabularyDefinitionsFile an input stream containing a list of known value sets and the codes that each contains.
+	 * @param valueSetNameMappingFile an input stream containing the mapping from value set OIDs to interface names.
+	 * @param mode indicates whether the resolver should return null for unexpected vocabulary domains (MODE_STRICT) or return a proxy code object (MODE_LENIENT).
+	 */
+	public CdaCodeResolver(TypedCodeFactory codeFactory, InputStream vocabularyDefinitionsFile, InputStream valueSetNameMappingFile, String mode) {
 		this.codeFactory = codeFactory;
 
 		try {
@@ -172,6 +189,10 @@ public class CdaCodeResolver implements CodeResolver {
 		} catch (Exception e) {
 			log.error("Unable to initialize resolver", e);
 		}
+		
+		if (MODE_LENIENT.equals(mode)) {
+			fallbackResolver = new TrivialCodeResolver();
+		}
 
 	}
 	
@@ -203,7 +224,10 @@ public class CdaCodeResolver implements CodeResolver {
 			if (codedValue != null) {
 				return createCode(type, codedValue);
 			}
+		} else if (fallbackResolver != null) {
+			return fallbackResolver.lookup(type, code, ignoreCase);
 		}
+		
 		return null;
 	}
 
@@ -221,7 +245,10 @@ public class CdaCodeResolver implements CodeResolver {
 			if (codedValue != null) {
 				return createCode(type, codedValue);
 			}
+		} else if (fallbackResolver != null) {
+			return fallbackResolver.lookup(type, code, codeSystemOid, ignoreCase);
 		}
+		
 		return null;
 	}
 
