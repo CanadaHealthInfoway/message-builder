@@ -97,14 +97,14 @@ public class CdaXsdFormatterTest {
 	@Test
 	public void shouldFormatMessagePart() throws Exception {
 		
-		assertEquals(84, helper.getNodes(schemaDocument, "/xs:schema/xs:complexType", Namespaces.XSD_NAMESPACE).getLength());
+		assertEquals(83, helper.getNodes(schemaDocument, "/xs:schema/xs:complexType", Namespaces.XSD_NAMESPACE).getLength());
 		
 		assertEquals("ConsultationNote.AllergiesSectionentriesRequiredComponent3", helper.getAttributeValue(schemaDocument, "/xs:schema/xs:complexType[2]/@name", Namespaces.XSD_NAMESPACE));
 		assertEquals("ConsultationNote.AssessmentAndPlanSectionComponent3", helper.getAttributeValue(schemaDocument, "/xs:schema/xs:complexType[3]/@name", Namespaces.XSD_NAMESPACE));
 		assertEquals("ConsultationNote.AuthenticatorPerson", helper.getAttributeValue(schemaDocument, "/xs:schema/xs:complexType[13]/@name", Namespaces.XSD_NAMESPACE));
 		
 		// weird sort order issues...
-		assertEquals("ConsultationNote.InFulfillmentOf", helper.getAttributeValue(schemaDocument, "/xs:schema/xs:complexType[46]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.InFulfillmentOf", helper.getAttributeValue(schemaDocument, "/xs:schema/xs:complexType[45]/@name", Namespaces.XSD_NAMESPACE));
 	}
 
 	@Test
@@ -172,49 +172,49 @@ public class CdaXsdFormatterTest {
 	@Test
 	public void shouldFormatElements() throws Exception {
 		Node actNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.ClinicalDocument']", Namespaces.XSD_NAMESPACE);
-		assertEquals(24, helper.getNodes(actNode, "xs:sequence/xs:element", Namespaces.XSD_NAMESPACE).getLength());
+		assertEquals(23, helper.getNodes(actNode, "xs:sequence/xs:element", Namespaces.XSD_NAMESPACE).getLength());
 		
-		assertEquals("id", helper.getAttributeValue(actNode, "xs:sequence/xs:element[4]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("II", helper.getAttributeValue(actNode, "xs:sequence/xs:element[4]/@type", Namespaces.XSD_NAMESPACE));
+		assertEquals("id", helper.getAttributeValue(actNode, "xs:sequence/xs:element[3]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("II", helper.getAttributeValue(actNode, "xs:sequence/xs:element[3]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[3]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[3]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		
+		assertEquals("code", helper.getAttributeValue(actNode, "xs:sequence/xs:element[4]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("CE", helper.getAttributeValue(actNode, "xs:sequence/xs:element[4]/@type", Namespaces.XSD_NAMESPACE));
 		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[4]/@minOccurs", Namespaces.XSD_NAMESPACE));
 		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[4]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
-		assertEquals("code", helper.getAttributeValue(actNode, "xs:sequence/xs:element[5]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("CE", helper.getAttributeValue(actNode, "xs:sequence/xs:element[5]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[5]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[5]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("effectiveTime", helper.getAttributeValue(actNode, "xs:sequence/xs:element[6]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("TS", helper.getAttributeValue(actNode, "xs:sequence/xs:element[6]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[6]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[6]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
-		assertEquals("effectiveTime", helper.getAttributeValue(actNode, "xs:sequence/xs:element[7]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("TS", helper.getAttributeValue(actNode, "xs:sequence/xs:element[7]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[7]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[7]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("setId", helper.getAttributeValue(actNode, "xs:sequence/xs:element[9]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("II", helper.getAttributeValue(actNode, "xs:sequence/xs:element[9]/@type", Namespaces.XSD_NAMESPACE));
+		assertEquals("0", helper.getAttributeValue(actNode, "xs:sequence/xs:element[9]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[9]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
-		assertEquals("setId", helper.getAttributeValue(actNode, "xs:sequence/xs:element[10]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("II", helper.getAttributeValue(actNode, "xs:sequence/xs:element[10]/@type", Namespaces.XSD_NAMESPACE));
-		assertEquals("0", helper.getAttributeValue(actNode, "xs:sequence/xs:element[10]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[10]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("recordTarget", helper.getAttributeValue(actNode, "xs:sequence/xs:element[12]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.RecordTarget", helper.getAttributeValue(actNode, "xs:sequence/xs:element[12]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[12]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("unbounded", helper.getAttributeValue(actNode, "xs:sequence/xs:element[12]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
-		assertEquals("recordTarget", helper.getAttributeValue(actNode, "xs:sequence/xs:element[13]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("ConsultationNote.RecordTarget", helper.getAttributeValue(actNode, "xs:sequence/xs:element[13]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(actNode, "xs:sequence/xs:element[13]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertEquals("unbounded", helper.getAttributeValue(actNode, "xs:sequence/xs:element[13]/@maxOccurs", Namespaces.XSD_NAMESPACE));
-		
-		assertEquals("informationRecipient", helper.getAttributeValue(actNode, "xs:sequence/xs:element[17]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("ConsultationNote.InformationRecipient", helper.getAttributeValue(actNode, "xs:sequence/xs:element[17]/@type", Namespaces.XSD_NAMESPACE));
-		assertEquals("0", helper.getAttributeValue(actNode, "xs:sequence/xs:element[17]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertEquals("unbounded", helper.getAttributeValue(actNode, "xs:sequence/xs:element[17]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("informationRecipient", helper.getAttributeValue(actNode, "xs:sequence/xs:element[16]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.InformationRecipient", helper.getAttributeValue(actNode, "xs:sequence/xs:element[16]/@type", Namespaces.XSD_NAMESPACE));
+		assertEquals("0", helper.getAttributeValue(actNode, "xs:sequence/xs:element[16]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("unbounded", helper.getAttributeValue(actNode, "xs:sequence/xs:element[16]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 
 		Node authorNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.AssignedAuthor']", Namespaces.XSD_NAMESPACE);
 
-		assertEquals("id", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[4]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("II", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[4]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(authorNode, "xs:sequence/xs:element[4]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertEquals("unbounded", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[4]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("id", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[3]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("II", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[3]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(authorNode, "xs:sequence/xs:element[3]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("unbounded", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[3]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
-		assertEquals("addr", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[6]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("AD", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[6]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(authorNode, "xs:sequence/xs:element[6]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertEquals("unbounded", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[6]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("addr", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[5]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("AD", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[5]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(authorNode, "xs:sequence/xs:element[5]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("unbounded", helper.getAttributeValue(authorNode, "xs:sequence/xs:element[5]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
 	}
 	
@@ -290,10 +290,10 @@ public class CdaXsdFormatterTest {
 		Node clinicalDocumentNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.ClinicalDocument']", Namespaces.XSD_NAMESPACE);
 
 		// typeId
-		assertEquals("typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("ConsultationNote.ClinicalDocument.typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.ClinicalDocument.typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
 		Node typeIdNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.ClinicalDocument.typeId']", Namespaces.XSD_NAMESPACE);
 		assertNotNull(typeIdNode);
@@ -310,16 +310,16 @@ public class CdaXsdFormatterTest {
 		assertEquals("required", helper.getAttributeValue(typeIdNode, "xs:complexContent/xs:restriction/xs:attribute[2]/@use", Namespaces.XSD_NAMESPACE));
 		assertEquals("POCD_HD000040", helper.getAttributeValue(typeIdNode, "xs:complexContent/xs:restriction/xs:attribute[2]/@fixed", Namespaces.XSD_NAMESPACE));
 		
-		assertEquals("typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("ConsultationNote.ClinicalDocument.typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.ClinicalDocument.typeId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[1]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
 		// templateId
-		assertEquals("templateId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[3]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("ConsultationNote.ClinicalDocument.templateId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[3]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[3]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[3]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("templateId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.ClinicalDocument.templateId", helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(clinicalDocumentNode, "xs:sequence/xs:element[2]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
 		Node templateIdNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.ClinicalDocument.templateId']", Namespaces.XSD_NAMESPACE);
 		assertNotNull(templateIdNode);
@@ -334,23 +334,23 @@ public class CdaXsdFormatterTest {
 		// filter non-applied constraints
 		Node serviceEventNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.ServiceEvent']", Namespaces.XSD_NAMESPACE);
 
-		assertEquals("effectiveTime", helper.getAttributeValue(serviceEventNode, "xs:sequence/xs:element[6]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("IVL_TS", helper.getAttributeValue(serviceEventNode, "xs:sequence/xs:element[6]/@type", Namespaces.XSD_NAMESPACE));
+		assertEquals("effectiveTime", helper.getAttributeValue(serviceEventNode, "xs:sequence/xs:element[5]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("IVL_TS", helper.getAttributeValue(serviceEventNode, "xs:sequence/xs:element[5]/@type", Namespaces.XSD_NAMESPACE));
 		assertNull(helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.ServiceEvent.effectiveTime']", Namespaces.XSD_NAMESPACE));
 		
 		Node assignedAuthorNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.AssignedAuthor']", Namespaces.XSD_NAMESPACE);
 		
-		assertEquals("telecom", helper.getAttributeValue(assignedAuthorNode, "xs:sequence/xs:element[7]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("TEL", helper.getAttributeValue(assignedAuthorNode, "xs:sequence/xs:element[7]/@type", Namespaces.XSD_NAMESPACE));
+		assertEquals("telecom", helper.getAttributeValue(assignedAuthorNode, "xs:sequence/xs:element[6]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("TEL", helper.getAttributeValue(assignedAuthorNode, "xs:sequence/xs:element[6]/@type", Namespaces.XSD_NAMESPACE));
 		assertNull(helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.AssignedAuthor.telecom']", Namespaces.XSD_NAMESPACE));
 		
 		// Inferred - CS
 		Node authenticatorNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.Authenticator']", Namespaces.XSD_NAMESPACE);
 
-		assertEquals("signatureCode", helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[5]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("ConsultationNote.Authenticator.signatureCode", helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[5]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[5]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[5]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("signatureCode", helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[4]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("ConsultationNote.Authenticator.signatureCode", helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[4]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[4]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(authenticatorNode, "xs:sequence/xs:element[4]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 		
 		Node signatureCodeNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.Authenticator.signatureCode']", Namespaces.XSD_NAMESPACE);
 		assertNotNull(signatureCodeNode);
@@ -375,10 +375,10 @@ public class CdaXsdFormatterTest {
 		// Inferred - CE
 		Node sectionNode = helper.getSingleNode(sectionDocument, "/xs:schema/xs:complexType[@name='AdvanceDirectivesSectionentriesOptional.Section']", Namespaces.XSD_NAMESPACE);
 
-		assertEquals("code", helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[5]/@name", Namespaces.XSD_NAMESPACE));
-		assertEquals("AdvanceDirectivesSectionentriesOptional.Section.code", helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[5]/@type", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[5]/@minOccurs", Namespaces.XSD_NAMESPACE));
-		assertNull(helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[5]/@maxOccurs", Namespaces.XSD_NAMESPACE));
+		assertEquals("code", helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[4]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("AdvanceDirectivesSectionentriesOptional.Section.code", helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[4]/@type", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[4]/@minOccurs", Namespaces.XSD_NAMESPACE));
+		assertNull(helper.getAttributeValue(sectionNode, "xs:sequence/xs:element[4]/@maxOccurs", Namespaces.XSD_NAMESPACE));
 
 		Node sectionCodeNode = helper.getSingleNode(sectionDocument, "/xs:schema/xs:complexType[@name='AdvanceDirectivesSectionentriesOptional.Section.code']", Namespaces.XSD_NAMESPACE);
 		assertNotNull(sectionCodeNode);

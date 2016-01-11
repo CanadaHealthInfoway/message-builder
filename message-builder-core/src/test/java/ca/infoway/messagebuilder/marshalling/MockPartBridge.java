@@ -20,16 +20,19 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.Realm;
 
 class MockPartBridge implements PartBridge {
 
 	private boolean isEmpty;
 	private String typeName;
 	private NullFlavor nullFlavor;
+	private List<Realm> realmCode;
 	
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
@@ -73,5 +76,14 @@ class MockPartBridge implements PartBridge {
 
 	public boolean isNullPart() {
 		return false;
+	}
+	
+	public void addRealmCode(Realm realmCode) {
+		this.realmCode = new ArrayList<Realm>();
+		this.realmCode.add(realmCode);
+	}
+	
+	public List<Realm> getRealmCode() {
+		return this.realmCode;
 	}
 }

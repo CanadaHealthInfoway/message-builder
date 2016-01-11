@@ -53,6 +53,7 @@ import ca.infoway.messagebuilder.domainvalue.ProcessingID;
 import ca.infoway.messagebuilder.domainvalue.ProcessingMode;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.QueryResponse;
+import ca.infoway.messagebuilder.domainvalue.Realm;
 import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 import ca.infoway.messagebuilder.domainvalue.RoleClass;
 import ca.infoway.messagebuilder.domainvalue.RoleCode;
@@ -155,6 +156,8 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.QuantityRequestLimit.class));
 		CodeResolverRegistry.registerResolver(QueryResponse.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.QueryResponse.class));
+		CodeResolverRegistry.registerResolver(Realm.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.Realm.class));
 		CodeResolverRegistry.registerResolver(ResponseMode.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.ResponseMode.class));
 		CodeResolverRegistry.registerResolver(RoleClass.class, 

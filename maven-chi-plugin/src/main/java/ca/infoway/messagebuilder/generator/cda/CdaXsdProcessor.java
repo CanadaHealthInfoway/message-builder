@@ -118,7 +118,8 @@ public class CdaXsdProcessor {
 					for (SequenceChild child : sequence.getChildren()) {
 						if (child instanceof XsElement) {
 							XsElement element = (XsElement) child;
-							if (element.getName() != null) {
+							if (element.getName() != null
+									&& !"realmCode".equals(element.getName())) {	// exclude realmCode element from generated model, because we are handling it in the base model - MBG-219 - JR
 								Relationship relationship = parseElement(element, messageSet);
 								relationship.setSortOrder(sortOrder++);
 								messagePart.getRelationships().add(relationship);
@@ -225,6 +226,8 @@ public class CdaXsdProcessor {
 				// exception - the nullFlavor attribute is special, and should not be parsed
 				//  we already have a built-in null flavor mechanism in the legacy code to handle message models derived from MIFs
 				//  parsing this attribute when it occurs in the XSD causes a conflict
+				// update 2016-01-06: adding realmCode to the list of exceptions - we are adding it to the base model bean to support it in HL7v3 messaging in AB
+				//  see MBG-219 for details - JR
 				continue;
 			}
 				

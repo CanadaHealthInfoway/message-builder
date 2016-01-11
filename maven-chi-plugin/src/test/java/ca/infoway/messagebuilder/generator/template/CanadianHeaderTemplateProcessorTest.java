@@ -92,7 +92,6 @@ public class CanadianHeaderTemplateProcessorTest {
 		List<Delta> deltas = template.getDeltas();
 		
 		boolean foundClassCode = false;
-		boolean foundRealmCode = false;
 		boolean foundId = false;
 		boolean foundPatientRole = false;
 		for (Delta delta : deltas) {
@@ -100,14 +99,6 @@ public class CanadianHeaderTemplateProcessorTest {
 				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
 			} else if (delta.getClassName().equals("PanCanadianHeader.ClinicalDocument") && delta.getRelationshipName().equals("classCode")) {
 				foundClassCode = true;
-				
-				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
-				
-				Constraint conformanceConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CONFORMANCE);
-				assertNotNull(conformanceConstraint);
-				assertEquals(ConformanceLevel.MANDATORY, ((ConformanceConstraint) conformanceConstraint).getNewValue());
-			} else if (delta.getClassName().equals("PanCanadianHeader.ClinicalDocument") && delta.getRelationshipName().equals("realmCode")) {
-				foundRealmCode = true;
 				
 				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
 				
@@ -138,7 +129,6 @@ public class CanadianHeaderTemplateProcessorTest {
 			
 		}
 		assertTrue(foundClassCode);
-		assertTrue(foundRealmCode);
 		assertTrue(foundId);
 		assertTrue(foundPatientRole);
 	}

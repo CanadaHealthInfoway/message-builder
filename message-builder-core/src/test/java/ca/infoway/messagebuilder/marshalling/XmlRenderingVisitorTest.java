@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.transport.Realm;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
@@ -91,6 +92,21 @@ public class XmlRenderingVisitorTest {
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\"/>", xml);
+	}
+
+	@Test
+	public void shouldRenderRootElementWithRealmCode() throws Exception {
+		
+		this.partBridge.addRealmCode(Realm.ALBERTA);
+		
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
+				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" +
+				"<realmCode code=\"AB\"/>" +
+				"</ABCD_IN123456CA>", xml);
 	}
 
 	@Test
@@ -295,6 +311,26 @@ public class XmlRenderingVisitorTest {
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
 				+"<receiver/></ABCD_IN123456CA>", xml);
+		
+	}
+
+	@Test
+	public void shouldRenderSimpleAssociationWithRealmCode() throws Exception {
+		Relationship relationship = createSimpleAssociationRelationship();
+
+		MockPartBridge associationPartBridge = new MockPartBridge();
+		associationPartBridge.addRealmCode(Realm.ALBERTA);
+
+		
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAssociationStart(associationPartBridge, relationship);
+		this.visitor.visitAssociationEnd(associationPartBridge, relationship);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
+				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
+				+"<receiver><realmCode code=\"AB\"/></receiver></ABCD_IN123456CA>", xml);
 		
 	}
 

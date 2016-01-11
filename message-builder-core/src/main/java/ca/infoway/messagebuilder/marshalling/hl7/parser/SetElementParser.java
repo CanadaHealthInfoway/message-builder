@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.PIVL;
@@ -43,6 +44,7 @@ import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
+import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
@@ -105,6 +107,8 @@ class SetElementParser extends SetOrListElementParser {
 			return new SETImpl<TS,Date>(TSImpl.class);
 		} else if ("SET<CD>".equals(typeName)) {
 			return new SETImpl<CD,Code>(CDImpl.class);
+		} else if ("SET<CS>".equals(typeName)) {
+			return new SETImpl<CS,Code>(CSImpl.class);
 		} else if ("SET<AD>".equals(typeName)) {
 			return new SETImpl<AD,PostalAddress>(ADImpl.class);
 		} else if ("SET<TN>".equals(typeName)) {

@@ -121,6 +121,7 @@ public class CodeSystem extends EnumPattern implements Oid {
 	public static final CodeSystem VOCABULARY_ENTITY_CODE = new CodeSystem("VOCABULARY_ENTITY_CODE", "2.16.840.1.113883.5.1060");
 	public static final CodeSystem VOCABULARY_ENTITY_NAME_QUALIFIER = new CodeSystem("VOCABULARY_ENTITY_NAME_QUALIFIER", "2.16.840.1.113883.5.43");
 	public static final CodeSystem VOCABULARY_ENTITY_NAME_USE = new CodeSystem("VOCABULARY_ENTITY_NAME_USE", "2.16.840.1.113883.5.45");
+	public static final CodeSystem VOCABULARY_HL7_REALM = new CodeSystem("VOCABULARY_HL7_REALM", "2.16.840.1.113883.5.1124"); 
 	public static final CodeSystem VOCABULARY_HL7_STANDARD_VERSION_CODE = new CodeSystem("VOCABULARY_HL7_STANDARD_VERSION_CODE", "2.16.840.1.113883.5.1092"); 
 	public static final CodeSystem VOCABULARY_HUMAN_LANGUAGE = new CodeSystem("VOCABULARY_HUMAN_LANGUAGE", "2.16.840.1.113883.6.84"); 
 	public static final CodeSystem VOCABULARY_MESSAGE_WAITING_PRIORITY = new CodeSystem("VOCABULARY_MESSAGE_WAITING_PRIORITY", "2.16.840.1.113883.5.1083");

@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.After;
 import org.junit.Before;
@@ -31,6 +32,7 @@ import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.transport.Realm;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.mock.QuantityObservationEventBean;
@@ -60,6 +62,17 @@ public class Hl7SourceMapperBasicTest {
 	"		<value unit=\"mm\" value=\"5\" />" +
 	"	</observation>";
 
+	private static final String XML3 = "<sender typeCode=\"SND\" xmlns=\"urn:hl7-org:v3\" >" +
+			"		<realmCode code=\"CA\" />" +
+			"		<realmCode code=\"AB\" />" +
+			"		<telecom value=\"http://987.654.321.0\" />" +
+			"		<device classCode=\"DEV\" determinerCode=\"INSTANCE\">" +
+			"			<id extension=\"123\" root=\"2.16.840.1.113883.4.262.12\" use=\"BUS\" />" +
+			"			<manufacturerModelName>1.0</manufacturerModelName>" +
+			"			<softwareName>Panacea Pharmacy</softwareName>" +
+			"		</device>" +
+			"	</sender>";
+	
 	private Document document;
 	private MessageDefinitionService service;
 	private Element element;
@@ -126,6 +139,24 @@ public class Hl7SourceMapperBasicTest {
 		assertEquals(Hl7ErrorCode.UNSUPPORTED_INTERACTION, result.getHl7Errors().get(0).getHl7ErrorCode());
 		assertEquals(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, result.getHl7Errors().get(1).getHl7ErrorCode());
 		assertEquals(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, result.getHl7Errors().get(2).getHl7ErrorCode());
+	}
+	
+	@Test
+	public void shouldMapRealmCode() throws Exception {
+		Sender senderBean = (Sender) new Hl7SourceMapper().mapPartSourceToTeal(this.partSource, null);
+		assertNotNull("sender", senderBean);
+		assertNull("realm code not expected", senderBean.getRealmCode());
+		
+		Document document2 = getSourceDocument(XML3);
+		Element element2 = document2.getDocumentElement();
+		Hl7MessageSource rootSource2 = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, document2, null, null, this.service);
+		Hl7PartSource partSource2 = rootSource2.createPartSource(createRelationship("MCCI_MT002100CA.Sender"), element2);
+		Sender senderBeanWithRealm = (Sender) new Hl7SourceMapper().mapPartSourceToTeal(partSource2, null);
+		assertNotNull("observation", senderBeanWithRealm);
+		assertNotNull("observation has realms", senderBeanWithRealm.getRealmCode());
+		assertEquals("observation has two realms", 2, senderBeanWithRealm.getRealmCode().size());
+		assertEquals("realm", Realm.CANADA, senderBeanWithRealm.getRealmCode().get(0));
+		assertEquals("realm", Realm.ALBERTA, senderBeanWithRealm.getRealmCode().get(1));
 	}
 	
 	

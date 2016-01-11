@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.List;
 
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.Realm;
 
 /**
  * <p>A part bridge maps between a Message Part and the object that represents it.
@@ -59,4 +60,6 @@ interface PartBridge {
 	 * @return the null flavor
 	 */
 	public NullFlavor getNullFlavor();
+	
+	public List<Realm> getRealmCode();
 }

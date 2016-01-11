@@ -263,6 +263,7 @@ public class CdaTemplateProcessorTest {
 	}
 
 	@Test
+	@Ignore	// The only case that exercised this pattern has been excluded. Leaving the code in place so that it can be rewritten if a new case comes up.
 	public void shouldParseFixedValuesListDataType() throws Exception {
 		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.1.1");
 		assertNotNull(template);
@@ -960,7 +961,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.REMOVE);
 				assertNotNull(constraint);
-			} else if (delta.getClassName().equals("EstimatedDateOfDelivery.Observation") && delta.getRelationshipName().equals("realmCode")) {
+			} else if (delta.getClassName().equals("EstimatedDateOfDelivery.Observation") && delta.getRelationshipName().equals("id")) {
 				foundNonstructuralAttributeCase = true;
 				
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
@@ -1373,7 +1374,6 @@ public class CdaTemplateProcessorTest {
 		assertNotNull(template);
 		List<Delta> deltas = template.getDeltas();
 		
-		boolean realmConstraintFound = false;
 		boolean codeConstraintFound = false;
 		boolean recordTargetConstraintFound = false;
 		boolean documentationConstraintFound = false;
@@ -1386,11 +1386,6 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				assertEquals("ProgressNote.ClinicalDocument", ((CloneConstraint) cloneConstraint).getClassName());
 				assertEquals("BaseModel.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
-			} else if (delta.getClassName().equals("ProgressNote.ClinicalDocument") && delta.getRelationshipName().equals("realmCode")) {
-				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
-				assertNotNull(constraint);
-				realmConstraintFound = true;
-				assertEquals("US", ((FixedConstraint) constraint).getNewValue());
 			} else if (delta.getClassName().equals("ProgressNote.ClinicalDocument") && delta.getRelationshipName().equals("code")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
 				assertNotNull(constraint);
@@ -1426,7 +1421,6 @@ public class CdaTemplateProcessorTest {
 				assertTrue(((SchematronConstraint) schematronConstraints.get(1)).isWarning());
 			}
 		}
-		assertTrue(realmConstraintFound);
 		assertTrue(codeConstraintFound);
 		assertTrue(recordTargetConstraintFound);
 		assertTrue(documentationConstraintFound);

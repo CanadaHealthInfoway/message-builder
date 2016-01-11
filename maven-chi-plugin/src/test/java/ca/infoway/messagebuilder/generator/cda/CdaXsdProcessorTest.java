@@ -126,21 +126,11 @@ public class CdaXsdProcessorTest {
 		assertEquals(0, negationIndRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, negationIndRelationship.getCardinality().getMax().intValue());
 		
-		Relationship realmCodeRelationship = actMessagePart.getRelationship("realmCode");
-		assertNotNull(realmCodeRelationship);
-		assertTrue(realmCodeRelationship.isAttribute());
-		assertFalse(realmCodeRelationship.isStructural());
-		assertEquals(4, realmCodeRelationship.getSortOrder());
-		assertEquals("LIST<CS>", realmCodeRelationship.getType());
-		assertEquals(ConformanceLevel.OPTIONAL, realmCodeRelationship.getConformance());
-		assertEquals(0, realmCodeRelationship.getCardinality().getMin().intValue());
-		assertEquals(Integer.MAX_VALUE, realmCodeRelationship.getCardinality().getMax().intValue());
-		
 		Relationship templateIdRelationship = actMessagePart.getRelationship("templateId");
 		assertNotNull(templateIdRelationship);
 		assertTrue(templateIdRelationship.isAttribute());
 		assertFalse(templateIdRelationship.isStructural());
-		assertEquals(6, templateIdRelationship.getSortOrder());
+		assertEquals(5, templateIdRelationship.getSortOrder());
 		assertEquals("LIST<II>", templateIdRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, templateIdRelationship.getConformance());
 		assertEquals(0, templateIdRelationship.getCardinality().getMin().intValue());
@@ -150,7 +140,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(codeRelationship);
 		assertTrue(codeRelationship.isAttribute());
 		assertFalse(codeRelationship.isStructural());
-		assertEquals(8, codeRelationship.getSortOrder());
+		assertEquals(7, codeRelationship.getSortOrder());
 		assertEquals("CD", codeRelationship.getType());
 		assertEquals(ConformanceLevel.POPULATED, codeRelationship.getConformance());
 		assertEquals(1, codeRelationship.getCardinality().getMin().intValue());
@@ -160,7 +150,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(effectiveTimeRelationship);
 		assertTrue(effectiveTimeRelationship.isAttribute());
 		assertFalse(effectiveTimeRelationship.isStructural());
-		assertEquals(11, effectiveTimeRelationship.getSortOrder());
+		assertEquals(10, effectiveTimeRelationship.getSortOrder());
 		assertEquals("IVL<TS>", effectiveTimeRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, effectiveTimeRelationship.getConformance());
 		assertEquals(0, effectiveTimeRelationship.getCardinality().getMin().intValue());
@@ -207,7 +197,7 @@ public class CdaXsdProcessorTest {
 		Relationship subjectRelationship = actMessagePart.getRelationship("subject");
 		assertNotNull(subjectRelationship);
 		assertTrue(subjectRelationship.isAssociation());
-		assertEquals(14, subjectRelationship.getSortOrder());
+		assertEquals(13, subjectRelationship.getSortOrder());
 		assertEquals("BaseModel.Subject", subjectRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, subjectRelationship.getConformance());
 		assertEquals(0, subjectRelationship.getCardinality().getMin().intValue());
@@ -216,7 +206,7 @@ public class CdaXsdProcessorTest {
 		Relationship specimenRelationship = actMessagePart.getRelationship("specimen");
 		assertNotNull(specimenRelationship);
 		assertTrue(specimenRelationship.isAssociation());
-		assertEquals(15, specimenRelationship.getSortOrder());
+		assertEquals(14, specimenRelationship.getSortOrder());
 		assertEquals("BaseModel.Specimen", specimenRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, specimenRelationship.getConformance());
 		assertEquals(0, specimenRelationship.getCardinality().getMin().intValue());
@@ -236,7 +226,7 @@ public class CdaXsdProcessorTest {
 		assertEquals(ConformanceLevel.OPTIONAL, assignedChoice.getConformance());
 		assertEquals(0, assignedChoice.getCardinality().getMin().intValue());
 		assertEquals(1, assignedChoice.getCardinality().getMax().intValue());
-		assertEquals(9, assignedChoice.getSortOrder());
+		assertEquals(8, assignedChoice.getSortOrder());
 		assertEquals(2, assignedChoice.getChoices().size());
 		
 		Relationship assignedPersonRelationship = assignedChoice.getChoices().get(0);
@@ -288,7 +278,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(typeIdRelationship);
 		assertTrue(typeIdRelationship.isAttribute());
 		assertFalse(typeIdRelationship.isStructural());
-		assertEquals(5, typeIdRelationship.getSortOrder());
+		assertEquals(4, typeIdRelationship.getSortOrder());
 		assertEquals("II", typeIdRelationship.getType());
 		assertEquals("BaseModel.InfrastructureRoot.typeId", typeIdRelationship.getConstrainedType());
 		assertEquals(ConformanceLevel.OPTIONAL, typeIdRelationship.getConformance());

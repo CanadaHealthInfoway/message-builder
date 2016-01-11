@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -37,6 +38,7 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.Realm;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 
 /**
@@ -49,6 +51,7 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
     private final Log log = LogFactory.getLog(MessagePartBean.class);
 
 	private NullFlavor nullFlavor;
+	private List<Realm> realmCode;
 
 	private Object getHl7ValueFromMessageAttributes(String propertyName) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		BeanProperty property = BeanProperty.getProperty(this, "messageAttributes");
@@ -201,6 +204,22 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 
 	public boolean setNullFlavorInSet(String propertyName, Object valueInSet, NullFlavor nullFlavor) {
 		return setMetadataInCollection(propertyName, -1, valueInSet, nullFlavor, false);
+	}
+
+	public List<Realm> getRealmCode() {
+		return realmCode;
+	}
+
+	public void addRealmCode(Realm realmCode) {
+		if (this.realmCode == null) {
+			this.realmCode = new ArrayList<Realm>();
+		}
+		
+		this.realmCode.add(realmCode);
+	}
+	
+	public void clearRealmCodes() {
+		this.realmCode = null;
 	}
 
 	public StandardDataType getSpecializationType(String propertyName) {

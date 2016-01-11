@@ -165,11 +165,6 @@ public class TemplateApplierTest {
 		assertEquals("domain type retained", "ActClassObservation", xpathHelper.getAttributeValue(relationshipNode, "@domainType"));
 		assertEquals("fixed value changed", "OBS", xpathHelper.getAttributeValue(relationshipNode, "@fixedValue"));
 		
-		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"realmCode\"]");
-		assertNotNull("non-structural attribute retained", relationshipNode);
-		assertEquals("type retained", "LIST<CS>", xpathHelper.getAttributeValue(relationshipNode, "@type"));
-		assertEquals("cardinality retained", "0-*", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
-		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"templateId\"]");
 		assertNotNull("non-structural attribute constrained", relationshipNode);
 		assertEquals("type retained", "LIST<II>", xpathHelper.getAttributeValue(relationshipNode, "@type"));	// will change
@@ -212,10 +207,6 @@ public class TemplateApplierTest {
 	
 	@Test
 	public void shallHandleUSRealmHeader() throws Exception {
-		Node realmCodeNode = xpathHelper.getSingleNode(document, "//messagePart[@name=\"USRealmHeader.ClinicalDocument\"]/relationship[@name=\"realmCode\"]");
-		assertNotNull("realm code relationship should exist", realmCodeNode);
-		assertEquals("realm code fixed value", "US", xpathHelper.getAttributeValue(realmCodeNode, "@fixedValue"));
-		
 		// disambiguate duplicated message parts
 		assertEquals("USRealmHeader.DataEntererAssignedEntity", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.DataEnterer\"]/relationship[@name=\"assignedEntity\"]/@type"));
 		assertEquals("1", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.DataEnterer\"]/relationship[@name=\"assignedEntity\"]/@cardinality"));
@@ -253,11 +244,6 @@ public class TemplateApplierTest {
 	
 	@Test
 	public void shallHandleTemplateInheritance() throws Exception {
-		// Inherited from ancestor
-		Node realmCodeNode = xpathHelper.getSingleNode(document, "//messagePart[@name=\"ProgressNote.ClinicalDocument\"]/relationship[@name=\"realmCode\"]");
-		assertNotNull("realm code relationship should exist", realmCodeNode);
-		assertEquals("realm code fixed value", "US", xpathHelper.getAttributeValue(realmCodeNode, "@fixedValue"));
-		
 		assertEquals("1", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ProgressNote.ClinicalDocument\"]/relationship[@name=\"title\"]/@cardinality"));
 
 		assertEquals("ProgressNote.DataEntererAssignedEntity", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ProgressNote.DataEnterer\"]/relationship[@name=\"assignedEntity\"]/@type"));

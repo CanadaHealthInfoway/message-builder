@@ -45,9 +45,11 @@ import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.Realm;
 import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapterProvider;
+import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -208,6 +210,19 @@ class BeanWrapper {
 					this.sorter.getBeanType().getSimpleName(), NullFlavorSupport.class.getSimpleName()));
 		}
 	}
+	
+	public void writeRealmCode(Realm realmcode) {
+		Object targetBean = this.sorter.getBean(); 
+		
+		if (targetBean instanceof MessagePartBean) {
+			((MessagePartBean) targetBean).addRealmCode(realmcode);
+		} else {
+			this.log.info(MessageFormat.format(
+					"CAN NOT SET REALM CODE! Bean {0} does not implement {1}.", 
+					this.sorter.getBeanType().getSimpleName(), MessagePartBean.class.getSimpleName()));
+		}
+	}
+	
 
 	private Object getOrCreateCollapsedBean(Hl7Source source, Relationship relationship) {
 		BeanProperty property = findBeanProperty(relationship);

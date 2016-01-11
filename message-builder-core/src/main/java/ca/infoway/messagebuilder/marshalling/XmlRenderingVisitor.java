@@ -50,6 +50,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.Realm;
 import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
@@ -68,6 +69,7 @@ import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Predicate;
@@ -249,6 +251,8 @@ class XmlRenderingVisitor implements Visitor {
 			}
 			
 			addNewErrorsToList(currentBuffer().getWarnings());
+			
+			renderRealmCodes(part);
 		}
 	}
 
@@ -533,6 +537,26 @@ class XmlRenderingVisitor implements Visitor {
 			currentBuffer().getStructuralBuilder().append("xmlns:sdtc=\"urn:hl7-org:sdtc\" xmlns:cda=\"urn:hl7-org:v3\"");
 		} else {
 			currentBuffer().getStructuralBuilder().append("ITSVersion=\"XML_1.0\"");
+		}
+		
+		renderRealmCodes(tealBean);
+	}
+
+	private void renderRealmCodes(PartBridge tealBean) {
+		if (tealBean.getRealmCode() != null) {
+			String type = "CS";
+			PropertyFormatter formatter = this.formatterRegistry.get(type);
+			Relationship placeholderRelationship = new Relationship("realmCode", type, Cardinality.create("0-*"));
+			FormatContext context = FormatContextImpl.create(this.result, null, placeholderRelationship, null, null, null, null, this.isCda);
+			for (Realm realm : tealBean.getRealmCode()) {
+				BareANY any = (BareANY) DataTypeFactory.createDataType(type, this.isCda && this.isR2);
+				((BareANYImpl) any).setBareValue(realm);
+				String xmlFragment = formatter.format(
+						context, 
+						any, 
+						getIndent());
+				currentBuffer().getChildBuilder().append(xmlFragment);
+			}
 		}
 	}
 	

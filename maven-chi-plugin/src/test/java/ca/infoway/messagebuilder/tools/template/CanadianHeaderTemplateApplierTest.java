@@ -94,7 +94,6 @@ public class CanadianHeaderTemplateApplierTest {
 	@Test
 	public void shouldHandleCanadianConformanceRules() throws Exception {
 		assertEquals("MANDATORY", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"PanCanadianHeader.ClinicalDocument\"]/relationship[@name=\"classCode\"]/@conformance"));
-		assertEquals("MANDATORY", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"PanCanadianHeader.ClinicalDocument\"]/relationship[@name=\"realmCode\"]/@conformance"));
 		assertEquals("MANDATORY", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"PanCanadianHeader.ClinicalDocument\"]/relationship[@name=\"id\"]/@conformance"));
 		assertEquals("OPTIONAL", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"PanCanadianHeader.ClinicalDocument\"]/relationship[@name=\"title\"]/@conformance"));
 		assertEquals("POPULATED", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"PanCanadianHeader.ClinicalDocument\"]/relationship[@name=\"recordTarget\"]/@conformance"));

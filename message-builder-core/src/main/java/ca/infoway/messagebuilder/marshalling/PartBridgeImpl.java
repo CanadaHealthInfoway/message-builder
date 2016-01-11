@@ -24,6 +24,8 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.Realm;
+import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class PartBridgeImpl implements PartBridge {
@@ -96,6 +98,15 @@ class PartBridgeImpl implements PartBridge {
 			result = nullable.getNullFlavor();
 		}
 		return result;
+	}
+	
+	public List<Realm> getRealmCode() {
+		List<Realm> realm = null;
+		if (this.bean instanceof MessagePartBean) {
+			MessagePartBean partBean = (MessagePartBean) this.bean;
+			realm = partBean.getRealmCode();
+		}
+		return realm;
 	}
 
 	public boolean isCollapsed() {
