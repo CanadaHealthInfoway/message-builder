@@ -51,8 +51,8 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-import ca.infoway.messagebuilder.domainvalue.transport.Realm;
 import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
@@ -653,14 +653,28 @@ class Hl7SourceMapper {
 		ParseContextImpl context = new ParseContextImpl(placeholderRelationship, null, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone(), CodeTypeRegistry.getInstance(), source.isCda());
 		BareANY object = parser.parse(context, nodes, source.getResult());
 
-		if (object instanceof SET<?, ?>) {
-			SET<CS, Code> set = (SET<CS, Code>) object;
-			for (Code code : set.rawSet()) {
-				Realm realm = CodeResolverRegistry.lookup(Realm.class, code.getCodeValue());
-				bean.writeRealmCode(realm);
+		if (object != null) {
+			SET set = (SET) object;
+			for (Object code : set.rawSet()) {
+				String codeValue = "";
+				if (code instanceof Code) {
+					codeValue = ((Code)code).getCodeValue();
+				} else if (code instanceof CodedTypeR2) {
+					codeValue = ((CodedTypeR2)code).getCodeValue();
+				} else {
+					source.getResult().addHl7Error(
+							new Hl7Error(
+								Hl7ErrorCode.DATA_TYPE_ERROR, 
+								"Found unexpected type " + object.getClass().getName() + " while parsing realmCode",
+								CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
+							)
+						);
+				}
+				bean.writeRealmCode(RealmCodeHelper.lookupRealm(codeValue));
 			}
 		}
 	}
+
 
 	private void changeDatatypeIfNecessary(String type,	Relationship relationship, BareANY object) {
 		// if the type parsed was different from the relationship type, preserve that info in the parsed object

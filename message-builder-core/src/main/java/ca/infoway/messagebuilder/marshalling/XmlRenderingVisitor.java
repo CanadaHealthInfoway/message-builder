@@ -49,6 +49,7 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.Realm;
 import ca.infoway.messagebuilder.error.ErrorLevel;
@@ -550,7 +551,11 @@ class XmlRenderingVisitor implements Visitor {
 			FormatContext context = FormatContextImpl.create(this.result, null, placeholderRelationship, null, null, null, null, this.isCda);
 			for (Realm realm : tealBean.getRealmCode()) {
 				BareANY any = (BareANY) DataTypeFactory.createDataType(type, this.isCda && this.isR2);
-				((BareANYImpl) any).setBareValue(realm);
+				if (this.isR2) {
+					((BareANYImpl) any).setBareValue(new CodedTypeR2<Realm>(realm));
+				} else {
+					((BareANYImpl) any).setBareValue(realm);
+				}
 				String xmlFragment = formatter.format(
 						context, 
 						any, 
