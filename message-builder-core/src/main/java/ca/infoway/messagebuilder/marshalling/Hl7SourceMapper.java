@@ -30,6 +30,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.xpath.XPathExpressionException;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -45,19 +47,18 @@ import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.transport.Realm;
 import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.error.Hl7Errors;
+import ca.infoway.messagebuilder.j5goodies.XPathHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
@@ -67,7 +68,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.r2.ParserR2Registry;
 import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.platform.GenericClassUtil;
-import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.schema.XmlSchemas;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -644,33 +644,16 @@ class Hl7SourceMapper {
 	}
 
 	private void writeRealmCode(BeanWrapper bean, Hl7Source source, List<Node> nodes, String traversalName) throws XmlToModelTransformationException {
-		
-		String type = "SET<CS>";
-		
-		ElementParser parser = (source.isR2() ? ParserR2Registry.getInstance().get(type): ParserRegistry.getInstance().get(type));
 
-		Relationship placeholderRelationship = new Relationship("realmCode", type, Cardinality.create("0-*"));
-		ParseContextImpl context = new ParseContextImpl(placeholderRelationship, null, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone(), CodeTypeRegistry.getInstance(), source.isCda());
-		BareANY object = parser.parse(context, nodes, source.getResult());
-
-		if (object != null) {
-			SET set = (SET) object;
-			for (Object code : set.rawSet()) {
-				String codeValue = "";
-				if (code instanceof Code) {
-					codeValue = ((Code)code).getCodeValue();
-				} else if (code instanceof CodedTypeR2) {
-					codeValue = ((CodedTypeR2)code).getCodeValue();
-				} else {
-					source.getResult().addHl7Error(
-							new Hl7Error(
-								Hl7ErrorCode.DATA_TYPE_ERROR, 
-								"Found unexpected type " + object.getClass().getName() + " while parsing realmCode",
-								CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
-							)
-						);
+		XPathHelper xPathHelper = new XPathHelper();
+		for (Node node : nodes) {
+			try {
+				String codeValue = xPathHelper.getAttributeValue(node, "@code", null);
+				if (codeValue != null) {
+					bean.writeRealmCode(RealmCodeHelper.lookupRealm(codeValue));
 				}
-				bean.writeRealmCode(RealmCodeHelper.lookupRealm(codeValue));
+			} catch (XPathExpressionException e) {
+				throw new XmlToModelTransformationException("Exception encountered while parsing realmCode", e);
 			}
 		}
 	}
