@@ -238,9 +238,6 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 	}
 
 	public String getPropertyElementImplementationType() {
-		if (this.language.equals(ProgrammingLanguage.C_SHARP) && getDataType().isCodedType()) {
-			return getTypeNameForDotNet(getDataType());
-		}
 		return getDataType().getShortName(this.language);
 	}
 
