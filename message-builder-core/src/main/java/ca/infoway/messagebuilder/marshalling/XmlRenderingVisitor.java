@@ -173,14 +173,16 @@ class XmlRenderingVisitor implements Visitor {
 	private final Registry<PropertyFormatter> formatterRegistry;
 	private final boolean isR2;
 	private final boolean isCda;
+	private VersionNumber version;
 	
-	public XmlRenderingVisitor() {
-		this(false, false);
+	public XmlRenderingVisitor(VersionNumber version) {
+		this(false, false, version);
 	}
 	
-	public XmlRenderingVisitor(boolean isR2, boolean isCda) {
+	public XmlRenderingVisitor(boolean isR2, boolean isCda, VersionNumber version) {
 		this.isR2 = isR2;
 		this.isCda = isCda;
+		this.version = version;
 		if (isR2) {
 			this.formatterRegistry = FormatterR2Registry.getInstance();
 		} else {
@@ -348,7 +350,7 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
-	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		pushPropertyPathName(determinePropertyName(tealBean.getPropertyName(), relationship), false);
 		if (relationship.isStructural()) {
 			String propertyPath = buildPropertyPath();
@@ -360,7 +362,7 @@ class XmlRenderingVisitor implements Visitor {
 		} else {
 			boolean hasProperty = !StringUtils.isEmpty(tealBean.getPropertyName());
 			if (hasProperty) {
-				renderNonStructuralAttribute(tealBean, relationship, constraints, version, dateTimeZone, dateTimeTimeZone);
+				renderNonStructuralAttribute(tealBean, relationship, constraints, dateTimeZone, dateTimeTimeZone);
 			} else {
 				if (ConformanceLevelUtil.isMandatoryOrPopulated(relationship)) {
 					Map<String,String> attributes = null;
@@ -408,7 +410,7 @@ class XmlRenderingVisitor implements Visitor {
 		return isInlined(propertyName) ? propertyName.substring(0, propertyName.length() - INLINED_PROPERTY_SUFFIX.length()) : propertyName;
 	}
 
-	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		String propertyPath = buildPropertyPath();
 		
 		BareANY hl7Value = tealBean.getHl7Value();
@@ -548,7 +550,8 @@ class XmlRenderingVisitor implements Visitor {
 			String type = "CS";
 			PropertyFormatter formatter = this.formatterRegistry.get(type);
 			Relationship placeholderRelationship = new Relationship("realmCode", type, Cardinality.create("0-*"));
-			FormatContext context = FormatContextImpl.create(this.result, null, placeholderRelationship, null, null, null, null, this.isCda);
+			placeholderRelationship.setDomainType("Realm");
+			FormatContext context = FormatContextImpl.create(this.result, null, placeholderRelationship, version, null, null, null, this.isCda);
 			for (Realm realm : tealBean.getRealmCode()) {
 				BareANY any = (BareANY) DataTypeFactory.createDataType(type, this.isCda && this.isR2);
 				if (this.isR2) {

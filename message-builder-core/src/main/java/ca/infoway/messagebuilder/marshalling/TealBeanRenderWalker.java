@@ -97,7 +97,7 @@ class TealBeanRenderWalker {
 			processAllRelationshipValues(interaction, (AssociationBridge) relationship, visitor);
 		} else {
 			ConstrainedDatatype constraints = this.factory.getConstraints(relationship.getRelationship());
-			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), constraints, this.version, this.dateTimeZone, this.dateTimeTimeZone);
+			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), constraints, this.dateTimeZone, this.dateTimeTimeZone);
 		}
 	}
 

@@ -80,7 +80,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 		tealBean.getAcknowledgement().getAcknowledgementDetails().add(createDetail(SYNTAX_ERROR, "I hate you", ERROR));
 		tealBean.getAcknowledgement().getAcknowledgementDetails().add(createDetail(UNKNOWN_SENDER, "Unauthorized user", ERROR));
 		
-		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
+		XmlRenderingVisitor visitor = new XmlRenderingVisitor(MOCK_MR2009);
 		
 		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, null, null, new MockTestCaseMessageDefinitionService());
 		this.walker.accept(visitor);
@@ -108,7 +108,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 		tealBean.getControlActEventBean().setQueryId(new Identifier(UUID.randomUUID().toString()));
 		tealBean.getControlActEventBean().setEventId(new Identifier(UUID.randomUUID().toString()));
 		tealBean.getControlActEventBean().getCriteria().setGender(AdministrativeGender.MALE);
-		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
+		XmlRenderingVisitor visitor = new XmlRenderingVisitor(MOCK_MR2009);
 		this.walker.accept(visitor);
 		
 		String xml = visitor.toXml().getXmlMessage();

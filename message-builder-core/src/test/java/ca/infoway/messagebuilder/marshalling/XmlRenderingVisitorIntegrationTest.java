@@ -54,7 +54,7 @@ public class XmlRenderingVisitorIntegrationTest {
 		FindCandidatesQueryMessageBean message = new FindCandidatesQueryMessageBean();
 		message.setControlActEventBean(new QueryControlActEventBean<FindCandidatesCriteria>(new FindCandidatesCriteria()));
 		message.getControlActEventBean().getCriteria().setBirthDate(DateUtil.getDate(1966, 0, 5));
-		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
+		XmlRenderingVisitor visitor = new XmlRenderingVisitor(MockVersionNumber.MOCK_NEWFOUNDLAND);
 		new TealBeanRenderWalker(message, MockVersionNumber.MOCK_NEWFOUNDLAND, null, null, this.service).accept(visitor);
 		System.out.println(visitor.toXml().getXmlMessage());
 	}

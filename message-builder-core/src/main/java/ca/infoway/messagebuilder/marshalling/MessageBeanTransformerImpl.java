@@ -128,7 +128,7 @@ public class MessageBeanTransformerImpl {
 		CodeResolverRegistry.setThreadLocalVersion(version);
 		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
 
-		XmlRenderingVisitor visitor = new XmlRenderingVisitor(this.service.isR2(version), this.service.isCda(version));
+		XmlRenderingVisitor visitor = new XmlRenderingVisitor(this.service.isR2(version), this.service.isCda(version), version);	// TODO: Since the two boolean flags are derived from the version, we chould simplify this interface 
 		new TealBeanRenderWalker(messageBean, version, dateTimeZone, dateTimeTimeZone, this.service).accept(visitor);
 
 		CodeResolverRegistry.clearThreadLocalVersion();
