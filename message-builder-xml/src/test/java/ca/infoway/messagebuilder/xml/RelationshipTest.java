@@ -38,8 +38,12 @@ public class RelationshipTest {
 		Relationship relationship3 = createRelationship(false, "early association", 3, "A");
 		Relationship relationship4 = createRelationship(false, "late association a", 9, "ZZ");
 		Relationship relationship5 = createRelationship(false, "late association b", 6, "ZZ");
+		Relationship relationship6 = createRelationship(false, "underscores association a", 12, "ZZZ_____");
+		Relationship relationship7 = createRelationship(false, "underscores association b", 15, "ZZZA____");
 		
 		ArrayList<Relationship> list = new ArrayList<Relationship>();
+		list.add(relationship7);
+		list.add(relationship6);
 		list.add(relationship5);
 		list.add(relationship3);
 		list.add(relationship4);
@@ -53,6 +57,8 @@ public class RelationshipTest {
 		assertTrue(relationship3 == list.get(2));
 		assertTrue(relationship4 == list.get(3));
 		assertTrue(relationship5 == list.get(4));
+		assertTrue(relationship6 == list.get(5));
+		assertTrue(relationship7 == list.get(6));
 	}
 	
 	private Relationship createRelationship(boolean isAttribute, String name, int sortKey, String associationSortKey) {

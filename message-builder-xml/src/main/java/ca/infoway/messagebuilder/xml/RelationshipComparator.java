@@ -37,11 +37,16 @@ public class RelationshipComparator implements Comparator<RelationshipComparable
 				// assume this is a legacy NFLD test; otherwise, associationSortKey should never be blank for an association
 				builder.append(o1.getSortOrder(), o2.getSortOrder());
 			} else {
-				builder.append(o1.getAssociationSortKey(), o2.getAssociationSortKey());
+				
+				builder.append(strip(o1.getAssociationSortKey()), strip(o2.getAssociationSortKey()));
 			}
 			
 			builder.append(o1.getName(), o2.getName());
 		}
 		return builder.toComparison();
+	}
+	
+	private String strip(String input) {
+		return StringUtils.strip(input, "_");
 	}
 }
