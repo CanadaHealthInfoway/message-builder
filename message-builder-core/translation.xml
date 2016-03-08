@@ -59,10 +59,10 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.7.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/ph-schematron-2.8.3.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/ph-commons-5.0.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-2.0.3-SNAPSHOT.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-2.0.3-SNAPSHOT-tests.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-2.0.3-SNAPSHOT.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-2.0.3-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-2.1.3-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-2.1.3-SNAPSHOT-tests.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-2.1.3-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-2.1.3-SNAPSHOT.jar"/>
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
@@ -70,7 +70,7 @@
 
 		<exec dir="${sharpen.workspace.dir}" executable="hg">
 		  <arg line="clone"/>
-		  <arg line="http://fsmercurial.intware.com/repo/chi-mbtdotnet"/>
+		  <arg line="http://fsmercurial.intware.com/repo/chi-messagebuilder-dotnet"/>
 		  <arg line="mbtdotnet"/>
 		</exec>
 
