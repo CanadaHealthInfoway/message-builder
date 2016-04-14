@@ -46,8 +46,16 @@ public class AcknowledgementDetailCode extends EnumPattern implements ca.infoway
 	public static final AcknowledgementDetailCode SYNTAX_ERROR_DATA_TYPE_ERROR = new AcknowledgementDetailCode("SYNTAX_ERROR_DATA_TYPE_ERROR", "SYN102");
 	public static final AcknowledgementDetailCode SYNTAX_ERROR_VALUE_NOT_FOUND_IN_CODE_SYSTEM = new AcknowledgementDetailCode("SYNTAX_ERROR_VALUE_NOT_FOUND_IN_CODE_SYSTEM", "SYN103");
 	public static final AcknowledgementDetailCode SYNTAX_ERROR_INVALID_CODE_SYSTEM_IN_CNE = new AcknowledgementDetailCode("SYNTAX_ERROR_INVALID_CODE_SYSTEM_IN_CNE", "SYN104");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_REQUIRED_ELEMENT_MISSING = new AcknowledgementDetailCode("SYNTAX_ERROR_REQUIRED_ELEMENT_MISSING", "SYN105");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_TERMINOLOGY_ERROR = new AcknowledgementDetailCode("SYNTAX_ERROR_TERMINOLOGY_ERROR", "SYN106");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_DEPRECATED_CODE = new AcknowledgementDetailCode("SYNTAX_ERROR_DEPRECATED_CODE", "SYN107");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_NUMBER_OF_REPETITIONS_EXCEEDS_LIMIT = new AcknowledgementDetailCode("SYNTAX_ERROR_NUMBER_OF_REPETITIONS_EXCEEDS_LIMIT", "SYN108");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_MANDATORY_ELEMENT_WITH_NULL_VALUE = new AcknowledgementDetailCode("SYNTAX_ERROR_MANDATORY_ELEMENT_WITH_NULL_VALUE", "SYN109");
 	public static final AcknowledgementDetailCode SYNTAX_ERROR_NUMBER_OF_ASSOCIATION_REPETITIONS_EXCEEDS_LIMIT = new AcknowledgementDetailCode("SYNTAX_ERROR_NUMBER_OF_ASSOCIATION_REPETITIONS_EXCEEDS_LIMIT", "SYN110");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_VALUE_DOES_NOT_MATCH_FIXED_VALUE = new AcknowledgementDetailCode("SYNTAX_ERROR_VALUE_DOES_NOT_MATCH_FIXED_VALUE", "SYN111");
 	public static final AcknowledgementDetailCode SYNTAX_ERROR_NUMBER_OF_ATTRIBUTE_REPETITIONS_EXCEEDS_LIMIT = new AcknowledgementDetailCode("SYNTAX_ERROR_NUMBER_OF_ATTRIBUTE_REPETITIONS_EXCEEDS_LIMIT", "SYN112");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_FORMAL_CONSTRAINT_VIOLATION = new AcknowledgementDetailCode("SYNTAX_ERROR_FORMAL_CONSTRAINT_VIOLATION", "SYN113");
+	public static final AcknowledgementDetailCode SYNTAX_ERROR_INSUFFICIENT_REPETITIONS = new AcknowledgementDetailCode("SYNTAX_ERROR_INSUFFICIENT_REPETITIONS", "SYN114");
 	public static final AcknowledgementDetailCode UNKNOWN_SENDER = new AcknowledgementDetailCode("UNKNOWN_SENDER", "NS260");
 	public static final AcknowledgementDetailCode UNRECOGNIZED_ATTENTIONLINE = new AcknowledgementDetailCode("UNRECOGNIZED_ATTENTIONLINE", "NS261");
 	public static final AcknowledgementDetailCode UNSUPPORTED_INTERACTION = new AcknowledgementDetailCode("UNSUPPORTED_INTERACTION", "NS200");
