@@ -20,10 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -58,6 +61,8 @@ public class Mapping {
 			}
 		}
 	}
+	
+	private static Map<PropertyDescriptor, List<Mapping>> mappingCache = new HashMap<PropertyDescriptor, List<Mapping>>();
 
 	private final String mapping;
 	private final List<PartTypeMapping> mappings;
@@ -91,9 +96,15 @@ public class Mapping {
 	}
 
 	public static List<Mapping> from(BeanProperty property) {
+		if (mappingCache.containsKey(property.getDescriptor())) {
+			return mappingCache.get(property.getDescriptor());
+		}
+		// This is an expensive operation. If possible, let's try to do it only once.
 		Hl7XmlMapping mapping = property.getAnnotation(Hl7XmlMapping.class);
 		Hl7MapByPartType[] exceptions = MappingHelper.getAllHl7MapByPartType(property);
-		return from(mapping, exceptions);
+		List<Mapping> mappingList = from(mapping, exceptions);
+		mappingCache.put(property.getDescriptor(), mappingList);
+		return mappingList;
 	}
 
 	private static List<Mapping> from(Hl7XmlMapping mapping, Hl7MapByPartType[] exceptions) {

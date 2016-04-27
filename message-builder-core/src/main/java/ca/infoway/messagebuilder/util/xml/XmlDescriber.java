@@ -96,11 +96,19 @@ public class XmlDescriber {
 	 */
 	public static int getIndexOf(Element start) {
 		int count = 1;
-		for (Node node = start.getPreviousSibling(); node != null; node = node.getPreviousSibling()) {
-			if (hasSameName(start, node)) {
-				count++;
+		Node parent = start.getParentNode();
+		if (parent instanceof Element) {
+			NodeList children = parent.getChildNodes();
+	        for (Node child : new XmlNodeListIterable(children)) {
+				if (child == start) {
+					break;
+				}
+				if (hasSameName(start, child)) {
+					count++;
+				}
 			}
 		}
+		
 		return count;
 	}
 
