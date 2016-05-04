@@ -32,6 +32,8 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
 
+import com.google.common.collect.Sets;
+
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Hl7TypeName;
@@ -195,11 +197,19 @@ public class MessageSetValidator {
 	private void checkArgumentsMatch(String containingPart, List<Argument> arguments, List<MessageSetValidatorError> results, String interactionName) {
 		// for each argument, need to find a corresponding template relationship nested within the supertype or the argument supertype
 		MessagePart messagePart = this.messageSetUtils.getMessagePart(containingPart);
+		Set<String> discoveredArgumentNames = Sets.newHashSet();
 		for (Argument argument : arguments) {
+			discoveredArgumentNames.add(argument.getTemplateParameterName());
 			if (!findTemplateRelationship(argument, messagePart)) {
 				logError(results, ErrorType.INTERACTION_ARGUMENTS_MISMATCH, interactionName, argument.getTemplateParameterName(), "Argument parameter not found within containing type", containingPart);
 			}
 			checkArgumentsMatch(argument.getName(), argument.getArguments(), results, interactionName);
+		}
+		// We also need to check in the other direction - that every template parameter in the message part has a matching argument
+		for (String templateParameterName : findAllTemplateRelationships(messagePart)) {
+			if (!discoveredArgumentNames.contains(templateParameterName)) {
+				logError(results, ErrorType.INTERACTION_ARGUMENTS_MISMATCH, interactionName, templateParameterName, "Containing type expected a parameter, but no matching argument was found", containingPart);
+			}
 		}
 	}
 	
@@ -219,6 +229,30 @@ public class MessageSetValidator {
 		return false;
 	}
 
+	private Set<String> findAllTemplateRelationships(MessagePart containingMessagePart) {
+		Set<String> partsAlreadyChecked = new HashSet<String>();
+		return findAllTemplateRelationships(containingMessagePart, partsAlreadyChecked);
+	}
+	
+	private Set<String> findAllTemplateRelationships(MessagePart containingMessagePart, Set<String> partsAlreadyChecked) {
+		Set<String> result = Sets.newHashSet();
+		for (Relationship relationship : containingMessagePart.getRelationships()) {
+			if (relationship.isAssociation()) {
+				if (relationship.isTemplateRelationship()) {
+					result.add(relationship.getTemplateParameterName());
+				} else {
+					String childPartName = relationship.getType();
+					if (!partsAlreadyChecked.contains(childPartName)) {
+						partsAlreadyChecked.add(childPartName);
+						MessagePart nestedMessagePart = this.messageSetUtils.getMessagePart(childPartName);
+						result.addAll(findAllTemplateRelationships(nestedMessagePart, partsAlreadyChecked));
+					}
+				}
+			}
+		}
+		return result;
+	}
+	
 	private void validateMessagePart(MessagePart messagePart, List<MessageSetValidatorError> results) {
 		List<Relationship> relationships = messagePart.getRelationships();
 		for (Relationship relationship : relationships) {
