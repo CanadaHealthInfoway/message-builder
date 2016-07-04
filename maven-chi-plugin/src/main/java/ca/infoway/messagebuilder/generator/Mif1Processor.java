@@ -407,6 +407,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createAttribute(MessagePart part, Element element) {
 		Relationship relationship = new Relationship();
+		relationship.setAttribute(true);
 		relationship.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		relationship.setName(element.getAttribute("name"));
 		relationship.setStructural("true".equals(element.getAttribute("isStructural")));
