@@ -67,6 +67,7 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	/**
 	 * Alberta
 	 */
+	public static final SpecificationVersion V01R04_1_AB = new SpecificationVersion("V01R04_1_AB", "Alberta (PIN)", Hl7BaseVersion.CERX);
 	public static final SpecificationVersion V02R02_AB = new SpecificationVersion("V02R02_AB", "Alberta (V02R02)", Hl7BaseVersion.MR2007);
 	public static final SpecificationVersion R02_04_03_AB = new SpecificationVersion("R02_04_03_AB", "Alberta (R02_04_03)", Hl7BaseVersion.MR2009);
 	public static final SpecificationVersion R02_04_03_IMM_AB = new SpecificationVersion("R02_04_03_IMM_AB", "Alberta (Immunization)", Hl7BaseVersion.MR2009);
