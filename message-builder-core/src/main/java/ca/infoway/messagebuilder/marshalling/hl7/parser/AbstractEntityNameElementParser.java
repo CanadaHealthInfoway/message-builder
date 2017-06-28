@@ -21,7 +21,8 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -53,7 +54,7 @@ abstract class AbstractEntityNameElementParser extends AbstractSingleElementPars
 	}
 
 	protected Set<EntityNameUse> getNameUses(String nameUseAttribute, Element element, XmlToModelResult xmlToModelResult) {
-        Set<EntityNameUse> uses = new HashSet<EntityNameUse>();
+        Set<EntityNameUse> uses = Collections.synchronizedSet(new LinkedHashSet<EntityNameUse>());
         if (nameUseAttribute != null) {
             StringTokenizer tokenizer = new StringTokenizer(nameUseAttribute);
             while (tokenizer.hasMoreElements()) {

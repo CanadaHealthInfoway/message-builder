@@ -21,7 +21,8 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -93,7 +94,7 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
     }
     
 	private Set<PostalAddressUse> getNameUses(String nameUseAttribute, Node node, XmlToModelResult xmlToModelResult) {
-        Set<PostalAddressUse> uses = new HashSet<PostalAddressUse>();
+        Set<PostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<PostalAddressUse>());
         if (nameUseAttribute != null) {
             StringTokenizer tokenizer = new StringTokenizer(nameUseAttribute);
             while (tokenizer.hasMoreElements()) {

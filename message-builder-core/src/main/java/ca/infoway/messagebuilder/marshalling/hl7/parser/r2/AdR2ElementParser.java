@@ -22,9 +22,10 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import java.lang.reflect.Type;
 import java.text.MessageFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -144,7 +145,7 @@ class AdR2ElementParser extends AbstractSingleElementParser<PostalAddress> {
 	}
 
 	private Set<PostalAddressUse> parseAddressUses(String nameUseAttribute, Node node, XmlToModelResult xmlToModelResult) {
-        Set<PostalAddressUse> uses = new HashSet<PostalAddressUse>();
+        Set<PostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<PostalAddressUse>());
         if (nameUseAttribute != null) {
             StringTokenizer tokenizer = new StringTokenizer(nameUseAttribute);
             while (tokenizer.hasMoreElements()) {
