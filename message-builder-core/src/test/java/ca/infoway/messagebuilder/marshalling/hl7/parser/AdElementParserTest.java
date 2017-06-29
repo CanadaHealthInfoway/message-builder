@@ -20,12 +20,11 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-
-import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -35,6 +34,7 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -139,9 +139,14 @@ public class AdElementParserTest extends MarshallingTestCase {
         
         PostalAddress postalAddress = ad.getValue();
 		assertEquals("one use", 3, postalAddress.getUses().size());
-        assertTrue("contains HOME use", postalAddress.getUses().contains(X_BasicPostalAddressUse.HOME));
-        assertTrue("contains PHYS use", postalAddress.getUses().contains(X_BasicPostalAddressUse.PHYSICAL));
-        assertTrue("contains POSTAL use", postalAddress.getUses().contains(X_BasicPostalAddressUse.POSTAL));
+		int index = 0;
+		// MBR-357 - order must be preserved
+		PostalAddressUse[] expectedUses = {X_BasicPostalAddressUse.HOME, X_BasicPostalAddressUse.PHYSICAL, X_BasicPostalAddressUse.POSTAL};
+		for (PostalAddressUse actualUse : postalAddress.getUses()) {
+			PostalAddressUse expectedUse = expectedUses[index];
+			assertEquals("contains " + expectedUse.getCodeValue() + " use", expectedUse, actualUse);
+			index++;
+		}
     }
     
 	@Test

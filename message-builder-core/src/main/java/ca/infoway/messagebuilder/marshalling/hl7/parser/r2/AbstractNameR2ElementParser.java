@@ -23,7 +23,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -191,7 +193,7 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
     }
     
 	private Set<EntityNameUse> parseNameUses(String usesString, Element element, XmlToModelResult xmlToModelResult) {
-        Set<EntityNameUse> uses = new TreeSet<EntityNameUse>();
+        Set<EntityNameUse> uses = Collections.synchronizedSet(new LinkedHashSet<EntityNameUse>());
         if (StringUtils.isNotBlank(usesString)) {
             StringTokenizer tokenizer = new StringTokenizer(usesString);
             while (tokenizer.hasMoreElements()) {
