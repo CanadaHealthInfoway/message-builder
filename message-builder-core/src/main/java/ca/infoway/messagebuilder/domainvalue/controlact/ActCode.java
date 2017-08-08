@@ -39,6 +39,7 @@ public class ActCode extends EnumPattern implements ca.infoway.messagebuilder.do
 	public static final ActCode CHRON = new ActCode("CHRON"); 
 	public static final ActCode CONFIDENCE_VALUE = new ActCode("ConfidenceValue"); 
 	public static final ActCode DRUG = new ActCode("DRUG"); 
+	public static final ActCode DX = new ActCode("DX");
 	public static final ActCode FS = new ActCode("FS"); 
 	public static final ActCode G = new ActCode("G"); 
 	public static final ActCode IMMUNIZ = new ActCode("IMMUNIZ"); 
