@@ -36,6 +36,7 @@ public class HL7StandardVersionCode extends EnumPattern implements ca.infoway.me
 	public static final HL7StandardVersionCode V3_2005_05 = new HL7StandardVersionCode("V3_2005_05", "V3-2005-05");
     public static final HL7StandardVersionCode V3_2006_05 = new HL7StandardVersionCode("V3_2006_05", "V3-2006-05");
     public static final HL7StandardVersionCode V3_2007_05 = new HL7StandardVersionCode("V3_2007_05", "V3-2007-05");
+    public static final HL7StandardVersionCode V3_2007_07 = new HL7StandardVersionCode("V3_2007_07", "V3-2007-07");
     public static final HL7StandardVersionCode V3_2007N = new HL7StandardVersionCode("V3_2007N", "V3-2007N");
     public static final HL7StandardVersionCode V3_2008N = new HL7StandardVersionCode("V3_2008N", "V3-2008N");
     public static final HL7StandardVersionCode V3_2008_N = new HL7StandardVersionCode("V3_2008_N", "V3-2008-N");	// This is a non-standard code that is only used in NS
