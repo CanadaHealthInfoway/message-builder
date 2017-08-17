@@ -23,10 +23,10 @@ package ca.infoway.messagebuilder.marshalling;
 import static ca.infoway.messagebuilder.marshalling.BeanBridgeChoiceRelationshipResolver.resolveChoice;
 import static ca.infoway.messagebuilder.marshalling.FixedValueAttributeBeanBridge.FIXED;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
-import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CANNOT_BE_USED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CANNOT_BE_USED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.isIgnoredNotAllowed;
@@ -241,7 +241,7 @@ class XmlRenderingVisitor implements Visitor {
 			} else if (ConformanceLevelUtil.isIgnored(relationship)) {
 				validationWarning = true;
 				warningMessage = MessageFormat.format(isIgnoredNotAllowed() ? 
-						ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED :
+						ASSOCIATION_IS_IGNORED_AND_CANNOT_BE_USED :
 						ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
 			} else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
 				validationWarning = true;
@@ -488,16 +488,22 @@ class XmlRenderingVisitor implements Visitor {
 	}
 
 	private void handleNotAllowedAndIgnored(Relationship relationship,	String propertyPath) {
-		String warningForIncorrectUseOfIgnore = null;
+		Hl7Error hl7Error = null;
 		if (ConformanceLevelUtil.isIgnored(relationship)) {
-			warningForIncorrectUseOfIgnore = MessageFormat.format(isIgnoredNotAllowed() ? 
-					ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
-					ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
+			if (isIgnoredNotAllowed()) {
+				String message = MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_CANNOT_BE_USED, relationship.getName());
+				hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, ErrorLevel.ERROR, message, propertyPath);
+			} else {
+				String message = MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
+				hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, ErrorLevel.INFO, message, propertyPath);
+			}
 		}  else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
-			warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
+			String message = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
+			hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, ErrorLevel.ERROR, message, propertyPath);
 		}
-		if (warningForIncorrectUseOfIgnore != null) {
-			this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningForIncorrectUseOfIgnore, propertyPath));
+		
+		if (hl7Error != null) {
+			this.result.addHl7Error(hl7Error);
 		}
 	}
 

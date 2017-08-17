@@ -21,15 +21,18 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
@@ -48,6 +51,7 @@ import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public class XmlRenderingVisitorTest {
 
@@ -60,9 +64,12 @@ public class XmlRenderingVisitorTest {
 	private Interaction interation;
 	private MockPartBridge partBridge;
 	private MockAttributeBridge attributeBridge;
+	private String ignoredAsNotAllowedOriginalValue;
 	
 	@Before
 	public void setUp() throws Exception {
+		ignoredAsNotAllowedOriginalValue = System.getProperty(ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED);
+		
 		CodeResolverRegistry.registerResolver(ActStatus.class, new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActStatus.class));
 		CodeResolverRegistry.registerResolver(Realm.class, new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.Realm.class));
 		this.visitor = new XmlRenderingVisitor(MockVersionNumber.MOCK_MR2009);
@@ -80,6 +87,9 @@ public class XmlRenderingVisitorTest {
 	
 	@After
 	public void tearDown() {
+		if (ignoredAsNotAllowedOriginalValue!=null) {
+			System.setProperty(ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED, ignoredAsNotAllowedOriginalValue);
+		}
 		CodeResolverRegistry.unregisterAll();
 	}
 	
@@ -111,11 +121,10 @@ public class XmlRenderingVisitorTest {
 
 	@Test
 	public void shouldRenderNonStructuralAttributeWithNullFlavor() throws Exception {
-		this.attributeBridge.setHl7Value(new IIImpl(NullFlavor.MASKED));
+		IIImpl attributeValue = new IIImpl(NullFlavor.MASKED);
+		Relationship relationship = createNonStructuralRelationship();
 
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		exerciseVisitorOverInteractionWithAttribute(attributeValue, relationship);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
@@ -126,14 +135,12 @@ public class XmlRenderingVisitorTest {
 
 	@Test
 	public void shouldRenderNonStructuralAttributeWithNullFlavorForCDA() throws Exception {
-		
 		this.visitor = new XmlRenderingVisitor(true, true, null);
 		
-		this.attributeBridge.setHl7Value(new IIImpl(NullFlavor.MASKED));
+		IIImpl attributeValue = new IIImpl(NullFlavor.MASKED);
+		Relationship relationship = createNonStructuralRelationship();
 
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		exerciseVisitorOverInteractionWithAttribute(attributeValue, relationship);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ClinicalDocument xmlns=\"urn:hl7-org:v3\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:sdtc=\"urn:hl7-org:sdtc\" xmlns:cda=\"urn:hl7-org:v3\"" +
@@ -144,13 +151,9 @@ public class XmlRenderingVisitorTest {
 
 	@Test
 	public void shouldRenderNonStructuralAttribute() throws Exception {
-		IIImpl iiImpl = new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
-		iiImpl.setDataType(StandardDataType.II_TOKEN);
-		this.attributeBridge.setHl7Value(iiImpl);
-
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		BareANY attributeHl7Value = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
+		Relationship attributeRelationship = createNonStructuralRelationship();
+		exerciseVisitorOverInteractionWithAttribute(attributeHl7Value, attributeRelationship);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
@@ -160,17 +163,54 @@ public class XmlRenderingVisitorTest {
 	}
 	
 	@Test
+	public void shouldLogInfoMessageForUseOfIgnoredAttribute() {
+		IIImpl iiImpl = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
+		Relationship relationship = createNonStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		exerciseVisitorOverInteractionWithAttribute(iiImpl, relationship);
+		
+		assertXmlContains(
+				"<!-- INFO - DATA_TYPE_ERROR : Attribute is ignored and will not be used: (id) (aPropertyName2.aPropertyName) -->",
+				this.visitor.toXml().getXmlMessage());
+	}
+	
+	@Test
+	public void shouldLogErrorForUseOfIgnoredAttributeWhenIgnoreConfiguredAsNotAllowed() {
+		System.setProperty(ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED, "true");
+		
+		IIImpl iiImpl = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
+		Relationship relationship = createNonStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		exerciseVisitorOverInteractionWithAttribute(iiImpl, relationship);
+		
+		assertXmlContains(
+				"<!-- ERROR - DATA_TYPE_ERROR : Attribute is ignored and cannot be used: (id) (aPropertyName2.aPropertyName) -->",
+				this.visitor.toXml().getXmlMessage());
+	}
+	
+	@Test
+	public void shouldLogErrorForUseOfNotAllowedAttribute() {
+		IIImpl iiImpl = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
+		Relationship relationship = createNonStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.NOT_ALLOWED);
+
+		exerciseVisitorOverInteractionWithAttribute(iiImpl, relationship);
+		
+		assertXmlContains(
+				"<!-- ERROR - DATA_TYPE_ERROR : Attribute is not allowed: (id) (aPropertyName2.aPropertyName) -->",
+				this.visitor.toXml().getXmlMessage());
+	}
+	
+	@Test
 	public void shouldRenderNonStructuralAttributeString() throws Exception {
-		this.attributeBridge.setHl7Value(new STImpl("some string"));
-		
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		
+		STImpl attributeValue = new STImpl("some string");
 		Relationship relationship = new Relationship();
 		relationship.setName("value");
 		relationship.setType(StandardDataType.ANY_LAB.getType());
-		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null, null);
-		
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
+
+		exerciseVisitorOverInteractionWithAttribute(attributeValue, relationship);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
@@ -181,16 +221,12 @@ public class XmlRenderingVisitorTest {
 	
 	@Test
 	public void shouldRenderNotNonStructuralAttributeFullDate() throws Exception {
-		this.attributeBridge.setHl7Value(new TNImpl(new TrivialName("Trivial Name")));
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		
+		TNImpl attributeValue = new TNImpl(new TrivialName("Trivial Name"));
 		Relationship relationship = new Relationship();
 		relationship.setName("value");
 		relationship.setType(StandardDataType.ANY_LAB.getType());
 
-		this.visitor.visitAttribute(attributeBridge, relationship, null, null, null);
-		
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		exerciseVisitorOverInteractionWithAttribute(attributeValue, relationship);
 		
 		ModelToXmlResult result = this.visitor.toXml();
 		result.getXmlMessage();
@@ -214,6 +250,19 @@ public class XmlRenderingVisitorTest {
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" +
 				"<code code=\"completed\" codeSystem=\"2.16.840.1.113883.5.14\"/>" +
 				"</ABCD_IN123456CA>", xml);
+	}
+
+	private void exerciseVisitorOverInteractionWithAttribute(BareANY attributeHl7Value, Relationship attributeRelationship) {
+		this.attributeBridge.setHl7Value(attributeHl7Value);
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAttribute(this.attributeBridge, attributeRelationship, null, null, null);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+	}
+
+	private IIImpl createIITokenFromUuid(String rootUuid) {
+		IIImpl iiImpl = new IIImpl(new Identifier(rootUuid));
+		iiImpl.setDataType(StandardDataType.II_TOKEN);
+		return iiImpl;
 	}
 
 	private Relationship createNonStructuralRelationship() {
@@ -480,5 +529,11 @@ public class XmlRenderingVisitorTest {
 
 	private void assertXmlEquals(String string, String expected, String actual) {
 		assertEquals(string, WhitespaceUtil.normalizeWhitespace(expected, false), WhitespaceUtil.normalizeWhitespace(actual, false));
+	}
+	
+	private void assertXmlContains(String searchString, String actualXml) {
+		assertTrue(
+				String.format("could not find [%s] in xml message [%s]", searchString, actualXml),
+				StringUtils.contains(WhitespaceUtil.normalizeWhitespace(actualXml, false), searchString));
 	}
 }

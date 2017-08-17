@@ -21,9 +21,9 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
-import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CANNOT_BE_USED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CANNOT_BE_USED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
 import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.isIgnoredNotAllowed;
 
@@ -140,8 +140,8 @@ class BridgeFactoryImpl implements BridgeFactory {
 		if(isIgnoredNotAllowed() && ConformanceLevelUtil.isIgnored(relationship)) {
 			this.log.debug(MessageFormat.format(
 					relationship.isAssociation()?
-							ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED:
-							ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, 
+							ASSOCIATION_IS_IGNORED_AND_CANNOT_BE_USED:
+							ATTRIBUTE_IS_IGNORED_AND_CANNOT_BE_USED, 
 					relationship.getName()));							
 		} else if (ConformanceLevelUtil.isNotAllowed(relationship)){
 			this.log.debug(MessageFormat.format(
