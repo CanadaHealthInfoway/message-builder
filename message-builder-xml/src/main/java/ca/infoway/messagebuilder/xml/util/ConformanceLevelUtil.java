@@ -26,9 +26,9 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 public class ConformanceLevelUtil {
 	
-	public static final String ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED = "Association is ignored and can not be used: ({0})";
+	public static final String ASSOCIATION_IS_IGNORED_AND_CANNOT_BE_USED = "Association is ignored and cannot be used: ({0})";
 	public static final String ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED = "Association is ignored and will not be used: ({0})";
-	public static final String ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED = "Attribute is ignored and can not be used: ({0})";
+	public static final String ATTRIBUTE_IS_IGNORED_AND_CANNOT_BE_USED = "Attribute is ignored and cannot be used: ({0})";
 	public static final String ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED = "Attribute is ignored and will not be used: ({0})";
 	public static final String ASSOCIATION_IS_NOT_ALLOWED = "Association is not allowed: ({0})";
 	public static final String ATTRIBUTE_IS_NOT_ALLOWED = "Attribute is not allowed: ({0})";
