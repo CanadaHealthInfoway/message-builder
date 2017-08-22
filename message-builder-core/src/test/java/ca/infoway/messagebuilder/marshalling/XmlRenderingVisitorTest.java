@@ -20,8 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -33,8 +32,11 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TNImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -87,7 +89,9 @@ public class XmlRenderingVisitorTest {
 	
 	@After
 	public void tearDown() {
-		if (ignoredAsNotAllowedOriginalValue!=null) {
+		if (ignoredAsNotAllowedOriginalValue==null) {
+			System.clearProperty(ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED);
+		} else {
 			System.setProperty(ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED, ignoredAsNotAllowedOriginalValue);
 		}
 		CodeResolverRegistry.unregisterAll();
@@ -163,7 +167,7 @@ public class XmlRenderingVisitorTest {
 	}
 	
 	@Test
-	public void shouldLogInfoMessageForUseOfIgnoredAttribute() {
+	public void shouldLogInfoMessageForUseOfIgnoredNonStructuralAttribute() {
 		IIImpl iiImpl = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
 		Relationship relationship = createNonStructuralRelationship();
 		relationship.setConformance(ConformanceLevel.IGNORED);
@@ -176,7 +180,47 @@ public class XmlRenderingVisitorTest {
 	}
 	
 	@Test
-	public void shouldLogErrorForUseOfIgnoredAttributeWhenIgnoreConfiguredAsNotAllowed() {
+	public void shouldNotLogInfoMessageForUseOfIgnoredNonStructuralAttributeWhenNoValueIsSet() {
+		IIImpl emptyII = new IIImpl();	// don't set the value inside it
+		emptyII.setDataType(StandardDataType.II_TOKEN);
+		Relationship relationship = createNonStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		exerciseVisitorOverInteractionWithAttribute(emptyII, relationship);
+		
+		Assert.assertFalse(StringUtils.contains(this.visitor.toXml().getXmlMessage(), "Attribute is ignored and will not be used"));
+	}
+	
+	@Test
+	public void shouldNotLogInfoMessageForUseOfIgnoredNonStructuralAttributeWhenListIsEmpty() throws Exception {
+		LIST<II, Identifier> idList = new LISTImpl<II, Identifier>(IIImpl.class);
+		Relationship relationship = createNonStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		exerciseVisitorOverInteractionWithAttribute(idList, relationship);
+		
+		Assert.assertFalse(StringUtils.contains(this.visitor.toXml().getXmlMessage(), "Attribute is ignored and will not be used"));
+	}
+	
+	
+	@Test
+	public void shouldLogInfoMessageForUseOfIgnoredNonStructuralAttributeWithNullFlavour() {
+		IIImpl emptyII = new IIImpl();	// don't set the value inside it
+		emptyII.setDataType(StandardDataType.II_TOKEN);
+		emptyII.setNullFlavor(NullFlavor.NO_INFORMATION);	// do set a null flavour
+		
+		Relationship relationship = createNonStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		exerciseVisitorOverInteractionWithAttribute(emptyII, relationship);
+		
+		assertXmlContains(
+				"<!-- INFO - DATA_TYPE_ERROR : Attribute is ignored and will not be used: (id) (aPropertyName2.aPropertyName) -->",
+				this.visitor.toXml().getXmlMessage());
+	}
+	
+	@Test
+	public void shouldLogErrorForUseOfIgnoredNonStructuralAttributeWhenIgnoreConfiguredAsNotAllowed() {
 		System.setProperty(ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED, "true");
 		
 		IIImpl iiImpl = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
@@ -191,7 +235,7 @@ public class XmlRenderingVisitorTest {
 	}
 	
 	@Test
-	public void shouldLogErrorForUseOfNotAllowedAttribute() {
+	public void shouldLogErrorForUseOfNotAllowedNonStructuralAttribute() {
 		IIImpl iiImpl = createIITokenFromUuid("1ee83ff1-08ab-4fe7-b573-ea777e9bad51");
 		Relationship relationship = createNonStructuralRelationship();
 		relationship.setConformance(ConformanceLevel.NOT_ALLOWED);
@@ -320,6 +364,37 @@ public class XmlRenderingVisitorTest {
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\" classCode=\"ACT\"/>", xml);
 	}
 	
+	@Test
+	public void shouldLogInfoMessageForUseOfIgnoredStructuralAttribute() throws Exception {
+		this.attributeBridge.setValue(Boolean.FALSE);
+
+		Relationship relationship = createStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null, null);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<!-- WARNING: INFO - DATA_TYPE_ERROR : Attribute is ignored and will not be used: (negationInd) (aPropertyName2.aPropertyName) -->" +
+				"<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
+				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\" negationInd=\"false\"/>", xml);
+	}
+
+	@Test
+	public void shouldNotLogInfoMessageForUseOfIgnoredStructuralAttributeWhenNoValueSet() throws Exception {
+		this.attributeBridge.setValue(null);	// no value is set
+
+		Relationship relationship = createStructuralRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null, null);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		Assert.assertFalse(StringUtils.contains(this.visitor.toXml().getXmlMessage(), "Attribute is ignored and will not be used"));
+	}
+
 	private Relationship createStructuralRelationship() {
 		Relationship relationship = new Relationship();
 		relationship.setName("negationInd");

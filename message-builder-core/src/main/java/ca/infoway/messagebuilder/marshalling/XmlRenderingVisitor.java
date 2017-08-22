@@ -33,6 +33,7 @@ import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.isIgnoredN
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +68,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.FormatterR2Registry;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
+import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.Argument;
@@ -355,7 +357,9 @@ class XmlRenderingVisitor implements Visitor {
 		if (relationship.isStructural()) {
 			String propertyPath = buildPropertyPath();
 			
-			handleNotAllowedAndIgnored(relationship, propertyPath);
+			if (tealBean.getValue()!=null) {
+				handleNotAllowedAndIgnored(relationship, propertyPath);
+			}
 			// TODO - CDA - TM - may need to handle constraints for structural attributes
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder(), propertyPath, this.result);
 			addNewErrorsToList(currentBuffer().getWarnings());
@@ -446,8 +450,9 @@ class XmlRenderingVisitor implements Visitor {
 //					}
 					
 				}
-				
-				handleNotAllowedAndIgnored(relationship, propertyPath);
+				if (hl7Value!=null && hl7ValueHasContent(hl7Value)) {
+					handleNotAllowedAndIgnored(relationship, propertyPath);
+				}
 				
 				FormatContext context = FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints, this.isCda);
 				if (!StringUtils.equals(type, relationship.getType())) {
@@ -471,6 +476,20 @@ class XmlRenderingVisitor implements Visitor {
 			}
 			renderNewErrorsToXml(currentBuffer().getChildBuilder());
 			currentBuffer().getChildBuilder().append(xmlFragment);
+		}
+	}
+
+	private boolean hl7ValueHasContent(BareANY hl7Value) {
+		if (hl7Value.getBareValue() != null) {
+			// there's a value; if it's a list, check if it is empty
+			if (ListElementUtil.isCollection(hl7Value.getBareValue())) {
+				return !((Collection<?>) hl7Value.getBareValue()).isEmpty();
+			} else {
+				return true;
+			}
+		} else {
+			// contains no value, but perhaps has a null flavor
+			return hl7Value.hasNullFlavor();
 		}
 	}
 
