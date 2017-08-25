@@ -24,7 +24,6 @@ import static ca.infoway.messagebuilder.error.Hl7ErrorCode.SYNTAX_ERROR;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +51,6 @@ import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-import ca.infoway.messagebuilder.domainvalue.transport.Realm;
 import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
@@ -172,8 +170,6 @@ class Hl7SourceMapper {
             }
         }
 
-        // this sorts the matching relationships according to HL7v3/MIF requirements
-		Collections.sort(sortedRelationshipsMatchingUpToXmlElementNames);
 		validateElementOrder(source, xmlElementNamesInProvidedOrder, sortedRelationshipsMatchingUpToXmlElementNames, resolvedRelationshipNames);
 		
 		// only do this if relationship not null and relationship not a null flavor???
