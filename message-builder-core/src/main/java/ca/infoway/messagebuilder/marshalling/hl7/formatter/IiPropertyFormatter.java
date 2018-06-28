@@ -35,6 +35,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -103,10 +104,10 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
     		// only override type if new type is valid
     		if (validSpecializationType) {
     			typeFromContext = typeFromField;
-    			addSpecializationType(result, typeFromContext);
+    			addSpecializationTypeAttributesBasedOnVersion(result, typeFromContext, context.getVersion());
     		} else {
     			if (iiValidationUtils.isIiBusAndVer(typeFromContext)) {
-        			addSpecializationType(result, IiValidationUtils.II_BUS);
+        			addSpecializationTypeAttributesBasedOnVersion(result, IiValidationUtils.II_BUS, context.getVersion());
         			typeFromContext = IiValidationUtils.II_BUS;
         			recordError(iiValidationUtils.getInvalidSpecializationTypeForBusAndVerErrorMessage(typeFromField, typeFromContext), context);
     			} else {
@@ -123,6 +124,16 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 	private boolean isSpecializationTypeProvided(String typeFromContext, String typeFromField) {
 		// we can only infer a specializationType was provided if the field type is no longer its default value (II, in this case) and is not identical to the context type
 		return typeFromField != null && !iiValidationUtils.isII(typeFromField) && !StringUtils.equals(typeFromContext, typeFromField);
+	}
+	
+	private void addSpecializationTypeAttributesBasedOnVersion(Map<String, String> attributes, String typeAsString, VersionNumber version) {
+		addSpecializationType(attributes, typeAsString);
+
+		// exception for specification versions that reject II elements containing the specializationType
+		// attribute itself, but still require the xsi:type and use attributes
+		if (SpecificationVersion.isExactVersion(SpecificationVersion.V01R04_1_AB, version)) {
+			attributes.remove(SPECIALIZATION_TYPE);
+		}
 	}
 
 	private void validate(Identifier ii, String type, VersionNumber version, FormatContext context) {
