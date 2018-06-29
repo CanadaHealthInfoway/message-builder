@@ -86,12 +86,17 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 								));
 			}
 		} else {
-			context.getModelToXmlResult().addHl7Error(
+			// MBR-368: a temporary work-around for producing AB PIN compliant date time renderings
+			// with out error messages -- required until the runtime's knowledge of datatypes has been
+			// corrected to distinguish between CeRx v3 (ie., V01R03) and CeRx v4 (ie., V01R04)
+			if (!SpecificationVersion.isExactVersion(SpecificationVersion.V01R04_1_AB, version)) {
+				context.getModelToXmlResult().addHl7Error(
 					new Hl7Error(
 							Hl7ErrorCode.DATA_TYPE_ERROR, 
 							MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType()),
 							context.getPropertyPath()
 							));
+			}
 		}
 	}
 

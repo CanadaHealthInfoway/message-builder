@@ -113,6 +113,9 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 		V01R04_2_SK.registerHl7ReleaseByDatatype("II.BUS", Hl7BaseVersion.MR2009);
 		V01R04_2_SK.registerHl7ReleaseByDatatype("II.VER", Hl7BaseVersion.MR2009);
 		V01R04_2_SK.registerHl7ReleaseByDatatype("II.BUS_AND_VER", Hl7BaseVersion.MR2009);
+		
+		// MBR-368: a temporary work-around for producing AB PIN compliant date time renderings
+		V01R04_1_AB.registerHl7ReleaseByDatatype("TS.FULLDATETIME", Hl7BaseVersion.MR2009);
 	}
 
 	
