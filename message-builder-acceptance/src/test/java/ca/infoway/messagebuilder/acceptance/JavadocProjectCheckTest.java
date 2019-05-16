@@ -105,6 +105,7 @@ public class JavadocProjectCheckTest {
 		this.projectExclusions.add("message-builder-demiftifier");
 		this.projectExclusions.add("message-builder-html");
 		this.projectExclusions.add("junitUtils");
+		this.projectExclusions.add("dependency-analyzer");
 		this.projectExclusions.add("stylesheet");
 		this.projectExclusions.add("src");
 		this.projectExclusions.add("target");
