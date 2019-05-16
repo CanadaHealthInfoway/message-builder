@@ -21,14 +21,15 @@
 package ca.infoway.messagebuilder.comparator;
 
 import static org.junit.Assert.assertEquals;
-import japa.parser.JavaParser;
-import japa.parser.ast.CompilationUnit;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Map;
 
 import org.junit.Test;
+
+import japa.parser.JavaParser;
+import japa.parser.ast.CompilationUnit;
 
 
 public class BeanVisitorTest {

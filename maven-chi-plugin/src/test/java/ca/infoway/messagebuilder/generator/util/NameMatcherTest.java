@@ -25,8 +25,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.NamedType;
-import ca.infoway.messagebuilder.generator.util.MatchType;
-import ca.infoway.messagebuilder.generator.util.NameMatcher;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 

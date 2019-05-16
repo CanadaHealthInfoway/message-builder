@@ -28,12 +28,12 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import java.util.HashSet;
 import java.util.Set;
 
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.MessageSet;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Div;
+
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.MessageSet;
 
 public class StartPageHtml extends BaseHtmlGenerator {
 	private MessageSet messageSet;

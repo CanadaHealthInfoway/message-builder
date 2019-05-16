@@ -27,12 +27,12 @@ import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.MifProcessingException;
+import ca.infoway.messagebuilder.dependencyanalyzer.Node;
 import ca.infoway.messagebuilder.generator.util.MatchType;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.intelliware.commons.dependency.Node;
 
 class ForcedMatchManager implements Fuzziness {
 

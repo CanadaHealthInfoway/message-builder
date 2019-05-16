@@ -24,6 +24,8 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.dependencyanalyzer.DependencyManager;
+import ca.infoway.messagebuilder.dependencyanalyzer.LayeredGraph;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceType;
@@ -34,8 +36,6 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
-import ca.intelliware.commons.dependency.DependencyManager;
-import ca.intelliware.commons.dependency.LayeredGraph;
 
 public class DependencyTracker {
 

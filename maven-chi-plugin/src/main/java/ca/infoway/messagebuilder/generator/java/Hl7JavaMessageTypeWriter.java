@@ -43,6 +43,7 @@ import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.generator.lang.Hl7TypeWriter;
 import ca.infoway.messagebuilder.generator.lang.ImportTypeUtil;
 import ca.infoway.messagebuilder.generator.lang.InteractionType;
+import ca.infoway.messagebuilder.generator.lang.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.NameTranslator;
 import ca.infoway.messagebuilder.generator.lang.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.lang.PropertyGeneratorBuilders;
@@ -50,7 +51,6 @@ import ca.infoway.messagebuilder.generator.lang.PropertyNameResolver;
 import ca.infoway.messagebuilder.generator.lang.RenderedType;
 import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
-import ca.infoway.messagebuilder.generator.lang.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 

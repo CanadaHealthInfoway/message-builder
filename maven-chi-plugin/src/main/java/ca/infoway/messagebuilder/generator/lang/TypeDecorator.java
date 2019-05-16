@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.generator.lang;
 
 import static java.lang.String.format;
+
 import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 enum TypeDecorator {

@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.html.generator;
 import java.util.HashSet;
 import java.util.Set;
 
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.MessageSet;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Script;
 import com.hp.gagawa.java.elements.Title;
+
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.MessageSet;
 
 public class StartPageRedirectHtml extends BaseHtmlGenerator {
 	private String indexFileName;

@@ -19,8 +19,6 @@
  */
 package ca.infoway.messagebuilder.html.generator;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +26,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class InteractionHtmlTest {

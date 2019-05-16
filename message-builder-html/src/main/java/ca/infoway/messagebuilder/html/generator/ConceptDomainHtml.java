@@ -31,16 +31,6 @@ import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.Set;
 
-import ca.infoway.demiftifier.VocabularyLayout;
-import ca.infoway.demiftifier.layout.LayerOuter;
-import ca.infoway.demiftifier.svgifier.Svgifier;
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.ConceptDomain;
-import ca.infoway.messagebuilder.xml.ContextBinding;
-import ca.infoway.messagebuilder.xml.DomainSource;
-import ca.infoway.messagebuilder.xml.MessageSet;
-import ca.infoway.messagebuilder.xml.ValueSet;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.Node;
@@ -52,6 +42,16 @@ import com.hp.gagawa.java.elements.Tbody;
 import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Thead;
 import com.hp.gagawa.java.elements.Ul;
+
+import ca.infoway.demiftifier.VocabularyLayout;
+import ca.infoway.demiftifier.layout.LayerOuter;
+import ca.infoway.demiftifier.svgifier.Svgifier;
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
+import ca.infoway.messagebuilder.xml.ContextBinding;
+import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.ValueSet;
 
 public class ConceptDomainHtml extends BaseHtmlGenerator {
 	private ConceptDomain conceptDomain;

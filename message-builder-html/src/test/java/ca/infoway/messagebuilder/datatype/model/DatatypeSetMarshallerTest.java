@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +36,7 @@ import org.simpleframework.xml.Serializer;
 
 import ca.infoway.messagebuilder.datatype.mif.DatatypeMifMarshaller;
 import ca.infoway.messagebuilder.datatype.mif.MifDatatypeModelLibrary;
+import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DatatypeSetMarshallerTest {

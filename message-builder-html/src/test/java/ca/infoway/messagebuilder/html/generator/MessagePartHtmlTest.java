@@ -21,12 +21,14 @@ package ca.infoway.messagebuilder.html.generator;
 
 import java.io.InputStream;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.Li;
+import com.hp.gagawa.java.elements.Table;
 
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.Annotation;
@@ -36,10 +38,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 import ca.infoway.messagebuilder.xml.Relationship;
-
-import com.hp.gagawa.java.elements.Div;
-import com.hp.gagawa.java.elements.Li;
-import com.hp.gagawa.java.elements.Table;
+import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MessagePartHtmlTest {

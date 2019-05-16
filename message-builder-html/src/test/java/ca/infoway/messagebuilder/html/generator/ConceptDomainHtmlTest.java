@@ -24,8 +24,6 @@ import static ca.infoway.messagebuilder.xml.DomainSource.CONCEPT_DOMAIN;
 import java.io.InputStream;
 import java.util.List;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +35,7 @@ import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 import ca.infoway.messagebuilder.xml.Vocabulary;
+import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConceptDomainHtmlTest {

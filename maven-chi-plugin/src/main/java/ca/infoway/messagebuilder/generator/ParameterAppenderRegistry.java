@@ -30,12 +30,12 @@ import java.util.Map;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ClassUtils;
 
+import com.google.common.base.Function;
+import com.google.common.base.Functions;
+
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
-
-import com.google.common.base.Function;
-import com.google.common.base.Functions;
 
 class ParameterAppenderRegistry {
 	

@@ -34,6 +34,10 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.hp.gagawa.java.elements.Li;
+import com.hp.gagawa.java.elements.Text;
+import com.hp.gagawa.java.elements.Ul;
+
 import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.AnnotationType;
@@ -46,10 +50,6 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.ReceiverResponsibility;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
-
-import com.hp.gagawa.java.elements.Li;
-import com.hp.gagawa.java.elements.Text;
-import com.hp.gagawa.java.elements.Ul;
 
 public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");

@@ -31,6 +31,8 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.dependencyanalyzer.LayeredGraph;
+import ca.infoway.messagebuilder.dependencyanalyzer.Node;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.HasDifferences;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -40,8 +42,6 @@ import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
-import ca.intelliware.commons.dependency.LayeredGraph;
-import ca.intelliware.commons.dependency.Node;
 
 public class Exciser {
 

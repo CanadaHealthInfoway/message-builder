@@ -62,9 +62,9 @@
 			<artifactId>spring-orm</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>ca.intelliware.commons</groupId>
-		    <artifactId>dependency</artifactId>
-		    <version>1.2</version>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>dependency-analyzer</artifactId>
+			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
 		    <groupId>com.google.collections</groupId>

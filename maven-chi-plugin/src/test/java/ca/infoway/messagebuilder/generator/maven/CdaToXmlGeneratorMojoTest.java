@@ -35,8 +35,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.google.common.collect.Sets.SetView;
-
 import ca.infoway.messagebuilder.generator.cda.CdaToXmlGenerator;
 
 @RunWith(MockitoJUnitRunner.class)

@@ -34,6 +34,9 @@ import ca.infoway.demiftifier.PackageLocationLayout;
 import ca.infoway.demiftifier.VocabularyLayout;
 import ca.infoway.demiftifier.VocabularyLayoutItem;
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.dependencyanalyzer.DependencyManager;
+import ca.infoway.messagebuilder.dependencyanalyzer.LayeredGraph;
+import ca.infoway.messagebuilder.dependencyanalyzer.Node;
 import ca.infoway.messagebuilder.xml.CodeSystem;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.ContextBinding;
@@ -47,9 +50,6 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.Vocabulary;
-import ca.intelliware.commons.dependency.DependencyManager;
-import ca.intelliware.commons.dependency.LayeredGraph;
-import ca.intelliware.commons.dependency.Node;
 
 public class LayerOuter {
 	

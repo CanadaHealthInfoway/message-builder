@@ -42,6 +42,23 @@ import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
+import com.hp.gagawa.java.Document;
+import com.hp.gagawa.java.Node;
+import com.hp.gagawa.java.elements.A;
+import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.H2;
+import com.hp.gagawa.java.elements.H3;
+import com.hp.gagawa.java.elements.Li;
+import com.hp.gagawa.java.elements.Link;
+import com.hp.gagawa.java.elements.Script;
+import com.hp.gagawa.java.elements.Span;
+import com.hp.gagawa.java.elements.Tbody;
+import com.hp.gagawa.java.elements.Td;
+import com.hp.gagawa.java.elements.Text;
+import com.hp.gagawa.java.elements.Title;
+import com.hp.gagawa.java.elements.Tr;
+import com.hp.gagawa.java.elements.Ul;
+
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.html.generator.util.UrlLinkifier;
 import ca.infoway.messagebuilder.xml.Annotation;
@@ -59,23 +76,6 @@ import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.Vocabulary;
-
-import com.hp.gagawa.java.Document;
-import com.hp.gagawa.java.Node;
-import com.hp.gagawa.java.elements.A;
-import com.hp.gagawa.java.elements.Div;
-import com.hp.gagawa.java.elements.H2;
-import com.hp.gagawa.java.elements.H3;
-import com.hp.gagawa.java.elements.Li;
-import com.hp.gagawa.java.elements.Link;
-import com.hp.gagawa.java.elements.Script;
-import com.hp.gagawa.java.elements.Span;
-import com.hp.gagawa.java.elements.Tbody;
-import com.hp.gagawa.java.elements.Td;
-import com.hp.gagawa.java.elements.Text;
-import com.hp.gagawa.java.elements.Title;
-import com.hp.gagawa.java.elements.Tr;
-import com.hp.gagawa.java.elements.Ul;
 
 public abstract class BaseHtmlGenerator {
 

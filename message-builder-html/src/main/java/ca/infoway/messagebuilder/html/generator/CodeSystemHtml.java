@@ -32,13 +32,6 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.CodeSystem;
-import ca.infoway.messagebuilder.xml.Concept;
-import ca.infoway.messagebuilder.xml.DomainSource;
-import ca.infoway.messagebuilder.xml.MessageSet;
-import ca.infoway.messagebuilder.xml.ValueSet;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.Node;
@@ -52,6 +45,13 @@ import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Thead;
 import com.hp.gagawa.java.elements.Tr;
 import com.hp.gagawa.java.elements.Ul;
+
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.CodeSystem;
+import ca.infoway.messagebuilder.xml.Concept;
+import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.ValueSet;
 
 public class CodeSystemHtml extends BaseHtmlGenerator {
 	private CodeSystem codeSystem;

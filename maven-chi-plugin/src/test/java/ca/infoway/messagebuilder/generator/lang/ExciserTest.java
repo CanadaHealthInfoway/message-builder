@@ -27,7 +27,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.generator.lang.Exciser;
 import ca.infoway.messagebuilder.generator.multiplemessageset.PreMergeEvaluator;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Cardinality;

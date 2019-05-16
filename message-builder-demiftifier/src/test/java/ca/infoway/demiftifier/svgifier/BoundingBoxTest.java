@@ -20,9 +20,10 @@
 package ca.infoway.demiftifier.svgifier;
 
 import static ca.infoway.demiftifier.AssertWrapper.assertEqualsIgnorePadding;
-import junit.framework.Assert;
 
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class BoundingBoxTest {
 

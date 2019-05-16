@@ -33,6 +33,9 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.dependencyanalyzer.DependencyManager;
+import ca.infoway.messagebuilder.dependencyanalyzer.Layer;
+import ca.infoway.messagebuilder.dependencyanalyzer.Node;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.NamingPolicy;
@@ -53,9 +56,6 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.Vocabulary;
-import ca.intelliware.commons.dependency.DependencyManager;
-import ca.intelliware.commons.dependency.Layer;
-import ca.intelliware.commons.dependency.Node;
 
 public abstract class IntermediateToModelGenerator {
 	

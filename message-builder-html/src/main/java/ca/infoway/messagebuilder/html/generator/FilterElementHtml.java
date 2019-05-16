@@ -28,6 +28,10 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.hp.gagawa.java.Node;
+import com.hp.gagawa.java.elements.Li;
+import com.hp.gagawa.java.elements.Ul;
+
 import ca.infoway.messagebuilder.html.generator.util.UrlLinkifier;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.CodeSystem;
@@ -36,10 +40,6 @@ import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.ValueSetFilter;
 import ca.infoway.messagebuilder.xml.ValueSetFilterCode;
 import ca.infoway.messagebuilder.xml.ValueSetFilterReference;
-
-import com.hp.gagawa.java.Node;
-import com.hp.gagawa.java.elements.Li;
-import com.hp.gagawa.java.elements.Ul;
 
 public class FilterElementHtml extends BaseHtmlGenerator {
 

@@ -19,8 +19,6 @@
  */
 package ca.infoway.demiftifier.svgifier;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class ShapeTest {

@@ -30,7 +30,6 @@ import org.apache.commons.lang.ObjectUtils;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public abstract class InlineableSimplifier {
 

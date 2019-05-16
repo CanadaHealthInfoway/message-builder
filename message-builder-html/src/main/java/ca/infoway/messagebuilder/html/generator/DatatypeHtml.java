@@ -31,12 +31,6 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.datatype.model.Datatype;
-import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
-import ca.infoway.messagebuilder.datatype.model.StaticExampleAnnotation;
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.MessageSet;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Div;
@@ -45,6 +39,12 @@ import com.hp.gagawa.java.elements.Pre;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
 import com.hp.gagawa.java.elements.Thead;
+
+import ca.infoway.messagebuilder.datatype.model.Datatype;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.datatype.model.StaticExampleAnnotation;
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.MessageSet;
 
 public class DatatypeHtml extends BaseHtmlGenerator {
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");

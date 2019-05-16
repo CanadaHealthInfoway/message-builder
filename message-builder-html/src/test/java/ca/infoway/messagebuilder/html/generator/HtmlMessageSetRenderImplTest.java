@@ -24,8 +24,6 @@ import static org.mockito.Mockito.when;
 import java.io.InputStream;
 import java.util.Map;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,6 +40,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HtmlMessageSetRenderImplTest {

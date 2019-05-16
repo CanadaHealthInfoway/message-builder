@@ -36,16 +36,6 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.CodingStrength;
-import ca.infoway.messagebuilder.xml.DomainSource;
-import ca.infoway.messagebuilder.xml.MessagePart;
-import ca.infoway.messagebuilder.xml.MessageSet;
-import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.SpecializationChild;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.Node;
@@ -59,6 +49,16 @@ import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Thead;
 import com.hp.gagawa.java.elements.Tr;
 import com.hp.gagawa.java.elements.Ul;
+
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.CodingStrength;
+import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public class MessagePartHtml extends BaseHtmlGenerator {
 

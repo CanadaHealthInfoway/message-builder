@@ -19,8 +19,6 @@
  */
 package ca.infoway.messagebuilder.html.generator;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +29,7 @@ import ca.infoway.demiftifier.svgifier.Svgifier;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PackageLocationHtmlTest {

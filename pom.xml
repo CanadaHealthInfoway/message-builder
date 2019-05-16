@@ -71,6 +71,7 @@
            <module>message-builder-hl7v3-release-ns_cerx_v01_r04_3</module>
            <module>message-builder-mif-comparer</module>
            <module>message-builder-html</module>
+           <module>dependency-analyzer</module>
         </modules>
 	<dependencies>
 		<dependency>

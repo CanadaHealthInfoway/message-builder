@@ -38,17 +38,6 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.demiftifier.PackageLocationLayout;
-import ca.infoway.demiftifier.layout.LayerOuter;
-import ca.infoway.demiftifier.svgifier.Svgifier;
-import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.MessagePart;
-import ca.infoway.messagebuilder.xml.MessageSet;
-import ca.infoway.messagebuilder.xml.PackageLocation;
-import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.SpecializationChild;
-
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Div;
@@ -60,6 +49,17 @@ import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
 import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Ul;
+
+import ca.infoway.demiftifier.PackageLocationLayout;
+import ca.infoway.demiftifier.layout.LayerOuter;
+import ca.infoway.demiftifier.svgifier.Svgifier;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 public class PackageLocationHtml extends BaseHtmlGenerator {
 	

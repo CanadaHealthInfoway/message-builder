@@ -24,8 +24,6 @@ import static ca.infoway.messagebuilder.xml.DomainSource.CODE_SYSTEM;
 import java.io.InputStream;
 import java.util.List;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,6 +31,7 @@ import ca.infoway.messagebuilder.xml.CodeSystem;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 import ca.infoway.messagebuilder.xml.Vocabulary;
+import junit.framework.Assert;
 
 public class CodeSystemHtmlTest {
 	private MessageSet testMessageSet;

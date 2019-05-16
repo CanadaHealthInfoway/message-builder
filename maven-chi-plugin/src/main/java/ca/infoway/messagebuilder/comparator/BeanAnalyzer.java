@@ -20,11 +20,6 @@
 
 package ca.infoway.messagebuilder.comparator;
 
-import japa.parser.JavaParser;
-import japa.parser.ParseException;
-import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.type.ClassOrInterfaceType;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,6 +33,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.comparator.BeanAnalysisError.ErrorType;
+import japa.parser.JavaParser;
+import japa.parser.ParseException;
+import japa.parser.ast.CompilationUnit;
+import japa.parser.ast.type.ClassOrInterfaceType;
 
 public class BeanAnalyzer {
 	

@@ -30,9 +30,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.infoway.demiftifier.PackageLocationLayout;
 import ca.infoway.demiftifier.LayoutItemBuilder;
 import ca.infoway.demiftifier.MessagePartLayoutItem;
+import ca.infoway.demiftifier.PackageLocationLayout;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TrivialCoordinateSpaceTest {

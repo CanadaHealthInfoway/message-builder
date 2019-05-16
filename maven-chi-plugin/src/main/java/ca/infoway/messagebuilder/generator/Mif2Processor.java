@@ -40,6 +40,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+
 import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.MifProcessingException;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifVocabularyModel;
@@ -60,10 +64,6 @@ import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.RimClass;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
-
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 
 class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	

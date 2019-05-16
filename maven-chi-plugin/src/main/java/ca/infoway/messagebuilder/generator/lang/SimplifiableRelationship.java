@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.generator.lang;
 
 import static ca.infoway.messagebuilder.generator.lang.FingerprintDuplicateRegistry.causesDuplicateFingerprint;
+
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.xml.Relationship;

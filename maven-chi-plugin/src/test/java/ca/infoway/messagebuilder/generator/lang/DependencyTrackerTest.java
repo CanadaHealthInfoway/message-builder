@@ -28,6 +28,9 @@ import java.util.Set;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.dependencyanalyzer.DependencyManager;
+import ca.infoway.messagebuilder.dependencyanalyzer.Layer;
+import ca.infoway.messagebuilder.dependencyanalyzer.Node;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -36,9 +39,6 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
-import ca.intelliware.commons.dependency.DependencyManager;
-import ca.intelliware.commons.dependency.Layer;
-import ca.intelliware.commons.dependency.Node;
 
 
 public class DependencyTrackerTest {

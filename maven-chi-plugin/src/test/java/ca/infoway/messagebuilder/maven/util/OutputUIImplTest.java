@@ -30,7 +30,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.LogLevel;
-import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 
 @RunWith(JMock.class)
 public class OutputUIImplTest {

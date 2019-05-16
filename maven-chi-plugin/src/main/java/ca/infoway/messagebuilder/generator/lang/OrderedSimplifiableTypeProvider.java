@@ -28,7 +28,7 @@ import java.util.List;
 import org.apache.commons.lang.builder.CompareToBuilder;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
-import ca.intelliware.commons.dependency.LayeredGraph;
+import ca.infoway.messagebuilder.dependencyanalyzer.LayeredGraph;
 
 class OrderedSimplifiableTypeProvider implements SimplifiableTypeProvider {
 	

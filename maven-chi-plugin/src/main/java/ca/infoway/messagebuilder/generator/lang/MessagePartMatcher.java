@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.generator.lang;
 
 import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
 import static org.apache.commons.lang.StringUtils.trimToEmpty;
+
 import ca.infoway.messagebuilder.generator.util.MatchType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;

@@ -34,14 +34,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.hp.gagawa.java.Node;
+
 import ca.infoway.messagebuilder.datatype.mif.DatatypeMifMarshaller;
 import ca.infoway.messagebuilder.datatype.mif.MifDatatypeModelLibrary;
 import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
-
-import com.hp.gagawa.java.Node;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DatatypeHtmlTest {

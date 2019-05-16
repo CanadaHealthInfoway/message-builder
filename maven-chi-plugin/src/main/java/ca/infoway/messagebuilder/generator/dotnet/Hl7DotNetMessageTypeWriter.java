@@ -20,9 +20,8 @@
 
 package ca.infoway.messagebuilder.generator.dotnet;
 
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-
 import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.C_SHARP;
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 
 import java.io.IOException;
 import java.io.Writer;
