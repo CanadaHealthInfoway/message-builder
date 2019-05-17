@@ -25,12 +25,12 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.acceptance.devcreek.AcceptanceTestGroupMetricsRecord;
 import ca.infoway.messagebuilder.acceptance.devcreek.AcceptanceTestMetricsRecord;
+import ca.infoway.messagebuilder.acceptance.devcreek.Record;
 import ca.infoway.messagebuilder.acceptance.devcreek.RunEndedRecord;
 import ca.infoway.messagebuilder.acceptance.devcreek.RunStartedRecord;
 import ca.infoway.messagebuilder.acceptance.metrics.AcceptanceTestGroupMetrics;
 import ca.infoway.messagebuilder.acceptance.metrics.AcceptanceTestMetrics;
 import ca.infoway.messagebuilder.acceptance.metrics.AllAcceptanceGroupTestMetrics;
-import ca.intelliware.commons.dependency.devcreek.Record;
 
 public class AcceptanceTestsMetricsRecordCreator {
 

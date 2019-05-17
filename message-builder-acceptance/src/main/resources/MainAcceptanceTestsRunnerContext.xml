@@ -27,7 +27,6 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
   <bean id="ca.infoway.messagebuilder.acceptance.MainAcceptanceTestsRunner" class="ca.infoway.messagebuilder.acceptance.MainAcceptanceTestsRunner">
-  	<constructor-arg ref="ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter"/>
   	<constructor-arg>
   		<list>
   			<bean class="ca.infoway.messagebuilder.acceptance.AcceptanceTestsMetricsProcessor">
@@ -564,25 +563,5 @@
   		</list>
   	</constructor-arg>
   </bean>
-  
-  <bean id="ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter" class="ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter">
-  	<constructor-arg>	
-  		<bean class="ca.intelliware.devcreek.client.DevCreekClient">
-		  	<constructor-arg value="AG"/>
-		  	<constructor-arg value="MessageBuilder"/>
-  			<constructor-arg value="alexei.guevara@intelliware.ca"/>
-  			<constructor-arg value="intelliware"/>
-  			<constructor-arg>
-  				<bean class="ca.intelliware.devcreek.client.PrefixedSessionIdGenerator">
-  					<constructor-arg value="AcceptanceTests-"/>
-  					<constructor-arg>
-  						<bean class="ca.intelliware.devcreek.client.UUIDSessionIdGenerator"/>
-  					</constructor-arg>
-  				</bean>
-  			</constructor-arg>
-  		</bean>
-  	</constructor-arg>
-  </bean>
-
 </beans>
 				  								

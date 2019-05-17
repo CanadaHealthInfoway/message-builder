@@ -28,23 +28,20 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import ca.infoway.messagebuilder.acceptance.metrics.AllAcceptanceGroupTestMetrics;
-import ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter;
 
 public class MainAcceptanceTestsRunner {
 	
 	private final Log log = LogFactory.getLog(MainAcceptanceTestsRunner.class);
 
-	private final DevCreekTransmitter transmitter;
 	private final AcceptanceTestsMetricsRecordCreator acceptanceTestMetricsRecordCreator;
 
 	private final List<AcceptanceTestsMetricsProcessor> acceptaneTestsProcessors;
 
-	public MainAcceptanceTestsRunner(DevCreekTransmitter transmitter, List<AcceptanceTestsMetricsProcessor> acceptaneTestsProcessors) {
-		this(transmitter, new AcceptanceTestsMetricsRecordCreator(), acceptaneTestsProcessors);
+	public MainAcceptanceTestsRunner(List<AcceptanceTestsMetricsProcessor> acceptaneTestsProcessors) {
+		this(new AcceptanceTestsMetricsRecordCreator(), acceptaneTestsProcessors);
 	}
 	
-	MainAcceptanceTestsRunner(DevCreekTransmitter transmitter, AcceptanceTestsMetricsRecordCreator acceptanceTestMetricsRecordCreator, List<AcceptanceTestsMetricsProcessor> acceptaneTestsProcessors) {
-		this.transmitter = transmitter;
+	MainAcceptanceTestsRunner(AcceptanceTestsMetricsRecordCreator acceptanceTestMetricsRecordCreator, List<AcceptanceTestsMetricsProcessor> acceptaneTestsProcessors) {
 		this.acceptanceTestMetricsRecordCreator = acceptanceTestMetricsRecordCreator;
 		this.acceptaneTestsProcessors = acceptaneTestsProcessors;
 	}
@@ -59,7 +56,7 @@ public class MainAcceptanceTestsRunner {
 		// need to handle devcreek being down or are settings being invalid
 		try {
 			log.info(String.format("Transmitting %s acceptance tests group metrics to devcreek...", amalgamatedMetrics.getGroupMetrics().size()));
-			this.transmitter.transmit(this.acceptanceTestMetricsRecordCreator.create(amalgamatedMetrics));
+			this.acceptanceTestMetricsRecordCreator.create(amalgamatedMetrics);
 			log.info(String.format("Done transmitting %s acceptance tests group metrics to devcreek.", amalgamatedMetrics.getGroupMetrics().size()));
 		} catch(RuntimeException rte) {
 			log.info("Unable to transmit acceptance test results to DevCreek (DevCreek offline, settings invalid?)!", rte);

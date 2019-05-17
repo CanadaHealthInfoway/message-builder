@@ -50,11 +50,6 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>ca.intelliware.commons</groupId>
-			<artifactId>dependency-devcreek</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
 		    <groupId>checkstyle</groupId>
 		    <artifactId>checkstyle</artifactId>
 		    <version>4.4</version>
