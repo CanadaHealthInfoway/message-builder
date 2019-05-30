@@ -19,11 +19,6 @@
 			<version>${project.version}</version>
 		</dependency>
 		<!-- other -->
-<!--		<dependency>-->
-<!--			<groupId>ca.intelliware.commons</groupId>-->
-<!--			<artifactId>junitGoodies</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.simpleframework</groupId>
 			<artifactId>simple-xml</artifactId>

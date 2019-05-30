@@ -639,11 +639,6 @@
 	</reporting>
 	<repositories>
 		<repository>
-			<id>intelliwarePublicReleases</id>
-			<name>Intelliware Public Releases</name>
-			<url>http://repo.intelliware.ca/release</url>
-		</repository>
-		<repository>
 			<id>java.net</id>
 			<url>http://download.java.net/maven/2</url>
 			<layout>default</layout>
