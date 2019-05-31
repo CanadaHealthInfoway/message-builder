@@ -13,19 +13,6 @@
           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
 
-	<distributionManagement>
-		<repository>
-	   	            <id>private-release</id>
-                             <name>private-release</name>
-                             <url>dav:https://infoapp.infoway-inforoute.ca/repo/private-release</url>
-		</repository>
-		<snapshotRepository>
-		                    <id>private-snapshot</id>
-                                    <name>private-snapshot</name>
-                                    <url>dav:https://infoapp.infoway-inforoute.ca/repo/private-snapshot</url>
-		</snapshotRepository>
-	</distributionManagement>
-
         <scm>
 		<connection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</connection>

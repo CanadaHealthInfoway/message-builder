@@ -56,13 +56,5 @@
 		</resources>
 	</build>
 	
-	<repositories>
-		<repository>
-			<id>infoway-public-release</id>
-            <name>infoway-public-release</name>
-            <url>https://infoapp.infoway-inforoute.ca/repo/public-release/</url>                   
-		</repository>    
-	</repositories>                
-
 </project>
 
