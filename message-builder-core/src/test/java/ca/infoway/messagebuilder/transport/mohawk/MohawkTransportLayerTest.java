@@ -94,7 +94,7 @@ public class MohawkTransportLayerTest {
 	@Test(expected=HttpTransportLayerException.class)
 	public void shouldThrowExceptionOnBadState() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			one(client).executeMethod((PostMethod) with(anything())); will(returnValue(HttpStatus.SC_GONE));
+			one(client).executeMethod(with(any(PostMethod.class))); will(returnValue(HttpStatus.SC_GONE));
 		}});
 		this.transport.sendRequestAndGetResponse(null, SimpleRequestMessage.create("<REPC_IN000012CA></REPC_IN000012CA>"));
 	}

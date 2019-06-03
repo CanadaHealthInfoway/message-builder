@@ -53,7 +53,7 @@ public class SimpleXmlProcessingServletTest {
 		this.jmock.checking(new Expectations() {{
 			one(requestProcessor).process("<myXmlInput />"); will(returnValue("<myHl7Message />"));
 			one(transportLayer).sendRequestAndGetResponse(
-					(CredentialsProvider) with(anything()), with(any(RequestMessage.class))); 
+					with(any(CredentialsProvider.class)), with(any(RequestMessage.class))); 
 			will(returnValue("<myHl7Response />"));
 			one(responseProcessor).process("<myHl7Response />"); will(returnValue("<mySimpleResponse />"));
 		}});

@@ -69,7 +69,7 @@ public class RestTransportLayerTest {
 	public void shouldSendBasicMessageToServer() throws Exception {
 		this.jmock.checking(new Expectations() {{
 			allowing(provider).getCredentials(); will(returnValue(null));
-			one(client).executeMethod((PostMethod) with(anything())); will(returnValue(HttpStatus.SC_OK));
+			one(client).executeMethod(with(any(PostMethod.class))); will(returnValue(HttpStatus.SC_OK));
 		}});
 		this.rest.sendRequestAndGetResponse(this.provider, createMessage());
 	}
@@ -82,7 +82,7 @@ public class RestTransportLayerTest {
 	public void testShouldThrowExceptionOnServerError() throws Exception {
 		this.jmock.checking(new Expectations() {{
 			allowing(provider).getCredentials(); will(returnValue(null));
-			allowing(client).executeMethod((PostMethod) with(anything())); will(returnValue(HttpStatus.SC_INTERNAL_SERVER_ERROR));
+			allowing(client).executeMethod(with(any(PostMethod.class))); will(returnValue(HttpStatus.SC_INTERNAL_SERVER_ERROR));
 		}});
 		try {
 			this.rest.sendRequestAndGetResponse(this.provider, createMessage());
@@ -97,8 +97,8 @@ public class RestTransportLayerTest {
 		this.jmock.checking(new Expectations() {{
 			one(provider).getCredentials(); will(returnValue(null)); 
 			one(provider).getCredentials(); will(returnValue(new UsernamePasswordCredentials("wilma", "pebbles")));
-			one(client).executeMethod((PostMethod) with(anything())); will(returnValue(HttpStatus.SC_UNAUTHORIZED));
-			one(client).executeMethod((PostMethod) with(anything())); will(returnValue(HttpStatus.SC_OK));
+			one(client).executeMethod(with(any(PostMethod.class))); will(returnValue(HttpStatus.SC_UNAUTHORIZED));
+			one(client).executeMethod(with(any(PostMethod.class))); will(returnValue(HttpStatus.SC_OK));
 		}});
 		
 		this.rest.sendRequestAndGetResponse(this.provider, createMessage());
@@ -107,7 +107,7 @@ public class RestTransportLayerTest {
 	public void testShouldRethrowHttpExceptions() throws Exception {
 		this.jmock.checking(new Expectations() {{
 			allowing(provider).getCredentials(); will(returnValue(null));
-			one(client).executeMethod((PostMethod) with(anything())); will(throwException(new HttpException("I hate rabbits!")));
+			one(client).executeMethod(with(any(PostMethod.class))); will(throwException(new HttpException("I hate rabbits!")));
 		}});
 		try {
 			this.rest.sendRequestAndGetResponse(this.provider, createMessage());
