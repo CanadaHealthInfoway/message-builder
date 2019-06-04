@@ -97,6 +97,28 @@ public abstract class XmlFilterTest {
 		assertEquals(expMsgStrings, actMsgStrings);
 	}
 	
+	public String performFilterTestAndReturnMessages(XmlFilter filter, String inXML, String expXML) throws SAXException, IOException {
+		XMLUnit.setIgnoreWhitespace(this.getIgnoreWhitespace());
+		
+		Document domToTransform = xml2DOM(inXML);
+		Document expDOM = xml2DOM(expXML);
+		MessageList msgs = new MessageList();
+		System.out.println(String.format("Input:%n%s%n", dom2XML(domToTransform)));
+		
+		// Action
+		filter.apply(new File("the-file"), domToTransform, msgs);
+		
+		// Test
+		System.out.println(String.format("Actual:%n%s%n", dom2XML(domToTransform)));
+		System.out.println(String.format("Expected:%n%s%n", dom2XML(expDOM)));
+		
+		Diff d = new Diff(expDOM, domToTransform);
+		
+		assertXMLIdentical("Transformed DOM: " + d.toString(), d, true);
+
+		return messagesToSortedString(msgs.getMessages());
+	}
+	
 	/**
 	 * Determine whether XMLUnit should ignore whitespace (as if by a call to {@code XMLUnit.setIgnoreWhitespace(true)).
 	 * This superclass method provides the default, {@code true}, but subclasses can override it.

@@ -20,28 +20,34 @@
 
 package ca.infoway.messagebuilder.mifcomparer;
 
-import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.FILTER;
-import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.WARNING;
-import static org.junit.Assert.*;
-
-import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.StringContains;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.xml.sax.SAXException;
 
 public class XmlIndependentFilterBaseTest extends XmlFilterTest {
+	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
 	@Test
 	public void test_that_bogus_xpath_expr_causes_the_correct_message() throws SAXException, IOException {
 		String xml = "<outer></outer>";
+
+		List<Matcher<? super String>> stringFragments = new ArrayList<Matcher<? super String>>();
+		stringFragments.add(new StringContains("Error evaluating XPath expr \"/outer(\":"));
+		stringFragments.add(new StringContains("Unknown nodetype: outer"));
+		Matcher<String> messageMatcher = new AllOf<String>(stringFragments);
 		
 		exception.expect(FatalConditionException.class);
-		exception.expectMessage("Error evaluating XPath expr \"/outer(\": Unknown nodetype: outer");
+		exception.expectMessage(messageMatcher);
 		performFilterTest(
 			new XmlNodeDeleteFilter(null, "/outer("),								// Intentional XPath error: unmatched paren
 			xml,
