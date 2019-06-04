@@ -22,9 +22,12 @@ package ca.infoway.messagebuilder.simple.xml.servlet;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.commons.lang.StringUtils;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -46,6 +49,22 @@ public class SimpleXmlProcessingServletTest {
 	private TransportLayer transportLayer = this.jmock.mock(TransportLayer.class);
 	private SimpleXmlProcessingServlet servlet = new SimpleXmlProcessingServlet(
 			this.requestProcessor, this.responseProcessor, this.transportLayer);
+	
+	private String transportClassCache;
+	
+	@Before
+	public void setUp() {
+		transportClassCache = System.getProperty(SimpleXmlProcessingServlet.MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS);
+	}
+	
+	@After
+	public void tearDown() {
+		if (StringUtils.isBlank(transportClassCache)) {
+			System.clearProperty(SimpleXmlProcessingServlet.MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS);
+		} else {
+			System.setProperty(SimpleXmlProcessingServlet.MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS, transportClassCache);
+		}
+	}
 	
 	@Test
 	public void shouldProcessIncomingXml() throws Exception {
@@ -86,6 +105,7 @@ public class SimpleXmlProcessingServletTest {
 	
 	@Test
 	public void shouldCreateServletWithDefaultSettings() {
+		System.clearProperty(SimpleXmlProcessingServlet.MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS);
 		new SimpleXmlProcessingServlet();
 	}
 	
