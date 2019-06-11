@@ -84,7 +84,7 @@ public class FilterElementHtmlTest {
 		
 		FilterElementHtml html = new FilterElementHtml(valueSet, testMessageSet);
 		
-		String expected = "<ul><li>From Code System: SCTEMP (2.16.840.1.113883.2.20.5.2)<ul><li>Include code of CAMP</li><li>Include code of MOBILE</li></ul></li><li>From Code System: EntityCode (2.16.840.1.113883.5.1060)<ul><li>Include code and specializations of _PlaceEntityType</li></ul></li></ul>";
+		String expected = "<ul><li>From Code System: EntityCode (2.16.840.1.113883.5.1060)<ul><li>Include code and specializations of _PlaceEntityType</li></ul></li><li>From Code System: SCTEMP (2.16.840.1.113883.2.20.5.2)<ul><li>Include code of CAMP</li><li>Include code of MOBILE</li></ul></li></ul>";
 		
 		assertEquals(expected, html.write());
 	}

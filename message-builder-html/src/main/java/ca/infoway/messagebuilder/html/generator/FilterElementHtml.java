@@ -20,8 +20,8 @@
 package ca.infoway.messagebuilder.html.generator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -240,7 +240,7 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 	}
 
 	private Map<String, List<ValueSetFilter>> getFilterMapByCodeSystemName() {
-		Map<String, List<ValueSetFilter>> filtersByCodeSystem = new HashMap<String, List<ValueSetFilter>>();
+		Map<String, List<ValueSetFilter>> filtersByCodeSystem = new LinkedHashMap<String, List<ValueSetFilter>>();
 		for (ValueSetFilter valueSetFilter : getValueSet().getFilters()) {
 			String codeSystemName = valueSetFilter.getCodeSystemName();
 			if (filtersByCodeSystem.containsKey(codeSystemName)) {
