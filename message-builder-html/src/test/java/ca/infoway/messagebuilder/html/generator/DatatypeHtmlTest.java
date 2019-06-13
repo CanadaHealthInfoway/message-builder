@@ -121,15 +121,15 @@ public class DatatypeHtmlTest {
 					"<div class=\"datatypeExampleHeaderDiv\">a diagnosis of moderate to severe psoriasis of the face with sudden onset</div>" +
 					"<div class=\"datatypeExampleTextDiv\">" + LINE_SEPARATOR + 
 						"<pre>" +
-						"&lt;value codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;402320002&apos;&gt;" + LINE_SEPARATOR + 
+						"&lt;value code=&apos;402320002&apos; codeSystem=&apos;2.16.840.1.113883.6.96&apos;&gt;" + LINE_SEPARATOR + 
 						"	&lt;originalText&gt;Acute, moderate facial psoriasis&lt;/originalText&gt;" + LINE_SEPARATOR + 
 						"	&lt;qualifier&gt;" + LINE_SEPARATOR +
-						"		&lt;name codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;246100006&apos;/&gt;" + LINE_SEPARATOR +
-						"		&lt;value codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;385315009&apos;/&gt;" + LINE_SEPARATOR + 
+						"		&lt;name code=&apos;246100006&apos; codeSystem=&apos;2.16.840.1.113883.6.96&apos;/&gt;" + LINE_SEPARATOR +
+						"		&lt;value code=&apos;385315009&apos; codeSystem=&apos;2.16.840.1.113883.6.96&apos;/&gt;" + LINE_SEPARATOR + 
 						"	&lt;/qualifier&gt;" + LINE_SEPARATOR +
 						"	&lt;qualifier&gt;" + LINE_SEPARATOR +
-						"		&lt;name codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;246112005&apos;/&gt;" + LINE_SEPARATOR +
-						"		&lt;value codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;371924009&apos;/&gt;" + LINE_SEPARATOR +
+						"		&lt;name code=&apos;246112005&apos; codeSystem=&apos;2.16.840.1.113883.6.96&apos;/&gt;" + LINE_SEPARATOR +
+						"		&lt;value code=&apos;371924009&apos; codeSystem=&apos;2.16.840.1.113883.6.96&apos;/&gt;" + LINE_SEPARATOR +
 						"	&lt;/qualifier&gt;" + LINE_SEPARATOR +
 						"&lt;/value&gt;" + LINE_SEPARATOR +
 						"</pre>" +

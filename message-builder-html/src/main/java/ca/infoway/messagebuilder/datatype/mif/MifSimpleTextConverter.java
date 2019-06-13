@@ -21,6 +21,9 @@ package ca.infoway.messagebuilder.datatype.mif;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -60,7 +63,7 @@ public class MifSimpleTextConverter implements Converter<MifSimpleText> {
 			while(childNode != null) {
 				NodeMap<InputNode> attributes = childNode.getAttributes();
 				text += "<" + childNode.getName();
-				for (String attributeName : attributes) {
+				for (String attributeName : sortAttributes(attributes)) {
 					InputNode attributeNode = attributes.get(attributeName);
 					text += " " + attributeName + "='" + attributeNode.getValue() + "'";
 				}
@@ -90,7 +93,7 @@ public class MifSimpleTextConverter implements Converter<MifSimpleText> {
 			String childName = childNode.getName();
 			NodeMap<InputNode> attributes = childNode.getAttributes();
 			nodeText += getIndent(indentLevel) + "<" + childName;
-			for (String attributeName : attributes) {
+			for (String attributeName : sortAttributes(attributes)) {
 				InputNode attributeNode = attributes.get(attributeName);
 				nodeText += " " + attributeName + "='" + attributeNode.getValue() + "'";
 			}
@@ -130,6 +133,17 @@ public class MifSimpleTextConverter implements Converter<MifSimpleText> {
 			}
 		}
 		return result;
+	}
+	
+	private List<String> sortAttributes(NodeMap<InputNode> attributes) {
+		List<String> result = new ArrayList<String>();
+		for (String attributeName : attributes) {
+			result.add(attributeName);
+		}
+		Collections.sort(result);
+		
+		return result;
+		
 	}
 
 	@Override
