@@ -66,7 +66,7 @@ public class MifToXmlGeneratorMojoTest {
 	@Test
 	public void shouldProcessSuccessfully() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			one(factory).create((Mojo) with(anything()), (String) with(anything()), (String) with(anything()), (String) with(anything()), (File) with(anything()), (File) with(anything())); will(returnValue(generator));
+			one(factory).create(with(any(Mojo.class)), with(any(String.class)), with(any(String.class)),  with(any(String.class)), with(any(File.class)), with(any(File.class))); will(returnValue(generator));
 			allowing(generator);
 		}});
 		this.mojo.setFileSets(Arrays.asList(new FileSet("category1", new File("./src"))));

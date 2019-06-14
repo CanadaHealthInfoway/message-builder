@@ -96,7 +96,7 @@ public class MultipleXmlToXmlGeneratorMojoTest {
 	@Test
 	public void shouldProcessSuccessfully() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			one(factory).create((Mojo) with(anything()), (String) with(anything()), (String) with(anything()), (String) with(anything()), (File) with(anything())); will(returnValue(generator));
+			one(factory).create(with(any(Mojo.class)), with(any(String.class)), with(any(String.class)), with(any(String.class)), with(any(File.class))); will(returnValue(generator));
 			allowing(generator);
 		}});
 		this.mojo.setInputMessageSets(Arrays.asList(new FileSet("name1", new File("1")), new FileSet("name2", new File("2"))));
