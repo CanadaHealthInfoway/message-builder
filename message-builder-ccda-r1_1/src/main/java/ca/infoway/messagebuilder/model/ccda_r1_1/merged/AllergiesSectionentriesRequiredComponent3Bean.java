@@ -34,9 +34,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ConsultationNote.AllergiesSectionentriesRequiredComponent3","ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3","DischargeSummary.AllergiesSectionentriesRequiredComponent3","HistoryAndPhysical.AllergiesSectionentriesRequiredComponent3","ProcedureNote.AllergiesSectionentriesRequiredComponent3","ProgressNote.AllergiesSectionentriesRequiredComponent3"})
-public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice {
+public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
@@ -53,7 +53,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.typeId</p>
+     * ProgressNote.AllergiesSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -67,6 +67,13 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ProcedureNote.AllergiesSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -74,14 +81,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.AllergiesSectionentriesRequiredComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.typeId</p>
+     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -101,7 +101,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.typeId</p>
+     * ProgressNote.AllergiesSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -115,6 +115,13 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ProcedureNote.AllergiesSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -122,14 +129,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.AllergiesSectionentriesRequiredComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.typeId</p>
+     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -149,7 +149,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.templateId</p>
+     * ProgressNote.AllergiesSectionentriesRequiredComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -163,6 +163,13 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ProcedureNote.AllergiesSectionentriesRequiredComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -170,14 +177,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.AllergiesSectionentriesRequiredComponent3.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.templateId</p>
+     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -198,7 +198,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.section</p>
+     * ProgressNote.AllergiesSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -212,6 +212,13 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ProcedureNote.AllergiesSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -219,14 +226,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.AllergiesSectionentriesRequiredComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.section</p>
+     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -246,7 +246,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.section</p>
+     * ProgressNote.AllergiesSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -260,6 +260,13 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ProcedureNote.AllergiesSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -267,14 +274,7 @@ public class AllergiesSectionentriesRequiredComponent3Bean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.AllergiesSectionentriesRequiredComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AllergiesSectionentriesRequiredComponent3.section</p>
+     * ContinuityOfCareDocumentCCD.AllergiesSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

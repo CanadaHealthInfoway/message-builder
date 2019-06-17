@@ -56,9 +56,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Encounter"})
-public class EncounterBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class EncounterBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ActClass> classCode = new CS_R2Impl<ActClass>();
     private CS_R2<x_DocumentEncounterMood> moodCode = new CS_R2Impl<x_DocumentEncounterMood>();
     private II typeId = new IIImpl();

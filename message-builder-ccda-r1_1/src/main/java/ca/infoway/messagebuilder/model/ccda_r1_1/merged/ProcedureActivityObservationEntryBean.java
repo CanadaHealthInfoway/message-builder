@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProceduresSectionentriesOptional.ProcedureActivityObservationEntry","ProceduresSectionentriesRequired.ProcedureActivityObservationEntry"})
 public class ProcedureActivityObservationEntryBean extends MessagePartBean implements EntryChoice_8 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -51,14 +51,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeCode</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeCode</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -71,14 +71,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeCode</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeCode</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -91,14 +91,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeId</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeId</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -111,14 +111,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeId</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.typeId</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -131,14 +131,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.templateId</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.templateId</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -152,14 +152,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.observation</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.observation</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -172,14 +172,14 @@ public class ProcedureActivityObservationEntryBean extends MessagePartBean imple
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.observation</p>
+     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.observation</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.EncounterParticipant","ConsultationNote.EncounterParticipant","HistoryAndPhysical.EncounterParticipant"})
 public class EncounterParticipantBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.EncounterParticipantChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_EncounterParticipant> typeCode = new CS_R2Impl<x_EncounterParticipant>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -53,8 +53,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.typeCode</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -67,7 +66,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.typeCode</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -79,8 +79,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.typeCode</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -93,7 +92,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.typeCode</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -105,8 +105,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.typeId</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -119,7 +118,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.typeId</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -131,8 +131,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.typeId</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -145,7 +144,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.typeId</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,8 +157,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.templateId</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -171,7 +170,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.templateId</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -184,8 +184,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.time</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -197,7 +196,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.time</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -209,8 +209,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.time</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -222,7 +221,8 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EncounterParticipant.time</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -235,7 +235,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.assignedEntity</p>
+     * BaseModel.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -249,7 +249,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.EncounterParticipant.assignedEntity</p>
+     * HistoryAndPhysical.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -262,7 +262,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncounterParticipant.assignedEntity</p>
+     * BaseModel.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -276,7 +276,7 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.EncounterParticipant.assignedEntity</p>
+     * HistoryAndPhysical.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

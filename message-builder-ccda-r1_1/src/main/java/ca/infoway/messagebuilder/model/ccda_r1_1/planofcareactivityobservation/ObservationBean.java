@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class ObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<PlanOfCareObservationMoodCode> moodCode = new CS_R2Impl<PlanOfCareObservationMoodCode>();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();
@@ -389,7 +389,7 @@ public class ObservationBean extends MessagePartBean {
      */
     @Hl7XmlMapping({"interpretationCode"})
     public List<CodedTypeR2<Code>> getInterpretationCode() {
-        return this.interpretationCode.rawList(CodedTypeR2.class);
+        return this.interpretationCode.rawList();
     }
 
 
@@ -401,7 +401,7 @@ public class ObservationBean extends MessagePartBean {
      */
     @Hl7XmlMapping({"methodCode"})
     public List<CodedTypeR2<Code>> getMethodCode() {
-        return this.methodCode.rawList(CodedTypeR2.class);
+        return this.methodCode.rawList();
     }
 
 
@@ -413,7 +413,7 @@ public class ObservationBean extends MessagePartBean {
      */
     @Hl7XmlMapping({"targetSiteCode"})
     public List<CodedTypeR2<Code>> getTargetSiteCode() {
-        return this.targetSiteCode.rawList(CodedTypeR2.class);
+        return this.targetSiteCode.rawList();
     }
 
 

@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.Organization","ProcedureActivityObservation.Organization","ProcedureActivityProcedure.Organization"})
 public class Organization_3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -63,13 +63,6 @@ public class Organization_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProcedureActivityAct.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -78,6 +71,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -89,13 +89,6 @@ public class Organization_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProcedureActivityAct.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -106,6 +99,13 @@ public class Organization_3Bean extends MessagePartBean {
      * ProcedureActivityObservation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -113,13 +113,6 @@ public class Organization_3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -133,6 +126,13 @@ public class Organization_3Bean extends MessagePartBean {
      * ProcedureActivityObservation.Organization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -141,12 +141,6 @@ public class Organization_3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityProcedure.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ProcedureActivityAct.Organization.id</p>
@@ -159,6 +153,12 @@ public class Organization_3Bean extends MessagePartBean {
      * ProcedureActivityObservation.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityProcedure.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -167,13 +167,6 @@ public class Organization_3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ProcedureActivityAct.Organization.name</p>
@@ -186,6 +179,13 @@ public class Organization_3Bean extends MessagePartBean {
      * ProcedureActivityObservation.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"name"})
     public List<OrganizationName> getName() {
@@ -196,13 +196,6 @@ public class Organization_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProcedureActivityAct.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -211,6 +204,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -222,13 +222,6 @@ public class Organization_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProcedureActivityAct.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -237,6 +230,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -248,13 +248,6 @@ public class Organization_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProcedureActivityAct.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -263,6 +256,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -274,13 +274,6 @@ public class Organization_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProcedureActivityAct.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -289,6 +282,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -301,13 +301,6 @@ public class Organization_3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityAct.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -316,6 +309,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -328,13 +328,6 @@ public class Organization_3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityAct.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -343,6 +336,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -355,13 +355,6 @@ public class Organization_3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityAct.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -370,6 +363,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -382,13 +382,6 @@ public class Organization_3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.Organization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityAct.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -397,6 +390,13 @@ public class Organization_3Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

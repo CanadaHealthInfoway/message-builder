@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationsSectionentriesOptional.Entry","ImmunizationsSectionentriesRequired.Entry"})
 public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -51,14 +51,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.typeCode</p>
+     * ImmunizationsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.typeCode</p>
+     * ImmunizationsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -71,14 +71,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.typeCode</p>
+     * ImmunizationsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.typeCode</p>
+     * ImmunizationsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -91,14 +91,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.typeId</p>
+     * ImmunizationsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.typeId</p>
+     * ImmunizationsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -111,14 +111,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.typeId</p>
+     * ImmunizationsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.typeId</p>
+     * ImmunizationsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -131,14 +131,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.templateId</p>
+     * ImmunizationsSectionentriesRequired.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.templateId</p>
+     * ImmunizationsSectionentriesOptional.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -152,14 +152,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.substanceAdministration</p>
+     * ImmunizationsSectionentriesRequired.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.substanceAdministration</p>
+     * ImmunizationsSectionentriesOptional.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -172,14 +172,14 @@ public class Entry_6Bean extends MessagePartBean implements EntryChoice_6 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesOptional.Entry.substanceAdministration</p>
+     * ImmunizationsSectionentriesRequired.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationsSectionentriesRequired.Entry.substanceAdministration</p>
+     * ImmunizationsSectionentriesOptional.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

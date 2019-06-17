@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"NumberOfPressureUlcersObservation.EntryRelationship","StudyAct.EntryRelationship"})
 public class EntryRelationship_4Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.studyact.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -49,21 +49,21 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
-    private EntryRelationshipObservationBean observation;
     private ActBean act;
+    private EntryRelationshipObservationBean observation;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: StudyAct.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.inversionInd</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -75,14 +75,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: StudyAct.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.inversionInd</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -95,14 +95,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.contextConductionInd</p>
+     * StudyAct.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * StudyAct.EntryRelationship.contextConductionInd</p>
+     * NumberOfPressureUlcersObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -115,14 +115,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.contextConductionInd</p>
+     * StudyAct.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * StudyAct.EntryRelationship.contextConductionInd</p>
+     * NumberOfPressureUlcersObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -134,14 +134,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.negationInd</p>
+     * <p>Relationship: StudyAct.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.negationInd</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -153,14 +153,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.negationInd</p>
+     * <p>Relationship: StudyAct.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.negationInd</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -172,14 +172,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.typeId</p>
+     * <p>Relationship: StudyAct.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.typeId</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -191,14 +191,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.typeId</p>
+     * <p>Relationship: StudyAct.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.typeId</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -210,14 +210,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.templateId</p>
+     * <p>Relationship: StudyAct.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.templateId</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -230,14 +230,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: StudyAct.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -249,14 +249,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: StudyAct.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -268,14 +268,14 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: StudyAct.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -287,19 +287,43 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: StudyAct.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: StudyAct.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: 
+     * NumberOfPressureUlcersObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setSeperatableInd(Boolean seperatableInd) {
         this.seperatableInd.setValue(seperatableInd);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: StudyAct.EntryRelationship.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"act"})
+    public ActBean getAct() {
+        return this.act;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: StudyAct.EntryRelationship.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAct(ActBean act) {
+        this.act = act;
     }
 
 
@@ -326,30 +350,6 @@ public class EntryRelationship_4Bean extends MessagePartBean implements ca.infow
      */
     public void setObservation(EntryRelationshipObservationBean observation) {
         this.observation = observation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"act"})
-    public ActBean getAct() {
-        return this.act;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAct(ActBean act) {
-        this.act = act;
     }
 
 }

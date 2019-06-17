@@ -43,9 +43,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.Participant2","BaseModel.Participant1","CaregiverCharacteristics.Participant2","SubstanceOrDeviceAllergyIntoleranceObservation.Participant2"})
-public class Participant2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.allergyintoleranceobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Participant1Choice, Participant1Choice {
+public class Participant2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Participant1Choice, Participant1Choice, ca.infoway.messagebuilder.model.ccda_r1_1.allergyintoleranceobservation.Participant2Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();
@@ -60,7 +60,14 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.typeId</p>
+     * AllergyIntoleranceObservation.Participant2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -73,14 +80,7 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.Participant2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.typeId</p>
+     * CaregiverCharacteristics.Participant2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -93,7 +93,14 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.typeId</p>
+     * AllergyIntoleranceObservation.Participant2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -106,14 +113,7 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.Participant2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.typeId</p>
+     * CaregiverCharacteristics.Participant2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -123,19 +123,6 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Participant1.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -149,6 +136,19 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.Participant2.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -157,18 +157,6 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: CaregiverCharacteristics.Participant2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Participant1.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -180,6 +168,18 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: CaregiverCharacteristics.Participant2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -191,7 +191,15 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: CaregiverCharacteristics.Participant2.time</p>
+     * <p>Relationship: 
+     * AllergyIntoleranceObservation.Participant2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -203,15 +211,7 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AllergyIntoleranceObservation.Participant2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.time</p>
+     * <p>Relationship: CaregiverCharacteristics.Participant2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -224,13 +224,6 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.awarenessCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.awarenessCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -239,6 +232,13 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.awarenessCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.Participant2.awarenessCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -251,13 +251,6 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.awarenessCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.awarenessCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -266,6 +259,13 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.awarenessCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.Participant2.awarenessCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -278,13 +278,6 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.participantRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.participantRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -293,6 +286,13 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.participantRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.Participant2.participantRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -305,13 +305,6 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CaregiverCharacteristics.Participant2.participantRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.participantRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -320,6 +313,13 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.Participant2.participantRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.Participant2.participantRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

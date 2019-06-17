@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AssessmentScaleObservation.ObservationRange","BaseModel.ObservationRange","CognitiveStatusResultObservation.ObservationRange","FunctionalStatusResultObservation.ObservationRange","ResultObservation.ObservationRange"})
 public class ObservationRangeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ActClassObservation> classCode = new CS_R2Impl<ActClassObservation>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -63,13 +63,6 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ResultObservation.ObservationRange.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -83,14 +76,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.classCode</p>
+     * CognitiveStatusResultObservation.ObservationRange.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.classCode</p>
+     * AssessmentScaleObservation.ObservationRange.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -103,13 +103,6 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ResultObservation.ObservationRange.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -123,14 +116,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.classCode</p>
+     * CognitiveStatusResultObservation.ObservationRange.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.classCode</p>
+     * AssessmentScaleObservation.ObservationRange.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -142,13 +142,6 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ResultObservation.ObservationRange.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -162,14 +155,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.typeId</p>
+     * CognitiveStatusResultObservation.ObservationRange.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.typeId</p>
+     * AssessmentScaleObservation.ObservationRange.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -181,13 +181,6 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ResultObservation.ObservationRange.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -201,14 +194,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.typeId</p>
+     * CognitiveStatusResultObservation.ObservationRange.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.typeId</p>
+     * AssessmentScaleObservation.ObservationRange.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -218,13 +218,6 @@ public class ObservationRangeBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -241,14 +234,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.templateId</p>
+     * CognitiveStatusResultObservation.ObservationRange.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.templateId</p>
+     * AssessmentScaleObservation.ObservationRange.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -261,13 +261,6 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.text</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ResultObservation.ObservationRange.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -281,14 +274,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.text</p>
+     * CognitiveStatusResultObservation.ObservationRange.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.text</p>
+     * AssessmentScaleObservation.ObservationRange.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -300,13 +300,6 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.text</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ResultObservation.ObservationRange.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -320,14 +313,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.text</p>
+     * CognitiveStatusResultObservation.ObservationRange.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.text</p>
+     * AssessmentScaleObservation.ObservationRange.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -339,13 +339,6 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ResultObservation.ObservationRange.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -359,14 +352,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.value</p>
+     * CognitiveStatusResultObservation.ObservationRange.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.value</p>
+     * AssessmentScaleObservation.ObservationRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -378,13 +378,6 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ResultObservation.ObservationRange.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -398,14 +391,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.value</p>
+     * CognitiveStatusResultObservation.ObservationRange.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.value</p>
+     * AssessmentScaleObservation.ObservationRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -418,13 +418,6 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.interpretationCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ResultObservation.ObservationRange.interpretationCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -439,14 +432,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.interpretationCode</p>
+     * CognitiveStatusResultObservation.ObservationRange.interpretationCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.interpretationCode</p>
+     * AssessmentScaleObservation.ObservationRange.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.interpretationCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -459,13 +459,6 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.interpretationCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ResultObservation.ObservationRange.interpretationCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -480,14 +473,21 @@ public class ObservationRangeBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.ObservationRange.interpretationCode</p>
+     * CognitiveStatusResultObservation.ObservationRange.interpretationCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.ObservationRange.interpretationCode</p>
+     * AssessmentScaleObservation.ObservationRange.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusResultObservation.ObservationRange.interpretationCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -499,14 +499,14 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.code</p>
+     * <p>Relationship: BaseModel.ObservationRange.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.ObservationRange.code</p>
+     * <p>Relationship: 
+     * AssessmentScaleObservation.ObservationRange.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -518,14 +518,14 @@ public class ObservationRangeBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.ObservationRange.code</p>
+     * <p>Relationship: BaseModel.ObservationRange.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.ObservationRange.code</p>
+     * <p>Relationship: 
+     * AssessmentScaleObservation.ObservationRange.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

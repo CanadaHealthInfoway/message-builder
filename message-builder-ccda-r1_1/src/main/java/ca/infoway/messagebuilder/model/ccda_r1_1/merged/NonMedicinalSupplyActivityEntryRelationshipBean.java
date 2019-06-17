@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship","CognitiveStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship","FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship","FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship"})
 public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_4 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,7 +55,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -76,7 +76,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -89,7 +89,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -110,7 +110,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -123,7 +123,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -144,7 +144,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,7 +157,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -178,7 +178,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -191,7 +191,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -212,7 +212,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -225,7 +225,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -246,7 +246,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -259,7 +259,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -280,7 +280,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -293,7 +293,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -314,7 +314,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -327,7 +327,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.templateId</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -348,7 +348,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.templateId</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -362,7 +362,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -383,7 +383,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -396,7 +396,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -417,7 +417,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -430,7 +430,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -451,7 +451,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -464,7 +464,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -485,7 +485,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -498,7 +498,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -519,7 +519,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -532,7 +532,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
+     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -553,7 +553,7 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
+     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

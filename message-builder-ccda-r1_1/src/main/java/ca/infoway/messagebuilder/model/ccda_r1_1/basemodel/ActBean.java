@@ -58,9 +58,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Act"})
-public class ActBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class ActBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActClassDocumentEntryAct> classCode = new CS_R2Impl<x_ActClassDocumentEntryAct>();
     private CS_R2<x_DocumentActMood> moodCode = new CS_R2Impl<x_DocumentActMood>();
     private BL negationInd = new BLImpl();

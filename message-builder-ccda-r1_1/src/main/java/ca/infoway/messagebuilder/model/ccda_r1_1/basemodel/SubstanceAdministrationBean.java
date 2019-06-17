@@ -68,9 +68,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.SubstanceAdministration"})
-public class SubstanceAdministrationBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class SubstanceAdministrationBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_DocumentSubstanceMood> moodCode = new CS_R2Impl<x_DocumentSubstanceMood>();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();
@@ -331,7 +331,7 @@ public class SubstanceAdministrationBean extends MessagePartBean implements Entr
      */
     @Hl7XmlMapping({"approachSiteCode"})
     public List<CodedTypeR2<Code>> getApproachSiteCode() {
-        return this.approachSiteCode.rawList(CodedTypeR2.class);
+        return this.approachSiteCode.rawList();
     }
 
 

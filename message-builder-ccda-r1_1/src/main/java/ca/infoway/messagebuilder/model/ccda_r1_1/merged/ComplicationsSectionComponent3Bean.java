@@ -36,7 +36,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"OperativeNote.ComplicationsSectionComponent3","ProcedureNote.ComplicationsSectionComponent3"})
 public class ComplicationsSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;

@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.SpecimenRole","ProcedureActivityProcedure.SpecimenRole"})
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -45,14 +45,14 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.SpecimenRole.typeId</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.SpecimenRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.typeId</p>
+     * <p>Relationship: BaseModel.SpecimenRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -64,14 +64,14 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.SpecimenRole.typeId</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.SpecimenRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.typeId</p>
+     * <p>Relationship: BaseModel.SpecimenRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -83,14 +83,14 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.SpecimenRole.templateId</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.SpecimenRole.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.templateId</p>
+     * <p>Relationship: BaseModel.SpecimenRole.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -103,13 +103,13 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.SpecimenRole.id</p>
+     * <p>Relationship: ProcedureActivityProcedure.SpecimenRole.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityProcedure.SpecimenRole.id</p>
+     * <p>Relationship: BaseModel.SpecimenRole.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -123,14 +123,14 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.SpecimenRole.specimenPlayingEntity</p>
+     * ProcedureActivityProcedure.SpecimenRole.specimenPlayingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.specimenPlayingEntity</p>
+     * BaseModel.SpecimenRole.specimenPlayingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -143,14 +143,14 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.SpecimenRole.specimenPlayingEntity</p>
+     * ProcedureActivityProcedure.SpecimenRole.specimenPlayingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.specimenPlayingEntity</p>
+     * BaseModel.SpecimenRole.specimenPlayingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

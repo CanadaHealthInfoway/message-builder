@@ -36,7 +36,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"OperativeNote.ProcedureImplantsSectionComponent3","ProcedureNote.ProcedureImplantsSectionComponent3"})
 public class ProcedureImplantsSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
@@ -46,14 +46,14 @@ public class ProcedureImplantsSectionComponent3Bean extends MessagePartBean impl
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.ProcedureImplantsSectionComponent3.typeId</p>
+     * OperativeNote.ProcedureImplantsSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.ProcedureImplantsSectionComponent3.typeId</p>
+     * ProcedureNote.ProcedureImplantsSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -66,14 +66,14 @@ public class ProcedureImplantsSectionComponent3Bean extends MessagePartBean impl
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.ProcedureImplantsSectionComponent3.typeId</p>
+     * OperativeNote.ProcedureImplantsSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.ProcedureImplantsSectionComponent3.typeId</p>
+     * ProcedureNote.ProcedureImplantsSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -86,14 +86,14 @@ public class ProcedureImplantsSectionComponent3Bean extends MessagePartBean impl
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.ProcedureImplantsSectionComponent3.templateId</p>
+     * OperativeNote.ProcedureImplantsSectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.ProcedureImplantsSectionComponent3.templateId</p>
+     * ProcedureNote.ProcedureImplantsSectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -107,14 +107,14 @@ public class ProcedureImplantsSectionComponent3Bean extends MessagePartBean impl
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.ProcedureImplantsSectionComponent3.section</p>
+     * OperativeNote.ProcedureImplantsSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.ProcedureImplantsSectionComponent3.section</p>
+     * ProcedureNote.ProcedureImplantsSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -127,14 +127,14 @@ public class ProcedureImplantsSectionComponent3Bean extends MessagePartBean impl
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.ProcedureImplantsSectionComponent3.section</p>
+     * OperativeNote.ProcedureImplantsSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.ProcedureImplantsSectionComponent3.section</p>
+     * ProcedureNote.ProcedureImplantsSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

@@ -38,9 +38,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ImmunizationActivity.MedicationSupplyOrderEntryRelationship","MedicationActivity.MedicationSupplyOrderEntryRelationship"})
-public class MedicationSupplyOrderEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice {
+public class MedicationSupplyOrderEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

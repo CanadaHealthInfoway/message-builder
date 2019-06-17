@@ -49,53 +49,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"PhysicianOfRecordParticipant.Organization","PolicyActivity.Organization"})
 public class Organization_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
-    private ON name = new ONImpl();
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
+    private ON name = new ONImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private CE_R2<Code> standardIndustryClassCode = new CE_R2Impl<Code>();
     private OrganizationPartOfBean asOrganizationPartOf;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PolicyActivity.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public OrganizationName getName() {
-        return this.name.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PolicyActivity.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setName(OrganizationName name) {
-        this.name.setValue(name);
-    }
 
 
     /**
@@ -149,6 +111,44 @@ public class Organization_2Bean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
         return this.id.rawList();
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PhysicianOfRecordParticipant.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PolicyActivity.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public OrganizationName getName() {
+        return this.name.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PhysicianOfRecordParticipant.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PolicyActivity.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setName(OrganizationName name) {
+        this.name.setValue(name);
     }
 
 

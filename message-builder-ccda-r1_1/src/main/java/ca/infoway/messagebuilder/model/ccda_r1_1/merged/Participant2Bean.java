@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationActivity.Participant2","MedicationActivity.Participant2"})
 public class Participant2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.Participant2Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();

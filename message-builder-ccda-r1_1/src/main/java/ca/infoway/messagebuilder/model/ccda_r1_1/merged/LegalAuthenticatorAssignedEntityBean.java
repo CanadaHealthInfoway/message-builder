@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.LegalAuthenticatorAssignedEntity","ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity","DiagnosticImagingReport.LegalAuthenticatorAssignedEntity","DischargeSummary.LegalAuthenticatorAssignedEntity","HistoryAndPhysical.LegalAuthenticatorAssignedEntity","OperativeNote.LegalAuthenticatorAssignedEntity","ProcedureNote.LegalAuthenticatorAssignedEntity","ProgressNote.LegalAuthenticatorAssignedEntity","USRealmHeader.LegalAuthenticatorAssignedEntity","UnstructuredDocument.LegalAuthenticatorAssignedEntity"})
 public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -60,20 +60,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -81,7 +67,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.typeId</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -95,14 +81,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.typeId</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.typeId</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -123,7 +116,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.typeId</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -136,20 +136,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -157,7 +143,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.typeId</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -171,14 +157,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.typeId</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.typeId</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -199,7 +192,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.typeId</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -212,20 +212,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -233,7 +219,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.templateId</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -247,14 +233,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.templateId</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.templateId</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -275,7 +268,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.templateId</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -289,20 +289,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
@@ -310,7 +296,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.id</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
@@ -324,14 +310,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.id</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.id</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
@@ -352,7 +345,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.id</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
@@ -366,20 +366,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -387,7 +373,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.code</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -401,14 +387,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.code</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.code</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -429,7 +422,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.code</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -442,20 +442,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -463,7 +449,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.code</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -477,14 +463,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.code</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.code</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -505,7 +498,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.code</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -518,20 +518,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -539,7 +525,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.addr</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -553,14 +539,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.addr</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.addr</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -581,7 +574,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.addr</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -595,20 +595,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -616,7 +602,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.telecom</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -630,14 +616,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.telecom</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.telecom</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -658,7 +651,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.telecom</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -672,20 +672,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -693,7 +679,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -707,14 +693,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -735,7 +728,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -748,20 +748,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -769,7 +755,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -783,14 +769,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -811,7 +804,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -824,20 +824,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -845,7 +831,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -859,14 +845,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -887,7 +880,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -900,20 +900,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -921,7 +907,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * USRealmHeader.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -935,14 +921,21 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * OperativeNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -963,7 +956,14 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * DischargeSummary.LegalAuthenticatorAssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.LegalAuthenticatorAssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

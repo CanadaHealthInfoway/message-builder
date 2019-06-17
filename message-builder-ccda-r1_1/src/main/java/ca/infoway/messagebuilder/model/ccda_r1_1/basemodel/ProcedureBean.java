@@ -58,9 +58,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Procedure"})
-public class ProcedureBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class ProcedureBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ActClass> classCode = new CS_R2Impl<ActClass>();
     private CS_R2<x_DocumentProcedureMood> moodCode = new CS_R2Impl<x_DocumentProcedureMood>();
     private BL negationInd = new BLImpl();
@@ -316,7 +316,7 @@ public class ProcedureBean extends MessagePartBean implements EntryChoice, Compo
      */
     @Hl7XmlMapping({"methodCode"})
     public List<CodedTypeR2<Code>> getMethodCode() {
-        return this.methodCode.rawList(CodedTypeR2.class);
+        return this.methodCode.rawList();
     }
 
 
@@ -327,7 +327,7 @@ public class ProcedureBean extends MessagePartBean implements EntryChoice, Compo
      */
     @Hl7XmlMapping({"approachSiteCode"})
     public List<CodedTypeR2<Code>> getApproachSiteCode() {
-        return this.approachSiteCode.rawList(CodedTypeR2.class);
+        return this.approachSiteCode.rawList();
     }
 
 
@@ -338,7 +338,7 @@ public class ProcedureBean extends MessagePartBean implements EntryChoice, Compo
      */
     @Hl7XmlMapping({"targetSiteCode"})
     public List<CodedTypeR2<Code>> getTargetSiteCode() {
-        return this.targetSiteCode.rawList(CodedTypeR2.class);
+        return this.targetSiteCode.rawList();
     }
 
 

@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.StructuredBody"})
 public class StructuredBodyBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.merged.Component2Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2<Code> confidentialityCode = new CE_R2Impl<Code>();

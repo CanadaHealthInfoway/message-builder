@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ReactionObservation.ProcedureActivityProcedureEntryRelationship"})
 public class ProcedureActivityProcedureEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();

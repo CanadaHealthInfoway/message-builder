@@ -38,9 +38,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ProcedureActivityAct.MedicationActivityEntryRelationship","ProcedureActivityObservation.MedicationActivityEntryRelationship","ProcedureActivityProcedure.MedicationActivityEntryRelationship","ReactionObservation.MedicationActivityEntryRelationship"})
-public class MedicationActivityEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice, EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityobservation.EntryRelationshipChoice {
+public class MedicationActivityEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,13 +55,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -70,6 +63,13 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * 
      * <p>Relationship: 
      * ProcedureActivityAct.MedicationActivityEntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -82,13 +82,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -97,6 +90,13 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * 
      * <p>Relationship: 
      * ProcedureActivityAct.MedicationActivityEntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -109,13 +109,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -123,14 +116,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.contextConductionInd</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -143,13 +143,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -157,14 +150,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.contextConductionInd</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -177,13 +177,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -191,14 +184,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.negationInd</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.negationInd</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -211,13 +211,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -225,14 +218,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.negationInd</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.negationInd</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -245,13 +245,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -259,14 +252,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.typeId</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.typeId</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -279,13 +279,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -293,14 +286,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.typeId</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.typeId</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -313,13 +313,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -327,14 +320,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.templateId</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.templateId</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -348,13 +348,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -362,14 +355,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.sequenceNumber</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -382,13 +382,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -396,14 +389,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.sequenceNumber</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -416,13 +416,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -430,14 +423,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.seperatableInd</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.seperatableInd</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -450,13 +450,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -464,14 +457,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.seperatableInd</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.seperatableInd</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -484,13 +484,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -498,14 +491,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.substanceAdministration</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -518,13 +518,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityProcedure.MedicationActivityEntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -532,14 +525,21 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
+     * ProcedureActivityAct.MedicationActivityEntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.substanceAdministration</p>
+     * ProcedureActivityObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ReactionObservation.MedicationActivityEntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

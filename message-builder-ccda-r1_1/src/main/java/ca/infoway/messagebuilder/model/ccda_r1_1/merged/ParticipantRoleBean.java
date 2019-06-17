@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.ParticipantRole","BaseModel.ParticipantRole","CaregiverCharacteristics.ParticipantRole","SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole"})
 public class ParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -66,7 +66,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.typeId</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -80,7 +80,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.typeId</p>
+     * AllergyIntoleranceObservation.ParticipantRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -99,7 +99,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.typeId</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -113,7 +113,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.typeId</p>
+     * AllergyIntoleranceObservation.ParticipantRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -132,7 +132,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.templateId</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -146,7 +146,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.templateId</p>
+     * AllergyIntoleranceObservation.ParticipantRole.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -166,7 +166,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.id</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -179,7 +179,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.id</p>
+     * AllergyIntoleranceObservation.ParticipantRole.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -199,7 +199,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.code</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -213,7 +213,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.code</p>
+     * AllergyIntoleranceObservation.ParticipantRole.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -232,7 +232,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.code</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -246,7 +246,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.code</p>
+     * AllergyIntoleranceObservation.ParticipantRole.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -265,7 +265,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.addr</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -279,7 +279,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.addr</p>
+     * AllergyIntoleranceObservation.ParticipantRole.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -299,7 +299,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.telecom</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -313,7 +313,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.telecom</p>
+     * AllergyIntoleranceObservation.ParticipantRole.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -333,7 +333,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -347,7 +347,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
+     * AllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -366,7 +366,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -380,7 +380,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
+     * AllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -399,14 +399,14 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
+     * AllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -419,14 +419,14 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
+     * AllergyIntoleranceObservation.ParticipantRole.playingEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

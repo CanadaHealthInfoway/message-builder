@@ -34,9 +34,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ConsultationNote.VitalSignsSectionentriesOptionalComponent3","ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3","DischargeSummary.VitalSignsSectionentriesOptionalComponent3","HistoryAndPhysical.VitalSignsSectionentriesOptionalComponent3","ProgressNote.VitalSignsSectionentriesOptionalComponent3"})
-public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice {
+public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
@@ -53,13 +53,6 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ConsultationNote.VitalSignsSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -67,7 +60,7 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.typeId</p>
+     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -75,6 +68,13 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.VitalSignsSectionentriesOptionalComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -94,13 +94,6 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ConsultationNote.VitalSignsSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -108,7 +101,7 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.typeId</p>
+     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -116,6 +109,13 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.VitalSignsSectionentriesOptionalComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -135,13 +135,6 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ConsultationNote.VitalSignsSectionentriesOptionalComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -149,7 +142,7 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.templateId</p>
+     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -157,6 +150,13 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.VitalSignsSectionentriesOptionalComponent3.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -177,13 +177,6 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ConsultationNote.VitalSignsSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -191,7 +184,7 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.section</p>
+     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -199,6 +192,13 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.VitalSignsSectionentriesOptionalComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -218,13 +218,6 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ConsultationNote.VitalSignsSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -232,7 +225,7 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.section</p>
+     * DischargeSummary.VitalSignsSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -240,6 +233,13 @@ public class VitalSignsSectionentriesOptionalComponent3Bean extends MessagePartB
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.VitalSignsSectionentriesOptionalComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.VitalSignsSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

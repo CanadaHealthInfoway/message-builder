@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.DocumentationOf","DischargeSummary.DocumentationOf","HistoryAndPhysical.DocumentationOf","ProgressNote.DocumentationOf","USRealmHeader.DocumentationOf","UnstructuredDocument.DocumentationOf"})
 public class DocumentationOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private ServiceEventBean serviceEvent;
@@ -44,13 +44,13 @@ public class DocumentationOfBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: UnstructuredDocument.DocumentationOf.typeId</p>
+     * <p>Relationship: HistoryAndPhysical.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.DocumentationOf.typeId</p>
+     * <p>Relationship: USRealmHeader.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -62,19 +62,19 @@ public class DocumentationOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.DocumentationOf.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: DischargeSummary.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: USRealmHeader.DocumentationOf.typeId</p>
+     * <p>Relationship: UnstructuredDocument.DocumentationOf.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProgressNote.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -86,13 +86,13 @@ public class DocumentationOfBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: UnstructuredDocument.DocumentationOf.typeId</p>
+     * <p>Relationship: HistoryAndPhysical.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.DocumentationOf.typeId</p>
+     * <p>Relationship: USRealmHeader.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -104,19 +104,19 @@ public class DocumentationOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.DocumentationOf.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: DischargeSummary.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: USRealmHeader.DocumentationOf.typeId</p>
+     * <p>Relationship: UnstructuredDocument.DocumentationOf.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProgressNote.DocumentationOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -129,13 +129,13 @@ public class DocumentationOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.DocumentationOf.templateId</p>
+     * HistoryAndPhysical.DocumentationOf.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.DocumentationOf.templateId</p>
+     * <p>Relationship: USRealmHeader.DocumentationOf.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -147,20 +147,20 @@ public class DocumentationOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.DocumentationOf.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: DischargeSummary.DocumentationOf.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: USRealmHeader.DocumentationOf.templateId</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.DocumentationOf.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProgressNote.DocumentationOf.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -174,13 +174,13 @@ public class DocumentationOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.DocumentationOf.serviceEvent</p>
+     * HistoryAndPhysical.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.DocumentationOf.serviceEvent</p>
+     * <p>Relationship: USRealmHeader.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -194,20 +194,20 @@ public class DocumentationOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.DocumentationOf.serviceEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DischargeSummary.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: USRealmHeader.DocumentationOf.serviceEvent</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.DocumentationOf.serviceEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProgressNote.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -220,13 +220,13 @@ public class DocumentationOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.DocumentationOf.serviceEvent</p>
+     * HistoryAndPhysical.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.DocumentationOf.serviceEvent</p>
+     * <p>Relationship: USRealmHeader.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -240,20 +240,20 @@ public class DocumentationOfBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.DocumentationOf.serviceEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DischargeSummary.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: USRealmHeader.DocumentationOf.serviceEvent</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.DocumentationOf.serviceEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProgressNote.DocumentationOf.serviceEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

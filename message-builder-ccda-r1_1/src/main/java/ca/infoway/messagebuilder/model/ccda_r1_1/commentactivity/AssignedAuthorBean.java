@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CommentActivity.AssignedAuthor"})
 public class AssignedAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();

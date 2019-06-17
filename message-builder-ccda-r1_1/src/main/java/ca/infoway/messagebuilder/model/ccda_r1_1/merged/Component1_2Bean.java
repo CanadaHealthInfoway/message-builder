@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Component1","HistoryAndPhysical.Component1"})
 public class Component1_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private EncompassingEncounter_2Bean encompassingEncounter;
@@ -44,13 +44,13 @@ public class Component1_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Component1.typeId</p>
+     * <p>Relationship: HistoryAndPhysical.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Component1.typeId</p>
+     * <p>Relationship: ConsultationNote.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -62,13 +62,13 @@ public class Component1_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Component1.typeId</p>
+     * <p>Relationship: HistoryAndPhysical.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Component1.typeId</p>
+     * <p>Relationship: ConsultationNote.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -80,13 +80,13 @@ public class Component1_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Component1.templateId</p>
+     * <p>Relationship: HistoryAndPhysical.Component1.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Component1.templateId</p>
+     * <p>Relationship: ConsultationNote.Component1.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -100,14 +100,14 @@ public class Component1_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.Component1.encompassingEncounter</p>
+     * HistoryAndPhysical.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.Component1.encompassingEncounter</p>
+     * ConsultationNote.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -120,14 +120,14 @@ public class Component1_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.Component1.encompassingEncounter</p>
+     * HistoryAndPhysical.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.Component1.encompassingEncounter</p>
+     * ConsultationNote.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

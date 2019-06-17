@@ -48,9 +48,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.RegionOfInterest"})
-public class RegionOfInterestBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class RegionOfInterestBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private ST iD = new STImpl();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

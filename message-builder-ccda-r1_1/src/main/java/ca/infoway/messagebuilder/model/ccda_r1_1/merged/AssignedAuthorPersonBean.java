@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.AssignedAuthorPerson","ContinuityOfCareDocumentCCD.AssignedAuthorPerson","DiagnosticImagingReport.AssignedAuthorPerson","DischargeSummary.AssignedAuthorPerson","HistoryAndPhysical.AssignedAuthorPerson","OperativeNote.AssignedAuthorPerson","ProcedureNote.AssignedAuthorPerson","ProgressNote.AssignedAuthorPerson","USRealmHeader.AssignedAuthorPerson","UnstructuredDocument.AssignedAuthorPerson"})
 public class AssignedAuthorPersonBean extends MessagePartBean implements AssignedAuthorChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -48,20 +48,20 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.AssignedAuthorPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: USRealmHeader.AssignedAuthorPerson.typeId</p>
+     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DiagnosticImagingReport.AssignedAuthorPerson.typeId</p>
+     * HistoryAndPhysical.AssignedAuthorPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -75,7 +75,21 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.typeId</p>
+     * ConsultationNote.AssignedAuthorPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DiagnosticImagingReport.AssignedAuthorPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -93,21 +107,7 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedAuthorPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: OperativeNote.AssignedAuthorPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.AssignedAuthorPerson.typeId</p>
+     * <p>Relationship: USRealmHeader.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -120,20 +120,20 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.AssignedAuthorPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: USRealmHeader.AssignedAuthorPerson.typeId</p>
+     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DiagnosticImagingReport.AssignedAuthorPerson.typeId</p>
+     * HistoryAndPhysical.AssignedAuthorPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -147,7 +147,21 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.typeId</p>
+     * ConsultationNote.AssignedAuthorPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DiagnosticImagingReport.AssignedAuthorPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -165,21 +179,7 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedAuthorPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: OperativeNote.AssignedAuthorPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.AssignedAuthorPerson.typeId</p>
+     * <p>Relationship: USRealmHeader.AssignedAuthorPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -192,21 +192,21 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.AssignedAuthorPerson.templateId</p>
+     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedAuthorPerson.templateId</p>
+     * HistoryAndPhysical.AssignedAuthorPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DiagnosticImagingReport.AssignedAuthorPerson.templateId</p>
+     * OperativeNote.AssignedAuthorPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -220,7 +220,21 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.templateId</p>
+     * ConsultationNote.AssignedAuthorPerson.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DiagnosticImagingReport.AssignedAuthorPerson.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.AssignedAuthorPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -241,21 +255,7 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.AssignedAuthorPerson.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.AssignedAuthorPerson.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.AssignedAuthorPerson.templateId</p>
+     * USRealmHeader.AssignedAuthorPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -268,20 +268,21 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.AssignedAuthorPerson.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: USRealmHeader.AssignedAuthorPerson.name</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DiagnosticImagingReport.AssignedAuthorPerson.name</p>
+     * HistoryAndPhysical.AssignedAuthorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.AssignedAuthorPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -294,8 +295,20 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ConsultationNote.AssignedAuthorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedAuthorPerson.name</p>
+     * DiagnosticImagingReport.AssignedAuthorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: DischargeSummary.AssignedAuthorPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -313,20 +326,7 @@ public class AssignedAuthorPersonBean extends MessagePartBean implements Assigne
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.AssignedAuthorPerson.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: OperativeNote.AssignedAuthorPerson.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.AssignedAuthorPerson.name</p>
+     * <p>Relationship: USRealmHeader.AssignedAuthorPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */

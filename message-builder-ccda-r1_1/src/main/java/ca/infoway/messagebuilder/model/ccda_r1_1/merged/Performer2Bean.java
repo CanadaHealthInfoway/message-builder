@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.Performer2","ProcedureActivityObservation.Performer2","ProcedureActivityProcedure.Performer2"})
 public class Performer2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityprocedure.Performer2Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();
@@ -51,12 +51,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -68,6 +62,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * 
      * <p>Relationship: 
      * ProcedureActivityProcedure.Performer2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -79,12 +79,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.typeId</p>
      * 
@@ -96,6 +90,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * ProcedureActivityProcedure.Performer2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -103,12 +103,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -122,6 +116,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * ProcedureActivityProcedure.Performer2.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -132,12 +132,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.time</p>
      * 
@@ -146,6 +140,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ProcedureActivityProcedure.Performer2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,12 +157,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.time</p>
      * 
@@ -171,6 +165,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ProcedureActivityProcedure.Performer2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -182,12 +182,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.modeCode</p>
      * 
@@ -197,6 +191,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * 
      * <p>Relationship: 
      * ProcedureActivityProcedure.Performer2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -208,12 +208,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityAct.Performer2.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.modeCode</p>
      * 
@@ -223,6 +217,12 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * 
      * <p>Relationship: 
      * ProcedureActivityProcedure.Performer2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Performer2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -235,13 +235,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.Performer2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -250,6 +243,13 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * 
      * <p>Relationship: 
      * ProcedureActivityProcedure.Performer2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -262,13 +262,6 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.Performer2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureActivityObservation.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -277,6 +270,13 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * 
      * <p>Relationship: 
      * ProcedureActivityProcedure.Performer2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

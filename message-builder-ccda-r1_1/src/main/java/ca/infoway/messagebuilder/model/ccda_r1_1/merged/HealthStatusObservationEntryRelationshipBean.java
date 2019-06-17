@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship","FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship","ProblemObservation.HealthStatusObservationEntryRelationship"})
 public class HealthStatusObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.problemobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,6 +55,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -63,13 +70,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -82,6 +82,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -90,13 +97,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -109,6 +109,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -117,13 +124,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -136,6 +136,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -144,13 +151,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -163,6 +163,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -171,13 +178,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -190,6 +190,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -198,13 +205,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -217,6 +217,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -225,13 +232,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -244,6 +244,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -254,13 +261,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * ProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -268,6 +268,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -281,13 +288,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * ProblemObservation.HealthStatusObservationEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -299,6 +299,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -307,13 +314,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -326,6 +326,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -334,13 +341,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -353,6 +353,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -361,13 +368,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -380,6 +380,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -388,13 +395,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -407,6 +407,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -415,13 +422,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -434,6 +434,13 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -442,13 +449,6 @@ public class HealthStatusObservationEntryRelationshipBean extends MessagePartBea
      * 
      * <p>Relationship: 
      * ProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

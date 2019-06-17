@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ResultsSectionentriesOptional.Entry","ResultsSectionentriesRequired.Entry"})
 public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -51,14 +51,14 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesOptional.Entry.typeCode</p>
+     * ResultsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesRequired.Entry.typeCode</p>
+     * ResultsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -71,14 +71,14 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesOptional.Entry.typeCode</p>
+     * ResultsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesRequired.Entry.typeCode</p>
+     * ResultsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -90,13 +90,13 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultsSectionentriesOptional.Entry.typeId</p>
+     * <p>Relationship: ResultsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultsSectionentriesRequired.Entry.typeId</p>
+     * <p>Relationship: ResultsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -108,13 +108,13 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultsSectionentriesOptional.Entry.typeId</p>
+     * <p>Relationship: ResultsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultsSectionentriesRequired.Entry.typeId</p>
+     * <p>Relationship: ResultsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -127,14 +127,14 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesOptional.Entry.templateId</p>
+     * ResultsSectionentriesRequired.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesRequired.Entry.templateId</p>
+     * ResultsSectionentriesOptional.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -148,14 +148,14 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesOptional.Entry.organizer</p>
+     * ResultsSectionentriesRequired.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesRequired.Entry.organizer</p>
+     * ResultsSectionentriesOptional.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -168,14 +168,14 @@ public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesOptional.Entry.organizer</p>
+     * ResultsSectionentriesRequired.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ResultsSectionentriesRequired.Entry.organizer</p>
+     * ResultsSectionentriesOptional.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

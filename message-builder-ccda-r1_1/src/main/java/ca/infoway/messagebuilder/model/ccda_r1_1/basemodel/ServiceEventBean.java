@@ -47,7 +47,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.ServiceEvent"})
 public class ServiceEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ActClassRoot> classCode = new CS_R2Impl<ActClassRoot>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

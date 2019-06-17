@@ -43,9 +43,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Participant2","ProcedureNote.Participant1"})
-public class Participant2_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.advancedirectiveobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.allergyintoleranceobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityprocedure.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Participant1Choice, ca.infoway.messagebuilder.model.ccda_r1_1.nonmedicinalsupplyactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.Participant2Choice {
+public class Participant2_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Participant1Choice, ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.advancedirectiveobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.nonmedicinalsupplyactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityprocedure.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.allergyintoleranceobservation.Participant2Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ParticipationType> typeCode = new CS_R2Impl<ParticipationType>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

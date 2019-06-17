@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Authenticator","ContinuityOfCareDocumentCCD.Authenticator","DiagnosticImagingReport.Authenticator","DischargeSummary.Authenticator","HistoryAndPhysical.Authenticator","OperativeNote.Authenticator","ProcedureNote.Authenticator","ProgressNote.Authenticator","USRealmHeader.Authenticator","UnstructuredDocument.Authenticator"})
 public class AuthenticatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private TS_R2 time = new TS_R2Impl();
@@ -48,8 +48,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.Authenticator.typeId</p>
+     * <p>Relationship: ConsultationNote.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -61,13 +60,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Authenticator.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: UnstructuredDocument.Authenticator.typeId</p>
+     * <p>Relationship: DischargeSummary.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -79,13 +72,13 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.typeId</p>
+     * <p>Relationship: HistoryAndPhysical.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Authenticator.typeId</p>
+     * <p>Relationship: ProcedureNote.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -98,13 +91,20 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.Authenticator.typeId</p>
+     * <p>Relationship: 
+     * DiagnosticImagingReport.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -116,8 +116,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.Authenticator.typeId</p>
+     * <p>Relationship: ConsultationNote.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -129,13 +128,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Authenticator.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: UnstructuredDocument.Authenticator.typeId</p>
+     * <p>Relationship: DischargeSummary.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -147,13 +140,13 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.typeId</p>
+     * <p>Relationship: HistoryAndPhysical.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Authenticator.typeId</p>
+     * <p>Relationship: ProcedureNote.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -166,13 +159,20 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.Authenticator.typeId</p>
+     * <p>Relationship: 
+     * DiagnosticImagingReport.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Authenticator.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -184,8 +184,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.Authenticator.templateId</p>
+     * <p>Relationship: ConsultationNote.Authenticator.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -197,14 +196,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Authenticator.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.Authenticator.templateId</p>
+     * <p>Relationship: DischargeSummary.Authenticator.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -216,13 +208,13 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.templateId</p>
+     * <p>Relationship: HistoryAndPhysical.Authenticator.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Authenticator.templateId</p>
+     * <p>Relationship: ProcedureNote.Authenticator.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -235,13 +227,21 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.Authenticator.templateId</p>
+     * <p>Relationship: 
+     * DiagnosticImagingReport.Authenticator.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.Authenticator.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -254,7 +254,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DiagnosticImagingReport.Authenticator.time</p>
+     * <p>Relationship: ConsultationNote.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -266,13 +266,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Authenticator.time</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: UnstructuredDocument.Authenticator.time</p>
+     * <p>Relationship: DischargeSummary.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -284,13 +278,13 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.time</p>
+     * <p>Relationship: HistoryAndPhysical.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Authenticator.time</p>
+     * <p>Relationship: ProcedureNote.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -303,13 +297,19 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.Authenticator.time</p>
+     * <p>Relationship: DiagnosticImagingReport.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -321,7 +321,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DiagnosticImagingReport.Authenticator.time</p>
+     * <p>Relationship: ConsultationNote.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -333,13 +333,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.Authenticator.time</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: UnstructuredDocument.Authenticator.time</p>
+     * <p>Relationship: DischargeSummary.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -351,13 +345,13 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.time</p>
+     * <p>Relationship: HistoryAndPhysical.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.Authenticator.time</p>
+     * <p>Relationship: ProcedureNote.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -370,13 +364,19 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.Authenticator.time</p>
+     * <p>Relationship: DiagnosticImagingReport.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Authenticator.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -389,7 +389,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DiagnosticImagingReport.Authenticator.assignedEntity</p>
+     * ConsultationNote.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -402,14 +402,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.Authenticator.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.Authenticator.assignedEntity</p>
+     * DischargeSummary.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -421,14 +414,14 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.assignedEntity</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.Authenticator.assignedEntity</p>
+     * <p>Relationship: ProcedureNote.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -442,13 +435,20 @@ public class AuthenticatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.Authenticator.assignedEntity</p>
+     * DiagnosticImagingReport.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -461,7 +461,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DiagnosticImagingReport.Authenticator.assignedEntity</p>
+     * ConsultationNote.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -474,14 +474,7 @@ public class AuthenticatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.Authenticator.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.Authenticator.assignedEntity</p>
+     * DischargeSummary.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -493,14 +486,14 @@ public class AuthenticatorBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.Authenticator.assignedEntity</p>
+     * <p>Relationship: 
+     * HistoryAndPhysical.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.Authenticator.assignedEntity</p>
+     * <p>Relationship: ProcedureNote.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -514,13 +507,20 @@ public class AuthenticatorBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.Authenticator.assignedEntity</p>
+     * DiagnosticImagingReport.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

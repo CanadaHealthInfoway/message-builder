@@ -47,7 +47,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.ExternalDocument"})
 public class ExternalDocumentBean extends MessagePartBean implements ReferenceChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ActClassDocument> classCode = new CS_R2Impl<ActClassDocument>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

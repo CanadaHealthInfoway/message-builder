@@ -38,9 +38,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.SeverityObservationEntryRelationship","ReactionObservation.SeverityObservationEntryRelationship","SubstanceOrDeviceAllergyIntoleranceObservation.SeverityObservationEntryRelationship"})
-public class SeverityObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice, EntryRelationshipChoice_2 {
+public class SeverityObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_2, ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();

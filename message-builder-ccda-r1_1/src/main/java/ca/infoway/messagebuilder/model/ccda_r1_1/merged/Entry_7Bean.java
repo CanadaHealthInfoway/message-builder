@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MedicationsAdministeredSection.Entry","MedicationsSectionentriesOptional.Entry","MedicationsSectionentriesRequired.Entry"})
 public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -51,7 +51,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.typeCode</p>
+     * MedicationsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -65,7 +65,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.typeCode</p>
+     * MedicationsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -78,7 +78,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.typeCode</p>
+     * MedicationsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -92,7 +92,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.typeCode</p>
+     * MedicationsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -105,7 +105,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.typeId</p>
+     * MedicationsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -118,7 +118,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.typeId</p>
+     * MedicationsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -131,7 +131,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.typeId</p>
+     * MedicationsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -144,7 +144,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.typeId</p>
+     * MedicationsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,7 +157,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.templateId</p>
+     * MedicationsSectionentriesRequired.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -171,7 +171,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.templateId</p>
+     * MedicationsSectionentriesOptional.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -185,7 +185,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.substanceAdministration</p>
+     * MedicationsSectionentriesRequired.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -199,7 +199,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.substanceAdministration</p>
+     * MedicationsSectionentriesOptional.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -212,7 +212,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesOptional.Entry.substanceAdministration</p>
+     * MedicationsSectionentriesRequired.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -226,7 +226,7 @@ public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationsSectionentriesRequired.Entry.substanceAdministration</p>
+     * MedicationsSectionentriesOptional.Entry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<EvnIntMoodCode> moodCode = new CS_R2Impl<EvnIntMoodCode>();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();

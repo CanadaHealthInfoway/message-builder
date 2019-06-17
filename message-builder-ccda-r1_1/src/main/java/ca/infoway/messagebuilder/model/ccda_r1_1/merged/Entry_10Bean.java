@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"VitalSignsSectionentriesOptional.Entry","VitalSignsSectionentriesRequired.Entry"})
 public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -51,14 +51,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.typeCode</p>
+     * VitalSignsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.typeCode</p>
+     * VitalSignsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -71,14 +71,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.typeCode</p>
+     * VitalSignsSectionentriesRequired.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.typeCode</p>
+     * VitalSignsSectionentriesOptional.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -91,14 +91,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.typeId</p>
+     * VitalSignsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.typeId</p>
+     * VitalSignsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -111,14 +111,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.typeId</p>
+     * VitalSignsSectionentriesRequired.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.typeId</p>
+     * VitalSignsSectionentriesOptional.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -131,14 +131,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.templateId</p>
+     * VitalSignsSectionentriesRequired.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.templateId</p>
+     * VitalSignsSectionentriesOptional.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -152,14 +152,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.organizer</p>
+     * VitalSignsSectionentriesRequired.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.organizer</p>
+     * VitalSignsSectionentriesOptional.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -172,14 +172,14 @@ public class Entry_10Bean extends MessagePartBean implements EntryChoice_10 {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesOptional.Entry.organizer</p>
+     * VitalSignsSectionentriesRequired.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * VitalSignsSectionentriesRequired.Entry.organizer</p>
+     * VitalSignsSectionentriesOptional.Entry.organizer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

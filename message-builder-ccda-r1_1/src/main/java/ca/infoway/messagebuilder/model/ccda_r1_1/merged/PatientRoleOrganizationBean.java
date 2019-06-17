@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.PatientRoleOrganization","ContinuityOfCareDocumentCCD.PatientRoleOrganization","DiagnosticImagingReport.PatientRoleOrganization","DischargeSummary.PatientRoleOrganization","HistoryAndPhysical.PatientRoleOrganization","OperativeNote.PatientRoleOrganization","ProcedureNote.PatientRoleOrganization","ProgressNote.PatientRoleOrganization","USRealmHeader.PatientRoleOrganization","UnstructuredDocument.PatientRoleOrganization"})
 public class PatientRoleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -71,13 +71,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -91,22 +84,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ProgressNote.PatientRoleOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -120,13 +105,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.typeId</p>
+     * USRealmHeader.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.PatientRoleOrganization.typeId</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.PatientRoleOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -146,13 +146,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -166,22 +159,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ProgressNote.PatientRoleOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -195,13 +180,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.typeId</p>
+     * USRealmHeader.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.PatientRoleOrganization.typeId</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.PatientRoleOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -215,13 +215,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * OperativeNote.PatientRoleOrganization.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -242,21 +235,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * ProgressNote.PatientRoleOrganization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -270,14 +256,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.templateId</p>
+     * USRealmHeader.PatientRoleOrganization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.PatientRoleOrganization.templateId</p>
+     * UnstructuredDocument.PatientRoleOrganization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -297,13 +297,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
@@ -317,19 +310,13 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ProgressNote.PatientRoleOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: ConsultationNote.PatientRoleOrganization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.PatientRoleOrganization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: USRealmHeader.PatientRoleOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
@@ -342,13 +329,26 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: DischargeSummary.PatientRoleOrganization.id</p>
+     * <p>Relationship: USRealmHeader.PatientRoleOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.PatientRoleOrganization.id</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.PatientRoleOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureNote.PatientRoleOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: DischargeSummary.PatientRoleOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
@@ -368,13 +368,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -388,20 +381,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ProgressNote.PatientRoleOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.PatientRoleOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: USRealmHeader.PatientRoleOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -414,14 +401,27 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.name</p>
+     * <p>Relationship: USRealmHeader.PatientRoleOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.PatientRoleOrganization.name</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.PatientRoleOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureNote.PatientRoleOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -442,13 +442,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -463,21 +456,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * ProgressNote.PatientRoleOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -491,14 +477,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.telecom</p>
+     * USRealmHeader.PatientRoleOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.PatientRoleOrganization.telecom</p>
+     * UnstructuredDocument.PatientRoleOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -518,13 +518,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -538,20 +531,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ProgressNote.PatientRoleOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.PatientRoleOrganization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: USRealmHeader.PatientRoleOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -564,14 +551,27 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.addr</p>
+     * <p>Relationship: USRealmHeader.PatientRoleOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.PatientRoleOrganization.addr</p>
+     * <p>Relationship: 
+     * UnstructuredDocument.PatientRoleOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureNote.PatientRoleOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -592,13 +592,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -613,21 +606,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * ProgressNote.PatientRoleOrganization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -641,14 +627,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.standardIndustryClassCode</p>
+     * USRealmHeader.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.PatientRoleOrganization.standardIndustryClassCode</p>
+     * UnstructuredDocument.PatientRoleOrganization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -668,13 +668,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -689,21 +682,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * ProgressNote.PatientRoleOrganization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -717,14 +703,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.standardIndustryClassCode</p>
+     * USRealmHeader.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.PatientRoleOrganization.standardIndustryClassCode</p>
+     * UnstructuredDocument.PatientRoleOrganization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -744,13 +744,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -765,21 +758,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * ProgressNote.PatientRoleOrganization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -793,14 +779,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.asOrganizationPartOf</p>
+     * USRealmHeader.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.PatientRoleOrganization.asOrganizationPartOf</p>
+     * UnstructuredDocument.PatientRoleOrganization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -820,13 +820,6 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRoleOrganization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * DiagnosticImagingReport.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -841,21 +834,14 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * ProgressNote.PatientRoleOrganization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.PatientRoleOrganization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.PatientRoleOrganization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -869,14 +855,28 @@ public class PatientRoleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.PatientRoleOrganization.asOrganizationPartOf</p>
+     * USRealmHeader.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.PatientRoleOrganization.asOrganizationPartOf</p>
+     * UnstructuredDocument.PatientRoleOrganization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureNote.PatientRoleOrganization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.PatientRoleOrganization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

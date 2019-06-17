@@ -67,9 +67,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Observation"})
-public class ObservationBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class ObservationBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<ActClassObservation> classCode = new CS_R2Impl<ActClassObservation>();
     private CS_R2<x_ActMoodDocumentObservation> moodCode = new CS_R2Impl<x_ActMoodDocumentObservation>();
     private BL negationInd = new BLImpl();
@@ -380,7 +380,7 @@ public class ObservationBean extends MessagePartBean implements EntryChoice, Com
      */
     @Hl7XmlMapping({"interpretationCode"})
     public List<CodedTypeR2<Code>> getInterpretationCode() {
-        return this.interpretationCode.rawList(CodedTypeR2.class);
+        return this.interpretationCode.rawList();
     }
 
 
@@ -391,7 +391,7 @@ public class ObservationBean extends MessagePartBean implements EntryChoice, Com
      */
     @Hl7XmlMapping({"methodCode"})
     public List<CodedTypeR2<Code>> getMethodCode() {
-        return this.methodCode.rawList(CodedTypeR2.class);
+        return this.methodCode.rawList();
     }
 
 
@@ -402,7 +402,7 @@ public class ObservationBean extends MessagePartBean implements EntryChoice, Com
      */
     @Hl7XmlMapping({"targetSiteCode"})
     public List<CodedTypeR2<Code>> getTargetSiteCode() {
-        return this.targetSiteCode.rawList(CodedTypeR2.class);
+        return this.targetSiteCode.rawList();
     }
 
 

@@ -34,9 +34,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ConsultationNote.FamilyHistorySectionComponent3","ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3","DischargeSummary.FamilyHistorySectionComponent3","HistoryAndPhysical.FamilyHistorySectionComponent3","ProcedureNote.FamilyHistorySectionComponent3"})
-public class FamilyHistorySectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice {
+public class FamilyHistorySectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
@@ -46,14 +46,14 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.typeId</p>
+     * DischargeSummary.FamilyHistorySectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.FamilyHistorySectionComponent3.typeId</p>
+     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -67,7 +67,7 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.FamilyHistorySectionComponent3.typeId</p>
+     * ConsultationNote.FamilyHistorySectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -87,14 +87,14 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.typeId</p>
+     * DischargeSummary.FamilyHistorySectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.FamilyHistorySectionComponent3.typeId</p>
+     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -108,7 +108,7 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.FamilyHistorySectionComponent3.typeId</p>
+     * ConsultationNote.FamilyHistorySectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -128,14 +128,14 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.templateId</p>
+     * DischargeSummary.FamilyHistorySectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.FamilyHistorySectionComponent3.templateId</p>
+     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -149,7 +149,7 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.FamilyHistorySectionComponent3.templateId</p>
+     * ConsultationNote.FamilyHistorySectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -170,14 +170,14 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.section</p>
+     * DischargeSummary.FamilyHistorySectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.FamilyHistorySectionComponent3.section</p>
+     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -191,7 +191,7 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.FamilyHistorySectionComponent3.section</p>
+     * ConsultationNote.FamilyHistorySectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -211,14 +211,14 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.section</p>
+     * DischargeSummary.FamilyHistorySectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.FamilyHistorySectionComponent3.section</p>
+     * ContinuityOfCareDocumentCCD.FamilyHistorySectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -232,7 +232,7 @@ public class FamilyHistorySectionComponent3Bean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.FamilyHistorySectionComponent3.section</p>
+     * ConsultationNote.FamilyHistorySectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.IntendedRecipientPerson","ContinuityOfCareDocumentCCD.IntendedRecipientPerson","DiagnosticImagingReport.IntendedRecipientPerson","DischargeSummary.IntendedRecipientPerson","HistoryAndPhysical.IntendedRecipientPerson","OperativeNote.IntendedRecipientPerson","ProcedureNote.IntendedRecipientPerson","ProgressNote.IntendedRecipientPerson","USRealmHeader.IntendedRecipientPerson","UnstructuredDocument.IntendedRecipientPerson"})
 public class IntendedRecipientPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -47,15 +47,7 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.IntendedRecipientPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.typeId</p>
+     * <p>Relationship: ProgressNote.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -68,7 +60,15 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.IntendedRecipientPerson.typeId</p>
+     * <p>Relationship: 
+     * DischargeSummary.IntendedRecipientPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * OperativeNote.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -83,13 +83,6 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.IntendedRecipientPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -111,6 +104,13 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * UnstructuredDocument.IntendedRecipientPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -122,15 +122,7 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.IntendedRecipientPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.typeId</p>
+     * <p>Relationship: ProgressNote.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -143,7 +135,15 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.IntendedRecipientPerson.typeId</p>
+     * <p>Relationship: 
+     * DischargeSummary.IntendedRecipientPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * OperativeNote.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -158,13 +158,6 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.IntendedRecipientPerson.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -186,6 +179,13 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * UnstructuredDocument.IntendedRecipientPerson.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -198,14 +198,7 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.IntendedRecipientPerson.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.templateId</p>
+     * ProgressNote.IntendedRecipientPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -219,7 +212,14 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProgressNote.IntendedRecipientPerson.templateId</p>
+     * DischargeSummary.IntendedRecipientPerson.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * OperativeNote.IntendedRecipientPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -234,13 +234,6 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.IntendedRecipientPerson.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.IntendedRecipientPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -264,6 +257,13 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * UnstructuredDocument.IntendedRecipientPerson.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -274,15 +274,7 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * DischargeSummary.IntendedRecipientPerson.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.name</p>
+     * <p>Relationship: ProgressNote.IntendedRecipientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -295,7 +287,14 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProgressNote.IntendedRecipientPerson.name</p>
+     * <p>Relationship: 
+     * DischargeSummary.IntendedRecipientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.IntendedRecipientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -315,12 +314,6 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.IntendedRecipientPerson.name</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: USRealmHeader.IntendedRecipientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -335,6 +328,13 @@ public class IntendedRecipientPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * UnstructuredDocument.IntendedRecipientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.IntendedRecipientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */

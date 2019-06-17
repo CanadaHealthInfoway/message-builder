@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AdmissionMedication.EntryRelationship","DischargeMedication.EntryRelationship"})
 public class EntryRelationship_1Bean extends MessagePartBean implements EntryRelationshipChoice_1 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,14 +55,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.inversionInd</p>
+     * AdmissionMedication.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.inversionInd</p>
+     * DischargeMedication.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -75,14 +75,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.inversionInd</p>
+     * AdmissionMedication.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.inversionInd</p>
+     * DischargeMedication.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -95,14 +95,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.contextConductionInd</p>
+     * AdmissionMedication.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.contextConductionInd</p>
+     * DischargeMedication.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -115,14 +115,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.contextConductionInd</p>
+     * AdmissionMedication.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.contextConductionInd</p>
+     * DischargeMedication.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -135,14 +135,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.negationInd</p>
+     * AdmissionMedication.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.negationInd</p>
+     * DischargeMedication.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -155,14 +155,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.negationInd</p>
+     * AdmissionMedication.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.negationInd</p>
+     * DischargeMedication.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -175,14 +175,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.typeId</p>
+     * AdmissionMedication.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.typeId</p>
+     * DischargeMedication.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -195,14 +195,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.typeId</p>
+     * AdmissionMedication.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.typeId</p>
+     * DischargeMedication.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -215,14 +215,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.templateId</p>
+     * AdmissionMedication.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.templateId</p>
+     * DischargeMedication.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -236,14 +236,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.sequenceNumber</p>
+     * AdmissionMedication.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.sequenceNumber</p>
+     * DischargeMedication.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -256,14 +256,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.sequenceNumber</p>
+     * AdmissionMedication.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.sequenceNumber</p>
+     * DischargeMedication.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -276,14 +276,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.seperatableInd</p>
+     * AdmissionMedication.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.seperatableInd</p>
+     * DischargeMedication.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -296,14 +296,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.seperatableInd</p>
+     * AdmissionMedication.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.seperatableInd</p>
+     * DischargeMedication.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -316,14 +316,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.substanceAdministration</p>
+     * AdmissionMedication.EntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.substanceAdministration</p>
+     * DischargeMedication.EntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -336,14 +336,14 @@ public class EntryRelationship_1Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeMedication.EntryRelationship.substanceAdministration</p>
+     * AdmissionMedication.EntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AdmissionMedication.EntryRelationship.substanceAdministration</p>
+     * DischargeMedication.EntryRelationship.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

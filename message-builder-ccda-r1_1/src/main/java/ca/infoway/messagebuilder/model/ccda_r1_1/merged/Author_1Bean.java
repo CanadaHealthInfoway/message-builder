@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AssessmentScaleObservation.Author","BaseModel.Author","CognitiveStatusResultObservation.Author","FunctionalStatusResultObservation.Author","MedicationSupplyOrder.Author","NumberOfPressureUlcersObservation.Author","ResultObservation.Author","VitalSignObservation.Author"})
 public class Author_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2<Code> functionCode = new CE_R2Impl<Code>();
@@ -54,26 +54,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.typeId</p>
+     * <p>Relationship: VitalSignObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: AssessmentScaleObservation.Author.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.typeId</p>
+     * NumberOfPressureUlcersObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -92,14 +80,26 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.typeId</p>
+     * <p>Relationship: AssessmentScaleObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.typeId</p>
+     * <p>Relationship: ResultObservation.Author.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -111,26 +111,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.typeId</p>
+     * <p>Relationship: VitalSignObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: AssessmentScaleObservation.Author.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.typeId</p>
+     * NumberOfPressureUlcersObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -149,14 +137,26 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.typeId</p>
+     * <p>Relationship: AssessmentScaleObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.typeId</p>
+     * <p>Relationship: ResultObservation.Author.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -168,27 +168,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.templateId</p>
+     * <p>Relationship: VitalSignObservation.Author.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.Author.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.templateId</p>
+     * NumberOfPressureUlcersObservation.Author.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -208,13 +195,26 @@ public class Author_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.templateId</p>
+     * AssessmentScaleObservation.Author.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.templateId</p>
+     * <p>Relationship: ResultObservation.Author.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -227,27 +227,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.functionCode</p>
+     * <p>Relationship: VitalSignObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.functionCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.Author.functionCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.functionCode</p>
+     * NumberOfPressureUlcersObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -267,13 +254,26 @@ public class Author_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.functionCode</p>
+     * AssessmentScaleObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.functionCode</p>
+     * <p>Relationship: ResultObservation.Author.functionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.functionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -285,27 +285,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.functionCode</p>
+     * <p>Relationship: VitalSignObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.functionCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.Author.functionCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.functionCode</p>
+     * NumberOfPressureUlcersObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -325,13 +312,26 @@ public class Author_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.functionCode</p>
+     * AssessmentScaleObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.functionCode</p>
+     * <p>Relationship: ResultObservation.Author.functionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.functionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -343,26 +343,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.time</p>
+     * <p>Relationship: VitalSignObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.time</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: AssessmentScaleObservation.Author.time</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.time</p>
+     * NumberOfPressureUlcersObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -381,14 +369,26 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.time</p>
+     * <p>Relationship: AssessmentScaleObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.time</p>
+     * <p>Relationship: ResultObservation.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -400,26 +400,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.time</p>
+     * <p>Relationship: VitalSignObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.time</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: AssessmentScaleObservation.Author.time</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.time</p>
+     * NumberOfPressureUlcersObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -438,14 +426,26 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.time</p>
+     * <p>Relationship: AssessmentScaleObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.time</p>
+     * <p>Relationship: ResultObservation.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -457,27 +457,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.assignedAuthor</p>
+     * <p>Relationship: VitalSignObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.assignedAuthor</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.Author.assignedAuthor</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.assignedAuthor</p>
+     * NumberOfPressureUlcersObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -497,13 +484,26 @@ public class Author_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.assignedAuthor</p>
+     * AssessmentScaleObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.assignedAuthor</p>
+     * <p>Relationship: ResultObservation.Author.assignedAuthor</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.assignedAuthor</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -515,27 +515,14 @@ public class Author_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ResultObservation.Author.assignedAuthor</p>
+     * <p>Relationship: VitalSignObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.Author.assignedAuthor</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AssessmentScaleObservation.Author.assignedAuthor</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.Author.assignedAuthor</p>
+     * NumberOfPressureUlcersObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -555,13 +542,26 @@ public class Author_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.Author.assignedAuthor</p>
+     * AssessmentScaleObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: VitalSignObservation.Author.assignedAuthor</p>
+     * <p>Relationship: ResultObservation.Author.assignedAuthor</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Author.assignedAuthor</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CognitiveStatusResultObservation.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

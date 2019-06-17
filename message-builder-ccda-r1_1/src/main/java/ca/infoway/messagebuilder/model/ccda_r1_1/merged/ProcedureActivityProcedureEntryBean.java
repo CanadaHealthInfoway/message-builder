@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AnesthesiaSection.ProcedureActivityProcedureEntry","ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry","ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry"})
 public class ProcedureActivityProcedureEntryBean extends MessagePartBean implements EntryChoice_8, ca.infoway.messagebuilder.model.ccda_r1_1.anesthesiasection.EntryChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -58,14 +58,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeCode</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeCode</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -85,14 +85,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeCode</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeCode</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -112,14 +112,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeId</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeId</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -139,14 +139,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeId</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.typeId</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -166,14 +166,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.templateId</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.templateId</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -194,14 +194,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.procedure</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.procedure</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.procedure</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.procedure</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -221,14 +221,14 @@ public class ProcedureActivityProcedureEntryBean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AnesthesiaSection.ProcedureActivityProcedureEntry.procedure</p>
+     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.procedure</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.procedure</p>
+     * AnesthesiaSection.ProcedureActivityProcedureEntry.procedure</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

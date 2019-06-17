@@ -51,9 +51,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.ObservationMedia"})
-public class ObservationMediaBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class ObservationMediaBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private ST iD = new STImpl();
     private CS_R2<ActClassObservation> classCode = new CS_R2Impl<ActClassObservation>();
     private CS_R2<ActMood> moodCode = new CS_R2Impl<ActMood>();

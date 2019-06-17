@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.AssessmentScaleObservationEntryRelationship","CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship","FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship","FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship"})
 public class AssessmentScaleObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_4 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,6 +55,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -63,13 +70,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -89,6 +89,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -97,13 +104,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -123,6 +123,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -131,13 +138,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -157,6 +157,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -165,13 +172,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -191,6 +191,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -199,13 +206,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -225,6 +225,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -233,13 +240,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -259,6 +259,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -267,13 +274,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -293,6 +293,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -301,13 +308,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -327,6 +327,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -335,13 +342,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -362,6 +362,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -370,13 +377,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -396,6 +396,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -404,13 +411,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -430,6 +430,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -438,13 +445,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -464,6 +464,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -472,13 +479,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -498,6 +498,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -506,13 +513,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -532,6 +532,13 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -540,13 +547,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
      * 
      * <p>Relationship: 
      * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

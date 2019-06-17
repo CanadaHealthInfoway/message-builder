@@ -38,9 +38,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ImmunizationActivity.MedicationDispenseEntryRelationship","MedicationActivity.MedicationDispenseEntryRelationship"})
-public class MedicationDispenseEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice {
+public class MedicationDispenseEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,14 +55,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -75,14 +75,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -95,14 +95,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -115,14 +115,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -135,14 +135,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.negationInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.negationInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -155,14 +155,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.negationInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.negationInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -175,14 +175,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.typeId</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.typeId</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -195,14 +195,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.typeId</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.typeId</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -215,14 +215,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.templateId</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.templateId</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -236,14 +236,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -256,14 +256,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -276,14 +276,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -296,14 +296,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -316,14 +316,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.supply</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.supply</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -336,14 +336,14 @@ public class MedicationDispenseEntryRelationshipBean extends MessagePartBean imp
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.MedicationDispenseEntryRelationship.supply</p>
+     * MedicationActivity.MedicationDispenseEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationActivity.MedicationDispenseEntryRelationship.supply</p>
+     * ImmunizationActivity.MedicationDispenseEntryRelationship.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

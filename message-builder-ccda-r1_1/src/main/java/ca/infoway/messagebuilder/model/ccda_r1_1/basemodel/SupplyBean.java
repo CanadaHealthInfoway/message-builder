@@ -69,9 +69,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Supply"})
-public class SupplyBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
+public class SupplyBean extends MessagePartBean implements Component4Choice, EntryChoice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_DocumentSubstanceMood> moodCode = new CS_R2Impl<x_DocumentSubstanceMood>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -237,7 +237,7 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, Componen
      */
     @Hl7XmlMapping({"priorityCode"})
     public List<CodedTypeR2<Code>> getPriorityCode() {
-        return this.priorityCode.rawList(CodedTypeR2.class);
+        return this.priorityCode.rawList();
     }
 
 

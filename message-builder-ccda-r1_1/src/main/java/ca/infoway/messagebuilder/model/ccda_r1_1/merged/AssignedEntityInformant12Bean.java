@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.AssignedEntityInformant12","ContinuityOfCareDocumentCCD.AssignedEntityInformant12","DiagnosticImagingReport.AssignedEntityInformant12","DischargeSummary.AssignedEntityInformant12","HistoryAndPhysical.AssignedEntityInformant12","OperativeNote.AssignedEntityInformant12","ProcedureNote.AssignedEntityInformant12","ProgressNote.AssignedEntityInformant12","USRealmHeader.AssignedEntityInformant12","UnstructuredDocument.AssignedEntityInformant12"})
 public class AssignedEntityInformant12Bean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II assignedEntityTypeId = new IIImpl();
@@ -62,6 +62,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -69,14 +76,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12.typeId</p>
+     * UnstructuredDocument.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12.typeId</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -97,28 +111,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12.typeId</p>
+     * USRealmHeader.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -126,6 +119,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -138,6 +138,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -145,14 +152,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12.typeId</p>
+     * UnstructuredDocument.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12.typeId</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -173,28 +187,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12.typeId</p>
+     * USRealmHeader.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -202,6 +195,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -214,6 +214,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -221,14 +228,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12.templateId</p>
+     * UnstructuredDocument.AssignedEntityInformant12.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12.templateId</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -249,28 +263,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12.templateId</p>
+     * USRealmHeader.AssignedEntityInformant12.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -278,6 +271,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -291,6 +291,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -298,14 +305,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -326,28 +340,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -355,6 +348,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -367,6 +367,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -374,14 +381,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -402,28 +416,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -431,6 +424,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -443,6 +443,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -450,14 +457,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.templateId</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.templateId</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -478,28 +492,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.templateId</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -507,6 +500,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -520,6 +520,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -527,14 +534,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.id</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.id</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -555,28 +569,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.id</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -584,6 +577,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -597,6 +597,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -604,14 +611,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.code</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.code</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -632,28 +646,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.code</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -661,6 +654,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -673,6 +673,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -680,14 +687,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.code</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.code</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -708,28 +722,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.code</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -737,6 +730,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -749,6 +749,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
@@ -756,14 +763,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.addr</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.addr</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -784,28 +798,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.addr</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -813,6 +806,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -826,6 +826,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -833,14 +840,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.telecom</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.telecom</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -861,28 +875,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.telecom</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -890,6 +883,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -903,6 +903,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -910,14 +917,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -938,28 +952,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -967,6 +960,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -979,6 +979,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -986,14 +993,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -1014,28 +1028,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -1043,6 +1036,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -1055,6 +1055,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -1062,14 +1069,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1090,28 +1104,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1119,6 +1112,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -1131,6 +1131,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * DischargeSummary.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -1138,14 +1145,21 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * USRealmHeader.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProgressNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1166,28 +1180,7 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * USRealmHeader.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -1195,6 +1188,13 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

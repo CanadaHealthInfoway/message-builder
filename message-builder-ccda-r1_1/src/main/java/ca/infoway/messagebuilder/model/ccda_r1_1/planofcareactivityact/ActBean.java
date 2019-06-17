@@ -64,7 +64,7 @@ import java.util.List;
 @Hl7RootType
 public class ActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<PlanOfCareEncounterMoodCode> moodCode = new CS_R2Impl<PlanOfCareEncounterMoodCode>();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();

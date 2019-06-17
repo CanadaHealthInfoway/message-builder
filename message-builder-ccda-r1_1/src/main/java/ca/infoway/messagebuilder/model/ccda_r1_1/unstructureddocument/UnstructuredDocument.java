@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"UnstructuredDocument"})
 public class UnstructuredDocument extends UnstructuredDocumentBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
 
 }

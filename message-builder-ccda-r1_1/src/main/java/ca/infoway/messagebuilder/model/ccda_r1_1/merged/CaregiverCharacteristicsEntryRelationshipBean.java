@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.CaregiverCharacteristicsEntryRelationship","CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship","FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship","FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship"})
 public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_4 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -55,7 +55,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -69,14 +69,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -89,7 +89,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -103,14 +103,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -123,7 +123,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -137,14 +137,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,7 +157,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -171,14 +171,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -191,7 +191,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -205,14 +205,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -225,7 +225,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -239,14 +239,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -259,7 +259,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -273,14 +273,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -293,7 +293,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -307,14 +307,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -327,7 +327,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.templateId</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -341,14 +341,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.templateId</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.templateId</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -362,7 +362,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -376,14 +376,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -396,7 +396,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -410,14 +410,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -430,7 +430,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -444,14 +444,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -464,7 +464,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -478,14 +478,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -498,7 +498,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -512,14 +512,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -532,7 +532,7 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
+     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -546,14 +546,14 @@ public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBe
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
+     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
+     * FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

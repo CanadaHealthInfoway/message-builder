@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ComplicationsOpNote.Entry","ComplicationsSection.Entry","HistoryOfPastIllnessSection.Entry","ProcedureFindingsSection.Entry"})
 public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -56,13 +56,13 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeCode</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.typeCode</p>
+     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -86,13 +86,13 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeCode</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.typeCode</p>
+     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -116,13 +116,13 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeId</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.typeId</p>
+     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -146,13 +146,13 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeId</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.typeId</p>
+     * <p>Relationship: HistoryOfPastIllnessSection.Entry.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -176,14 +176,14 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryOfPastIllnessSection.Entry.templateId</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.templateId</p>
+     * <p>Relationship: 
+     * HistoryOfPastIllnessSection.Entry.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -208,14 +208,14 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryOfPastIllnessSection.Entry.observation</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.observation</p>
+     * <p>Relationship: 
+     * HistoryOfPastIllnessSection.Entry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -239,14 +239,14 @@ public class Entry_3Bean extends MessagePartBean implements EntryChoice_3 {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * HistoryOfPastIllnessSection.Entry.observation</p>
+     * <p>Relationship: ComplicationsOpNote.Entry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ComplicationsOpNote.Entry.observation</p>
+     * <p>Relationship: 
+     * HistoryOfPastIllnessSection.Entry.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

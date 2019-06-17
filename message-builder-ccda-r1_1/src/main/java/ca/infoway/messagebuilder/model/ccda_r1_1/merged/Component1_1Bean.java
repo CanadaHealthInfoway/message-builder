@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Component1","ContinuityOfCareDocumentCCD.Component1","DischargeSummary.Component1","OperativeNote.Component1","USRealmHeader.Component1","UnstructuredDocument.Component1"})
 public class Component1_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private EncompassingEncounter_1Bean encompassingEncounter;
@@ -45,12 +45,6 @@ public class Component1_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: BaseModel.Component1.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: UnstructuredDocument.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -70,6 +64,12 @@ public class Component1_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: OperativeNote.Component1.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -93,12 +93,6 @@ public class Component1_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: UnstructuredDocument.Component1.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.Component1.typeId</p>
      * 
@@ -113,6 +107,12 @@ public class Component1_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: OperativeNote.Component1.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Component1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -136,12 +136,6 @@ public class Component1_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: UnstructuredDocument.Component1.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.Component1.templateId</p>
      * 
@@ -156,6 +150,12 @@ public class Component1_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: OperativeNote.Component1.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: UnstructuredDocument.Component1.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -181,13 +181,6 @@ public class Component1_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.Component1.encompassingEncounter</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -203,6 +196,13 @@ public class Component1_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * OperativeNote.Component1.encompassingEncounter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -228,13 +228,6 @@ public class Component1_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * UnstructuredDocument.Component1.encompassingEncounter</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -250,6 +243,13 @@ public class Component1_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * OperativeNote.Component1.encompassingEncounter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.Component1.encompassingEncounter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

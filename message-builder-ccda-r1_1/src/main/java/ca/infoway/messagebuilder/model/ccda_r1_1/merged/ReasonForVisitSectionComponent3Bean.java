@@ -34,9 +34,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ConsultationNote.ReasonForVisitSectionComponent3","DischargeSummary.ReasonForVisitSectionComponent3","HistoryAndPhysical.ReasonForVisitSectionComponent3","ProcedureNote.ReasonForVisitSectionComponent3"})
-public class ReasonForVisitSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice {
+public class ReasonForVisitSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
@@ -53,13 +53,6 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.ReasonForVisitSectionComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ReasonForVisitSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -68,6 +61,13 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * 
      * <p>Relationship: 
      * ProcedureNote.ReasonForVisitSectionComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.ReasonForVisitSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -87,13 +87,6 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.ReasonForVisitSectionComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ReasonForVisitSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -102,6 +95,13 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * 
      * <p>Relationship: 
      * ProcedureNote.ReasonForVisitSectionComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.ReasonForVisitSectionComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -121,13 +121,6 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.ReasonForVisitSectionComponent3.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ReasonForVisitSectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -136,6 +129,13 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * 
      * <p>Relationship: 
      * ProcedureNote.ReasonForVisitSectionComponent3.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.ReasonForVisitSectionComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -156,13 +156,6 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.ReasonForVisitSectionComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ReasonForVisitSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -171,6 +164,13 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * 
      * <p>Relationship: 
      * ProcedureNote.ReasonForVisitSectionComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.ReasonForVisitSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -190,13 +190,6 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * DischargeSummary.ReasonForVisitSectionComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ReasonForVisitSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -205,6 +198,13 @@ public class ReasonForVisitSectionComponent3Bean extends MessagePartBean impleme
      * 
      * <p>Relationship: 
      * ProcedureNote.ReasonForVisitSectionComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.ReasonForVisitSectionComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

@@ -44,9 +44,10 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.EntryRelationship","MedicationSupplyOrder.EntryRelationship","ReferencedFramesObservation.EntryRelationship"})
-public class EntryRelationship_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.allergyproblemact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationdispense.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.studyact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.problemobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.coverageactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.familyhistoryobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.EntryRelationshipChoice, EntryRelationshipChoice_1, EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.EntryRelationshipChoice, EntryRelationshipChoice_4, EntryRelationshipChoice_3, ca.infoway.messagebuilder.model.ccda_r1_1.assessmentscaleobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.pressureulcerobservation.EntryRelationshipChoice, EntryRelationshipChoice_5, ca.infoway.messagebuilder.model.ccda_r1_1.sopinstanceobservation.EntryRelationshipChoice, EntryRelationshipChoice_7, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.pregnancyobservation.EntryRelationshipChoice, EntryRelationshipChoice_2, ca.infoway.messagebuilder.model.ccda_r1_1.authorizationactivity.EntryRelationshipChoice {
+public class EntryRelationship_2Bean extends MessagePartBean implements EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.EntryRelationshipChoice, EntryRelationshipChoice_3, ca.infoway.messagebuilder.model.ccda_r1_1.problemobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, EntryRelationshipChoice_4, EntryRelationshipChoice_1, ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.sopinstanceobservation.EntryRelationshipChoice, EntryRelationshipChoice_2, ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice, EntryRelationshipChoice_5, ca.infoway.messagebuilder.model.ccda_r1_1.allergyproblemact.EntryRelationshipChoice, EntryRelationshipChoice_7, ca.infoway.messagebuilder.model.ccda_r1_1.pregnancyobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.coverageactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.authorizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationdispense.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.familyhistoryobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.studyact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.assessmentscaleobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.pressureulcerobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
+    private CS_R2<x_ActRelationshipEntryRelationship> typeCode = new CS_R2Impl<x_ActRelationshipEntryRelationship>();
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -54,23 +55,46 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
-    private ObservationBean observation;
-    private ActBean act;
-    private CS_R2<x_ActRelationshipEntryRelationship> typeCode = new CS_R2Impl<x_ActRelationshipEntryRelationship>();
     private EntryRelationshipChoice entryRelationshipChoice;
+    private ActBean act;
+    private ObservationBean observation;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
+        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EntryRelationship.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
+        this.typeCode.setValue(typeCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.inversionInd</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -82,14 +106,14 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.inversionInd</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -102,7 +126,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.contextConductionInd</p>
+     * BaseModel.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -116,7 +140,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.EntryRelationship.contextConductionInd</p>
+     * ReferencedFramesObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -129,7 +153,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.contextConductionInd</p>
+     * BaseModel.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -143,7 +167,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.EntryRelationship.contextConductionInd</p>
+     * ReferencedFramesObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -155,8 +179,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.negationInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -169,7 +192,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.negationInd</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -181,8 +205,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.negationInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -195,7 +218,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.negationInd</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -207,8 +231,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.typeId</p>
+     * <p>Relationship: BaseModel.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -221,7 +244,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.typeId</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -233,8 +257,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.typeId</p>
+     * <p>Relationship: BaseModel.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -247,7 +270,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.typeId</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -259,8 +283,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.templateId</p>
+     * <p>Relationship: BaseModel.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -273,7 +296,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.templateId</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -286,8 +310,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: BaseModel.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -300,7 +323,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -312,8 +336,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: BaseModel.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -326,7 +349,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -338,8 +362,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -352,7 +375,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -364,8 +388,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -378,7 +401,8 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: 
+     * ReferencedFramesObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -391,25 +415,25 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.observation</p>
+     * BaseModel.EntryRelationship.entryRelationshipChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"observation"})
-    public ObservationBean getObservation() {
-        return this.observation;
+    @Hl7XmlMapping({"entryRelationshipChoice"})
+    public EntryRelationshipChoice getEntryRelationshipChoice() {
+        return this.entryRelationshipChoice;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ReferencedFramesObservation.EntryRelationship.observation</p>
+     * BaseModel.EntryRelationship.entryRelationshipChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(ObservationBean observation) {
-        this.observation = observation;
+    public void setEntryRelationshipChoice(EntryRelationshipChoice entryRelationshipChoice) {
+        this.entryRelationshipChoice = entryRelationshipChoice;
     }
 
 
@@ -440,50 +464,26 @@ public class EntryRelationship_2Bean extends MessagePartBean implements ca.infow
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: BaseModel.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
-     * BaseModel.EntryRelationship.entryRelationshipChoice</p>
+     * ReferencedFramesObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"entryRelationshipChoice"})
-    public EntryRelationshipChoice getEntryRelationshipChoice() {
-        return this.entryRelationshipChoice;
+    @Hl7XmlMapping({"observation"})
+    public ObservationBean getObservation() {
+        return this.observation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * BaseModel.EntryRelationship.entryRelationshipChoice</p>
+     * ReferencedFramesObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setEntryRelationshipChoice(EntryRelationshipChoice entryRelationshipChoice) {
-        this.entryRelationshipChoice = entryRelationshipChoice;
+    public void setObservation(ObservationBean observation) {
+        this.observation = observation;
     }
 
 }

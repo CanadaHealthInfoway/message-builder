@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FamilyHistorySection.Entry"})
 public class EntryBean extends MessagePartBean implements EntryChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

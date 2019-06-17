@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Device","ProductInstance.Device"})
 public class DeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ParticipantRoleChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<EntityClassDevice> classCode = new CS_R2Impl<EntityClassDevice>();
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -56,13 +56,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.classCode</p>
+     * <p>Relationship: BaseModel.Device.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.classCode</p>
+     * <p>Relationship: ProductInstance.Device.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -74,13 +74,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.classCode</p>
+     * <p>Relationship: BaseModel.Device.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.classCode</p>
+     * <p>Relationship: ProductInstance.Device.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -92,13 +92,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.typeId</p>
+     * <p>Relationship: BaseModel.Device.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.typeId</p>
+     * <p>Relationship: ProductInstance.Device.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -110,13 +110,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.typeId</p>
+     * <p>Relationship: BaseModel.Device.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.typeId</p>
+     * <p>Relationship: ProductInstance.Device.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -128,13 +128,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.templateId</p>
+     * <p>Relationship: BaseModel.Device.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.templateId</p>
+     * <p>Relationship: ProductInstance.Device.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -147,13 +147,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.code</p>
+     * <p>Relationship: BaseModel.Device.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.code</p>
+     * <p>Relationship: ProductInstance.Device.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -165,13 +165,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.code</p>
+     * <p>Relationship: BaseModel.Device.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.code</p>
+     * <p>Relationship: ProductInstance.Device.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -183,14 +183,14 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProductInstance.Device.manufacturerModelName</p>
+     * <p>Relationship: BaseModel.Device.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.manufacturerModelName</p>
+     * <p>Relationship: 
+     * ProductInstance.Device.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -202,14 +202,14 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProductInstance.Device.manufacturerModelName</p>
+     * <p>Relationship: BaseModel.Device.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.manufacturerModelName</p>
+     * <p>Relationship: 
+     * ProductInstance.Device.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -221,13 +221,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.softwareName</p>
+     * <p>Relationship: BaseModel.Device.softwareName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.softwareName</p>
+     * <p>Relationship: ProductInstance.Device.softwareName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -239,13 +239,13 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProductInstance.Device.softwareName</p>
+     * <p>Relationship: BaseModel.Device.softwareName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: BaseModel.Device.softwareName</p>
+     * <p>Relationship: ProductInstance.Device.softwareName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

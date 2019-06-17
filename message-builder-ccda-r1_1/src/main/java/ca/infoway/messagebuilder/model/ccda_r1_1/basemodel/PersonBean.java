@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Person"})
 public class PersonBean extends MessagePartBean implements AssignedAuthorChoice, GuardianChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

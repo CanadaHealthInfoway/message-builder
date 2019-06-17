@@ -37,9 +37,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.Component4"})
-public class Component4Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.vitalsignsorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.resultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.cognitivestatusresultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.functionalstatusresultorganizer.Component4Choice {
+public class Component4Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.functionalstatusresultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.cognitivestatusresultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.vitalsignsorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.resultorganizer.Component4Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();

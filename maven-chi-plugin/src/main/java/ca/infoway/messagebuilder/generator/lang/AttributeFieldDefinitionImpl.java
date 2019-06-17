@@ -64,13 +64,15 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 			getterStyle = GetterBodyStyle.ASSOCIATION_COLLAPSED_TO_ATTRIBUTE;
 		} else {
 			if (StandardDataType.isList(getDataType().getShortWrappedName())) {
-				if (getDataType().getParameters()[0].isCodedType()) {
+				if (getDataType().getParameters()[0].isCodedType() && !getDataType().isR2()) {
+					// The use of a wrapper class to handle R2 datatypes messes up the type conversion in this
+					//  version of the getter, and results in code that doesn't compile under Java 8 or newer.
 					getterStyle = GetterBodyStyle.CODED_ATTRIBUTE_LIST;
 				} else {
 					getterStyle = GetterBodyStyle.ATTRIBUTE_LIST;
 				}
 			} else if (StandardDataType.isSet(getDataType().getShortWrappedName())) {
-				if (getDataType().getParameters()[0].isCodedType()) {
+				if (getDataType().getParameters()[0].isCodedType() && !getDataType().isR2()) {
 					getterStyle = GetterBodyStyle.CODED_ATTRIBUTE_SET;
 				} else {
 					getterStyle = GetterBodyStyle.ATTRIBUTE_SET;

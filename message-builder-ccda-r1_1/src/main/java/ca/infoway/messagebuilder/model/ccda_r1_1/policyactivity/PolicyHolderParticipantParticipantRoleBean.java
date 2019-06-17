@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PolicyActivity.PolicyHolderParticipantParticipantRole"})
 public class PolicyHolderParticipantParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private AD addr = new ADImpl();
 

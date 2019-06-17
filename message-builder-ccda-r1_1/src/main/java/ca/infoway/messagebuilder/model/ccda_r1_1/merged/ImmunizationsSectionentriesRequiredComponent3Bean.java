@@ -34,22 +34,15 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ConsultationNote.ImmunizationsSectionentriesRequiredComponent3","ContinuityOfCareDocumentCCD.ImmunizationsSectionentriesRequiredComponent3","DischargeSummary.ImmunizationsSectionentriesRequiredComponent3","HistoryAndPhysical.ImmunizationsSectionentriesRequiredComponent3"})
-public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice {
+public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -61,6 +54,13 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -80,13 +80,6 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -95,6 +88,13 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -114,13 +114,6 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ImmunizationsSectionentriesRequiredComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -129,6 +122,13 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ImmunizationsSectionentriesRequiredComponent3.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -149,13 +149,6 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ImmunizationsSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -164,6 +157,13 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ImmunizationsSectionentriesRequiredComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -183,13 +183,6 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.section</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ImmunizationsSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -198,6 +191,13 @@ public class ImmunizationsSectionentriesRequiredComponent3Bean extends MessagePa
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ImmunizationsSectionentriesRequiredComponent3.section</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ConsultationNote.ImmunizationsSectionentriesRequiredComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

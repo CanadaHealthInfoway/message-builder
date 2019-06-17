@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.HasComponentEncounter","ProcedureActivityProcedure.HasComponentEncounter"})
 public class HasComponentEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -78,14 +78,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.typeId</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.typeId</p>
+     * ProcedureActivityAct.HasComponentEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -98,14 +98,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.typeId</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.typeId</p>
+     * ProcedureActivityAct.HasComponentEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -118,14 +118,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.templateId</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.templateId</p>
+     * ProcedureActivityAct.HasComponentEncounter.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -139,14 +139,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.id</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.id</p>
+     * ProcedureActivityAct.HasComponentEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -159,14 +159,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.id</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.id</p>
+     * ProcedureActivityAct.HasComponentEncounter.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -179,14 +179,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.code</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.code</p>
+     * ProcedureActivityAct.HasComponentEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -199,14 +199,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.code</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.code</p>
+     * ProcedureActivityAct.HasComponentEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -219,14 +219,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.text</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.text</p>
+     * ProcedureActivityAct.HasComponentEncounter.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -239,14 +239,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.text</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.text</p>
+     * ProcedureActivityAct.HasComponentEncounter.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -259,14 +259,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.statusCode</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.statusCode</p>
+     * ProcedureActivityAct.HasComponentEncounter.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -279,14 +279,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.statusCode</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.statusCode</p>
+     * ProcedureActivityAct.HasComponentEncounter.statusCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -299,14 +299,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.effectiveTime</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.effectiveTime</p>
+     * ProcedureActivityAct.HasComponentEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -319,14 +319,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.effectiveTime</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.effectiveTime</p>
+     * ProcedureActivityAct.HasComponentEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -339,14 +339,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.dischargeDispositionCode</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.dischargeDispositionCode</p>
+     * ProcedureActivityAct.HasComponentEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -359,14 +359,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.dischargeDispositionCode</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.dischargeDispositionCode</p>
+     * ProcedureActivityAct.HasComponentEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -379,14 +379,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.priorityCode</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.priorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.priorityCode</p>
+     * ProcedureActivityAct.HasComponentEncounter.priorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -399,14 +399,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.priorityCode</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.priorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.priorityCode</p>
+     * ProcedureActivityAct.HasComponentEncounter.priorityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -419,14 +419,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.subject</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.subject</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.subject</p>
+     * ProcedureActivityAct.HasComponentEncounter.subject</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -439,14 +439,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.subject</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.subject</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.subject</p>
+     * ProcedureActivityAct.HasComponentEncounter.subject</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -459,14 +459,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.specimen</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.specimen</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.specimen</p>
+     * ProcedureActivityAct.HasComponentEncounter.specimen</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -480,14 +480,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.performer</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.performer</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.performer</p>
+     * ProcedureActivityAct.HasComponentEncounter.performer</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -501,14 +501,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.author</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.author</p>
+     * ProcedureActivityAct.HasComponentEncounter.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -522,14 +522,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.informant</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.informant</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.informant</p>
+     * ProcedureActivityAct.HasComponentEncounter.informant</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -543,14 +543,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.participant</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.participant</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.participant</p>
+     * ProcedureActivityAct.HasComponentEncounter.participant</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -564,14 +564,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.entryRelationship</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.entryRelationship</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.entryRelationship</p>
+     * ProcedureActivityAct.HasComponentEncounter.entryRelationship</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -585,14 +585,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.reference</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.reference</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.reference</p>
+     * ProcedureActivityAct.HasComponentEncounter.reference</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -606,14 +606,14 @@ public class HasComponentEncounterBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityAct.HasComponentEncounter.precondition</p>
+     * ProcedureActivityProcedure.HasComponentEncounter.precondition</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.HasComponentEncounter.precondition</p>
+     * ProcedureActivityAct.HasComponentEncounter.precondition</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */

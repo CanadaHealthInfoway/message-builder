@@ -34,9 +34,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ConsultationNote.ProceduresSectionentriesOptionalComponent3","DischargeSummary.ProceduresSectionentriesOptionalComponent3","HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3","ProcedureNote.ProceduresSectionentriesOptionalComponent3"})
-public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice {
+public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
@@ -46,7 +46,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.typeId</p>
+     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -60,7 +60,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.typeId</p>
+     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -80,7 +80,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.typeId</p>
+     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -94,7 +94,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.typeId</p>
+     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -114,7 +114,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.templateId</p>
+     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -128,7 +128,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.templateId</p>
+     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -149,7 +149,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.section</p>
+     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -163,7 +163,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.section</p>
+     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -183,7 +183,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.section</p>
+     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -197,7 +197,7 @@ public class ProceduresSectionentriesOptionalComponent3Bean extends MessagePartB
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.ProceduresSectionentriesOptionalComponent3.section</p>
+     * HistoryAndPhysical.ProceduresSectionentriesOptionalComponent3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

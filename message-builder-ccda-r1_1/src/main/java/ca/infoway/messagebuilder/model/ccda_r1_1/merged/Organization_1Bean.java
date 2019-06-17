@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Organization","ImmunizationMedicationInformation.Organization","MedicationInformation.Organization"})
 public class Organization_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.GuardianChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -63,12 +63,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MedicationInformation.Organization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: BaseModel.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -77,6 +71,12 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * ImmunizationMedicationInformation.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationInformation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -88,12 +88,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MedicationInformation.Organization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: BaseModel.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -104,6 +98,12 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * ImmunizationMedicationInformation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationInformation.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -111,13 +111,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationInformation.Organization.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: BaseModel.Organization.templateId</p>
@@ -130,6 +123,13 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * ImmunizationMedicationInformation.Organization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MedicationInformation.Organization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -138,12 +138,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MedicationInformation.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: BaseModel.Organization.id</p>
@@ -156,6 +150,12 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * ImmunizationMedicationInformation.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationInformation.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -164,12 +164,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MedicationInformation.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: BaseModel.Organization.name</p>
@@ -182,6 +176,12 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * ImmunizationMedicationInformation.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationInformation.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"name"})
     public List<OrganizationName> getName() {
@@ -190,12 +190,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MedicationInformation.Organization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: BaseModel.Organization.telecom</p>
@@ -208,6 +202,12 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * ImmunizationMedicationInformation.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationInformation.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -218,12 +218,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MedicationInformation.Organization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: BaseModel.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -232,6 +226,12 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * ImmunizationMedicationInformation.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationInformation.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -245,13 +245,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationInformation.Organization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * BaseModel.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -260,6 +253,13 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * ImmunizationMedicationInformation.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MedicationInformation.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -272,13 +272,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MedicationInformation.Organization.standardIndustryClassCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * BaseModel.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -287,6 +280,13 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * ImmunizationMedicationInformation.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MedicationInformation.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -298,13 +298,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MedicationInformation.Organization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: BaseModel.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -313,6 +306,13 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * ImmunizationMedicationInformation.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MedicationInformation.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -324,13 +324,6 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MedicationInformation.Organization.asOrganizationPartOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: BaseModel.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -339,6 +332,13 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * ImmunizationMedicationInformation.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MedicationInformation.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ContinuityOfCareDocumentCCD.Performer1"})
 public class Performer1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2<ParticipationFunction> functionCode = new CE_R2Impl<ParticipationFunction>();

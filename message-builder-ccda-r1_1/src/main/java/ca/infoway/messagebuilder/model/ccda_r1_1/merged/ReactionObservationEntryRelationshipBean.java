@@ -38,9 +38,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.ReactionObservationEntryRelationship","ImmunizationActivity.ReactionObservationEntryRelationship","MedicationActivity.ReactionObservationEntryRelationship","SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship"})
-public class ReactionObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, EntryRelationshipChoice_2 {
+public class ReactionObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, EntryRelationshipChoice_2, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private II typeId = new IIImpl();
@@ -55,7 +55,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -69,14 +69,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.contextConductionInd</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -89,7 +89,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -103,14 +103,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.contextConductionInd</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.contextConductionInd</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -123,7 +123,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -137,14 +137,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.negationInd</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,7 +157,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -171,14 +171,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.negationInd</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.negationInd</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -191,7 +191,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -205,14 +205,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.typeId</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -225,7 +225,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -239,14 +239,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.typeId</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.typeId</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -259,7 +259,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.templateId</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -273,14 +273,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.templateId</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.templateId</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -294,7 +294,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -308,14 +308,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.sequenceNumber</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -328,7 +328,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -342,14 +342,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.sequenceNumber</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.sequenceNumber</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -362,7 +362,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -376,14 +376,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.seperatableInd</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -396,7 +396,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -410,14 +410,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.seperatableInd</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.seperatableInd</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -430,7 +430,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -444,14 +444,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.observation</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -464,7 +464,7 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
+     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -478,14 +478,14 @@ public class ReactionObservationEntryRelationshipBean extends MessagePartBean im
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationActivity.ReactionObservationEntryRelationship.observation</p>
+     * SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * AllergyIntoleranceObservation.ReactionObservationEntryRelationship.observation</p>
+     * ImmunizationActivity.ReactionObservationEntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

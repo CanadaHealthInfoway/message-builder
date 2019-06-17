@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"EncounterActivities.EncounterDiagnosisEntryRelationship"})
 public class EncounterDiagnosisEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20160107L;
+    private static final long serialVersionUID = 20190617L;
     private CS_R2<x_ActRelationshipEntryRelationship> typeCode = new CS_R2Impl<x_ActRelationshipEntryRelationship>();
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
