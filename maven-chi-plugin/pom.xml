@@ -12,18 +12,29 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-plugin-api</artifactId>
-			<version>2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-settings</artifactId>
-			<version>2.0</version>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>message-builder-terminology</artifactId>
+			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-terminology</artifactId>
+			<artifactId>message-builder-core</artifactId>
+			<version>${project.version}</version>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+		    <artifactId>message-builder-demiftifier</artifactId>
+			<version>${project.version}</version>		
+		</dependency>
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+		    <artifactId>message-builder-html</artifactId>
+			<version>${project.version}</version>		
+		</dependency>
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>dependency-analyzer</artifactId>
 			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
@@ -33,11 +44,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-core</artifactId>
-			<classifier>tests</classifier>
-			<scope>test</scope>
-			<version>${project.version}</version>		
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-settings</artifactId>
+			<version>2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -62,11 +76,6 @@
 			<artifactId>spring-orm</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>dependency-analyzer</artifactId>
-			<version>${project.version}</version>		
-		</dependency>
-		<dependency>
 		    <groupId>com.google.collections</groupId>
 		    <artifactId>google-collections</artifactId>
 		</dependency>
@@ -87,16 +96,6 @@
 			<artifactId>mockito-all</artifactId>
 			<version>1.9.0</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-		    <artifactId>message-builder-demiftifier</artifactId>
-			<version>${project.version}</version>		
-		</dependency>
-		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-		    <artifactId>message-builder-html</artifactId>
-			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
 			<!-- suport for xml -->
