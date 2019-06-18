@@ -20,7 +20,6 @@
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-core</artifactId>
 			<version>${project.version}</version>
-			<classifier>tests</classifier>
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
