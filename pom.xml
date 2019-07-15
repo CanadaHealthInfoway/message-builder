@@ -46,8 +46,6 @@
 		<module>message-builder-sample-messages</module>
 		<module>message-builder-terminology</module>
 		<module>message-builder-demiftifier</module>
-		<module>message-builder-simple-xml</module>
-		<module>message-builder-simple-xml-process</module>
 		<module>junitUtils</module>
 		<module>message-builder-ccda-r1_1</module>
 		<module>message-builder-ccda-pcs-r1_1</module>
@@ -58,7 +56,6 @@
 		<module>message-builder-hl7v3-release-sk_cerx_v01_r04_3</module>
 		<module>message-builder-release-newfoundland</module>
 		<module>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</module>
-    		<module>message-builder-simple-xml-process-web</module>
            <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
            <module>message-builder-hl7v3-release-ab_mr2009_r02_04_03_imm</module>
            <module>message-builder-hl7v3-release-ab_mr2009_r02_04_03</module>

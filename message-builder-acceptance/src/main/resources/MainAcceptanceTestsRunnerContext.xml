@@ -306,20 +306,6 @@
 		  				</bean>
 
 		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
-		  					<constructor-arg value="Simplified Xml"/>
-		  					<constructor-arg>
-		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">
-			  					<constructor-arg>
-			  						<list>
-					  					<value>message-builder-simple-xml-process</value>
-					  					<value>message-builder-simple-xml</value>
-			  						</list>
-			  					</constructor-arg>
-		  						</bean>
-		  					</constructor-arg>
-		  				</bean>		  				
-
-		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
 		  					<constructor-arg value="Terminology"/>
 		  					<constructor-arg>
 		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">

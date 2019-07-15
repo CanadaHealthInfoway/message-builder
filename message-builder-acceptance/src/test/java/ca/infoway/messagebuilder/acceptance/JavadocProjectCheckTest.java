@@ -68,8 +68,6 @@ public class JavadocProjectCheckTest {
 //			"message-builder-hl7v3-release-pcs_mr2009_r02_04_02",
 //			"message-builder-hl7v3-release-pcs_cerx_v01_r04_3",
 //			"message-builder-hl7v3-release-pcs_mr2007_v02_r02",
-//			"message-builder-simple-xml-process",
-//			"message-builder-simple-xml",
 //			"message-builder-sample-messages",
 //			"message-builder-example",
 //			"message-builder-acceptance",
