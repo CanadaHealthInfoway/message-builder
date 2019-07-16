@@ -27,11 +27,11 @@
 	</distributionManagement>
 
         <scm>
-		<connection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<connection>scm:git:https://github.com/CanadaHealthInfoway/message-builder.git
 		</connection>
-		<developerConnection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<developerConnection>scm:git:https://github.com/CanadaHealthInfoway/message-builder.git
 		</developerConnection>
-		<url>https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<url>https://github.com/CanadaHealthInfoway/message-builder.git
 		</url>
 	</scm>
 
