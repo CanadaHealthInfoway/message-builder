@@ -66,7 +66,7 @@ public class DateFormatUtil {
 	}
 	
 	public static String format(Date date, String datePattern, TimeZone timeZone) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern, Locale.getDefault());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern, Locale.US);
 		simpleDateFormat.setTimeZone(timeZone);
 		return simpleDateFormat.format(date);
 	}
