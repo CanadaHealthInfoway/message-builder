@@ -82,7 +82,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ObservationReport"})
 public class ReportHeaderBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST title = new STImpl();

@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
     private CV modeCode = new CVImpl();
     private InformationSourceChoice informationSourceChoice;
@@ -58,6 +58,12 @@ public class InformantBean extends MessagePartBean {
 
     /**
      * <p>Business Name: DateOfInformation</p>
+     * 
+     * <p>Un-merged Business Name: DateOfInformation</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: DateOfInformation</p>
      * 
@@ -76,12 +82,6 @@ public class InformantBean extends MessagePartBean {
      * <p>Date in which the informant supplied information about an 
      * immunization event. This may differ from the time of the 
      * immunization event for historical entries.</p>
-     * 
-     * <p>Un-merged Business Name: DateOfInformation</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
     public Interval<Date> getTime() {
@@ -93,6 +93,12 @@ public class InformantBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DateOfInformation</p>
      * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DateOfInformation</p>
+     * 
      * <p>Relationship: POIZ_MT030060CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -108,12 +114,6 @@ public class InformantBean extends MessagePartBean {
      * <p>Date in which the informant supplied information about an 
      * immunization event. This may differ from the time of the 
      * immunization event for historical entries.</p>
-     * 
-     * <p>Un-merged Business Name: DateOfInformation</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTime(Interval<Date> time) {
         this.time.setValue(time);
@@ -125,6 +125,12 @@ public class InformantBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: InformationSourceForm</p>
+     * 
      * <p>Relationship: POIZ_MT030060CA.Informant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -135,12 +141,6 @@ public class InformantBean extends MessagePartBean {
      * 
      * <p>Describes how the information was presented by the 
      * information source.</p>
-     * 
-     * <p>Un-merged Business Name: InformationSourceForm</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -152,6 +152,12 @@ public class InformantBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: InformationSourceForm</p>
+     * 
      * <p>Relationship: POIZ_MT030060CA.Informant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -162,12 +168,6 @@ public class InformantBean extends MessagePartBean {
      * 
      * <p>Describes how the information was presented by the 
      * information source.</p>
-     * 
-     * <p>Un-merged Business Name: InformationSourceForm</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -178,14 +178,14 @@ public class InformantBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060CA.Informant.informationSourceChoice</p>
+     * POIZ_MT030050CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050CA.Informant.informationSourceChoice</p>
+     * POIZ_MT030060CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -198,14 +198,14 @@ public class InformantBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030060CA.Informant.informationSourceChoice</p>
+     * POIZ_MT030050CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT030050CA.Informant.informationSourceChoice</p>
+     * POIZ_MT030060CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

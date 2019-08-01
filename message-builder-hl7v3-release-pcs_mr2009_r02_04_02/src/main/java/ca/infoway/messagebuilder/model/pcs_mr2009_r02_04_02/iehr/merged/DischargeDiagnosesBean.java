@@ -35,6 +35,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagn
 /**
  * <p>Business Name: DischargeDiagnoses</p>
  * 
+ * <p>REPC_MT220003CA.ConditionEvent: Discharge Diagnoses</p>
+ * 
+ * <p>Commonly used for reporting, but also useful for 
+ * searching and for obtaining a general understanding of the 
+ * encounter.</p>
+ * 
+ * <p>Describes one of the conditions associated with the 
+ * patient as part of the encounter.</p>
+ * 
  * <p>REPC_MT220002CA.ConditionEvent: Discharge Diagnoses</p>
  * 
  * <p>Commonly used for reporting, but also useful for 
@@ -52,26 +61,40 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagn
  * 
  * <p>Describes one of the conditions associated with the 
  * patient as part of the encounter.</p>
- * 
- * <p>REPC_MT220003CA.ConditionEvent: Discharge Diagnoses</p>
- * 
- * <p>Commonly used for reporting, but also useful for 
- * searching and for obtaining a general understanding of the 
- * encounter.</p>
- * 
- * <p>Describes one of the conditions associated with the 
- * patient as part of the encounter.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT220001CA.ConditionEvent","REPC_MT220002CA.ConditionEvent","REPC_MT220003CA.ConditionEvent"})
 public class DischargeDiagnosesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
 
 
     /**
      * <p>Business Name: DischargeDiagnosisType</p>
+     * 
+     * <p>Un-merged Business Name: DischargeDiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>The diagnosis is core information around which the care 
+     * provision revolves, therefore this is a mandatory 
+     * attribute.</p><p> <i>This element makes use of the CD 
+     * datatype to allow for use of the SNOMED code system that in 
+     * some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>For SNOMED, the complete diagnosis appears here. For 
+     * non-SNOMED this should be a fixed value of 
+     * &quot;DX&quot;.</p>
+     * 
+     * <p>Identifications of the type of diagnosis at the time of 
+     * discharge.</p>
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
@@ -99,29 +122,6 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT220001CA.ConditionEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Code is fixed to DX if not using SNOMED</p>
-     * 
-     * <p>The diagnosis is core information around which the care 
-     * provision revolves, therefore this is a mandatory 
-     * attribute.</p><p> <i>This element makes use of the CD 
-     * datatype to allow for use of the SNOMED code system that in 
-     * some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
-     * 
-     * <p>For SNOMED, the complete diagnosis appears here. For 
-     * non-SNOMED this should be a fixed value of 
-     * &quot;DX&quot;.</p>
-     * 
-     * <p>Identifications of the type of diagnosis at the time of 
-     * discharge.</p>
-     * 
-     * <p>Un-merged Business Name: DischargeDiagnosisType</p>
-     * 
-     * <p>Relationship: REPC_MT220003CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -152,6 +152,29 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DischargeDiagnosisType</p>
      * 
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>The diagnosis is core information around which the care 
+     * provision revolves, therefore this is a mandatory 
+     * attribute.</p><p> <i>This element makes use of the CD 
+     * datatype to allow for use of the SNOMED code system that in 
+     * some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>For SNOMED, the complete diagnosis appears here. For 
+     * non-SNOMED this should be a fixed value of 
+     * &quot;DX&quot;.</p>
+     * 
+     * <p>Identifications of the type of diagnosis at the time of 
+     * discharge.</p>
+     * 
+     * <p>Un-merged Business Name: DischargeDiagnosisType</p>
+     * 
      * <p>Relationship: REPC_MT220002CA.ConditionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -195,29 +218,6 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Identifications of the type of diagnosis at the time of 
      * discharge.</p>
-     * 
-     * <p>Un-merged Business Name: DischargeDiagnosisType</p>
-     * 
-     * <p>Relationship: REPC_MT220003CA.ConditionEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Code is fixed to DX if not using SNOMED</p>
-     * 
-     * <p>The diagnosis is core information around which the care 
-     * provision revolves, therefore this is a mandatory 
-     * attribute.</p><p> <i>This element makes use of the CD 
-     * datatype to allow for use of the SNOMED code system that in 
-     * some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
-     * 
-     * <p>For SNOMED, the complete diagnosis appears here. For 
-     * non-SNOMED this should be a fixed value of 
-     * &quot;DX&quot;.</p>
-     * 
-     * <p>Identifications of the type of diagnosis at the time of 
-     * discharge.</p>
      */
     public void setCode(ActDiagnosisCode code) {
         this.code.setValue(code);
@@ -226,6 +226,20 @@ public class DischargeDiagnosesBean extends MessagePartBean {
 
     /**
      * <p>Business Name: DiagnosisCode</p>
+     * 
+     * <p>Un-merged Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Provides context into the result of the care 
+     * provision.</p><p> <i>The attribute is optional because for 
+     * systems that support SNOMED, this concept will be 
+     * communicated as part of the Discharge Diagnosis Type</i> 
+     * </p>
+     * 
+     * <p>Identifies the actual discharge diagnosis.</p>
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
@@ -244,20 +258,6 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT220001CA.ConditionEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Provides context into the result of the care 
-     * provision.</p><p> <i>The attribute is optional because for 
-     * systems that support SNOMED, this concept will be 
-     * communicated as part of the Discharge Diagnosis Type</i> 
-     * </p>
-     * 
-     * <p>Identifies the actual discharge diagnosis.</p>
-     * 
-     * <p>Un-merged Business Name: DiagnosisCode</p>
-     * 
-     * <p>Relationship: REPC_MT220003CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -279,6 +279,20 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
+     * <p>Relationship: REPC_MT220003CA.ConditionEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Provides context into the result of the care 
+     * provision.</p><p> <i>The attribute is optional because for 
+     * systems that support SNOMED, this concept will be 
+     * communicated as part of the Discharge Diagnosis Type</i> 
+     * </p>
+     * 
+     * <p>Identifies the actual discharge diagnosis.</p>
+     * 
+     * <p>Un-merged Business Name: DiagnosisCode</p>
+     * 
      * <p>Relationship: REPC_MT220002CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -294,20 +308,6 @@ public class DischargeDiagnosesBean extends MessagePartBean {
      * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT220001CA.ConditionEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Provides context into the result of the care 
-     * provision.</p><p> <i>The attribute is optional because for 
-     * systems that support SNOMED, this concept will be 
-     * communicated as part of the Discharge Diagnosis Type</i> 
-     * </p>
-     * 
-     * <p>Identifies the actual discharge diagnosis.</p>
-     * 
-     * <p>Un-merged Business Name: DiagnosisCode</p>
-     * 
-     * <p>Relationship: REPC_MT220003CA.ConditionEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

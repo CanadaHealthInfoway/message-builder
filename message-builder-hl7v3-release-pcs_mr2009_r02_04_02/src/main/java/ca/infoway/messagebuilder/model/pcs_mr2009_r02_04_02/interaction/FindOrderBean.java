@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt330000ca.
  * 
  * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT330000CA.ParameterList</p>
+ * <p>--&gt; Payload: POLB_MT330000CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POLB_IN351000CA"})
 public class FindOrderBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

@@ -33,8 +33,6 @@ package ca.infoway.messagebuilder.datatype;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
- * @param <V> the underlying Code
- * 
  * @sharpen.ignore - datatype - translated manually 
  */
 public interface CE extends CD {

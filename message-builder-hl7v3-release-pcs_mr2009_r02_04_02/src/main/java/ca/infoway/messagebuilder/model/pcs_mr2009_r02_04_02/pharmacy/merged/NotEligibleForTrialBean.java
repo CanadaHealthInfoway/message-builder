@@ -31,16 +31,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: NotEligibleForTrial</p>
  * 
- * <p>PORX_MT060340CA.Component2: G:not eligible for Trial?</p>
- * 
- * <p>Serves as reminder for dispenser to consider option of 
- * part-filling. In some jurisdictions, the prescription must 
- * be so designated by the prescriber for the dispenser to do 
- * trial dispensing.</p>
- * 
- * <p>Indicates that a prescription is part of a Trial 
- * Program.</p>
- * 
  * <p>PORX_MT060160CA.Component2: G:Not eligible for Trial?</p>
  * 
  * <p>Serves as reminder for dispenser to consider option of 
@@ -51,33 +41,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Indicates that a prescription is part of a Trial 
  * Program.</p>
+ * 
+ * <p>PORX_MT060340CA.Component2: G:not eligible for Trial?</p>
+ * 
+ * <p>Serves as reminder for dispenser to consider option of 
+ * part-filling. In some jurisdictions, the prescription must 
+ * be so designated by the prescriber for the dispenser to do 
+ * trial dispensing.</p>
+ * 
+ * <p>Indicates that a prescription is part of a Trial 
+ * Program.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component2","PORX_MT060340CA.Component2"})
 public class NotEligibleForTrialBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private BL negationInd = new BLImpl();
 
 
     /**
      * <p>Business Name: NotEligibleForTrial</p>
-     * 
-     * <p>Un-merged Business Name: NotEligibleForTrial</p>
-     * 
-     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory because it must be known whether trials are 
-     * allowed or not.</p>
-     * 
-     * <p>An indication that a prescription is or is not eligible 
-     * for trial dispensing from a clinical (not financial) 
-     * perspective. False = Eligible, True = Not Eligible.</p>
      * 
      * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
@@ -91,6 +74,23 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * restrictions in HL7 modeling.</p><p>The attribute is 
      * mandatory as it must be known whether it is true or 
      * false.</p>
+     * 
+     * <p>An indication that a prescription is or is not eligible 
+     * for trial dispensing from a clinical (not financial) 
+     * perspective. False = Eligible, True = Not Eligible.</p>
+     * 
+     * <p>Un-merged Business Name: NotEligibleForTrial</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory because it must be known whether trials are 
+     * allowed or not.</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 
@@ -106,23 +106,6 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory because it must be known whether trials are 
-     * allowed or not.</p>
-     * 
-     * <p>An indication that a prescription is or is not eligible 
-     * for trial dispensing from a clinical (not financial) 
-     * perspective. False = Eligible, True = Not Eligible.</p>
-     * 
-     * <p>Un-merged Business Name: NotEligibleForTrial</p>
-     * 
      * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -133,6 +116,23 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * restrictions in HL7 modeling.</p><p>The attribute is 
      * mandatory as it must be known whether it is true or 
      * false.</p>
+     * 
+     * <p>An indication that a prescription is or is not eligible 
+     * for trial dispensing from a clinical (not financial) 
+     * perspective. False = Eligible, True = Not Eligible.</p>
+     * 
+     * <p>Un-merged Business Name: NotEligibleForTrial</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory because it must be known whether trials are 
+     * allowed or not.</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 

@@ -39,19 +39,22 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt310000ca.
  * 
  * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT004999CA.ResultInstancePayloadChoice</p>
+ * <p>--&gt; Payload: 
+ * POLB_MT004999CA.ResultInstancePayloadChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT004000CA.ResultChoice</p>
+ * <p>----&gt; Payload Choice: POLB_MT004000CA.ResultChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT004100CA.ObservationReport</p>
+ * <p>----&gt; Payload Choice: 
+ * POLB_MT004100CA.ObservationReport</p>
  * 
- * <p>----> Payload Choice: POLB_MT004200CA.ObservationChoice</p>
+ * <p>----&gt; Payload Choice: 
+ * POLB_MT004200CA.ObservationChoice</p>
  * 
- * <p>--> Payload: POLB_MT310000CA.ParameterList</p>
+ * <p>--&gt; Payload: POLB_MT310000CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POLB_IN364000CA"})
 public class ResultsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ResultInstancePayloadChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

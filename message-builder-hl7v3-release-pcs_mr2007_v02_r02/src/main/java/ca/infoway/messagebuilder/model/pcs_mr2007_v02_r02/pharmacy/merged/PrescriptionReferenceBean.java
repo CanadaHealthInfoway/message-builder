@@ -34,6 +34,24 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
 /**
  * <p>Business Name: PrescriptionReference</p>
  * 
+ * <p>PORX_MT060090CA.SubstanceAdministrationRequest: 
+ * Prescription Reference</p>
+ * 
+ * <p>Links a dispense with its parent prescription.</p>
+ * 
+ * <p>A reference to the prescription order being dispensed</p>
+ * 
+ * <p>PORX_MT020060CA.DeviceRequest: Prescription Reference</p>
+ * 
+ * <p>The Prescriber Name must be specified only when the 
+ * Prescription ID is Null</p>
+ * 
+ * <p>Dispenses for electronically created prescriptions must 
+ * reference the prescription.</p>
+ * 
+ * <p>Information pertaining to the prescription for which a 
+ * dispense is being created</p>
+ * 
  * <p>PORX_MT020070CA.SubstanceAdministrationRequest: 
  * Prescription Reference</p>
  * 
@@ -54,29 +72,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
  * <p>Links a dispense with its parent prescription.</p>
  * 
  * <p>A reference to the prescription order being dispensed</p>
- * 
- * <p>PORX_MT060090CA.SubstanceAdministrationRequest: 
- * Prescription Reference</p>
- * 
- * <p>Links a dispense with its parent prescription.</p>
- * 
- * <p>A reference to the prescription order being dispensed</p>
- * 
- * <p>PORX_MT020060CA.DeviceRequest: Prescription Reference</p>
- * 
- * <p>The Prescriber Name must be specified only when the 
- * Prescription ID is Null</p>
- * 
- * <p>Dispenses for electronically created prescriptions must 
- * reference the prescription.</p>
- * 
- * <p>Information pertaining to the prescription for which a 
- * dispense is being created</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
@@ -89,36 +89,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.SubstanceAdministrationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>The identifier of the prescription for which a dispense 
-     * is being created.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
-     * 
-     * <p>This is an identifier assigned to a specific device 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: 
      * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -145,6 +115,36 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * 
      * <p>The identifier of the prescription for which a dispense 
      * is beiing created.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * ID is only 'populated' because in some cases the 
+     * prescription will not yet exist electronically.</p>
+     * 
+     * <p>The identifier of the prescription for which a dispense 
+     * is being created.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS will always assign a Prescription Order 
+     * Number.</p>
+     * 
+     * <p>This is an identifier assigned to a specific device 
+     * order. The number remains constant across the lifetime of 
+     * the order, regardless of the number of providers or 
+     * pharmacies involved in fulfilling the order.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -157,36 +157,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.SubstanceAdministrationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>The identifier of the prescription for which a dispense 
-     * is being created.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
-     * 
-     * <p>This is an identifier assigned to a specific device 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: 
      * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -213,6 +183,36 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * 
      * <p>The identifier of the prescription for which a dispense 
      * is beiing created.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * ID is only 'populated' because in some cases the 
+     * prescription will not yet exist electronically.</p>
+     * 
+     * <p>The identifier of the prescription for which a dispense 
+     * is being created.</p>
+     * 
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS will always assign a Prescription Order 
+     * Number.</p>
+     * 
+     * <p>This is an identifier assigned to a specific device 
+     * order. The number remains constant across the lifetime of 
+     * the order, regardless of the number of providers or 
+     * pharmacies involved in fulfilling the order.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -220,20 +220,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020070CA.ResponsibleParty3.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -245,6 +231,20 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -257,20 +257,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.ResponsibleParty3.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -279,6 +265,20 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -291,19 +291,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.SubstanceAdministrationRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060010CA.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * PORX_MT060090CA.SubstanceAdministrationRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -313,6 +300,19 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
@@ -323,19 +323,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.SubstanceAdministrationRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060010CA.SupplyRequest.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * PORX_MT060090CA.SubstanceAdministrationRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -345,6 +332,19 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthor(RefusedByBean author) {
         this.author = author;

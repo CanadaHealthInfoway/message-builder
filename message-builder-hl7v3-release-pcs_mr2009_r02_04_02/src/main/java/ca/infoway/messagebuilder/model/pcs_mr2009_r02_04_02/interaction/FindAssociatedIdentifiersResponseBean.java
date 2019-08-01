@@ -41,13 +41,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101106ca.I
  * 
  * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101106CA.IdentifiedEntity</p>
+ * <p>--&gt; Payload: PRPA_MT101106CA.IdentifiedEntity</p>
  * 
- * <p>--> Payload: PRPA_MT101101CA.ParameterList</p>
+ * <p>--&gt; Payload: PRPA_MT101101CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101106CA"})
 public class FindAssociatedIdentifiersResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

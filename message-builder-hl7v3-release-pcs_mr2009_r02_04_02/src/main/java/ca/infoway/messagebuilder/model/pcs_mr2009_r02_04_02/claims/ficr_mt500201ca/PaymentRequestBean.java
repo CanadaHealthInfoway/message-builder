@@ -50,13 +50,13 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private ContactPartyBean primaryPerformerContactParty;
+    private List<ProviderBillingTaxAccountBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<ProviderBillingTaxAccountBean>();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
-    private List<ProviderBillingTaxAccountBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<ProviderBillingTaxAccountBean>();
     private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
 
 
@@ -120,6 +120,18 @@ public class PaymentRequestBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * FICR_MT500201CA.PertinentInformation.providerBillingTaxAccount</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
+    public List<ProviderBillingTaxAccountBean> getPertinentInformationProviderBillingTaxAccount() {
+        return this.pertinentInformationProviderBillingTaxAccount;
+    }
+
+
+    /**
      * <p>Relationship: FICR_MT500201CA.PaymentRequestPayee.account</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -156,18 +168,6 @@ public class PaymentRequestBean extends MessagePartBean {
      */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT500201CA.PertinentInformation.providerBillingTaxAccount</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
-    public List<ProviderBillingTaxAccountBean> getPertinentInformationProviderBillingTaxAccount() {
-        return this.pertinentInformationProviderBillingTaxAccount;
     }
 
 

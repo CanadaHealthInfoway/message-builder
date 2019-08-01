@@ -55,10 +55,10 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 
 	/**
 	 *
-	 * @param typeName -
+	 * @param className -
 	 *      the fully-qualified class name of the class for which this generator is generating imports
 	 * @param classes
-	 * @param map 
+	 * @param nameTranslator 
 	 */
 	public ImportDeclarationGenerator(LanguageSpecificName className, Collection<Object> classes, NameTranslator nameTranslator) {
 		this.className = className;

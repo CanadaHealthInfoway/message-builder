@@ -575,12 +575,12 @@ class DefinitionToResultConverter {
 		for (Argument argument : interaction.getArguments()) {
 			extraDocs.add(new Annotation("Control Act: " + argument.getName()));
 			for (Relationship choice : argument.getChoices()) {
-				extraDocs.add(new Annotation("----> Control Act Choice: " + choice.getType()));
+				extraDocs.add(new Annotation("----&gt; Control Act Choice: " + choice.getType()));
 			}
 			for (Argument subArg : argument.getArguments()) {
-				extraDocs.add(new Annotation("--> Payload: " + subArg.getName()));
+				extraDocs.add(new Annotation("--&gt; Payload: " + subArg.getName()));
 				for (Relationship choice : subArg.getChoices()) {
-					extraDocs.add(new Annotation("----> Payload Choice: " + choice.getType()));
+					extraDocs.add(new Annotation("----&gt; Payload Choice: " + choice.getType()));
 				}
 			}
 		}

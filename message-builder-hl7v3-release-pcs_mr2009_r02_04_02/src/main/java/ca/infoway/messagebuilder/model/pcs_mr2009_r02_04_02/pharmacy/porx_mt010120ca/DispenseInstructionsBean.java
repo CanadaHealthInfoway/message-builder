@@ -50,11 +50,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private TargetedToPharmacyBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
 
 
@@ -129,6 +129,26 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public TargetedToPharmacyBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setLocation(TargetedToPharmacyBean location) {
+        this.location = location;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
      * 
@@ -147,26 +167,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
      */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public TargetedToPharmacyBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setLocation(TargetedToPharmacyBean location) {
-        this.location = location;
     }
 
 

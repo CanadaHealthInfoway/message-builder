@@ -45,7 +45,7 @@ public class XmlunitAdapter {
 	 * @param	leftDOM		The first Document to be compared
 	 * @param	rightDOM	The second Document to be compared
 	 *
-	 * @return	an {@link #XmlunitResult} instance that describes the results of the comparison
+	 * @return	an {@link XmlunitResult} instance that describes the results of the comparison
 	 */
 	public XmlunitResult compare(Document leftDOM, Document rightDOM) {
 		boolean isIdentical;

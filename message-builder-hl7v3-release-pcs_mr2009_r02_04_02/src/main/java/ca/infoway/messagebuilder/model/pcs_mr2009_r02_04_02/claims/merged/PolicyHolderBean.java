@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyHolder","FICR_MT400003CA.PolicyHolder","FICR_MT400004CA.PolicyHolder","FICR_MT490102CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private PolicyHolderChoice policyHolderChoice;
 
@@ -42,7 +42,7 @@ public class PolicyHolderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PolicyHolderIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT490102CA.PolicyHolder.id</p>
+     * <p>Relationship: FICR_MT400001CA.PolicyHolder.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -54,13 +54,13 @@ public class PolicyHolderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PolicyHolderIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT400004CA.PolicyHolder.id</p>
+     * <p>Relationship: FICR_MT490102CA.PolicyHolder.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PolicyHolderIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT400001CA.PolicyHolder.id</p>
+     * <p>Relationship: FICR_MT400004CA.PolicyHolder.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -74,7 +74,7 @@ public class PolicyHolderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PolicyHolderIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT490102CA.PolicyHolder.id</p>
+     * <p>Relationship: FICR_MT400001CA.PolicyHolder.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -86,13 +86,13 @@ public class PolicyHolderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PolicyHolderIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT400004CA.PolicyHolder.id</p>
+     * <p>Relationship: FICR_MT490102CA.PolicyHolder.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PolicyHolderIdentifier</p>
      * 
-     * <p>Relationship: FICR_MT400001CA.PolicyHolder.id</p>
+     * <p>Relationship: FICR_MT400004CA.PolicyHolder.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -105,7 +105,7 @@ public class PolicyHolderBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490102CA.PolicyHolder.policyHolderChoice</p>
+     * FICR_MT400001CA.PolicyHolder.policyHolderChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -119,14 +119,14 @@ public class PolicyHolderBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400004CA.PolicyHolder.policyHolderChoice</p>
+     * FICR_MT490102CA.PolicyHolder.policyHolderChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400001CA.PolicyHolder.policyHolderChoice</p>
+     * FICR_MT400004CA.PolicyHolder.policyHolderChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -139,7 +139,7 @@ public class PolicyHolderBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490102CA.PolicyHolder.policyHolderChoice</p>
+     * FICR_MT400001CA.PolicyHolder.policyHolderChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -153,14 +153,14 @@ public class PolicyHolderBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400004CA.PolicyHolder.policyHolderChoice</p>
+     * FICR_MT490102CA.PolicyHolder.policyHolderChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400001CA.PolicyHolder.policyHolderChoice</p>
+     * FICR_MT400004CA.PolicyHolder.policyHolderChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */

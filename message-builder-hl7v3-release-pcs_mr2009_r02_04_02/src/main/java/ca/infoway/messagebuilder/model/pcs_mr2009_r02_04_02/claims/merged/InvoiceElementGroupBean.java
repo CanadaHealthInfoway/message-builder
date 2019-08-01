@@ -49,19 +49,19 @@ import java.util.Set;
 
 
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementGroup","FICR_MT510201CA.InvoiceElementGroup"})
-public class InvoiceElementGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
+public class InvoiceElementGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
     private CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private FinancialContractBean inFulfillmentOfFinancialContract;
+    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
     private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
     private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
-    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private List<InvoiceElementOverrideBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceElementOverrideBean>();
@@ -72,15 +72,15 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1-99)</p>
-     * 
-     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
-     * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-99)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -93,13 +93,13 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.code</p>
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.code</p>
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -113,18 +113,98 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * 
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.code</p>
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.code</p>
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceGroupType code) {
         this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
+    }
+
+    /**
+     * <p>Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.CoveredParty.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.CoveredParty.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"coveredParty/coveredPartyAsPatient"})
+    public CoveredPartyAsPatientBean getCoveredPartyCoveredPartyAsPatient() {
+        return this.coveredPartyCoveredPartyAsPatient;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.CoveredParty.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.CoveredParty.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setCoveredPartyCoveredPartyAsPatient(CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient) {
+        this.coveredPartyCoveredPartyAsPatient = coveredPartyCoveredPartyAsPatient;
     }
 
 
@@ -159,86 +239,6 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Business Name: InvoiceSubTotal</p>
-     * 
-     * <p>Un-merged Business Name: InvoiceSubTotal</p>
-     * 
-     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: InvoiceSubTotal</p>
-     * 
-     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getNetAmt() {
-        return this.netAmt.getValue();
-    }
-
-    /**
-     * <p>Business Name: InvoiceSubTotal</p>
-     * 
-     * <p>Un-merged Business Name: InvoiceSubTotal</p>
-     * 
-     * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: InvoiceSubTotal</p>
-     * 
-     * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setNetAmt(Money netAmt) {
-        this.netAmt.setValue(netAmt);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.CoveredParty.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT510201CA.CoveredParty.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"coveredParty/coveredPartyAsPatient"})
-    public CoveredPartyAsPatientBean getCoveredPartyCoveredPartyAsPatient() {
-        return this.coveredPartyCoveredPartyAsPatient;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.CoveredParty.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT510201CA.CoveredParty.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setCoveredPartyCoveredPartyAsPatient(CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient) {
-        this.coveredPartyCoveredPartyAsPatient = coveredPartyCoveredPartyAsPatient;
-    }
-
-
-    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -261,6 +261,20 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      */
     public void setInFulfillmentOfFinancialContract(FinancialContractBean inFulfillmentOfFinancialContract) {
         this.inFulfillmentOfFinancialContract = inFulfillmentOfFinancialContract;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
     }
 
 
@@ -303,20 +317,6 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     @Hl7XmlMapping({"coverage/policyOrAccount"})
     public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
         return this.coveragePolicyOrAccount;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
-    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
-        return this.pertinentInformationHealthDocumentAttachment;
     }
 
 

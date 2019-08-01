@@ -29,9 +29,8 @@ import org.apache.commons.lang.StringUtils;
 /**
  * Provides descriptions for the unsupported constraints. This type of constraint
  * captures changes that are currently not represented in the DeltaSet data
- * model. The {@link DeltaSetApplier} will not be able to apply the changes recoded 
- * with this constraint. This constraint type is created for use in the 
- * {@link DeltaSetGenerator}.
+ * model. The DeltaSetApplier will not be able to apply the changes recoded 
+ * with this constraint. This constraint type is created for use in the DeltaSetGenerator.
  *
  * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */

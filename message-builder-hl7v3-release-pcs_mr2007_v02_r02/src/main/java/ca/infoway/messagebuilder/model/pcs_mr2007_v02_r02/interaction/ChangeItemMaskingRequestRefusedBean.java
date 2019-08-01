@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002300ca
 @Hl7PartTypeMapping({"COMT_IN400003CA"})
 public class ChangeItemMaskingRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

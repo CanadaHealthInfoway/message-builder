@@ -32,7 +32,7 @@ import org.w3c.dom.Document;
 public interface RequestMessage {
 	
 	/**
-	 * <p>Obtains the message as a string, converting the underlying structure if necessary (i.e. DOM -> string). 
+	 * <p>Obtains the message as a string, converting the underlying structure if necessary (i.e. DOM -&gt; string). 
 	 * 
 	 * @return the underlying message rendered as a string
 	 * @throws TransportLayerException if a string representation of the message could not be constructed
@@ -48,7 +48,7 @@ public interface RequestMessage {
 	public String getInteractionId() throws TransportLayerException;
 	
 	/**
-	 * <p>Obtains the message as a DOM, converting the underlying structure if necessary (i.e. string -> DOM). 
+	 * <p>Obtains the message as a DOM, converting the underlying structure if necessary (i.e. string -&gt; DOM). 
 	 * 
 	 * @return the underlying message in a DOM structure
 	 * @throws TransportLayerException if there were problems creating the DOM

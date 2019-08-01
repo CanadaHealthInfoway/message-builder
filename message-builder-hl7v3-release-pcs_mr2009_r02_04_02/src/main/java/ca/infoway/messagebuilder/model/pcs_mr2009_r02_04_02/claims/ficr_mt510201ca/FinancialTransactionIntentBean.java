@@ -58,14 +58,14 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
     private List<Reason2Bean> reasonOf = new ArrayList<Reason2Bean>();
 
 
@@ -174,6 +174,18 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.PertinentInformation2.adjudicatorBillingTaxAccount</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    }
+
+
+    /**
      * <p>Relationship: FICR_MT510201CA.Credit.account</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -210,18 +222,6 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
      */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT510201CA.PertinentInformation2.adjudicatorBillingTaxAccount</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
     }
 
 

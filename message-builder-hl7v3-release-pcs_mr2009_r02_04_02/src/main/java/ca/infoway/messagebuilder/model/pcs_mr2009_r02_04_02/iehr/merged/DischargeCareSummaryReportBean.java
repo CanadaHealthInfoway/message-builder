@@ -60,7 +60,7 @@ import java.util.List;
  * other event for which the discharge or care report is being 
  * written.</p>
  * 
- * <p>REPC_MT220002CA.PatientCareProvisionEvent: B: 
+ * <p>REPC_MT220003CA.PatientCareProvisionEvent: B: 
  * Discharge/Care Summary Report</p>
  * 
  * <p>Provides contextual overview information for searching 
@@ -70,7 +70,7 @@ import java.util.List;
  * other event for which the discharge or care report is being 
  * written.</p>
  * 
- * <p>REPC_MT220003CA.PatientCareProvisionEvent: B: 
+ * <p>REPC_MT220002CA.PatientCareProvisionEvent: B: 
  * Discharge/Care Summary Report</p>
  * 
  * <p>Provides contextual overview information for searching 
@@ -83,7 +83,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionEvent2","REPC_MT210002CA.PatientCareProvisionEvent2","REPC_MT210003CA.PatientCareProvisionEvent2","REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class DischargeCareSummaryReportBean extends MessagePartBean implements DocumentContent_2 {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -96,10 +96,57 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
 
     /**
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drill-down and for direct association between 
+     * the report and the discrete record.</p>
+     * 
+     * <p>Provides the identifier of the discrete encounter, 
+     * episode or care event being reported on.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -125,56 +172,9 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Provides a direct link between the referral and the 
-     * resulting report.</p>
-     * 
-     * <p>This linkage may be established after the document has 
-     * been created if the report provides a direct link to the 
-     * referral.</p>
-     * 
-     * <p>A unique identifier for the report resulting from the 
-     * action requested by this referral.</p>
-     * 
-     * <p>Un-merged Business Name: ReferralReportLink</p>
-     * 
-     * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows for drill-down and for direct association between 
-     * the report and the discrete record.</p>
-     * 
-     * <p>Provides the identifier of the discrete encounter, 
-     * episode or care event being reported on.</p>
-     * 
-     * <p>Un-merged Business Name: ReferralReportLink</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Provides a direct link between the referral and the 
-     * resulting report.</p>
-     * 
-     * <p>This linkage may be established after the document has 
-     * been created if the report provides a direct link to the 
-     * referral.</p>
-     * 
-     * <p>A unique identifier for the report resulting from the 
-     * action requested by this referral.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -182,10 +182,57 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
     /**
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drill-down and for direct association between 
+     * the report and the discrete record.</p>
+     * 
+     * <p>Provides the identifier of the discrete encounter, 
+     * episode or care event being reported on.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -211,56 +258,9 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
-     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Provides a direct link between the referral and the 
-     * resulting report.</p>
-     * 
-     * <p>This linkage may be established after the document has 
-     * been created if the report provides a direct link to the 
-     * referral.</p>
-     * 
-     * <p>A unique identifier for the report resulting from the 
-     * action requested by this referral.</p>
-     * 
-     * <p>Un-merged Business Name: ReferralReportLink</p>
-     * 
-     * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows for drill-down and for direct association between 
-     * the report and the discrete record.</p>
-     * 
-     * <p>Provides the identifier of the discrete encounter, 
-     * episode or care event being reported on.</p>
-     * 
-     * <p>Un-merged Business Name: ReferralReportLink</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Provides a direct link between the referral and the 
-     * resulting report.</p>
-     * 
-     * <p>This linkage may be established after the document has 
-     * been created if the report provides a direct link to the 
-     * referral.</p>
-     * 
-     * <p>A unique identifier for the report resulting from the 
-     * action requested by this referral.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -299,7 +299,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -325,7 +325,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -385,7 +385,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -411,7 +411,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -466,7 +466,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -487,7 +487,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -537,7 +537,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -558,7 +558,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -604,7 +604,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -621,7 +621,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -663,7 +663,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -680,7 +680,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -721,7 +721,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -737,7 +737,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -777,7 +777,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -793,7 +793,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -822,14 +822,14 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.location</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.location</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -849,14 +849,14 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220002CA.PatientCareProvisionEvent.location</p>
+     * REPC_MT220003CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT220003CA.PatientCareProvisionEvent.location</p>
+     * REPC_MT220002CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -874,13 +874,13 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002CA.Outcome.conditionEvent</p>
+     * <p>Relationship: REPC_MT220003CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003CA.Outcome.conditionEvent</p>
+     * <p>Relationship: REPC_MT220002CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -899,13 +899,13 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -923,13 +923,13 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -947,13 +947,13 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220002CA.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220003CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT220003CA.DocumentContent.reason</p>
+     * <p>Relationship: REPC_MT220002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */

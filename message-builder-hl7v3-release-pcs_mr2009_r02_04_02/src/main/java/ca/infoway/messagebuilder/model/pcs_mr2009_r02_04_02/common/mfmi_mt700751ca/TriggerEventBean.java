@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -80,8 +80,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_2Bean author;
     private EntererChoice dataEntererEntererChoice;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ServiceLocationBean locationServiceDeliveryLocation;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private ConsentBean subjectOf1ConsentEvent;
     private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -370,28 +370,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-
-    /**
-     * <p>Relationship: 
-     * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -409,6 +387,28 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      */
     public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
+    }
+
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 

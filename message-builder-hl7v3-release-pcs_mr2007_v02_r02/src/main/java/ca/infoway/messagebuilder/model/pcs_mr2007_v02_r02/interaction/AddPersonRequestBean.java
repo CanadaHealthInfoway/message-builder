@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101001ca.Ide
  * 
  * <p>Control Act: MFMI_MT700711CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT101001CA.IdentifiedEntity</p>
+ * <p>--&gt; Payload: PRPA_MT101001CA.IdentifiedEntity</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101201CA"})
 public class AddPersonRequestBean extends HL7MessageBean<TriggerEventBean<IdentifiedClientBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

@@ -33,13 +33,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoi
 
 
 /**
- * <p>FICR_MT600201CA.ProviderBillingTaxAccount: (no business 
+ * <p>FICR_MT500201CA.ProviderBillingTaxAccount: (no business 
  * name)</p>
  * 
  * <p>Can be used to specify the appropriate GST number and 
  * other tax numbers.</p>
  * 
- * <p>FICR_MT500201CA.ProviderBillingTaxAccount: (no business 
+ * <p>FICR_MT600201CA.ProviderBillingTaxAccount: (no business 
  * name)</p>
  * 
  * <p>Can be used to specify the appropriate GST number and 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT500201CA.ProviderBillingTaxAccount","FICR_MT600201CA.ProviderBillingTaxAccount"})
 public class ProviderBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
@@ -59,14 +59,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
      * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
+     * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
-     * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
+     * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -81,14 +81,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
      * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
+     * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
-     * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
+     * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -103,14 +103,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
      * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
+     * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
-     * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
+     * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -125,14 +125,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
      * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
+     * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
-     * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
+     * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

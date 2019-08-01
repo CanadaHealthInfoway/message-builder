@@ -82,7 +82,7 @@ public class MessagePartLayoutItem implements LayoutItem {
 	/**
 	 * 
 	 * @param messagePart
-	 * @param rootPackageLocationName - the root type's package location name - used to identify CMET references
+	 * @param layout
 	 * 
 	 */
 	public MessagePartLayoutItem(MessagePart messagePart, PackageLocationLayout layout) {

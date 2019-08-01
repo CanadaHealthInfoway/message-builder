@@ -43,11 +43,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100
  * 
  * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: FICR_MT500201CA.PaymentRequest</p>
+ * <p>--&gt; Payload: FICR_MT500201CA.PaymentRequest</p>
  */
 @Hl7PartTypeMapping({"FICR_IN500102CA"})
 public class PreDeterminationRequestRxBean extends HL7MessageBean<TriggerEventBean<PaymentRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

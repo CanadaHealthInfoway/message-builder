@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActEvent
 @Hl7PartTypeMapping({"COMT_MT111111CA.RenderedContent"})
 public class RenderedRecordBean extends MessagePartBean implements Summary {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 

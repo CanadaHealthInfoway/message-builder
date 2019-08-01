@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.pome_mt010030
  * 
  * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POME_MT010030CA.ParameterList</p>
+ * <p>--&gt; Payload: POME_MT010030CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010050CA"})
 public class DrugProductDetailQueryBean extends HL7MessageBean<TriggerEventBean<DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

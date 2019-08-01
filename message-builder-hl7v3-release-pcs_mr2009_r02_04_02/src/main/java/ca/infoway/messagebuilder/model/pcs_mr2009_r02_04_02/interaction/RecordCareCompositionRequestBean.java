@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt500001ca
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT500001CA.PatientCareProvisionEvent</p>
+ * <p>--&gt; Payload: REPC_MT500001CA.PatientCareProvisionEvent</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000070CA"})
 public class RecordCareCompositionRequestBean extends HL7MessageBean<TriggerEventBean<CareCompositionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

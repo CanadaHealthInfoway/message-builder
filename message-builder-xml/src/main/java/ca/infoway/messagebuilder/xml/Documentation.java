@@ -62,7 +62,7 @@ public class Documentation {
 	
 	/**
 	 * <p>Standard constructor.
-	 * @param paragraphs - annotations of documentation.
+	 * @param annotations - annotations of documentation.
 	 */	
 	public Documentation(Annotation... annotations) {
 		if (!ArrayUtils.isEmpty(annotations)) {

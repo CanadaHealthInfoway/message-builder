@@ -54,7 +54,6 @@ public class CompressedData extends EncapsulatedData {
 	 * @param content the data content
 	 * @param compression a compression type
 	 * @param language a language
-	 * @param representation 
 	 */
 	public CompressedData(x_DocumentMediaType mediaType, String reference, byte[] content, Compression compression, String language) {
 		super(mediaType, reference, language, content);

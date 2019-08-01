@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -167,7 +167,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Allows the patient to have discrete control over access 
      * to their medication data.</p><p>Taboo allows the provider to 
      * request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Can't have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 

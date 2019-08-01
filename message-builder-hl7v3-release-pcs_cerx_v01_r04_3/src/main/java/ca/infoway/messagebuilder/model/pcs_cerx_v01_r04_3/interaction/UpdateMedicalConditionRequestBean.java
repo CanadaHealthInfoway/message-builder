@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000014ca.M
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000014CA.MedicalCondition</p>
+ * <p>--&gt; Payload: REPC_MT000014CA.MedicalCondition</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000032CA"})
 public class UpdateMedicalConditionRequestBean extends HL7MessageBean<TriggerEventBean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

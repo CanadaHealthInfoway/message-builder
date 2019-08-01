@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt990020
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT990020CA.ActRequest</p>
+ * <p>--&gt; Payload: PORX_MT990020CA.ActRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010560CA"})
 public class AbortDispenseAuthorizationRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

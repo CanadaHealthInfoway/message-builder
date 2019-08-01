@@ -40,16 +40,16 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060350
  * 
  * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060350CA.Prescription</p>
+ * <p>--&gt; Payload: PORX_MT060350CA.Prescription</p>
  * 
- * <p>----> Payload Choice: 
+ * <p>----&gt; Payload Choice: 
  * PORX_MT060340CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Payload Choice: PORX_MT060040CA.DeviceRequest</p>
+ * <p>----&gt; Payload Choice: PORX_MT060040CA.DeviceRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010110CA"})
 public class ReviseAssignedDispenseResponsibilityReqAccBean extends HL7MessageBean<TriggerEventBean<Prescription>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

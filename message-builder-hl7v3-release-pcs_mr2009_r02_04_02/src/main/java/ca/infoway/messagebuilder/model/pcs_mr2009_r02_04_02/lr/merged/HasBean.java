@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides additional identifiers by which the location may 
  * be known.</p>
  * 
- * <p>PRPA_MT202302CA.IdentifiedLocation: *k:has</p>
+ * <p>PRPA_MT202301CA.IdentifiedLocation: *k:has</p>
  * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Provides additional identifiers by which the location may 
  * be known.</p>
  * 
- * <p>PRPA_MT202301CA.IdentifiedLocation: *k:has</p>
+ * <p>PRPA_MT202302CA.IdentifiedLocation: *k:has</p>
  * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
@@ -67,7 +67,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IdentifiedLocation","PRPA_MT202302CA.IdentifiedLocation","PRPA_MT202303CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST assigningIdentifierOrganizationName = new STImpl();

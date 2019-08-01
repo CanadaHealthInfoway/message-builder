@@ -311,7 +311,8 @@ public class IntervalFactory {
 	 * 
 	 * Note that the new Interval will lose any high/low inclusive data from the range.
 	 * 
-	 * @param the uncertain range
+     * @param <T> the type of the Interval
+	 * @param urg the uncertain range
 	 * @return an Interval that corresponds to the range
 	 */
 	public static <T> Interval<T> createFromUncertainRange(UncertainRange<T> urg) {

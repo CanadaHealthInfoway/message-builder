@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060360
  * 
  * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060090CA.MedicationDispense</p>
+ * <p>--&gt; Payload: PORX_MT060090CA.MedicationDispense</p>
  * 
- * <p>--> Payload: PORX_MT060360CA.ParameterList</p>
+ * <p>--&gt; Payload: PORX_MT060360CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060220CA"})
 public class MedicationDispenseDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<DispenseBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

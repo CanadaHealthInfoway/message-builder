@@ -52,9 +52,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  */
 @Hl7PartTypeMapping({"COCT_MT090107CA.AssignedPerson"})
 @Hl7RootType
-public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000007ca.Consenter, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Recipient, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.Party {
+public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Recipient, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000007ca.Consenter {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN representedPersonName = new PNImpl();

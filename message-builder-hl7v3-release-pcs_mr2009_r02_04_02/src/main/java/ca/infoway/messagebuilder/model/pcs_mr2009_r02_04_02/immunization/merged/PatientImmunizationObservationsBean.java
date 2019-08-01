@@ -34,16 +34,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.PatientI
 /**
  * <p>Business Name: PatientImmunizationObservations</p>
  * 
- * <p>POIZ_MT060150CA.PatientImmunizationObservations: Patient 
- * Immunization Observations</p>
- * 
- * <p>Provides a mechanism to communicate information that is 
- * not otherwise modeled.</p>
- * 
- * <p>Captures a wide range of observations mandated by the 
- * appropriate or organizational administrative definitions or 
- * other criteria that govern reporting.</p>
- * 
  * <p>POIZ_MT030050CA.PatientImmunizationObservations: Patient 
  * Immunization Observations</p>
  * 
@@ -63,25 +53,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.PatientI
  * <p>Captures a wide range of observations mandated by the 
  * appropriate or organizational administrative definitions or 
  * other criteria that govern reporting.</p>
+ * 
+ * <p>POIZ_MT060150CA.PatientImmunizationObservations: Patient 
+ * Immunization Observations</p>
+ * 
+ * <p>Provides a mechanism to communicate information that is 
+ * not otherwise modeled.</p>
+ * 
+ * <p>Captures a wide range of observations mandated by the 
+ * appropriate or organizational administrative definitions or 
+ * other criteria that govern reporting.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PatientImmunizationObservations","POIZ_MT030060CA.PatientImmunizationObservations","POIZ_MT060150CA.PatientImmunizationObservations"})
 public class PatientImmunizationObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CV code = new CVImpl();
     private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
      * <p>Business Name: PatientImmunizationObservationType</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * PatientImmunizationObservationType</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT060150CA.PatientImmunizationObservations.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: 
      * PatientImmunizationObservationType</p>
@@ -96,6 +88,14 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * PatientImmunizationObservationType</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -111,14 +111,6 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150CA.PatientImmunizationObservations.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * PatientImmunizationObservationType</p>
-     * 
-     * <p>Relationship: 
      * POIZ_MT030050CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -130,6 +122,14 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * POIZ_MT030060CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * PatientImmunizationObservationType</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PatientImmunizationObservations.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(PatientImmunizationObservationType code) {
         this.code.setValue(code);
@@ -138,20 +138,6 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
 
     /**
      * <p>Business Name: PatientImmunizationObservationValue</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * PatientImmunizationObservationValue</p>
-     * 
-     * <p>Relationship: 
-     * POIZ_MT060150CA.PatientImmunizationObservations.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Needed to convey meaning of the patient immunization 
-     * observation. As a result, this attribute is mandatory.</p>
-     * 
-     * <p>Allows the specification of a value related to the 
-     * patient immunization observation in question.</p>
      * 
      * <p>Un-merged Business Name: 
      * PatientImmunizationObservationValue</p>
@@ -172,6 +158,20 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to convey meaning of the patient immunization 
+     * observation. As a result, this attribute is mandatory.</p>
+     * 
+     * <p>Allows the specification of a value related to the 
+     * patient immunization observation in question.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * PatientImmunizationObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PatientImmunizationObservations.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -193,20 +193,6 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
-     * POIZ_MT060150CA.PatientImmunizationObservations.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Needed to convey meaning of the patient immunization 
-     * observation. As a result, this attribute is mandatory.</p>
-     * 
-     * <p>Allows the specification of a value related to the 
-     * patient immunization observation in question.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * PatientImmunizationObservationValue</p>
-     * 
-     * <p>Relationship: 
      * POIZ_MT030050CA.PatientImmunizationObservations.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -222,6 +208,20 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to convey meaning of the patient immunization 
+     * observation. As a result, this attribute is mandatory.</p>
+     * 
+     * <p>Allows the specification of a value related to the 
+     * patient immunization observation in question.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * PatientImmunizationObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PatientImmunizationObservations.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

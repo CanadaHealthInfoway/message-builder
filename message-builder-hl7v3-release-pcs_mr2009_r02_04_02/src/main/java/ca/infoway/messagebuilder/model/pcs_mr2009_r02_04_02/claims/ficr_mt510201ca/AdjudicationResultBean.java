@@ -36,11 +36,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CV code = new CVImpl();
     private List<Trigger2Bean> trigger = new ArrayList<Trigger2Bean>();
-    private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
+    private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private List<DetectedIssueEventBean> reasonOfDetectedIssueEvent = new ArrayList<DetectedIssueEventBean>();
 
 
@@ -81,18 +81,6 @@ public class AdjudicationResultBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * FICR_MT510201CA.Reference.invoiceElementChoice</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"reference/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
-        return this.referenceInvoiceElementChoice;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * FICR_MT510201CA.PertinentInformation1.adjudicationCodeChoice</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -100,6 +88,18 @@ public class AdjudicationResultBean extends MessagePartBean {
     @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
     public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
         return this.pertinentInformationAdjudicationCodeChoice;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Reference.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"reference/invoiceElementChoice"})
+    public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
+        return this.referenceInvoiceElementChoice;
     }
 
 

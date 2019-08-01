@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.ra.rcmr_mt010002ca.K
  * 
  * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: RCMR_MT010002CA.KeywordEvent</p>
+ * <p>--&gt; Payload: RCMR_MT010002CA.KeywordEvent</p>
  */
 @Hl7PartTypeMapping({"RCMR_IN010006CA"})
 public class UpdateKeywordRequestBean extends HL7MessageBean<TriggerEventBean<KeywordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

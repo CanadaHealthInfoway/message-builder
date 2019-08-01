@@ -55,7 +55,7 @@ import java.util.Date;
  * <p>Provides summary information about the most recent 
  * dispense event performed against the prescription</p>
  * 
- * <p>PORX_MT060340CA.SupplyEventLastSummary: Last Dispense 
+ * <p>PORX_MT030040CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -64,7 +64,7 @@ import java.util.Date;
  * <p>Provides summary information about the most recent 
  * dispense event performed against the prescription</p>
  * 
- * <p>PORX_MT030040CA.SupplyEventLastSummary: Last Dispense 
+ * <p>PORX_MT060340CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
  * 
  * <p>Useful in understanding the status of a prescription and 
@@ -76,7 +76,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventLastSummary","PORX_MT060160CA.SupplyEventLastSummary","PORX_MT060190CA.SupplyEventLastSummary","PORX_MT060340CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
 

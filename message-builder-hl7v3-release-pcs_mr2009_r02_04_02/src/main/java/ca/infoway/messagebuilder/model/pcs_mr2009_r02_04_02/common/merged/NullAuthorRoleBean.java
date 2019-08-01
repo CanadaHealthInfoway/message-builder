@@ -28,77 +28,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: NullAuthorRole</p>
  * 
- * <p>MCAI_MT700221CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
  * <p>QUQI_MT020000CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700230CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>QUQI_MT020002CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700211CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700220CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700231CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MFMI_MT700751CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700232CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700210CA.AuthorRole: Null Author Role</p>
- * 
- * <p>This is a messaging artifact used by HL7 to allow the 
- * time, signiture and method to be captured when the author is 
- * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p>
- * 
- * <p>MCAI_MT700222CA.AuthorRole: Null Author Role</p>
  * 
  * <p>This is a messaging artifact used by HL7 to allow the 
  * time, signiture and method to be captured when the author is 
@@ -112,7 +42,77 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * not sent. This will happen in circumstances where the author 
  * information is sent as part of the authentication token.</p>
  * 
+ * <p>MCAI_MT700232CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>QUQI_MT020002CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700222CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700221CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700220CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700230CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
  * <p>MCAI_MT700212CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700231CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700210CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MCAI_MT700211CA.AuthorRole: Null Author Role</p>
+ * 
+ * <p>This is a messaging artifact used by HL7 to allow the 
+ * time, signiture and method to be captured when the author is 
+ * not sent. This will happen in circumstances where the author 
+ * information is sent as part of the authentication token.</p>
+ * 
+ * <p>MFMI_MT700751CA.AuthorRole: Null Author Role</p>
  * 
  * <p>This is a messaging artifact used by HL7 to allow the 
  * time, signiture and method to be captured when the author is 
@@ -120,8 +120,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * information is sent as part of the authentication token.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorRole","MCAI_MT700211CA.AuthorRole","MCAI_MT700212CA.AuthorRole","MCAI_MT700220CA.AuthorRole","MCAI_MT700221CA.AuthorRole","MCAI_MT700222CA.AuthorRole","MCAI_MT700230CA.AuthorRole","MCAI_MT700231CA.AuthorRole","MCAI_MT700232CA.AuthorRole","MFMI_MT700711CA.AuthorRole","MFMI_MT700751CA.AuthorRole","QUQI_MT020000CA.AuthorRole","QUQI_MT020002CA.AuthorRole"})
-public class NullAuthorRoleBean extends MessagePartBean implements AuthorPerson_1, AuthorPerson_2 {
+public class NullAuthorRoleBean extends MessagePartBean implements AuthorPerson_2, AuthorPerson_1 {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

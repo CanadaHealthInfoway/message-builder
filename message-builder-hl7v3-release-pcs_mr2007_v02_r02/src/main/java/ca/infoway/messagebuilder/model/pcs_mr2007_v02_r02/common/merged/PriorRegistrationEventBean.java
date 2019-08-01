@@ -29,24 +29,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: PriorRegistrationEvent</p>
  * 
- * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
- * Event</p>
- * 
- * <p>Used to associate (replace) a current registration with a 
- * regsitration already received (supports merges).</p>
- * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
- * <p>MFMI_MT700746CA.PriorRegistration: Prior Registration 
- * Event</p>
- * 
- * <p>Used to associate (replace) a current registration with a 
- * regsitration already received (supports merges).</p>
- * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>MFMI_MT700726CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
@@ -64,29 +46,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>This class describes the registration of a client, 
  * provider, location, etc. in the past.</p>
+ * 
+ * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
+ * Event</p>
+ * 
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
+ * 
+ * <p>MFMI_MT700746CA.PriorRegistration: Prior Registration 
+ * Event</p>
+ * 
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegistration","MFMI_MT700716CA.PriorRegistration","MFMI_MT700726CA.PriorRegistration","MFMI_MT700746CA.PriorRegistration"})
 public class PriorRegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private PriorRegistrationRoleIdsBean subjectPriorRegisteredRole;
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700711CA.Subject5.priorRegisteredRole</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700746CA.Subject5.priorRegisteredRole</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -98,6 +84,20 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * MFMI_MT700716CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Subject5.priorRegisteredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -110,20 +110,6 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * MFMI_MT700711CA.Subject5.priorRegisteredRole</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700746CA.Subject5.priorRegisteredRole</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * MFMI_MT700726CA.Subject5.priorRegisteredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -132,6 +118,20 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * MFMI_MT700716CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Subject5.priorRegisteredRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

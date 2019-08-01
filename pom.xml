@@ -372,7 +372,16 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.9</version>				
 				<inherited>false</inherited>
-			        <executions>
+				<configuration>
+					<tags>
+						<tag>
+							<name>sharpen.ignore</name>
+							<placement>X</placement>
+							<head>Just in case</head>
+						</tag>
+					</tags>
+				</configuration>
+ 			        <executions>
 			          <execution>
 				    <id>aggregate-javadocs</id>
 			            <goals>
@@ -397,7 +406,7 @@
 				    </configuration>
 				  </execution>
 				</executions>
- 			</plugin>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

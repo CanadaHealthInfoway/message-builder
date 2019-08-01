@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001104CA.ActEvent</p>
+ * <p>--&gt; Payload: COMT_MT001104CA.ActEvent</p>
  */
 @Hl7PartTypeMapping({"COMT_IN600001CA"})
 public class RetractActionRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

@@ -47,7 +47,7 @@ import java.util.WeakHashMap;
  * <p>Of course, if you actually want (or don't mind) Enums in different class
  * loaders being non-equal, then you can use <code>==</code>.</p>
  * 
- * <h4>Simple Enums</h4>
+ * <h3>Simple Enums</h3>
  *
  * <p>To use this class, it must be subclassed. For example:</p>
  *
@@ -85,7 +85,7 @@ import java.util.WeakHashMap;
  * Unfortunately, Java restrictions require these to be coded as shown in each subclass.
  * An alternative choice is to use the {@link EnumUtils} class.</p>
  * 
- * <h4>Subclassed Enums</h4>
+ * <h3>Subclassed Enums</h3>
  * <p>A hierarchy of Enum classes can be built. In this case, the superclass is
  * unaffected by the addition of subclasses (as per normal Java). The subclasses
  * may add additional Enum constants <em>of the type of the superclass</em>. The
@@ -125,7 +125,7 @@ import java.util.WeakHashMap;
  * as those from the superclass ColorEnum. Note that YELLOW is declared as a
  * ColorEnum and not an ExtraColorEnum.</p>
  * 
- * <h4>Functional Enums</h4>
+ * <h3>Functional Enums</h3>
  *
  * <p>The enums can have functionality by defining subclasses and
  * overriding the <code>getEnumClass()</code> method:</p>
@@ -180,7 +180,7 @@ import java.util.WeakHashMap;
  * <p>The code above will work on JDK 1.2. If JDK1.3 and later is used,
  * the subclasses may be defined as anonymous.</p>
  * 
- * <h4>Nested class Enums</h4>
+ * <h3>Nested class Enums</h3>
  *
  * <p>Care must be taken with class loading when defining a static nested class
  * for enums. The static nested class can be loaded without the surrounding outer
@@ -227,7 +227,7 @@ import java.util.WeakHashMap;
  * 
  * <p>For more details, see the 'Nested' test cases.
  *
- * <h4>Lang Enums and Java 5.0 Enums</h4>
+ * <h3>Lang Enums and Java 5.0 Enums</h3>
  *
  * <p>Enums were added to Java in Java 5.0. The main differences between Lang's 
  * implementation and the new official JDK implementation are: </p>

@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.comt_mt300002ca.Gen
  * 
  * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT300002CA.ParameterList</p>
+ * <p>--&gt; Payload: COMT_MT300002CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"COMT_IN300201CA"})
 public class PatientNoteQueryBean extends HL7MessageBean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt020002
  * 
  * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Payload: QUCR_MT800201CA.ParameterList</p>
+ * <p>--&gt; Payload: QUCR_MT800201CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"QUCR_IN800102CA"})
 public class SOFAPaymentAdviceQueryRxBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

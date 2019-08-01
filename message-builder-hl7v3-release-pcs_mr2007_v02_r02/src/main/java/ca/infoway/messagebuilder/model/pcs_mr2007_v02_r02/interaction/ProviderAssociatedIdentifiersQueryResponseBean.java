@@ -41,19 +41,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt306051ca.Rol
  * 
  * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPM_MT306051CA.RoleChoice</p>
+ * <p>--&gt; Payload: PRPM_MT306051CA.RoleChoice</p>
  * 
- * <p>----> Payload Choice: PRPM_MT306051CA.AssignedEntity</p>
+ * <p>----&gt; Payload Choice: PRPM_MT306051CA.AssignedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT306051CA.QualifiedEntity</p>
+ * <p>----&gt; Payload Choice: PRPM_MT306051CA.QualifiedEntity</p>
  * 
- * <p>----> Payload Choice: PRPM_MT306051CA.HealthCareProvider</p>
+ * <p>----&gt; Payload Choice: 
+ * PRPM_MT306051CA.HealthCareProvider</p>
  * 
- * <p>--> Payload: PRPM_MT306050CA.ParameterList</p>
+ * <p>--&gt; Payload: PRPM_MT306050CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN306051CA"})
 public class ProviderAssociatedIdentifiersQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

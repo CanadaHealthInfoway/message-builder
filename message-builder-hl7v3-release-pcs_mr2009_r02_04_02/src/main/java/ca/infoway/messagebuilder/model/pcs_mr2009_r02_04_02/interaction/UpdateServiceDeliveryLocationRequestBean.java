@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.prpa_mt202302ca.L
  * 
  * <p>Control Act: MFMI_MT700711CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT202302CA.ServiceDeliveryLocation</p>
+ * <p>--&gt; Payload: PRPA_MT202302CA.ServiceDeliveryLocation</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN202314CA"})
 public class UpdateServiceDeliveryLocationRequestBean extends HL7MessageBean<TriggerEventBean<LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

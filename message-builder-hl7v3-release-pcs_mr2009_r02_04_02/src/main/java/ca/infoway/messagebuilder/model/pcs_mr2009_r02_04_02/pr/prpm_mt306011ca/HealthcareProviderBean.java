@@ -68,9 +68,9 @@ import java.util.Set;
  * a Physician, Nurse or other type of caregivers.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.HealthCareProvider"})
-public class HealthcareProviderBean extends MessagePartBean implements Choice, RoleChoice {
+public class HealthcareProviderBean extends MessagePartBean implements RoleChoice, Choice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -149,8 +149,8 @@ public class HealthcareProviderBean extends MessagePartBean implements Choice, R
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The provider'''s name pertaining to the specific 
-     * healthcare provider role.</p>
+     * <p>The provider's name pertaining to the specific healthcare 
+     * provider role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {

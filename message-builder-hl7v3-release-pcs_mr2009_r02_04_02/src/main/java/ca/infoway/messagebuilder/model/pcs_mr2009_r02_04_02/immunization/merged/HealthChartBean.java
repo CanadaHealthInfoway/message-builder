@@ -29,12 +29,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthChart","POIZ_MT030060CA.HealthChart","POIZ_MT060150CA.HealthChart"})
 public class HealthChartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private AntigenValidityBean subjectOf1AntigenValidity;
     private AntigenCountBean subjectOf2AntigenCount;
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Subject4.antigenValidity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Subject4.antigenValidity</p>
@@ -44,12 +50,6 @@ public class HealthChartBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Subject4.antigenValidity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Subject4.antigenValidity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -61,6 +61,12 @@ public class HealthChartBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: POIZ_MT030050CA.Subject4.antigenValidity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: POIZ_MT060150CA.Subject4.antigenValidity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -68,12 +74,6 @@ public class HealthChartBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Subject4.antigenValidity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Subject4.antigenValidity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -85,6 +85,12 @@ public class HealthChartBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: POIZ_MT030050CA.Subject3.antigenCount</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: POIZ_MT060150CA.Subject3.antigenCount</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -92,12 +98,6 @@ public class HealthChartBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Subject3.antigenCount</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Subject3.antigenCount</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -109,6 +109,12 @@ public class HealthChartBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: POIZ_MT030050CA.Subject3.antigenCount</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: POIZ_MT060150CA.Subject3.antigenCount</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -116,12 +122,6 @@ public class HealthChartBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Subject3.antigenCount</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Subject3.antigenCount</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

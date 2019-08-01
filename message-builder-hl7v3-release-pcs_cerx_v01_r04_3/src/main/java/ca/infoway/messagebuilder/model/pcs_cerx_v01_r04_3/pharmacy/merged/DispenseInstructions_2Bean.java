@@ -56,7 +56,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private CS statusCode = new CSImpl();
     private PQ quantity = new PQImpl();
     private RecordedAtBean location;
@@ -163,6 +163,22 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -173,22 +189,6 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p><p>Narcotics 
      * must always be specified as a total quantity.</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Critical in understanding the patient's medication 
-     * profile, both past and current. This also allows 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -222,6 +222,22 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -232,22 +248,6 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p><p>Narcotics 
      * must always be specified as a total quantity.</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
-     * 
-     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Critical in understanding the patient's medication 
-     * profile, both past and current. This also allows 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 

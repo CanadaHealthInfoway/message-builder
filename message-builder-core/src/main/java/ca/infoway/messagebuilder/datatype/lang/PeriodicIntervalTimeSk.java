@@ -59,7 +59,8 @@ public class PeriodicIntervalTimeSk extends PeriodicIntervalTime {
 	 * <p>Constructs a PeriodicIntervalTimeSk using the supplied parameters.
 	 * 
 	 * @param repetitions number of repetitions
-	 * @param quantity a physical quantity
+	 * @param lowQuantity the lower boundary of the physical quantity range
+	 * @param highQuantity the upper boundary of the physical quantity range
 	 * @return the constructed PeriodicIntervalTime
 	 */
 	public static PeriodicIntervalTimeSk createFrequencySk(Integer repetitions, PhysicalQuantity lowQuantity, PhysicalQuantity highQuantity) {

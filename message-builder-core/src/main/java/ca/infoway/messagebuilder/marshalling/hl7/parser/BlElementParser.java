@@ -39,12 +39,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 /**
  * Parses an BL element into a Boolean. The element looks like this:
  * 
- * <element-name value="true" />	<!-- or value="false" -->
+ * &lt;element-name value="true" /&gt;	&lt;!-- or value="false" --&gt;
  * 
  * If a BL is null, value is replaced by a null flavor. So the element would look
  * like this:
  * 
- * <element-name nullFlavor="something" />
+ * &lt;element-name nullFlavor="something" /&gt;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-BL
  */

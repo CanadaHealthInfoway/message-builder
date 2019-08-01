@@ -36,7 +36,7 @@ public abstract class XmlTextChildTransformerBase extends XmlIndependentFilterBa
 	/**
 	 * Transform an individual Text node.
 	 * 
-	 * <p>This can make any of the changes documented for {@link org.w3c.dom.Text.replaceWholeText}; it can:<ol>
+	 * <p>This can make any of the changes documented for {@link org.w3c.dom.Text#replaceWholeText(String)}; it can:<ol>
 	 * 		<li>modify {@code t} in place, and make no other changes
 	 * 		<li>replace {@code t} -- and multiple nearby objects, at multiple depths in the tree -- with a single new {@link org.w3c.dom.Text}
  	 *		<li>remove {@code t} from the tree entirely
@@ -47,7 +47,7 @@ public abstract class XmlTextChildTransformerBase extends XmlIndependentFilterBa
  	 * (Affecting <i>successors</i> is fine.)
  	 * 
 	 * <p>Caveat: it is assumed -- but not known for sure -- that transformations based on
-	 * {@link org.w3c.dom.Text.getWholeText} and {@link org.w3c.dom.Text.replaceWholeText} abide by this restriction
+	 * {@link org.w3c.dom.Text#getWholeText()} and {@link org.w3c.dom.Text#replaceWholeText(String)} abide by this restriction
 	 * (which is why the restriction seems reasonable in the first place).
 	 * 
 	 * @param	f		the file we're working on, for message reporting

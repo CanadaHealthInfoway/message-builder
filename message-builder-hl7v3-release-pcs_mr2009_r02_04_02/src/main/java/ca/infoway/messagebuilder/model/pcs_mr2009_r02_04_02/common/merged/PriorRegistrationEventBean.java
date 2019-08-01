@@ -32,25 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: PriorRegistrationEvent</p>
  * 
- * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
- * Event</p>
- * 
- * <p>Used to associate (replace) a current registration with a 
- * regsitration already received (supports merges).</p>
- * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>MFMI_MT700717CA.PriorRegistration: Prior Registration 
- * Event</p>
- * 
- * <p>Used to associate (replace) a current registration with a 
- * regsitration already received (supports merges).</p>
- * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
- * <p>MFMI_MT700746CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
  * <p>Used to associate (replace) a current registration with a 
@@ -76,11 +58,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>This class describes the registration of a client, 
  * provider, location, etc. in the past.</p>
+ * 
+ * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
+ * Event</p>
+ * 
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
+ * 
+ * <p>MFMI_MT700746CA.PriorRegistration: Prior Registration 
+ * Event</p>
+ * 
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegistration","MFMI_MT700716CA.PriorRegistration","MFMI_MT700717CA.PriorRegistration","MFMI_MT700726CA.PriorRegistration","MFMI_MT700746CA.PriorRegistration"})
 public class PriorRegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II subjectPriorRegisteredRoleId = new IIImpl();
 
 
@@ -89,31 +89,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides support for merges.</p>
-     * 
-     * <p>Identifies &quot;duplicate&quot; records of the 
-     * registered item that have been superseded by this 
-     * record.</p>
-     * 
-     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
-     * 
      * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides support for merges.</p>
-     * 
-     * <p>Identifies &quot;duplicate&quot; records of the 
-     * registered item that have been superseded by this 
-     * record.</p>
-     * 
-     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
-     * 
-     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,6 +114,30 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -157,31 +157,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides support for merges.</p>
-     * 
-     * <p>Identifies &quot;duplicate&quot; records of the 
-     * registered item that have been superseded by this 
-     * record.</p>
-     * 
-     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
-     * 
      * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides support for merges.</p>
-     * 
-     * <p>Identifies &quot;duplicate&quot; records of the 
-     * registered item that have been superseded by this 
-     * record.</p>
-     * 
-     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
-     * 
-     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -206,6 +182,30 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

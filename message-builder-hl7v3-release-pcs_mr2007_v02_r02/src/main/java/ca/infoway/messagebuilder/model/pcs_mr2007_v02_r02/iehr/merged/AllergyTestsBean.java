@@ -41,16 +41,6 @@ import java.util.Date;
 /**
  * <p>Business Name: AllergyTests</p>
  * 
- * <p>REPC_MT000005CA.AllergyTestEvent: Allergy Tests</p>
- * 
- * <p>Value is mandatory if not using SNOMED</p>
- * 
- * <p>Provides evidence for recording the 
- * allergy/intolerance.</p>
- * 
- * <p>Indicates the specific allergy test that supports the 
- * recording of the allergy/intolerance.</p>
- * 
  * <p>REPC_MT000001CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>Value is required if not using SNOMED</p>
@@ -74,6 +64,16 @@ import java.util.Date;
  * <p>Indicates the specific allergy test that supports the 
  * recording of the allergy/intolerance.</p>
  * 
+ * <p>REPC_MT000005CA.AllergyTestEvent: Allergy Tests</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ * 
+ * <p>Provides evidence for recording the 
+ * allergy/intolerance.</p>
+ * 
+ * <p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p>
+ * 
  * <p>REPC_MT000009CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>Value must not be present when using SNOMED, mandatory 
@@ -86,9 +86,9 @@ import java.util.Date;
  * recording of the allergy/intolerance.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
-public class AllergyTestsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000009ca.Records, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000005ca.Records, Records {
+public class AllergyTestsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000005ca.Records, Records, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000009ca.Records {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -97,18 +97,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
 
     /**
      * <p>Business Name: AllergyTestRecordId</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestRecordId</p>
-     * 
-     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows an allergy/intolerance test record to be directly 
-     * referenced.</p>
-     * 
-     * <p>An identifier for a specific instance of an 
-     * allergy/intolerance test.</p>
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
@@ -125,6 +113,18 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -156,18 +156,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows an allergy/intolerance test record to be directly 
-     * referenced.</p>
-     * 
-     * <p>An identifier for a specific instance of an 
-     * allergy/intolerance test.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestRecordId</p>
-     * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -181,6 +169,18 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -212,19 +212,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows different kinds of allergy/intolerance tests to be 
-     * distinguishable and is therefore mandatory. It uses the CD 
-     * type to support SNOMED post-coordination.</p>
-     * 
-     * <p>A coded value denoting the type of allergy test 
-     * conducted.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestType</p>
-     * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -239,6 +226,19 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -272,19 +272,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
-     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows different kinds of allergy/intolerance tests to be 
-     * distinguishable and is therefore mandatory. It uses the CD 
-     * type to support SNOMED post-coordination.</p>
-     * 
-     * <p>A coded value denoting the type of allergy test 
-     * conducted.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestType</p>
-     * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -299,6 +286,19 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -333,18 +333,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows providers to evaluate the currency of the 
-     * test.</p>
-     * 
-     * <p>The date on which the allergy test was performed.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestDate</p>
-     * 
-     * <p>Relationship: 
      * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -358,6 +346,18 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -389,18 +389,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
-     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows providers to evaluate the currency of the 
-     * test.</p>
-     * 
-     * <p>The date on which the allergy test was performed.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestDate</p>
-     * 
-     * <p>Relationship: 
      * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -414,6 +402,18 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -444,20 +444,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Allows other providers to evaluate the test. There is no 
-     * point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p>
-     * 
-     * <p>A code indicating result of the allergy test.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestResult</p>
-     * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -473,6 +459,20 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -508,20 +508,6 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
-     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Allows other providers to evaluate the test. There is no 
-     * point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p>
-     * 
-     * <p>A code indicating result of the allergy test.</p>
-     * 
-     * <p>Un-merged Business Name: AllergyTestResult</p>
-     * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -537,6 +523,20 @@ public class AllergyTestsBean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Un-merged Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

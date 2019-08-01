@@ -48,12 +48,12 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 /**
  * Parses a TS element into a Date (R2). The element looks like this:
  *
- * <element-name value="formatteddate" />
+ * &lt;element-name value="formatteddate" /&gt;
  *
  * If a date is null, value is replaced by a null flavor. So the element would look
  * like this:
  *
- * <element-name nullFlavor="something" />
+ * &lt;element-name nullFlavor="something" /&gt;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */

@@ -51,9 +51,7 @@ public class SchematronContext {
 	
 	/**
 	 * <p>Standard constructor.
-	 * @param name - the relationship name
-	 * @param type - the relationship type
-	 * @param cardinality - the cardinality.
+	 * @param context - the context.
 	 */
 	public SchematronContext(String context) {
 		this.context = context;

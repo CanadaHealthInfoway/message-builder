@@ -91,7 +91,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Pharmacy {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -183,7 +183,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Status can only be '''ACTIVE''' or '''COMPLETE'''</p>
+     * <p>Status can only be 'ACTIVE' or 'COMPLETE'</p>
      * 
      * <p>Used to determine whether the medication should be 
      * considered in performing DUR checking.</p><p>Attribute is 
@@ -211,7 +211,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Status can only be '''ACTIVE''' or '''COMPLETE'''</p>
+     * <p>Status can only be 'ACTIVE' or 'COMPLETE'</p>
      * 
      * <p>Used to determine whether the medication should be 
      * considered in performing DUR checking.</p><p>Attribute is 
@@ -283,7 +283,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * or their care giver.</p><p>Constraint: Can't have both 
      * normal and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 

@@ -51,16 +51,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * lab result, etc.) of the patient that contributed to the 
  * issue being raised.</p>
  * 
- * <p>COCT_MT260030CA.ObservationMeasurableEvent: Patient 
- * Measurable Observations</p>
- * 
- * <p>Useful for determining appropriate management and for 
- * drilling down for more information.</p>
- * 
- * <p>This is the recorded observation (e.g. height, weight, 
- * lab result, etc.) of the patient that contributed to the 
- * issue being raised.</p>
- * 
  * <p>COCT_MT260020CA.ObservationMeasurableEvent: Patient 
  * Measurable Observations</p>
  * 
@@ -70,11 +60,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>This is the recorded observation (e.g. allergy, medical 
  * condition, lab result, weight, pregnancy status, etc.) of 
  * the patient that contributed to the issue being raised.</p>
+ * 
+ * <p>COCT_MT260030CA.ObservationMeasurableEvent: Patient 
+ * Measurable Observations</p>
+ * 
+ * <p>Useful for determining appropriate management and for 
+ * drilling down for more information.</p>
+ * 
+ * <p>This is the recorded observation (e.g. height, weight, 
+ * lab result, etc.) of the patient that contributed to the 
+ * issue being raised.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt260030ca.CausalActs, CausalActs {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();
@@ -102,7 +102,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030CA.ObservationMeasurableEvent.id</p>
+     * COCT_MT260020CA.ObservationMeasurableEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -117,7 +117,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.ObservationMeasurableEvent.id</p>
+     * COCT_MT260030CA.ObservationMeasurableEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -155,7 +155,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030CA.ObservationMeasurableEvent.id</p>
+     * COCT_MT260020CA.ObservationMeasurableEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -170,7 +170,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.ObservationMeasurableEvent.id</p>
+     * COCT_MT260030CA.ObservationMeasurableEvent.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -212,25 +212,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030CA.ObservationMeasurableEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the type of observation record being 
-     * referenced. The attribute is mandatory because it is 
-     * essential to interpreting the rest of the information on the 
-     * class.</p>
-     * 
-     * <p>Distinguishes between the kinds of measurable observation 
-     * that could be the trigger for clinical issue detection. 
-     * Measurable observation types include: Lab Result, Height, 
-     * Weight, and other measurable information about a person that 
-     * may be deemed as a possible trigger for clinical issue 
-     * detection.</p>
-     * 
-     * <p>Un-merged Business Name: ObservationType</p>
-     * 
-     * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -245,6 +226,25 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * observation types include: Lab Result, Height, Weight, and 
      * other measurable information about a person that may be 
      * deemed as a possible trigger for clinical issue 
+     * detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationMeasurableEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the type of observation record being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p>
+     * 
+     * <p>Distinguishes between the kinds of measurable observation 
+     * that could be the trigger for clinical issue detection. 
+     * Measurable observation types include: Lab Result, Height, 
+     * Weight, and other measurable information about a person that 
+     * may be deemed as a possible trigger for clinical issue 
      * detection.</p>
      */
     @Hl7XmlMapping({"code"})
@@ -277,25 +277,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260030CA.ObservationMeasurableEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the type of observation record being 
-     * referenced. The attribute is mandatory because it is 
-     * essential to interpreting the rest of the information on the 
-     * class.</p>
-     * 
-     * <p>Distinguishes between the kinds of measurable observation 
-     * that could be the trigger for clinical issue detection. 
-     * Measurable observation types include: Lab Result, Height, 
-     * Weight, and other measurable information about a person that 
-     * may be deemed as a possible trigger for clinical issue 
-     * detection.</p>
-     * 
-     * <p>Un-merged Business Name: ObservationType</p>
-     * 
-     * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -310,6 +291,25 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * observation types include: Lab Result, Height, Weight, and 
      * other measurable information about a person that may be 
      * deemed as a possible trigger for clinical issue 
+     * detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationMeasurableEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the type of observation record being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p>
+     * 
+     * <p>Distinguishes between the kinds of measurable observation 
+     * that could be the trigger for clinical issue detection. 
+     * Measurable observation types include: Lab Result, Height, 
+     * Weight, and other measurable information about a person that 
+     * may be deemed as a possible trigger for clinical issue 
      * detection.</p>
      */
     public void setCode(ActCode code) {
@@ -338,27 +338,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * measurable observation, and thus defines the required 
      * sensitivity for the detected issue.</p>
      * 
-     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030CA.ObservationMeasurableEvent.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Contraindication.intractingSourceMasked (Normal=false; 
-     * Restricted or Very Restricted = True); (Information is 
-     * withheld because the prescription is masked will be given a 
-     * NULL flavour of 'Masked')</p>
-     * 
-     * <p>Conveys the patient'''s wishes relating to the 
-     * sensitivity of the observation information.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * measurable observation, and thus defines the required 
-     * sensitivity for the detected issue.</p>
-     * 
      * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
@@ -376,6 +355,26 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the offending 
+     * measurable observation, and thus defines the required 
+     * sensitivity for the detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationMeasurableEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the observation information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 
      * sensitivity for the detected issue.</p>
      */
@@ -405,27 +404,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * measurable observation, and thus defines the required 
      * sensitivity for the detected issue.</p>
      * 
-     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030CA.ObservationMeasurableEvent.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Contraindication.intractingSourceMasked (Normal=false; 
-     * Restricted or Very Restricted = True); (Information is 
-     * withheld because the prescription is masked will be given a 
-     * NULL flavour of 'Masked')</p>
-     * 
-     * <p>Conveys the patient'''s wishes relating to the 
-     * sensitivity of the observation information.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * measurable observation, and thus defines the required 
-     * sensitivity for the detected issue.</p>
-     * 
      * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
@@ -443,6 +421,26 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the offending 
+     * measurable observation, and thus defines the required 
+     * sensitivity for the detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationMeasurableEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the observation information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 
      * sensitivity for the detected issue.</p>
      */
@@ -471,6 +469,19 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
+     * COCT_MT260020CA.ObservationMeasurableEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides unambiguous reference to the implicated 
+     * measurable observation.</p>
+     * 
+     * <p>Denotes a specific measurable observation made about a 
+     * person that triggered the clinical issue detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -481,19 +492,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Denotes a specific measurable observation made about a 
      * person that might have trigger the clinical issue 
      * detection.</p>
-     * 
-     * <p>Un-merged Business Name: ObservationValue</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260020CA.ObservationMeasurableEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Provides unambiguous reference to the implicated 
-     * measurable observation.</p>
-     * 
-     * <p>Denotes a specific measurable observation made about a 
-     * person that triggered the clinical issue detection.</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
@@ -520,6 +518,19 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
+     * COCT_MT260020CA.ObservationMeasurableEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides unambiguous reference to the implicated 
+     * measurable observation.</p>
+     * 
+     * <p>Denotes a specific measurable observation made about a 
+     * person that triggered the clinical issue detection.</p>
+     * 
+     * <p>Un-merged Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -530,19 +541,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Denotes a specific measurable observation made about a 
      * person that might have trigger the clinical issue 
      * detection.</p>
-     * 
-     * <p>Un-merged Business Name: ObservationValue</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260020CA.ObservationMeasurableEvent.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Provides unambiguous reference to the implicated 
-     * measurable observation.</p>
-     * 
-     * <p>Denotes a specific measurable observation made about a 
-     * person that triggered the clinical issue detection.</p>
      */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);

@@ -46,6 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260030
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.SubstanceAdministrationType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.AllowedSubstitutionBean;
@@ -89,7 +90,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements MedicationRecord {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -102,12 +103,12 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
     private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
     private BL derivedFromSourceDispense = new BLImpl(false);
     private List<CoverageExtensions_2Bean> coverageCoverage = new ArrayList<CoverageExtensions_2Bean>();
-    private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private NotEligibleForTrialBean component2;
-    private IncludesBean component3;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060160ca.IncludesBean component3;
     private List<PrescriptionDispensesBean> fulfillment1MedicationDispense = new ArrayList<PrescriptionDispensesBean>();
     private LastDispenseInformation_1Bean fulfillment2SupplyEventLastSummary;
     private FirstDispenseInformation_1Bean fulfillment3SupplyEventFirstSummary;
@@ -115,7 +116,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
     private PreviousDispenseInformation_1Bean fulfillment5SupplyEventPastSummary;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
-    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean> subjectOf3 = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean>();
+    private List<IncludesBean> subjectOf3 = new ArrayList<IncludesBean>();
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
     private AllowedSubstitutionBean subjectOf5SubstitutionPermission;
     private List<StatusChangesBean> subjectOf6ControlActEvent = new ArrayList<StatusChangesBean>();
@@ -245,7 +246,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * <p>Allows the patient to have discrete control over access 
      * to their medication data.</p><p>Taboo allows the provider to 
      * request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Can't have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
@@ -424,6 +425,18 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT060160CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
+    public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
+        return this.pertinentInformationQuantityObservationEvent;
+    }
+
+
+    /**
      * <p>Relationship: PORX_MT060160CA.DerivedFrom.sourceDispense</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -451,18 +464,6 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_2Bean> getCoverageCoverage() {
         return this.coverageCoverage;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060160CA.PertinentInformation.quantityObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
-    public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
-        return this.pertinentInformationQuantityObservationEvent;
     }
 
 
@@ -507,7 +508,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component3"})
-    public IncludesBean getComponent3() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060160ca.IncludesBean getComponent3() {
         return this.component3;
     }
 
@@ -517,7 +518,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent3(IncludesBean component3) {
+    public void setComponent3(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060160ca.IncludesBean component3) {
         this.component3 = component3;
     }
 
@@ -663,7 +664,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
      */
     @Hl7XmlMapping({"subjectOf3"})
-    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean> getSubjectOf3() {
+    public List<IncludesBean> getSubjectOf3() {
         return this.subjectOf3;
     }
 

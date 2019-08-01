@@ -42,6 +42,7 @@ public class BusinessNameUtilTest {
 	@DataPoint public static final String[] CASE9 = {"*g:occurred at\u202F", "OccurredAt"};
 	@DataPoint public static final String[] CASE10 ={"\u00A0*g:occurred at", "OccurredAt"};
 	@DataPoint public static final String[] CASE11 ={"*g:occurred\u00A0at", "OccurredAt"};
+	@DataPoint public static final String[] CASE12 ={"First Dispense Processing & Pickup Date", "FirstDispenseProcessingPickupDate"};
 	
 	@Theory
 	public void shouldCleanUpBusinessName(String[] testCase) throws Exception {

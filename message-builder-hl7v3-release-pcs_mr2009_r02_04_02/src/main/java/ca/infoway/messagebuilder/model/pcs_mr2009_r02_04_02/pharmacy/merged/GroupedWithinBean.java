@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: GroupedWithin</p>
  * 
- * <p>POME_MT010040CA.SpecializedKind: grouped within</p>
+ * <p>POME_MT010100CA.SpecializedKind: grouped within</p>
  * 
  * <p>Exposes the drug hierarchy, allowing drill-down when 
  * prescribing and dispensing. Also indicates possibilities for 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * formulation, or therapeutic class does the medication fall 
  * into.</p>
  * 
- * <p>POME_MT010100CA.SpecializedKind: grouped within</p>
+ * <p>POME_MT010040CA.SpecializedKind: grouped within</p>
  * 
  * <p>Exposes the drug hierarchy, allowing drill-down when 
  * prescribing and dispensing. Also indicates possibilities for 
@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.SpecializedKind","POME_MT010100CA.SpecializedKind"})
 public class GroupedWithinBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CV code = new CVImpl();
     private CV generalizedMedicineClassCode = new CVImpl();
     private ST generalizedMedicineClassName = new STImpl();
@@ -75,7 +75,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
-     * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
+     * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -87,7 +87,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
-     * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
+     * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -107,7 +107,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
-     * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
+     * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -119,7 +119,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
-     * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
+     * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -139,21 +139,6 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugCode</p>
      * 
-     * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used to uniquely identify a particular drug product when 
-     * prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as drug code 
-     * should be available in most cases.</p>
-     * 
-     * <p>A code that uniquely identifiers a drug within a specific 
-     * drug identification scheme.</p>
-     * 
-     * <p>Un-merged Business Name: DrugCode</p>
-     * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -166,6 +151,21 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>An identifier for a drug at a higher level of 
      * abstraction.</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Used to uniquely identify a particular drug product when 
+     * prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as drug code 
+     * should be available in most cases.</p>
+     * 
+     * <p>A code that uniquely identifiers a drug within a specific 
+     * drug identification scheme.</p>
      */
     @Hl7XmlMapping({"generalizedMedicineClass/code"})
     public ClinicalDrug getGeneralizedMedicineClassCode() {
@@ -177,21 +177,6 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugCode</p>
      * 
-     * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used to uniquely identify a particular drug product when 
-     * prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as drug code 
-     * should be available in most cases.</p>
-     * 
-     * <p>A code that uniquely identifiers a drug within a specific 
-     * drug identification scheme.</p>
-     * 
-     * <p>Un-merged Business Name: DrugCode</p>
-     * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -204,6 +189,21 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>An identifier for a drug at a higher level of 
      * abstraction.</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Used to uniquely identify a particular drug product when 
+     * prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as drug code 
+     * should be available in most cases.</p>
+     * 
+     * <p>A code that uniquely identifiers a drug within a specific 
+     * drug identification scheme.</p>
      */
     public void setGeneralizedMedicineClassCode(ClinicalDrug generalizedMedicineClassCode) {
         this.generalizedMedicineClassCode.setValue(generalizedMedicineClassCode);
@@ -215,20 +215,6 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugName</p>
      * 
-     * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>To display in dropdowns and for local 
-     * searching.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as a drug name should be available in 
-     * most cases.</p>
-     * 
-     * <p>The name assigned to a drug within a specific drug 
-     * identification scheme.</p>
-     * 
-     * <p>Un-merged Business Name: DrugName</p>
-     * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -240,6 +226,20 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>The name assigned to the drug at the higher level of 
      * abstraction.</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>To display in dropdowns and for local 
+     * searching.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as a drug name should be available in 
+     * most cases.</p>
+     * 
+     * <p>The name assigned to a drug within a specific drug 
+     * identification scheme.</p>
      */
     @Hl7XmlMapping({"generalizedMedicineClass/name"})
     public String getGeneralizedMedicineClassName() {
@@ -251,20 +251,6 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: DrugName</p>
      * 
-     * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>To display in dropdowns and for local 
-     * searching.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as a drug name should be available in 
-     * most cases.</p>
-     * 
-     * <p>The name assigned to a drug within a specific drug 
-     * identification scheme.</p>
-     * 
-     * <p>Un-merged Business Name: DrugName</p>
-     * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -276,6 +262,20 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>The name assigned to the drug at the higher level of 
      * abstraction.</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>To display in dropdowns and for local 
+     * searching.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as a drug name should be available in 
+     * most cases.</p>
+     * 
+     * <p>The name assigned to a drug within a specific drug 
+     * identification scheme.</p>
      */
     public void setGeneralizedMedicineClassName(String generalizedMedicineClassName) {
         this.generalizedMedicineClassName.setValue(generalizedMedicineClassName);

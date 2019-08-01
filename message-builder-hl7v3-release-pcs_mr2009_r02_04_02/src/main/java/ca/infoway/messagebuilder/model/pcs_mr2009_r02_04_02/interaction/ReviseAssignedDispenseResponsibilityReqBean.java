@@ -45,11 +45,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt0101
  * 
  * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT010140CA.SupplyRequest</p>
+ * <p>--&gt; Payload: PORX_MT010140CA.SupplyRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010100CA"})
 public class ReviseAssignedDispenseResponsibilityReqBean extends HL7MessageBean<TriggerEventBean<DispenseInstructionsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

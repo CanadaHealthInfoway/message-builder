@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.pome_mt0100
  * 
  * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POME_MT010040CA.AdministerableMaterial</p>
+ * <p>--&gt; Payload: POME_MT010040CA.AdministerableMaterial</p>
  * 
- * <p>--> Payload: POME_MT010030CA.ParameterList</p>
+ * <p>--&gt; Payload: POME_MT010030CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010060CA"})
 public class DrugProductDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

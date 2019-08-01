@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * <p>Business Name: RecommendedDosage</p>
  * 
- * <p>PORX_MT980030CA.SubstanceAdministrationEventCriterion: 
+ * <p>PORX_MT980010CA.SubstanceAdministrationEventCriterion: 
  * Recommended Dosage</p>
  * 
  * <p>Provides a reference for calculating optimum dose of 
@@ -63,7 +63,7 @@ import java.util.List;
  * the drug-specific recommended dosage ranges for various age 
  * groups, weight classes, etc.</p>
  * 
- * <p>PORX_MT980010CA.SubstanceAdministrationEventCriterion: 
+ * <p>PORX_MT980030CA.SubstanceAdministrationEventCriterion: 
  * Recommended Dosage</p>
  * 
  * <p>Provides a reference for calculating optimum dose of 
@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministrationEventCriterion","PORX_MT980020CA.SubstanceAdministrationEventCriterion","PORX_MT980030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
@@ -89,7 +89,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -117,7 +117,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -139,7 +139,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -167,7 +167,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -189,7 +189,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -227,7 +227,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -254,7 +254,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -292,7 +292,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -317,7 +317,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980030CA.Component2.observationEventCriterion</p>
+     * PORX_MT980010CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -331,7 +331,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT980010CA.Component2.observationEventCriterion</p>
+     * PORX_MT980030CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

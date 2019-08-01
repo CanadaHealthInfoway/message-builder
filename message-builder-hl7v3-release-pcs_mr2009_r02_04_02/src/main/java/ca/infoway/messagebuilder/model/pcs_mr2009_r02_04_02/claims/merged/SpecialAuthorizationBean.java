@@ -41,12 +41,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
-    private PolicyOrAccount_1Bean coveragePolicyOrAccount;
     private List<Subject4Bean> subject = new ArrayList<Subject4Bean>();
+    private PolicyOrAccount_1Bean coveragePolicyOrAccount;
     private MaximumLimitsBean limitationMaximumLimits;
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
 
@@ -57,7 +57,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: SpecialAuthorizationStatus</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490101CA.SpecialAuthorization.statusCode</p>
+     * FICR_MT400003CA.SpecialAuthorization.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -71,7 +71,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: SpecialAuthorizationStatus</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400003CA.SpecialAuthorization.statusCode</p>
+     * FICR_MT490101CA.SpecialAuthorization.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -86,7 +86,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: SpecialAuthorizationStatus</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490101CA.SpecialAuthorization.statusCode</p>
+     * FICR_MT400003CA.SpecialAuthorization.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -100,7 +100,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: SpecialAuthorizationStatus</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400003CA.SpecialAuthorization.statusCode</p>
+     * FICR_MT490101CA.SpecialAuthorization.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -116,7 +116,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
+     * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -132,7 +132,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
+     * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -148,7 +148,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
+     * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -164,7 +164,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
+     * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -176,7 +176,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT490101CA.Author3.assignedEntity</p>
+     * <p>Relationship: FICR_MT400003CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -188,7 +188,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT400003CA.Author3.assignedEntity</p>
+     * <p>Relationship: FICR_MT490101CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -200,7 +200,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT490101CA.Author3.assignedEntity</p>
+     * <p>Relationship: FICR_MT400003CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -212,7 +212,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT400003CA.Author3.assignedEntity</p>
+     * <p>Relationship: FICR_MT490101CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -224,63 +224,15 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT490101CA.Coverage2.policyOrAccount</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: FICR_MT400004CA.Coverage2.policyOrAccount</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: FICR_MT400003CA.Coverage2.policyOrAccount</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: FICR_MT490101CA.Coverage2.policyOrAccount</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: FICR_MT400004CA.Coverage2.policyOrAccount</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: FICR_MT400003CA.Coverage2.policyOrAccount</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
-        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
-     * FICR_MT400004CA.SpecialAuthorization.subject</p>
+     * FICR_MT400003CA.SpecialAuthorization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400003CA.SpecialAuthorization.subject</p>
+     * FICR_MT400004CA.SpecialAuthorization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
      */
@@ -293,13 +245,61 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT400004CA.Limitation.maximumLimits</p>
+     * <p>Relationship: FICR_MT400003CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
+        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Limitation.maximumLimits</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT400003CA.Limitation.maximumLimits</p>
+     * <p>Relationship: FICR_MT400004CA.Limitation.maximumLimits</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -311,13 +311,13 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT400004CA.Limitation.maximumLimits</p>
+     * <p>Relationship: FICR_MT400003CA.Limitation.maximumLimits</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT400003CA.Limitation.maximumLimits</p>
+     * <p>Relationship: FICR_MT400004CA.Limitation.maximumLimits</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -330,14 +330,14 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400004CA.SpecialAuthorization.subjectOf</p>
+     * FICR_MT400003CA.SpecialAuthorization.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400003CA.SpecialAuthorization.subjectOf</p>
+     * FICR_MT400004CA.SpecialAuthorization.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      */

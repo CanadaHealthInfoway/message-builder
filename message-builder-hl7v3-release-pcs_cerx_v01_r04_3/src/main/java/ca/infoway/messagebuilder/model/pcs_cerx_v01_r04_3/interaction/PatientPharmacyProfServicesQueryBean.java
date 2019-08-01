@@ -36,11 +36,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt120001ca.P
  * 
  * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT120001CA.ParameterList</p>
+ * <p>--&gt; Payload: REPC_MT120001CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000041CA"})
 public class PatientPharmacyProfServicesQueryBean extends HL7MessageBean<TriggerEventBean<ProfessionalServiceQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

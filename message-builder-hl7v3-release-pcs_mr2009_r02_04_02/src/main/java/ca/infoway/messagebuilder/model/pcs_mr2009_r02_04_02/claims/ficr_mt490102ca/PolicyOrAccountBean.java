@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.UnderwriterBe
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;

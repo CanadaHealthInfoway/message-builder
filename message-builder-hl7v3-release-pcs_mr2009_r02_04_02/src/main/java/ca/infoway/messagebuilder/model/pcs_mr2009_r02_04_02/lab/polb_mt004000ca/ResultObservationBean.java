@@ -80,7 +80,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEvent"})
 public class ResultObservationBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -96,10 +96,10 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private RecipientChoice primaryInformationRecipientRecipientChoice;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private List<ResultObservationBean> derivedFromObservationEvent = new ArrayList<ResultObservationBean>();
-    private List<ReferenceRangeBean> referenceRangeInterpretationRange = new ArrayList<ReferenceRangeBean>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private List<ResultObservationBean> derivedFromObservationEvent = new ArrayList<ResultObservationBean>();
+    private List<ReferenceRangeBean> referenceRangeInterpretationRange = new ArrayList<ReferenceRangeBean>();
     private ResultSortKeyBean component1ResultSortKey;
     private List<ReportableHealthIndicatorBean> component2ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
     private List<ResultChoice> component3ResultChoice = new ArrayList<ResultChoice>();
@@ -517,30 +517,6 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
     /**
      * <p>Relationship: 
-     * POLB_MT004000CA.DerivedFrom.observationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"derivedFrom/observationEvent"})
-    public List<ResultObservationBean> getDerivedFromObservationEvent() {
-        return this.derivedFromObservationEvent;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004000CA.ReferenceRange.interpretationRange</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"referenceRange/interpretationRange"})
-    public List<ReferenceRangeBean> getReferenceRangeInterpretationRange() {
-        return this.referenceRangeInterpretationRange;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -570,6 +546,30 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
         return this.pertinentInformation2SupportingClinicalObservationEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.DerivedFrom.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"derivedFrom/observationEvent"})
+    public List<ResultObservationBean> getDerivedFromObservationEvent() {
+        return this.derivedFromObservationEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ReferenceRange.interpretationRange</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"referenceRange/interpretationRange"})
+    public List<ReferenceRangeBean> getReferenceRangeInterpretationRange() {
+        return this.referenceRangeInterpretationRange;
     }
 
 

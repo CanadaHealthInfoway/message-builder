@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -138,8 +138,8 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The provider'''s name pertaining to the specific 
-     * functional role.</p>
+     * <p>The provider's name pertaining to the specific functional 
+     * role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {

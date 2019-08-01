@@ -169,7 +169,7 @@ public class MessageSet implements MessagePartResolver {
 	 * Get a single PackageLocation by name
 	 * 
 	 * @param name the name of the package location
-	 * @returns the package location, or null if no such location is known
+	 * @return the package location, or null if no such location is known
 	 */
 	public PackageLocation getPackageLocation(String name) {
 		return this.packageLocations.get(name);

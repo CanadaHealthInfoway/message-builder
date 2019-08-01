@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
  * 
  * Parses an CV element into a CV enum field. The element looks like this:
  * 
- * <element-name code="RECENT" />
+ * &lt;element-name code="RECENT" /&gt;
  * 
  * According to CeRx: code has a limit of 20 characters. This limit is not 
  * currently enforced by this class.

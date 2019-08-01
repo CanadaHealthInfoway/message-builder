@@ -43,9 +43,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  */
 @Hl7PartTypeMapping({"COCT_MT090502CA.AssignedEntity"})
 @Hl7RootType
-public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911102ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.AuthorPerson_2, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.RecipientChoice {
+public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911102ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.AuthorPerson_2, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.RoleChoice {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
 

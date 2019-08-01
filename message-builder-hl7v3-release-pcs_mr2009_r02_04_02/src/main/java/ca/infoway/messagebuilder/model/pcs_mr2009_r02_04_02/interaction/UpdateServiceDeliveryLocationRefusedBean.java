@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700726
  * 
  * <p>Control Act: MFMI_MT700726CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001201CA.Role</p>
+ * <p>--&gt; Payload: COMT_MT001201CA.Role</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN202019CA"})
 public class UpdateServiceDeliveryLocationRefusedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

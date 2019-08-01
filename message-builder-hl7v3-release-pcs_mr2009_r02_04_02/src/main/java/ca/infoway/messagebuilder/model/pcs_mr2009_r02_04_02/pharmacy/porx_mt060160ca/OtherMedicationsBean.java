@@ -89,7 +89,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements MedicationRecord {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -181,7 +181,7 @@ public class OtherMedicationsBean extends MessagePartBean implements MedicationR
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p>
+     * <p>Status can only be 'ACTIVE' or 'COMPLETED'</p>
      * 
      * <p>Used to determine whether the medication should be 
      * considered in performing DUR checking.</p><p>Attribute is 
@@ -209,7 +209,7 @@ public class OtherMedicationsBean extends MessagePartBean implements MedicationR
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p>
+     * <p>Status can only be 'ACTIVE' or 'COMPLETED'</p>
      * 
      * <p>Used to determine whether the medication should be 
      * considered in performing DUR checking.</p><p>Attribute is 

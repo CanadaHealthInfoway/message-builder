@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000016ca.A
  * 
  * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000006CA.ReactionObservationEvent</p>
+ * <p>--&gt; Payload: REPC_MT000006CA.ReactionObservationEvent</p>
  * 
- * <p>--> Payload: REPC_MT000016CA.ParameterList</p>
+ * <p>--&gt; Payload: REPC_MT000016CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000002CA"})
 public class PatientAdverseReactionsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ReportedReactionBean,AdverseReactionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

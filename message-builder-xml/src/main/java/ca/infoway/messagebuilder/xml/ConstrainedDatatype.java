@@ -62,8 +62,7 @@ public class ConstrainedDatatype {
 	/**
 	 * <p>Standard constructor.
 	 * @param name - the relationship name
-	 * @param type - the relationship type
-	 * @param cardinality - the cardinality.
+	 * @param baseType - the relationship type
 	 */
 	public ConstrainedDatatype(String name, String baseType) {
 		this.name = name;
@@ -97,7 +96,7 @@ public class ConstrainedDatatype {
 
 	/**
 	 * <p>Set the standard type that is being constrained.
-	 * @param type - the new value
+	 * @param baseType - the new value
 	 */
 	public void setBaseType(String baseType) {
 		this.baseType = baseType;

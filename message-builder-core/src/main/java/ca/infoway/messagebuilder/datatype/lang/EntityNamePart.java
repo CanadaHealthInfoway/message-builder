@@ -74,9 +74,8 @@ public class EntityNamePart {
     /**
      * <p>Constructs an EntityNamePart using the supplied parameters.
      * 
-     * @param value the name part value
      * @param type the name part type
-     * @param qualifier the name part qualifier
+     * @param nullFlavor the null flavor explaining the absence of the value
      */
 	public EntityNamePart(NamePartType type, NullFlavor nullFlavor) {
 		this(null, type, null, nullFlavor);

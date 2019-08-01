@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.domainvalue.HumanSubstanceAdministrationSite;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220110ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.SubstanceAdministrationType;
 import java.util.ArrayList;
 import java.util.Date;
@@ -72,7 +72,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -500,18 +500,18 @@ public class AdministrationInstructionsBean extends MessagePartBean {
         return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220100ca.DrugProductBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220110ca.DrugProductBean getConsumableMedication1AsMedication2() {
-        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220110ca.DrugProductBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220110ca.DrugProductBean) this.consumableMedication1 : null;
-    }
-    public boolean hasConsumableMedication1AsMedication2() {
-        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220110ca.DrugProductBean);
-    }
-
-    public DrugProductBean getConsumableMedication1AsMedication3() {
+    public DrugProductBean getConsumableMedication1AsMedication2() {
         return this.consumableMedication1 instanceof DrugProductBean ? (DrugProductBean) this.consumableMedication1 : null;
     }
-    public boolean hasConsumableMedication1AsMedication3() {
+    public boolean hasConsumableMedication1AsMedication2() {
         return (this.consumableMedication1 instanceof DrugProductBean);
+    }
+
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean getConsumableMedication1AsMedication3() {
+        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean) this.consumableMedication1 : null;
+    }
+    public boolean hasConsumableMedication1AsMedication3() {
+        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean);
     }
 
     public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220210ca.DrugProductBean getConsumableMedication1AsMedication4() {

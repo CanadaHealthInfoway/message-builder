@@ -43,13 +43,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120008
  * 
  * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: QUCR_MT830201CA.AdjudResultsGroup</p>
+ * <p>--&gt; Payload: QUCR_MT830201CA.AdjudResultsGroup</p>
  * 
- * <p>--> Payload: QUCR_MT820201CA.ParameterList</p>
+ * <p>--&gt; Payload: QUCR_MT820201CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"QUCR_IN830102CA"})
 public class SOFADetailQueryResultsRxBean extends HL7MessageBean<TriggerEventBean<TypeOfSummaryBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

@@ -42,13 +42,13 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  * that is repeated every period.
  *
  *
- * <effectiveTime xsi:type='PIVL_TS'>
- *   <phase>
- *      <low value='198709'/>
- *      <high value='198710'/>
- *   </phase>
- *   <period value='1' unit='a'/>
- * </effectiveTime>
+ * &lt;effectiveTime xsi:type='PIVL_TS'&gt;
+ *   &lt;phase&gt;
+ *      &lt;low value='198709'/&gt;
+ *      &lt;high value='198710'/&gt;
+ *   &lt;/phase&gt;
+ *   &lt;period value='1' unit='a'/&gt;
+ * &lt;/effectiveTime&gt;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-PIVL
  */

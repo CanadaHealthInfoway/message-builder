@@ -53,8 +53,7 @@ public class ContainedTemplate {
 	
 	/**
 	 * <p>Standard constructor.
-	 * @param name - the relationship name
-	 * @param type - the relationship type
+	 * @param templateOid - the OID of the template
 	 * @param cardinality - the cardinality.
 	 */
 	public ContainedTemplate(String templateOid, Cardinality cardinality) {

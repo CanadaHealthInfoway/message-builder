@@ -30,7 +30,7 @@ public class CodedTypeEvaluator {
 	}
 	
 	/**
-	 * This checks if a given type is a coded type. This also works for collection types (e.g. LIST<CD> is a coded type).
+	 * This checks if a given type is a coded type. This also works for collection types (e.g. LIST&lt;CD&gt; is a coded type).
 	 * 
 	 * @param type
 	 * @return whether the type is a coded type

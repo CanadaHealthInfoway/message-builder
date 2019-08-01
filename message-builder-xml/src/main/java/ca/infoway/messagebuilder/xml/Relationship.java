@@ -561,7 +561,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 
 	/**
 	 * <p>Set the vocabulary source.
-	 * @param vocabulary source - the new value.
+	 * @param domainSource - the new value.
 	 */
 	public void setDomainSource(DomainSource domainSource) {
 		this.domainSource = domainSource == null ? null : domainSource.getName();

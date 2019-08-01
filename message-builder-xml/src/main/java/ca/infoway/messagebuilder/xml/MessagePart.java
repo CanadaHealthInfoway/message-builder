@@ -185,7 +185,7 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	/**
 	 * <p>Determines whether the message part has a specialization child
 	 * matching the given name
-	 * @param the name to test
+	 * @param childName the name to test
 	 * @return true if the name matches
 	 */
 	public SpecializationChild getSpecializationChild(String childName) {
@@ -225,7 +225,7 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	/**
 	 * <p>Determines whether the message part has a specialization child
 	 * matching the given name
-	 * @param the name to test
+	 * @param childName the name to test
 	 * @return true if the name matches
 	 */
 	public boolean hasSpecializationChild(String childName) {

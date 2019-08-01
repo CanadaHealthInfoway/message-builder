@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.poiz_mt03
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POIZ_MT030060CA.Immunization</p>
+ * <p>--&gt; Payload: POIZ_MT030060CA.Immunization</p>
  */
 @Hl7PartTypeMapping({"POIZ_IN010070CA"})
 public class UpdateImmunizationRequestBean extends HL7MessageBean<TriggerEventBean<ImmunizationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

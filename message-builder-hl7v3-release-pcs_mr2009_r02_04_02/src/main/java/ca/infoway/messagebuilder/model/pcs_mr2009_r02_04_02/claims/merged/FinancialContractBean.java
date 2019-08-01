@@ -33,12 +33,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActBilli
 
 
 /**
- * <p>FICR_MT600201CA.FinancialContract: (no business name)</p>
+ * <p>FICR_MT500201CA.FinancialContract: (no business name)</p>
  * 
  * <p>Need amount for contract (max allowable amount), not 
  * needed for e-Claims</p>
  * 
- * <p>FICR_MT500201CA.FinancialContract: (no business name)</p>
+ * <p>FICR_MT600201CA.FinancialContract: (no business name)</p>
  * 
  * <p>Need amount for contract (max allowable amount), not 
  * needed for e-Claims</p>
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActBilli
 @Hl7PartTypeMapping({"FICR_MT500201CA.FinancialContract","FICR_MT600201CA.FinancialContract"})
 public class FinancialContractBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
@@ -56,13 +56,13 @@ public class FinancialContractBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FinancialContractID</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: FinancialContractID</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -76,13 +76,13 @@ public class FinancialContractBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: FinancialContractID</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: FinancialContractID</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -96,13 +96,13 @@ public class FinancialContractBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -116,13 +116,13 @@ public class FinancialContractBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

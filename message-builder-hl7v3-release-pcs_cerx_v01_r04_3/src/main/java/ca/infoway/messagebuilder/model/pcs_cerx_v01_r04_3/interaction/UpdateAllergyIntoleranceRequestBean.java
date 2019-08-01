@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000013ca.A
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000013CA.IntoleranceCondition</p>
+ * <p>--&gt; Payload: REPC_MT000013CA.IntoleranceCondition</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000020CA"})
 public class UpdateAllergyIntoleranceRequestBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

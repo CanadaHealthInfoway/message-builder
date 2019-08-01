@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.prpa_mt202307ca.Q
  * 
  * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PRPA_MT202307CA.ParameterList</p>
+ * <p>--&gt; Payload: PRPA_MT202307CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN202307CA"})
 public class LocationDetailsQueryBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

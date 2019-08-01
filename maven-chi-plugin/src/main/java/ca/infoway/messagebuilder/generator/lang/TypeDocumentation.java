@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.xml.Relationship;
 public class TypeDocumentation {
 	
 	public abstract class BaseWriter extends Indenter {
-	    private static final int MAX_DOC_SIZE = 10000;
+//	    private static final int MAX_DOC_SIZE = 10000;
 
 		public String renderText(int indentLevel, String... text) {
 	        StringBuilder buffer = new StringBuilder();
@@ -50,16 +50,17 @@ public class TypeDocumentation {
 	            buffer.append("/**");
 	                
 	            for (int j = 0, numberOfBlocks = text == null ? 0 : text.length; j < numberOfBlocks; j++) {
-	            	renderParagraph(getTagName(j), StringUtils.split(text[j]), buffer, indentLevel);
+	            	renderParagraph(getTagName(j), StringUtils.split(cleanHTML(text[j])), buffer, indentLevel);
 	                if (j < numberOfBlocks-1) {
 	                    appendBlankDocLine(indentLevel, buffer);
 	                }
 	            }
-	            if (buffer.length() > MAX_DOC_SIZE) {
-	            	buffer.setLength(MAX_DOC_SIZE);
-	                appendBlankDocLine(indentLevel, buffer);
-	            	buffer.append("... [rest of documentation truncated due to excessive length]");
-	            }
+	            // Disabling, because the truncation was screwing up HTML tags in the Javadoc comments
+//	            if (buffer.length() > MAX_DOC_SIZE) {
+//	            	buffer.setLength(MAX_DOC_SIZE);
+//	                appendBlankDocLine(indentLevel, buffer);
+//	            	buffer.append("... [rest of documentation truncated due to excessive length]");
+//	            }
 	            buffer.append(SystemUtils.LINE_SEPARATOR);
 	            indent(indentLevel, buffer);
 	            buffer.append(" */");
@@ -69,7 +70,7 @@ public class TypeDocumentation {
 	    }
 		protected void renderParagraph(String tagName, String[] words,
 				StringBuilder buffer, int indentLevel) {
-			boolean htmlMarkup = words[0].startsWith("<p>");
+			boolean htmlMarkup = words[0].startsWith("<p") || words[0].startsWith("<div")  || words[0].startsWith("<ul");
 			for (int i = 0, lineLength = 0, length = words == null ? 0 : words.length; i < length; i++) {
 			    if (i == 0 || lineLength + words[i].length() > 60) {
 			        appendBlankDocLine(indentLevel, buffer);
@@ -90,6 +91,93 @@ public class TypeDocumentation {
 			    	buffer.append(" ");
 			    }
 			    lineLength += words[i].length() + 1;
+			}
+		}
+		protected String cleanHTML(String text) {
+			// Some annotations contain badly formatted HTML, which is causing the Javadoc generation to fail
+			String tempString = StringUtils.replace(text, "/*", " ");
+			tempString = StringUtils.replace(tempString, "*/", " ");
+			
+			StringBuffer buf = new StringBuffer(tempString);
+			stripTags(buf, "font");
+			stripTags(buf, "b");
+			stripTags(buf, "o:p");
+			stripTags(buf, "st1:place");
+			stripTags(buf, "st1:state");
+			stripAttribute(buf, "span", "lang");
+			balanceTags(buf, "p");
+			
+			return buf.toString();
+		}
+		private void stripTags(StringBuffer buf, String tagName) {
+			stripTag(buf, "<" + tagName);
+			stripTag(buf, "</" + tagName);
+		}
+		private void stripTag(StringBuffer buf, String tagPrefix) {
+			int tagStartIndex = buf.indexOf(tagPrefix);
+			while (tagStartIndex >= 0) {
+				int tagEndIndex = buf.indexOf(">", tagStartIndex);
+				if (tagEndIndex >= tagStartIndex) {
+					buf.delete(tagStartIndex, tagEndIndex+1);
+				} else {
+					buf.setLength(tagStartIndex);
+				}
+				tagStartIndex = buf.indexOf(tagPrefix);
+			}
+		}
+		private void balanceTags(StringBuffer buf, String tagName) {
+			String startTag = "<" + tagName;
+			String endTag = "</" + tagName + ">";
+			
+			balanceNextPairOfTags(buf, 0, startTag, endTag);
+			
+		}
+		private void balanceNextPairOfTags(StringBuffer buf, int cursor, String startTag, String endTag) {
+			int tagStartIndex = buf.indexOf(startTag, cursor);
+			int tagEndIndex = buf.indexOf(endTag, cursor);
+			int tagEndLength = endTag.length();
+			
+			// if there are any end tags before the first start tag (or there are no start tags), delete them
+			while (tagEndIndex >= 0 && (tagEndIndex < tagStartIndex || tagStartIndex == -1)) {
+				buf.delete(tagEndIndex, tagEndIndex + tagEndLength);
+				tagStartIndex = buf.indexOf(startTag, cursor);
+				tagEndIndex = buf.indexOf(endTag, cursor);
+			}
+			
+			if (tagStartIndex >= 0) {
+				int nextTagStartIndex = buf.indexOf(startTag, tagStartIndex + 1);
+				if (tagEndIndex >= 0 && (tagEndIndex < nextTagStartIndex || nextTagStartIndex == -1)) {
+					// we found a balanced pair, so carry on
+					cursor = tagEndIndex + tagEndLength;
+					balanceNextPairOfTags(buf, cursor, startTag, endTag);
+				} else if (nextTagStartIndex >= 0) {
+					// we found an implicit close, make it explicit
+					buf.insert(nextTagStartIndex, endTag);
+					cursor = nextTagStartIndex + tagEndLength;
+					balanceNextPairOfTags(buf, cursor, startTag, endTag);
+				} else {
+					// we didn't find any more tags at all, so close the current tag at the end of the buffer
+					buf.append(endTag);
+				}
+			}
+		}
+		private void stripAttribute(StringBuffer buf, String tagName, String attributeName) {
+			String tagPrefix = "<" + tagName;
+			String attributePrefix = attributeName + "=\"";
+			
+			int tagStartIndex = buf.indexOf(tagPrefix);
+			while (tagStartIndex >= 0) {
+				int tagEndIndex = buf.indexOf(">", tagStartIndex);
+				int attributeStartIndex = buf.indexOf(attributePrefix, tagStartIndex);
+				if (attributeStartIndex >= 0 && attributeStartIndex < tagEndIndex) {
+					int attributeEndIndex = buf.indexOf("\"", attributeStartIndex + attributePrefix.length());
+					if (attributeEndIndex == -1) {
+						buf.setLength(attributeStartIndex);
+					} else {
+						buf.delete(attributeStartIndex, attributeEndIndex+1);
+					}
+				}
+				tagStartIndex = buf.indexOf(tagPrefix, tagEndIndex);
 			}
 		}
 		protected String getTagName(int blockNumber) {

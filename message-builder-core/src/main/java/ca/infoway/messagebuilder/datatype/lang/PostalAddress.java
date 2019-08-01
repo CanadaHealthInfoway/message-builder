@@ -114,7 +114,7 @@ public class PostalAddress implements Serializable {
 	 * Convenience method for adding a period and inclusive operator.
 	 * 
 	 * @param periodInTime
-	 * @param inclusive
+	 * @param operator identifies which operation to perform
 	 * @return whether the added period replaced an existing period 
 	 */
 	public boolean addUseablePeriod(Date periodInTime, SetOperator operator) {

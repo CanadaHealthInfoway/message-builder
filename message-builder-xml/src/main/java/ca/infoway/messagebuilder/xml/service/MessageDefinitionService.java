@@ -126,8 +126,7 @@ public interface MessageDefinitionService {
 	 * Returns constraints for a given relationship. Null is returned if no constraints are found.
 	 * 
 	 * @param version
-	 * @param type
-	 * @param relationship
+	 * @param constrainedType
 	 * @return the constraints
 	 */
 	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType);

@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porr_mt0500
  * 
  * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORR_MT050016CA.Document</p>
+ * <p>--&gt; Payload: PORR_MT050016CA.Document</p>
  * 
- * <p>--> Payload: POME_MT010050CA.ParameterList</p>
+ * <p>--&gt; Payload: POME_MT010050CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010020CA"})
 public class DrugDocumentQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationDocumentsBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

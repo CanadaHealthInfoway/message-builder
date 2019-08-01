@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -79,7 +79,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -94,7 +94,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -147,7 +147,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -162,7 +162,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
+     * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -217,7 +217,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
+     * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -233,7 +233,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
+     * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -289,7 +289,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
+     * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -305,7 +305,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
+     * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -343,16 +343,6 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Optional name of receiver application.</p>
      * 
-     * <p>Un-merged Business Name: ReceivingApplicationName</p>
-     * 
-     * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Optional name of the receiving application.</p>
-     * 
-     * <p>Name of the receiving application.</p>
-     * 
      * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device2.name</p>
@@ -362,6 +352,16 @@ public class ReceiverBean extends MessagePartBean {
      * <p>Optional name of receiver application</p>
      * 
      * <p>Name of receiver application.</p>
+     * 
+     * <p>Un-merged Business Name: ReceivingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Optional name of the receiving application.</p>
+     * 
+     * <p>Name of the receiving application.</p>
      */
     @Hl7XmlMapping({"device/name"})
     public String getDeviceName() {
@@ -387,16 +387,6 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Optional name of receiver application.</p>
      * 
-     * <p>Un-merged Business Name: ReceivingApplicationName</p>
-     * 
-     * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Optional name of the receiving application.</p>
-     * 
-     * <p>Name of the receiving application.</p>
-     * 
      * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device2.name</p>
@@ -406,6 +396,16 @@ public class ReceiverBean extends MessagePartBean {
      * <p>Optional name of receiver application</p>
      * 
      * <p>Name of receiver application.</p>
+     * 
+     * <p>Un-merged Business Name: ReceivingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Optional name of the receiving application.</p>
+     * 
+     * <p>Name of the receiving application.</p>
      */
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
@@ -442,18 +442,6 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * receiver device to agent is optional.</p>
-     * 
-     * <p>Unique identifier for the receiver organization.</p>
-     * 
-     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
-     * 
      * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -464,6 +452,18 @@ public class ReceiverBean extends MessagePartBean {
      * association from the receiver application is optional).</p>
      * 
      * <p>Receiver organization.</p>
+     * 
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The identifier is the only non-structural attribute in 
+     * this class and is therefore mandatory. The association from 
+     * receiver device to agent is optional.</p>
+     * 
+     * <p>Unique identifier for the receiver organization.</p>
      */
     @Hl7XmlMapping({"device/agent/agentOrganization/id"})
     public Identifier getDeviceAgentAgentOrganizationId() {
@@ -500,18 +500,6 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * receiver device to agent is optional.</p>
-     * 
-     * <p>Unique identifier for the receiver organization.</p>
-     * 
-     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
-     * 
      * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -522,6 +510,18 @@ public class ReceiverBean extends MessagePartBean {
      * association from the receiver application is optional).</p>
      * 
      * <p>Receiver organization.</p>
+     * 
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The identifier is the only non-structural attribute in 
+     * this class and is therefore mandatory. The association from 
+     * receiver device to agent is optional.</p>
+     * 
+     * <p>Unique identifier for the receiver organization.</p>
      */
     public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
         this.deviceAgentAgentOrganizationId.setValue(deviceAgentAgentOrganizationId);

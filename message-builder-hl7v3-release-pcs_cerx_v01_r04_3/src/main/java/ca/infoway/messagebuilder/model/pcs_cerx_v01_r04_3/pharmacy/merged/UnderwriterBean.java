@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Underwriter","PORX_MT010120CA.Underwriter","PORX_MT060040CA.Underwriter"})
 public class UnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private ST underwritingOrganizationName = new STImpl();
 
@@ -44,7 +44,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -57,7 +57,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -91,7 +91,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,7 +104,7 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,17 +138,6 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
-     * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
-     * 
-     * <p>Un-merged Business Name: PayorName</p>
-     * 
      * <p>Relationship: PORX_MT010110CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -157,6 +146,17 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
+     * 
+     * <p>Un-merged Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
@@ -179,17 +179,6 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
-     * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
-     * 
-     * <p>Un-merged Business Name: PayorName</p>
-     * 
      * <p>Relationship: PORX_MT010110CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -198,6 +187,17 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
+     * 
+     * <p>Un-merged Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
      * 
      * <p>Un-merged Business Name: PayorName</p>
      * 

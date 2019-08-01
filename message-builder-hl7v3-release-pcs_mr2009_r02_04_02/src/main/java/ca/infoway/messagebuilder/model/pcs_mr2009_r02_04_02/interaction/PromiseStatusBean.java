@@ -42,17 +42,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT002000CA.PromiseChoice</p>
+ * <p>--&gt; Payload: POLB_MT002000CA.PromiseChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000CA.PromiseGroup</p>
+ * <p>----&gt; Payload Choice: POLB_MT002000CA.PromiseGroup</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000CA.BatteryPromise</p>
+ * <p>----&gt; Payload Choice: POLB_MT002000CA.BatteryPromise</p>
  * 
- * <p>----> Payload Choice: POLB_MT002000CA.ObservationPromise</p>
+ * <p>----&gt; Payload Choice: 
+ * POLB_MT002000CA.ObservationPromise</p>
  */
 @Hl7PartTypeMapping({"POLB_IN222000CA"})
 public class PromiseStatusBean extends HL7MessageBean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

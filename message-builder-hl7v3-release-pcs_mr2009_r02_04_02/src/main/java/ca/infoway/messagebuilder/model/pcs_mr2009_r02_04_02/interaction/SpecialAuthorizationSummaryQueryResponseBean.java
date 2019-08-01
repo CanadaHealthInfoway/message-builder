@@ -40,13 +40,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120008
  * 
  * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: FICR_MT490101CA.SpecialAuthorizationRequest</p>
+ * <p>--&gt; Payload: 
+ * FICR_MT490101CA.SpecialAuthorizationRequest</p>
  * 
- * <p>--> Payload: FICR_MT490001CA.ParameterList</p>
+ * <p>--&gt; Payload: FICR_MT490001CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"FICR_IN404102CA"})
 public class SpecialAuthorizationSummaryQueryResponseBean extends HL7MessageBean<TriggerEventBean<SpecialAuthorizationRequestBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

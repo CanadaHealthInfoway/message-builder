@@ -61,7 +61,7 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CS batteryRequestStatusValue = new CSImpl();
     private BL includeHistoryIndicatorValue = new BLImpl();
     private BL includeNullifiedIndicatorValue = new BLImpl();

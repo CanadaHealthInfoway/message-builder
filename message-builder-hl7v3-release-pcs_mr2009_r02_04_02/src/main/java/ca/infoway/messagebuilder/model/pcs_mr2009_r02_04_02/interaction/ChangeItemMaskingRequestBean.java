@@ -41,11 +41,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.ra.comt_mt400001ca.M
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT400001CA.MaskableActType</p>
+ * <p>--&gt; Payload: COMT_MT400001CA.MaskableActType</p>
  */
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7MessageBean<TriggerEventBean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

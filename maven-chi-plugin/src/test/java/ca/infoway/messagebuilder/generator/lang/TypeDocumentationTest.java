@@ -21,6 +21,8 @@
 package ca.infoway.messagebuilder.generator.lang;
 
 import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.C_SHARP;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.JAVA;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -30,6 +32,7 @@ import java.io.StringWriter;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
 
@@ -47,7 +50,7 @@ public class TypeDocumentationTest {
 	public void shouldWriteDocumentationWithBusinessNameInCSharp() throws Exception {
 		Documentation documentation = new Documentation();
 		documentation.setBusinessName("The Business Name");
-		String output = write(documentation);	
+		String output = write(documentation, C_SHARP);	
 		assertTrue("business name", output.contains("<summary>Business Name: The Business Name</summary>"));
 		
 	}
@@ -55,7 +58,7 @@ public class TypeDocumentationTest {
 	public void shouldWriteVeryBasicDocumentationInCSharp() throws Exception {
 		Documentation documentation = new Documentation();
 		documentation.getAnnotations().add(new Annotation("I am the very model of a modern markup paragraph."));
-		String output = write(documentation);	
+		String output = write(documentation, C_SHARP);	
 		assertTrue("business name", output.contains("<summary>I am the very model of a modern markup paragraph.</summary>"));
 		assertFalse("business name", output.contains("<remarks>"));
 	}
@@ -65,13 +68,40 @@ public class TypeDocumentationTest {
 		documentation.getAnnotations().add(new Annotation("Antimony arsenic aluminum selenium."));
 		documentation.getAnnotations().add(new Annotation("And hydrogen and oxygen and nitrogen and rhenium."));
 		documentation.getAnnotations().add(new Annotation("And nickel, neodymium, neptunium, germanium."));
-		String output = write(documentation);	
+		String output = write(documentation, C_SHARP);	
 		assertTrue("summary", output.contains("<summary>Antimony arsenic aluminum selenium.</summary>"));
 		assertTrue("remarks", output.contains("<remarks>"));
 	}
+	
+	@Test
+	public void shouldCleanUpHtmlElements() throws Exception {
+		Documentation documentation = new Documentation();
+		// Believe it or not, this is an actual example from a jurisdiction
+		documentation.getAnnotations().add(new Annotation("<p><font color=\"#000080\" size=\"2\" face=\"Helvetica\"><font color=\"#000080\" size=\"2\" face=\"Helvetica\"><font color=\"#000080\" size=\"2\" face=\"Helvetica\">\r\n" + 
+				"<p align=\"left\">Provincial, and Territorial jurisdiction.</p>\r\n" + 
+				"</font></font></font></p>"));
+		String output = write(documentation, JAVA);
+		assertEquals("\r\n"
+				+ "/**\r\n" + 
+				" * <p> </p><p align=\"left\">Provincial, and Territorial \r\n" + 
+				" * jurisdiction.</p>\r\n" + 
+				" */\r\n", output);
+	}
+	
+	@Test
+	public void shouldCleanUpHtmlElements_StripLangAttribute() throws Exception {
+		Documentation documentation = new Documentation();
+		// Believe it or not, this is an actual example from a jurisdiction
+		documentation.getAnnotations().add(new Annotation("<span lang=\"EN-CA\"><span style=\"line-height: normal; \"></span></span>"));
+		String output = write(documentation, JAVA);
+		assertEquals("\r\n"
+				+ "/**\r\n"
+				+ " * <p><span ><span style=\"line-height: normal; \"></span></span></p>\r\n"
+				+ " */\r\n", output);
+	}
 
-	private String write(Documentation documentation) throws IOException {
-		new TypeDocumentation(documentation).write(C_SHARP, writer, 0);
+	private String write(Documentation documentation, ProgrammingLanguage programmingLanguage) throws IOException {
+		new TypeDocumentation(documentation).write(programmingLanguage, writer, 0);
 		
 		String output = writer.toString();
 		System.out.println(output);

@@ -76,10 +76,9 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	 * <p>Lookup.
 	 *
 	 * @param <T> the generic type
-	 * @param type the type
+	 * @param interfaceType the type
 	 * @param code the code
 	 * @param codeSystemOid the code system oid
-	 * @param nullFlavor the null flavor
 	 * @return the t
 	 */
 	public <T extends Code> T lookup(Class<T> interfaceType, String code, String codeSystemOid) {

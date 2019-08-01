@@ -43,6 +43,19 @@
           </execution>
         </executions>
       </plugin>
+	  <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-javadoc-plugin</artifactId>
+	    <inherited>false</inherited>
+	    <configuration>
+	      <tags>
+	        <tag>
+	          <name>sharpen.ignore</name>
+	          <placement>X</placement>
+	        </tag>
+	      </tags>
+	    </configuration>
+	  </plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-jar-plugin</artifactId>

@@ -51,17 +51,6 @@ import java.util.Date;
 /**
  * <p>Business Name: ActiveMedication</p>
  * 
- * <p>COCT_MT260010CA.SubstanceAdministration: Active 
- * Medication</p>
- * 
- * <p>Allows providers to identify the offending drugs when 
- * determining their management approach.</p>
- * 
- * <p>Indicates an active medication (prescription or 
- * non-prescription medication) that is recorded in the 
- * patient'''s record and which contributed to triggering the 
- * issue.</p>
- * 
  * <p>COCT_MT260020CA.SubstanceAdministration: Active 
  * Medication</p>
  * 
@@ -72,11 +61,22 @@ import java.util.Date;
  * non-prescription medication) that is recorded in the 
  * patient's record and which contributed to triggering the 
  * issue.</p>
+ * 
+ * <p>COCT_MT260010CA.SubstanceAdministration: Active 
+ * Medication</p>
+ * 
+ * <p>Allows providers to identify the offending drugs when 
+ * determining their management approach.</p>
+ * 
+ * <p>Indicates an active medication (prescription or 
+ * non-prescription medication) that is recorded in the 
+ * patient's record and which contributed to triggering the 
+ * issue.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -93,13 +93,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Knowing whether a drug is prescribed or not can influence 
-     * actions taken to mitigate an issue. This attribute is 
-     * therefore mandatory.</p>
+     * actions taken to mitigate an issue. The element is therefore 
+     * mandatory.</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -108,13 +108,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Knowing whether a drug is prescribed or not can influence 
-     * actions taken to mitigate an issue. The element is therefore 
-     * mandatory.</p>
+     * actions taken to mitigate an issue. This attribute is 
+     * therefore mandatory.</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -131,13 +131,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Knowing whether a drug is prescribed or not can influence 
-     * actions taken to mitigate an issue. This attribute is 
-     * therefore mandatory.</p>
+     * actions taken to mitigate an issue. The element is therefore 
+     * mandatory.</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -146,13 +146,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Knowing whether a drug is prescribed or not can influence 
-     * actions taken to mitigate an issue. The element is therefore 
-     * mandatory.</p>
+     * actions taken to mitigate an issue. This attribute is 
+     * therefore mandatory.</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -168,29 +168,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
-     * 
-     * <p>InteractingPrescription.PrescriptionExternalKey</p>
-     * 
-     * <p>InteractingPrescription.PrescriptionNumber</p>
-     * 
-     * <p>DDI/Dosage/Duplicate Therapy.SourceNumber (All senders 
-     * must uniquely identify prescriptions on request)</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the issue.</p>
-     * 
-     * <p>Unique identifier of the prescription or other medication 
-     * drug record that triggered the issue.</p>
-     * 
-     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
-     * 
      * <p>Relationship: COCT_MT260020CA.SubstanceAdministration.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -208,6 +185,29 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * information about the implicated drug therapy to either 
      * modify the therapy or to learn more information in 
      * determining their management approach for the issue</p>
+     * 
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
+     * 
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionExternalKey</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionNumber</p>
+     * 
+     * <p>DDI/Dosage/Duplicate Therapy.SourceNumber (All senders 
+     * must uniquely identify prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the issue.</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
@@ -222,29 +222,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
-     * 
-     * <p>InteractingPrescription.PrescriptionExternalKey</p>
-     * 
-     * <p>InteractingPrescription.PrescriptionNumber</p>
-     * 
-     * <p>DDI/Dosage/Duplicate Therapy.SourceNumber (All senders 
-     * must uniquely identify prescriptions on request)</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the issue.</p>
-     * 
-     * <p>Unique identifier of the prescription or other medication 
-     * drug record that triggered the issue.</p>
-     * 
-     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
-     * 
      * <p>Relationship: COCT_MT260020CA.SubstanceAdministration.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -262,6 +239,29 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * information about the implicated drug therapy to either 
      * modify the therapy or to learn more information in 
      * determining their management approach for the issue</p>
+     * 
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
+     * 
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionExternalKey</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionNumber</p>
+     * 
+     * <p>DDI/Dosage/Duplicate Therapy.SourceNumber (All senders 
+     * must uniquely identify prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the issue.</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
@@ -277,7 +277,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.code</p>
+     * COCT_MT260020CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -293,7 +293,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.code</p>
+     * COCT_MT260010CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -317,7 +317,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.code</p>
+     * COCT_MT260020CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -333,7 +333,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.code</p>
+     * COCT_MT260010CA.SubstanceAdministration.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -357,7 +357,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -375,7 +375,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -401,7 +401,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
+     * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -419,7 +419,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
+     * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -445,14 +445,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Requested Duration</p>
      * 
-     * <p>Allows the provider to evaluate '''duplicate therapy''' 
-     * and similar timing-based issues.</p>
+     * <p>Allows the provider to evaluate 'duplicate therapy' and 
+     * similar timing-based issues.</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -460,7 +460,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -483,14 +483,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Requested Duration</p>
      * 
-     * <p>Allows the provider to evaluate '''duplicate therapy''' 
-     * and similar timing-based issues.</p>
+     * <p>Allows the provider to evaluate 'duplicate therapy' and 
+     * similar timing-based issues.</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -498,7 +498,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
+     * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -521,21 +521,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Conveys the patient'''s wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p>
-     * 
-     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -545,6 +530,21 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      */
@@ -559,21 +559,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.confidentialityCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Conveys the patient'''s wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p>
-     * 
-     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
-     * 
-     * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.confidentialityCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -583,6 +568,21 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      */
@@ -597,7 +597,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -616,7 +616,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -643,7 +643,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -662,7 +662,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
+     * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -686,13 +686,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -704,13 +704,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
+     * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

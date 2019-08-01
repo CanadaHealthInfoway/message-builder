@@ -41,17 +41,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001000ca.
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POLB_MT001000CA.RequestChoice</p>
+ * <p>--&gt; Payload: POLB_MT001000CA.RequestChoice</p>
  * 
- * <p>----> Payload Choice: POLB_MT001000CA.PlacerGroup</p>
+ * <p>----&gt; Payload Choice: POLB_MT001000CA.PlacerGroup</p>
  * 
- * <p>----> Payload Choice: POLB_MT001000CA.BatteryRequest</p>
+ * <p>----&gt; Payload Choice: POLB_MT001000CA.BatteryRequest</p>
  * 
- * <p>----> Payload Choice: POLB_MT001000CA.ObservationRequest</p>
+ * <p>----&gt; Payload Choice: 
+ * POLB_MT001000CA.ObservationRequest</p>
  */
 @Hl7PartTypeMapping({"POLB_IN211000CA"})
 public class OrderStatusBean extends HL7MessageBean<TriggerEventBean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

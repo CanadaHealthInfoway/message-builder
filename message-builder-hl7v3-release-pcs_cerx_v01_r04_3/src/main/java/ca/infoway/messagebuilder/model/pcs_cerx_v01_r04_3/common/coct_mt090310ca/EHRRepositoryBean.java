@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private ST assignedRepositoryLocationName = new STImpl();
     private TEL assignedRepositoryLocationTelecom = new TELImpl();
     private ST representedRepositoryJurisdictionName = new STImpl();

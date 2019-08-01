@@ -35,17 +35,6 @@ import java.math.BigDecimal;
 /**
  * <p>Business Name: ConfidenceValue</p>
  * 
- * <p>PRPA_MT101102CA.ObservationEvent: Confidence Value</p>
- * 
- * <p>Supports the business requirement to provide a confidence 
- * value associated with the identifiedEntity returned in the 
- * response distinguishes these different representations.</p>
- * 
- * <p>Each returned IdentifiedPerson can have an associated 
- * ObservationEvent reporting the confidence value (degree of 
- * certainty) and the name of the matching algorithm that 
- * resulted in that record's inclusion in the result set.</p>
- * 
  * <p>PRPA_MT101104CA.ObservationEvent: Confidence Value</p>
  * 
  * <p>Supports the business requirement to provide a confidence 
@@ -56,11 +45,22 @@ import java.math.BigDecimal;
  * ObservationEvent reporting the confidence value (degree of 
  * certainty) and the name of the matching algorithm that 
  * resulted in that record's inclusion in the result set.</p>
+ * 
+ * <p>PRPA_MT101102CA.ObservationEvent: Confidence Value</p>
+ * 
+ * <p>Supports the business requirement to provide a confidence 
+ * value associated with the identifiedEntity returned in the 
+ * response distinguishes these different representations.</p>
+ * 
+ * <p>Each returned IdentifiedPerson can have an associated 
+ * ObservationEvent reporting the confidence value (degree of 
+ * certainty) and the name of the matching algorithm that 
+ * resulted in that record's inclusion in the result set.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
@@ -70,7 +70,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -83,7 +83,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -104,7 +104,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -117,7 +117,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -138,7 +138,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
-     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -151,7 +151,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
-     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -172,7 +172,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
-     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -185,7 +185,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
-     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 

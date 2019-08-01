@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002100ca
 @Hl7PartTypeMapping({"PORX_IN020230CA"})
 public class RecordSupplyEventWardStockRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

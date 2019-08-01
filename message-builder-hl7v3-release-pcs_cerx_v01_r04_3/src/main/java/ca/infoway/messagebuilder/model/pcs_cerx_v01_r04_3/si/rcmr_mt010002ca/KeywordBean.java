@@ -31,8 +31,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt040205ca.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.Consenter;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.PatientBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +52,8 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
-    private PatientBean subject1Patient;
+    private static final long serialVersionUID = 20190730L;
+    private ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean subject1Patient;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subject2RecordTypeCode = new ArrayList<CV>();
@@ -65,7 +65,7 @@ public class KeywordBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"subject1/patient"})
-    public PatientBean getSubject1Patient() {
+    public ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean getSubject1Patient() {
         return this.subject1Patient;
     }
 
@@ -74,7 +74,7 @@ public class KeywordBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubject1Patient(PatientBean subject1Patient) {
+    public void setSubject1Patient(ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean subject1Patient) {
         this.subject1Patient = subject1Patient;
     }
 
@@ -170,11 +170,11 @@ public class KeywordBean extends MessagePartBean {
         this.authorConsenter = authorConsenter;
     }
 
-    public ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.PatientBean getAuthorConsenterAsPatient() {
-        return this.authorConsenter instanceof ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.PatientBean ? (ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.PatientBean) this.authorConsenter : null;
+    public PatientBean getAuthorConsenterAsPatient() {
+        return this.authorConsenter instanceof PatientBean ? (PatientBean) this.authorConsenter : null;
     }
     public boolean hasAuthorConsenterAsPatient() {
-        return (this.authorConsenter instanceof ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.PatientBean);
+        return (this.authorConsenter instanceof PatientBean);
     }
 
     public ResponsiblePersonBean getAuthorConsenterAsResponsibleParty() {

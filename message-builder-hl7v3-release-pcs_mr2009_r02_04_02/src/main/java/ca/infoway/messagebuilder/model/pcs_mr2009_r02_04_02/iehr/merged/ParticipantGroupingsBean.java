@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * <p>Business Name: ParticipantGroupings</p>
  * 
- * <p>REPC_MT500002CA.PatientCareProvisionEventPortion: 
+ * <p>REPC_MT500001CA.PatientCareProvisionEventPortion: 
  * Participant Groupings</p>
  * 
  * <p>May only be used when Care Composition Type is Encounter 
@@ -50,7 +50,7 @@ import java.util.List;
  * <p>Identifies a 'portion' of the encounter performed at a 
  * single location.</p>
  * 
- * <p>REPC_MT500001CA.PatientCareProvisionEventPortion: 
+ * <p>REPC_MT500002CA.PatientCareProvisionEventPortion: 
  * Participant Groupings</p>
  * 
  * <p>May only be used when Care Composition Type is Encounter 
@@ -85,7 +85,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II locationServiceDeliveryLocationId = new IIImpl();
     private List<HasBean> participant = new ArrayList<HasBean>();
 
@@ -95,7 +95,7 @@ public class ParticipantGroupingsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -107,7 +107,7 @@ public class ParticipantGroupingsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -139,7 +139,7 @@ public class ParticipantGroupingsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -151,7 +151,7 @@ public class ParticipantGroupingsBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: LocationIdReference</p>
      * 
-     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -182,14 +182,14 @@ public class ParticipantGroupingsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500002CA.PatientCareProvisionEventPortion.participant</p>
+     * REPC_MT500001CA.PatientCareProvisionEventPortion.participant</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-200)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500001CA.PatientCareProvisionEventPortion.participant</p>
+     * REPC_MT500002CA.PatientCareProvisionEventPortion.participant</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-200)</p>
      * 

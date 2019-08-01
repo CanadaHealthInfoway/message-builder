@@ -409,7 +409,7 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	/**
 	 * <p>Sets whether an INT is unsorted (R2 INT only, not all cases)
 	 * 
-	 * @param unsorted Sets whether an INT is unsorted
+	 * @param isUnsorted Sets whether an INT is unsorted
 	 */
 	public void setUnsorted(boolean isUnsorted) {
 		this.isUnsorted = isUnsorted;

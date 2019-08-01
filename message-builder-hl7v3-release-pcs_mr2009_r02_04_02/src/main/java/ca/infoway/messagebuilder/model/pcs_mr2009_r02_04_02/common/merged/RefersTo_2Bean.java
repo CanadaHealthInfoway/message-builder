@@ -34,9 +34,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090310
  * 
  * <p>MFMI_MT700711CA.Subject2: f:refers to</p>
  * 
- * <p>On '''creation''' interactions (where the state 
- * transition is null-&gt;active), this must be true otherwise 
- * it must be false.</p>
+ * <p>On 'creation' interactions (where the state transition is 
+ * null-&gt;active), this must be true otherwise it must be 
+ * false.</p>
  * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
@@ -51,9 +51,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090310
  * 
  * <p>MFMI_MT700716CA.Subject2: f:refers to</p>
  * 
- * <p>On '''creation''' interactions (where the state 
- * transition is null-&gt;active), this must be true otherwise 
- * it must be false.</p>
+ * <p>On 'creation' interactions (where the state transition is 
+ * null-&gt;active), this must be true otherwise it must be 
+ * false.</p>
  * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
@@ -69,7 +69,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090310
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersTo_2Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private BL contextConductionInd = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;

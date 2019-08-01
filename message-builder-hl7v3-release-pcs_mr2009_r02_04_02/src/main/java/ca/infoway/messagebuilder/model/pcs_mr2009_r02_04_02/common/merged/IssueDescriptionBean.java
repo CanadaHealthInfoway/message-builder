@@ -40,7 +40,7 @@ import java.util.Date;
 /**
  * <p>Business Name: IssueDescription</p>
  * 
- * <p>COCT_MT260030CA.DetectedIssueDefinition: Issue 
+ * <p>COCT_MT260010CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
  * <p>Provides detailed background for providers in evaluating 
@@ -49,7 +49,7 @@ import java.util.Date;
  * <p>This is the decision support rule that triggered the 
  * issue.</p>
  * 
- * <p>COCT_MT260010CA.DetectedIssueDefinition: Issue 
+ * <p>COCT_MT260030CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
  * <p>Provides detailed background for providers in evaluating 
@@ -61,7 +61,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private TS authorTime = new TSImpl();
@@ -74,13 +74,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographId</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: IssueMonographId</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
+     * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -106,7 +100,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographId</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -140,13 +140,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographId</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: IssueMonographId</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
+     * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -172,7 +166,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographId</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -207,14 +207,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.DetectedIssueDefinition.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: IssueDescription</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030CA.DetectedIssueDefinition.text</p>
+     * COCT_MT260010CA.DetectedIssueDefinition.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -231,7 +224,14 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.DetectedIssueDefinition.text</p>
+     * COCT_MT260020CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueDefinition.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -256,14 +256,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260020CA.DetectedIssueDefinition.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: IssueDescription</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260030CA.DetectedIssueDefinition.text</p>
+     * COCT_MT260010CA.DetectedIssueDefinition.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -280,7 +273,14 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
-     * COCT_MT260010CA.DetectedIssueDefinition.text</p>
+     * COCT_MT260020CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueDefinition.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -304,13 +304,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Author2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.Author2.time</p>
+     * <p>Relationship: COCT_MT260010CA.Author2.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -327,7 +321,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Author2.time</p>
+     * <p>Relationship: COCT_MT260020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author2.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -352,13 +352,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Author2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.Author2.time</p>
+     * <p>Relationship: COCT_MT260010CA.Author2.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -375,7 +369,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Author2.time</p>
+     * <p>Relationship: COCT_MT260020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author2.time</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -400,13 +400,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
+     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -419,7 +413,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
+     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -440,13 +440,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
+     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -459,7 +453,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
+     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -479,6 +479,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -487,13 +494,6 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -506,6 +506,13 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -514,13 +521,6 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

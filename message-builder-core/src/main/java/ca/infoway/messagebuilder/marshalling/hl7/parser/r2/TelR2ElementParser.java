@@ -56,12 +56,12 @@ import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 /**
  * Parses an TEL element into a String. (R2) The element looks like this:
  * 
- * <element-name value="mailto://ilikemonkeys@itstrue.com" />
+ * &lt;element-name value="mailto://ilikemonkeys@itstrue.com" /&gt;
  * 
  * If a value is null, value is replaced by a null flavor. So the element would look
  * like this:
  * 
- * <element-name nullFlavor="something" />
+ * &lt;element-name nullFlavor="something" /&gt;
  * 
  * The value attribute is a bit of a pain, since it contains two pieces of information,
  * the URLScheme and the actual address.

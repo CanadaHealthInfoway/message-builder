@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -170,8 +170,8 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The provider'''s name pertaining to the specific 
-     * functional role.</p>
+     * <p>The provider's name pertaining to the specific functional 
+     * role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {

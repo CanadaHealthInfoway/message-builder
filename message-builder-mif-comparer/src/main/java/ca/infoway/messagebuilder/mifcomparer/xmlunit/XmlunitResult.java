@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.mifcomparer.xmlunit;
 
 import java.util.List;
 
+import org.custommonkey.xmlunit.DetailedDiff;
 import org.custommonkey.xmlunit.Difference;
 
 /**
@@ -39,14 +40,14 @@ public class XmlunitResult {
 	}
 	
 	/**
-	 * @see org.custommonkey.xmlunit.DetailedDiff.isIdentical()
+	 * @see DetailedDiff#identical()
 	 */
 	public boolean isIdentical() {
 		return isIdentical;
 	}
 	
 	/**
-	 * @see org.custommonkey.xmlunit.DetailedDiff.isSimilar()
+	 * @see DetailedDiff#similar()
 	 */
 	public boolean isSimilar() {
 		return isSimilar;

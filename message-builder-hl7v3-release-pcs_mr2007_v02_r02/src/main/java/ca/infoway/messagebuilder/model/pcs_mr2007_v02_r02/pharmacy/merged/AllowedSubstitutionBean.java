@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A prescriber's instruction that a specific prescribed 
  * product be dispensed as is, or not.</p>
  * 
- * <p>PORX_MT010120CA.SubstitutionPermission: Allowed 
+ * <p>PORX_MT060160CA.SubstitutionPermission: Allowed 
  * Substitution</p>
  * 
  * <p>May have financial and therapeutic conformance 
@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>A prescriber's instruction that a specific prescribed 
  * product be dispensed as is, or not.</p>
  * 
- * <p>PORX_MT060160CA.SubstitutionPermission: Allowed 
+ * <p>PORX_MT010120CA.SubstitutionPermission: Allowed 
  * Substitution</p>
  * 
  * <p>May have financial and therapeutic conformance 
@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private BL negationInd = new BLImpl();
     private CV reasonCode = new CVImpl();
 
@@ -85,20 +85,6 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>If true, indicates that the drug must be dispensed 
      * exactly as prescribed</p>
      * 
-     * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates whether substitutions are allowed. The 
-     * attribute is mandatory because whether substitution is 
-     * allowed must be declared.</p>
-     * 
-     * <p>If true, indicates that the prescriber has prohibited 
-     * substitution. Default is that substitution is allowed.</p>
-     * 
      * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
@@ -113,6 +99,20 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * 
      * <p>If true, indicates that the drug must be dispensed 
      * exactly as prescribed</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates whether substitutions are allowed. The 
+     * attribute is mandatory because whether substitution is 
+     * allowed must be declared.</p>
+     * 
+     * <p>If true, indicates that the prescriber has prohibited 
+     * substitution. Default is that substitution is allowed.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -135,20 +135,6 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>If true, indicates that the drug must be dispensed 
      * exactly as prescribed</p>
      * 
-     * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates whether substitutions are allowed. The 
-     * attribute is mandatory because whether substitution is 
-     * allowed must be declared.</p>
-     * 
-     * <p>If true, indicates that the prescriber has prohibited 
-     * substitution. Default is that substitution is allowed.</p>
-     * 
      * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
@@ -163,6 +149,20 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * 
      * <p>If true, indicates that the drug must be dispensed 
      * exactly as prescribed</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates whether substitutions are allowed. The 
+     * attribute is mandatory because whether substitution is 
+     * allowed must be declared.</p>
+     * 
+     * <p>If true, indicates that the prescriber has prohibited 
+     * substitution. Default is that substitution is allowed.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -174,6 +174,23 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution.</p><p>The field is 
+     * marked as 'Populated' because the reason for substitution is 
+     * important to understanding the decision. However when a 
+     * prescription is being recorded in the pharmacy, the 
+     * information may not be available.</p>
+     * 
+     * <p>The reason why the prescriber has indicated that 
+     * substitution is not allowed by the dispensing pharmacy.</p>
+     * 
+     * <p>Un-merged Business Name: NotAllowedReason</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -200,23 +217,6 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * to understanding the decision. However when a prescription 
      * is being recorded in the pharmacy, the information may not 
      * be available.</p>
-     * 
-     * <p>The reason why the prescriber has indicated that 
-     * substitution is not allowed by the dispensing pharmacy.</p>
-     * 
-     * <p>Un-merged Business Name: NotAllowedReason</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Some jurisdictions demand that a prescriber gives a 
-     * reason for prohibiting substitution.</p><p>The field is 
-     * marked as 'Populated' because the reason for substitution is 
-     * important to understanding the decision. However when a 
-     * prescription is being recorded in the pharmacy, the 
-     * information may not be available.</p>
      * 
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>
@@ -244,23 +244,6 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>
      * 
-     * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Some jurisdictions demand that a prescriber gives a 
-     * reason for prohibiting substitution. The field is marked as 
-     * 'Populated' because the reason for substitution is important 
-     * to understanding the decision. However when a prescription 
-     * is being recorded in the pharmacy, the information may not 
-     * be available.</p>
-     * 
-     * <p>The reason why the prescriber has indicated that 
-     * substitution is not allowed by the dispensing pharmacy.</p>
-     * 
      * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
@@ -274,6 +257,23 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * important to understanding the decision. However when a 
      * prescription is being recorded in the pharmacy, the 
      * information may not be available.</p>
+     * 
+     * <p>The reason why the prescriber has indicated that 
+     * substitution is not allowed by the dispensing pharmacy.</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution. The field is marked as 
+     * 'Populated' because the reason for substitution is important 
+     * to understanding the decision. However when a prescription 
+     * is being recorded in the pharmacy, the information may not 
+     * be available.</p>
      * 
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>

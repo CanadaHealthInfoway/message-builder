@@ -35,10 +35,10 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
  * following non-abstract data type flavor specifications defined below:
  * 
  * ANY:       all types allowed
- * ANY.LAB:   CD.LAB, ST, PQ.LAB, IVL<PQ.x>, INT.NONNEG, INT.POS, TS.FULLDATETIME, URG<PQ,x>
+ * ANY.LAB:   CD.LAB, ST, PQ.LAB, IVL&lt;PQ.x&gt;, INT.NONNEG, INT.POS, TS.FULLDATETIME, URG&lt;PQ,x&gt;
  * ANY.CA.IZ: ST, PN.BASIC, INT.POS, BL
  * ANY.PATH:  ST, PQ, ED.DOCORREF or CD.LAB
- * ANY.X1:    ST, CV, PQ.LAB, IVL<PQ.x>, URG<PQ.LAB>
+ * ANY.X1:    ST, CV, PQ.LAB, IVL&lt;PQ.x&gt;, URG&lt;PQ.LAB&gt;
  * ANY.X2:    ST, CV, ED.DOCORREF
  * 
  * 

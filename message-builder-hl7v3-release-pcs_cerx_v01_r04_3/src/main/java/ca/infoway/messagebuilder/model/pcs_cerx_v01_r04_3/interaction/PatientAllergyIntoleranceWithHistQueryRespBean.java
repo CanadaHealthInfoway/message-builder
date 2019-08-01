@@ -41,13 +41,13 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000009ca.A
  * 
  * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000009CA.IntoleranceCondition</p>
+ * <p>--&gt; Payload: REPC_MT000009CA.IntoleranceCondition</p>
  * 
- * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
+ * <p>--&gt; Payload: REPC_MT000008CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000018CA"})
 public class PatientAllergyIntoleranceWithHistQueryRespBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean,ConditionHistoryQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt040020
  * 
  * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT040020CA.OtherMedication</p>
+ * <p>--&gt; Payload: PORX_MT040020CA.OtherMedication</p>
  */
 @Hl7PartTypeMapping({"PORX_IN040070CA"})
 public class UpdateOtherMedicationRequestBean extends HL7MessageBean<TriggerEventBean<OtherMedicationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
 
 }

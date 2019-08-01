@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300
  * 
  * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001103CA.ActEvent</p>
+ * <p>--&gt; Payload: COMT_MT001103CA.ActEvent</p>
  */
 @Hl7PartTypeMapping({"PORX_IN040030CA"})
 public class RecordOtherMedicationRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

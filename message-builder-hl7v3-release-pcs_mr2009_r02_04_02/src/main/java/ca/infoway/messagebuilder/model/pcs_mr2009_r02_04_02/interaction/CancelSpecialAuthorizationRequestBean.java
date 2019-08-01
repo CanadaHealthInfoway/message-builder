@@ -42,11 +42,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100
  * 
  * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT001101CA.ActRequest</p>
+ * <p>--&gt; Payload: COMT_MT001101CA.ActRequest</p>
  */
 @Hl7PartTypeMapping({"FICR_IN400005CA"})
 public class CancelSpecialAuthorizationRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

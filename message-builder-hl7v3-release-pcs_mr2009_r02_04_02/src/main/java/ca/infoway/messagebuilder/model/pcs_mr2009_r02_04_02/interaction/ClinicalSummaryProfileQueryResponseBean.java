@@ -42,23 +42,23 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000008ca
  * 
  * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: COMT_MT111111CA.Summary</p>
+ * <p>--&gt; Payload: COMT_MT111111CA.Summary</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111CA.RenderedContent</p>
+ * <p>----&gt; Payload Choice: COMT_MT111111CA.RenderedContent</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111CA.SHR</p>
+ * <p>----&gt; Payload Choice: COMT_MT111111CA.SHR</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111CA.Pharmacy</p>
+ * <p>----&gt; Payload Choice: COMT_MT111111CA.Pharmacy</p>
  * 
- * <p>----> Payload Choice: COMT_MT111111CA.Lab</p>
+ * <p>----&gt; Payload Choice: COMT_MT111111CA.Lab</p>
  * 
- * <p>----> Payload Choice: POIZ_MT061150CA.Immunization</p>
+ * <p>----&gt; Payload Choice: POIZ_MT061150CA.Immunization</p>
  * 
- * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
+ * <p>--&gt; Payload: REPC_MT000008CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"COMT_IN200000CA"})
 public class ClinicalSummaryProfileQueryResponseBean extends HL7MessageBean<TriggerEventBean<Summary,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

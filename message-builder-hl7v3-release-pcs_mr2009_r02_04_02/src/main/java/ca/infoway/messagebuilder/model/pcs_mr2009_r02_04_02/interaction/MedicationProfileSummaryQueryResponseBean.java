@@ -41,18 +41,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt0602
  * 
  * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: PORX_MT060190CA.MedicationRecord</p>
+ * <p>--&gt; Payload: PORX_MT060190CA.MedicationRecord</p>
  * 
- * <p>----> Payload Choice: 
+ * <p>----&gt; Payload Choice: 
  * PORX_MT060190CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Payload Choice: PORX_MT060190CA.OtherMedication</p>
+ * <p>----&gt; Payload Choice: PORX_MT060190CA.OtherMedication</p>
  * 
- * <p>--> Payload: PORX_MT060200CA.ParameterList</p>
+ * <p>--&gt; Payload: PORX_MT060200CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060400CA"})
 public class MedicationProfileSummaryQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationRecord,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

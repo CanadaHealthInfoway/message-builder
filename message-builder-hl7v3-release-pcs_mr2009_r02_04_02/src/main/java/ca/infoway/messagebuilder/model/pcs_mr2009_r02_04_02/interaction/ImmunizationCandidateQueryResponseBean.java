@@ -39,13 +39,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt
  * 
  * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Payload: POIZ_MT061150CA.Immunization</p>
+ * <p>--&gt; Payload: POIZ_MT061150CA.Immunization</p>
  * 
- * <p>--> Payload: POIZ_MT061140CA.ParameterList</p>
+ * <p>--&gt; Payload: POIZ_MT061140CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POIZ_IN021020CA"})
 public class ImmunizationCandidateQueryResponseBean extends HL7MessageBean<TriggerEventBean<ImmunizationsBean,ImmunizationCandidateQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

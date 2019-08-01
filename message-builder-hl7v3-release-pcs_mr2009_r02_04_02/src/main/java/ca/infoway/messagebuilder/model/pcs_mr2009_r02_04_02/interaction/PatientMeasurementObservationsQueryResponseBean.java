@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt410003ca
  * 
  * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT410003CA.CommonObservationEvent</p>
+ * <p>--&gt; Payload: REPC_MT410003CA.CommonObservationEvent</p>
  * 
- * <p>--> Payload: REPC_MT410002CA.ParameterList</p>
+ * <p>--&gt; Payload: REPC_MT410002CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000055CA"})
 public class PatientMeasurementObservationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<MeasuredObservationBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

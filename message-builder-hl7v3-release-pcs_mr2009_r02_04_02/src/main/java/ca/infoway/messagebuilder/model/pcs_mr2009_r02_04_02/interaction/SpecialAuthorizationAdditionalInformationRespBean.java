@@ -39,12 +39,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300
  * 
  * <p>Control Act: MCAI_MT700227CA.ControlActEvent</p>
  * 
- * <p>--> Payload: 
+ * <p>--&gt; Payload: 
  * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse</p>
  */
 @Hl7PartTypeMapping({"FICR_IN404101CA"})
 public class SpecialAuthorizationAdditionalInformationRespBean extends HL7MessageBean<TriggerEventBean<SpecialAuthorizationAdditionalInformationResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

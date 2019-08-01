@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * (Note that child text nodes that are all whitespace are ignored for purposes of deciding whether to
  * interpose a wrapper element, but if one is interposed, such children <i>are</i> included in it.)
  * 
- * <h4>Namespace handling</h4>
+ * <h3>Namespace handling</h3>
  * 
  * <p>If {@code wrapperNsURI} gives the namespace that any existing wrapper is expected to be in, and that a new wrapper
  * will be put in if it needs to be added.  If passed as {@code null} or {@code ""}, existing wrappers will only match if not in any namespace,
@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * <p>If a wrapper element needs to be added, and it is to be in a namespace, its namespace prefix will be looked up in
  * {@code nsContext}. An appropriate {@code xmlns} attribute will be added on the new element if necessary.
  * 
- * <h4>Examples</h4>
+ * <h3>Examples</h3>
  * In all of these, the XPath expression matches &lt;target&gt; elements, and the tag name is {@code W}.
  * 
  * <p>{@code <outer><target><a/><b/></target></outer>} produces {@code <outer><target><W><a/><b/></W></target></outer>} .

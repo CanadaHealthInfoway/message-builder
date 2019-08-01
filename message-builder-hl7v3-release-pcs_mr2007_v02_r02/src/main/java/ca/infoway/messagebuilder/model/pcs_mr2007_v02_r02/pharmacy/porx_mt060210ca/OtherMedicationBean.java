@@ -71,7 +71,7 @@ import java.util.Set;
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p>
  * 
- * <p>Status can only be '''ACTIVE''' or '''COMPLETE'''</p>
+ * <p>Status can only be 'ACTIVE' or 'COMPLETE'</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
  * not present and vice versa</p>
@@ -96,7 +96,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -301,7 +301,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * or their care giver.</p><p>Constraint: Can't have both 
      * normal and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p>

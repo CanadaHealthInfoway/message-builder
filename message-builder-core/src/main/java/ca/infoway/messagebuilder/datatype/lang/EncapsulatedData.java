@@ -97,7 +97,6 @@ public class EncapsulatedData {
 	 * @param reference a reference
 	 * @param language
 	 * @param content content within a byte array
-	 * @throws SAXException 
 	 * @deprecated
 	 */
 	@Deprecated
@@ -230,7 +229,7 @@ public class EncapsulatedData {
 	/**
 	 * Document content. ED content may contain multiple root elements 
 	 * 
-	 * @return the document
+	 * @param nodeOrDocumentContents the document content
 	 * @throws TransformerException 
 	 */
 	public void setContent(List<Node> nodeOrDocumentContents) throws TransformerException {

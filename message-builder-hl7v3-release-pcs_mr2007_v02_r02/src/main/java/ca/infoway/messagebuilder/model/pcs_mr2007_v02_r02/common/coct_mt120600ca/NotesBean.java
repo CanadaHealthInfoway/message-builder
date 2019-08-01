@@ -28,10 +28,10 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090502ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910107ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson;
 import java.util.Date;
 
 
@@ -66,7 +66,7 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
     private AssignedPerson authorAssignedPerson;
@@ -171,11 +171,11 @@ public class NotesBean extends MessagePartBean {
         this.authorAssignedPerson = authorAssignedPerson;
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090102ca.HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity1() {
-        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090102ca.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090102ca.HealthcareWorkerBean) this.authorAssignedPerson : null;
+    public HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity1() {
+        return this.authorAssignedPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsAssignedEntity1() {
-        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090102ca.HealthcareWorkerBean);
+        return (this.authorAssignedPerson instanceof HealthcareWorkerBean);
     }
 
     public HealthcareOrganizationBean getAuthorAssignedPersonAsAssignedEntity2() {
@@ -185,25 +185,25 @@ public class NotesBean extends MessagePartBean {
         return (this.authorAssignedPerson instanceof HealthcareOrganizationBean);
     }
 
-    public RelatedPersonBean getAuthorAssignedPersonAsPersonalRelationship1() {
-        return this.authorAssignedPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorAssignedPerson : null;
+    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean getAuthorAssignedPersonAsPersonalRelationship1() {
+        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsPersonalRelationship1() {
-        return (this.authorAssignedPerson instanceof RelatedPersonBean);
+        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson getAuthorAssignedPersonAsActingPerson1() {
-        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson) this.authorAssignedPerson : null;
+    public ActingPerson getAuthorAssignedPersonAsActingPerson1() {
+        return this.authorAssignedPerson instanceof ActingPerson ? (ActingPerson) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsActingPerson1() {
-        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson);
+        return (this.authorAssignedPerson instanceof ActingPerson);
     }
 
-    public HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity3() {
-        return this.authorAssignedPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorAssignedPerson : null;
+    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity3() {
+        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsAssignedEntity3() {
-        return (this.authorAssignedPerson instanceof HealthcareWorkerBean);
+        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean);
     }
 
     public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090508ca.HealthcareOrganizationBean getAuthorAssignedPersonAsAssignedEntity4() {
@@ -220,18 +220,18 @@ public class NotesBean extends MessagePartBean {
         return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910108ca.RelatedPersonBean);
     }
 
-    public ActingPerson getAuthorAssignedPersonAsActingPerson2() {
-        return this.authorAssignedPerson instanceof ActingPerson ? (ActingPerson) this.authorAssignedPerson : null;
+    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson getAuthorAssignedPersonAsActingPerson2() {
+        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsActingPerson2() {
-        return (this.authorAssignedPerson instanceof ActingPerson);
+        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910107ca.RelatedPersonBean getAuthorAssignedPersonAsPersonalRelationship4() {
-        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910107ca.RelatedPersonBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910107ca.RelatedPersonBean) this.authorAssignedPerson : null;
+    public RelatedPersonBean getAuthorAssignedPersonAsPersonalRelationship4() {
+        return this.authorAssignedPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsPersonalRelationship4() {
-        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910107ca.RelatedPersonBean);
+        return (this.authorAssignedPerson instanceof RelatedPersonBean);
     }
 
 }

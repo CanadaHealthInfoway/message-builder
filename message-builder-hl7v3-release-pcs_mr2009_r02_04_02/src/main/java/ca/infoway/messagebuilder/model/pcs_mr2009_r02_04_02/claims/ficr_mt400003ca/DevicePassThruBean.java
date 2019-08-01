@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ClinicalDevic
 @Hl7PartTypeMapping({"FICR_MT400003CA.DevicePassThru"})
 public class DevicePassThruBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.SpecialAuthorizationChoice_2 {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private ClinicalDeviceBean directTargetManufacturedProductManufacturedClinicalDevice;
 
 

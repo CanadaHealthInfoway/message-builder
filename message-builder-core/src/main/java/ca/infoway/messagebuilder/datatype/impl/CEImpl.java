@@ -37,8 +37,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
- * @param <V> the underlying Code
- * 
  * @sharpen.ignore - datatype - translated manually 
  */
 public class CEImpl extends CDImpl implements CE {

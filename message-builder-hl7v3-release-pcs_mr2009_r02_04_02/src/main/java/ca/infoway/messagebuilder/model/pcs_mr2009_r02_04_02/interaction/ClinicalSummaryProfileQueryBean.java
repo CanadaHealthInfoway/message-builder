@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000008ca
  * 
  * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
+ * <p>--&gt; Payload: REPC_MT000008CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"COMT_IN100000CA"})
 public class ClinicalSummaryProfileQueryBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
 
 }

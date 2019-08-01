@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: PrivilegeCategorization</p>
  * 
- * <p>PRPM_MT306011CA.PrivilegeCategorization: Privilege 
+ * <p>PRPM_MT303010CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
  * <p>Supports the business requirement to provide information 
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * about a subject. In this instance, regarding restrictions to 
  * practice for a specified healthcare provider.</p>
  * 
- * <p>PRPM_MT303010CA.PrivilegeCategorization: Privilege 
+ * <p>PRPM_MT301010CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
  * <p>Supports the business requirement to provide information 
@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * about a subject. In this instance, regarding restrictions to 
  * practice for a specified healthcare provider.</p>
  * 
- * <p>PRPM_MT301010CA.PrivilegeCategorization: Privilege 
+ * <p>PRPM_MT306011CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
  * <p>Supports the business requirement to provide information 
@@ -80,7 +80,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
@@ -91,16 +91,13 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011CA.PrivilegeCategorization.code</p>
+     * PRPM_MT303010CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
-     * 
-     * <p>The code identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
      * 
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
@@ -133,13 +130,16 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.PrivilegeCategorization.code</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
+     * 
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      */
     @Hl7XmlMapping({"code"})
     public ActPrivilegeCategorization getCode() {
@@ -152,16 +152,13 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011CA.PrivilegeCategorization.code</p>
+     * PRPM_MT303010CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
-     * 
-     * <p>The code identifying the specific privilege and/or 
-     * restrictions on those privileges</p>
      * 
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
@@ -194,13 +191,16 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.PrivilegeCategorization.code</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.code</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
+     * 
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      */
     public void setCode(ActPrivilegeCategorization code) {
         this.code.setValue(code);
@@ -213,11 +213,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011CA.PrivilegeCategorization.value</p>
+     * PRPM_MT303010CA.PrivilegeCategorization.value</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -255,11 +255,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.PrivilegeCategorization.value</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.value</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Populated attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -277,11 +277,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011CA.PrivilegeCategorization.value</p>
+     * PRPM_MT303010CA.PrivilegeCategorization.value</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -319,11 +319,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.PrivilegeCategorization.value</p>
+     * PRPM_MT306011CA.PrivilegeCategorization.value</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Populated attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 

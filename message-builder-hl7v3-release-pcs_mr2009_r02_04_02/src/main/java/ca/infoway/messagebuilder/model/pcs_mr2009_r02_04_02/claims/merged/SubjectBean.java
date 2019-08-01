@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.Subject","FICR_MT600201CA.Subject"})
 public class SubjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private ST signatureText = new STImpl();
     private BL patientConsent = new BLImpl(false);
 
@@ -43,13 +43,13 @@ public class SubjectBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientKeyword</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
+     * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PatientKeyword</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
+     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -63,13 +63,13 @@ public class SubjectBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: PatientKeyword</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
+     * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: PatientKeyword</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
+     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -81,13 +81,13 @@ public class SubjectBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
+     * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
+     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -99,13 +99,13 @@ public class SubjectBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
+     * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
+     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

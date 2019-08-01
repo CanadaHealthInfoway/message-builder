@@ -57,7 +57,7 @@ import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
  * 
  * Parses a ED element into an Encapsulated Data:
  * 
- * <element-name mediaType="text/plain">This is some text.</element-name>
+ * &lt;element-name mediaType="text/plain"&gt;This is some text.&lt;/element-name&gt;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-ED
  *

@@ -174,7 +174,7 @@ public class Identifier implements Serializable {
 	/**
      * <p>Sets the displayable value (only applicable for R2 datatype version)
      * 
-	 * @return displayable
+	 * @param displayable
 	 */
 	public void setDisplayable(String displayable) {
 		this.displayable = displayable;

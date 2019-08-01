@@ -60,14 +60,14 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private RefusedByBean author;
     private ProviderBean dataEntererAssignedPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private RecordedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private ConsentBean subjectOf2ConsentEvent;
     private QueryDefinitionBean<PL> queryByParameter;
@@ -230,6 +230,26 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
      * <p>Relationship: 
      * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
@@ -248,26 +268,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      */
     public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
     }
 
 

@@ -57,16 +57,6 @@ import java.util.Date;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  * 
- * <p>PORX_MT060060CA.SupplyRequest: Dispense Instructions</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p>
- * 
- * <p>Specification of how the prescribed device is to be 
- * dispensed to the patient. Dispensed instruction information 
- * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p>
- * 
  * <p>PORX_MT010110CA.SupplyRequest: Dispense Instructions</p>
  * 
  * <p>One of 'quantity' and 'expectedUseTime' must be 
@@ -79,15 +69,25 @@ import java.util.Date;
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
+ * 
+ * <p>PORX_MT060060CA.SupplyRequest: Dispense Instructions</p>
+ * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
+ * 
+ * <p>Specification of how the prescribed device is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private TargetedToPharmacyBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CS componentTypeCode = new CSImpl();
     private CS componentContextControlCode = new CSImpl();
     private BL componentContextConductionInd = new BLImpl();
@@ -115,11 +115,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * <p>Sets upper limit for device to be dispensed. Can be used 
      * to verify the intention of the prescriber with respect to 
      * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
@@ -131,11 +131,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Sets upper limit for device to be dispensed. Can be used 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
      * to verify the intention of the prescriber with respect to 
      * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
@@ -171,11 +171,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * <p>Sets upper limit for device to be dispensed. Can be used 
      * to verify the intention of the prescriber with respect to 
      * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
@@ -187,11 +187,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Sets upper limit for device to be dispensed. Can be used 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
      * to verify the intention of the prescriber with respect to 
      * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
@@ -293,6 +293,54 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public TargetedToPharmacyBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setLocation(TargetedToPharmacyBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * PORX_MT060040CA.Destination1.serviceDeliveryLocation</p>
      * 
@@ -327,54 +375,6 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public TargetedToPharmacyBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setLocation(TargetedToPharmacyBean location) {
-        this.location = location;
     }
 
 

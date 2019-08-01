@@ -74,7 +74,7 @@ public class UpdateMode {
 	}
 	/**
 	 * <p>Set the list of update modes that may be used for this element.
-	 * @param updateModesAllowed
+	 * @param updateModes
 	 */
 	public void setUpdateModesAllowed(List<UpdateModeType> updateModes) {
 		if (updateModes == null) {

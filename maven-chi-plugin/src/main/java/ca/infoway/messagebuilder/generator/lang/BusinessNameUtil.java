@@ -54,6 +54,7 @@ public class BusinessNameUtil {
 				tempString = StringUtils.replace(tempString, "*", " ");
 				tempString = StringUtils.replace(tempString, "'", " ");
 				tempString = StringUtils.replace(tempString, "%", " ");
+				tempString = StringUtils.replace(tempString, "&", " ");
 				tempString = StringUtils.replace(tempString, "\\u00A0", " ");
 				tempString = StringUtils.replace(tempString, "\\u2007", " ");
 				tempString = StringUtils.replace(tempString, "\\u202F", " ");

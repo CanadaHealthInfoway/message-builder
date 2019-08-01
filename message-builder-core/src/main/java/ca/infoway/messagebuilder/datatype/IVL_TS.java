@@ -30,8 +30,6 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
- * @param <T> the HL7 datatype of the interval
- * @param <V> the Interval java type, or a subclass
  * @sharpen.ignore - datatype - translated manually 
  */
 public interface IVL_TS extends QTY<DateInterval> {

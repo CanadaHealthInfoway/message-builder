@@ -51,7 +51,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
- * @param <V> the underlying code type.
  * @sharpen.ignore - datatype - translated manually 
  */
 public class CDImpl extends ANYImpl<Code> implements CD {

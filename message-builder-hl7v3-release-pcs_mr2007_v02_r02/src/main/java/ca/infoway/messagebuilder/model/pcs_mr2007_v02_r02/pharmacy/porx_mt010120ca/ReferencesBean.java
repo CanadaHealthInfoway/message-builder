@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Protoc
  * <p>Business Name: references</p>
  * 
  * <p>Provides support for non-traditional therapies. Needed 
- * when seeking to prescribe '''Special Access''' medications, 
- * for example, Ontario Limited Use.</p>
+ * when seeking to prescribe 'Special Access' medications, for 
+ * example, Ontario Limited Use.</p>
  * 
  * <p>Enables the communication of a reference to a protocol, 
  * study or guideline id, specific to the jurisdiction;</p>
@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Protoc
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150903L;
+    private static final long serialVersionUID = 20190730L;
     private BL contextConductionInd = new BLImpl();
     private ProtocolsBean substanceAdministrationDefinition;
 

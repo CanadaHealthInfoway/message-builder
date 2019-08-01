@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.CommonCo
 /**
  * <p>Business Name: ComponentObservations</p>
  * 
- * <p>REPC_MT420003CA.SubObservationEvent: Component 
+ * <p>REPC_MT420001CA.SubObservationEvent: Component 
  * Observations</p>
  * 
  * <p>Not all observations can be expressed as a single code or 
@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.CommonCo
  * <p>Captures components of a more complex observation, such 
  * as apgar or blood pressure.</p>
  * 
- * <p>REPC_MT420001CA.SubObservationEvent: Component 
+ * <p>REPC_MT420003CA.SubObservationEvent: Component 
  * Observations</p>
  * 
  * <p>Not all observations can be expressed as a single code or 
@@ -54,7 +54,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.CommonCo
 @Hl7PartTypeMapping({"REPC_MT420001CA.SubObservationEvent","REPC_MT420003CA.SubObservationEvent"})
 public class ComponentObservations_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private CD code = new CDImpl();
     private CD value = new CDImpl();
 

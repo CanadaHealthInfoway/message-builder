@@ -69,7 +69,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -79,8 +79,8 @@ public class PrescriptionBean extends MessagePartBean {
     private PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private Component2Bean component2;
     private IncludesBean component3;
@@ -248,7 +248,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Allows the patient to have discrete control over access 
      * to their prescription data.</p><p>Taboo allows the provider 
      * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Can't have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
@@ -358,17 +358,6 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
      * 
@@ -377,6 +366,17 @@ public class PrescriptionBean extends MessagePartBean {
     @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
     public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
         return this.pertinentInformationQuantityObservationEvent;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
     }
 
 

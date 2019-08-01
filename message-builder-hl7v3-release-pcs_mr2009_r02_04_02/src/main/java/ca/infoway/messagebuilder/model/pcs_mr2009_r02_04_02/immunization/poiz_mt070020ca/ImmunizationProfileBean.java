@@ -33,10 +33,10 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationProfileBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150902L;
+    private static final long serialVersionUID = 20190730L;
     private AdministeredToBean subject1;
-    private List<ImmunizationForecastBean> subject2ImmunizationForecast = new ArrayList<ImmunizationForecastBean>();
     private AttachmentBean pertinentInformationAttachment;
+    private List<ImmunizationForecastBean> subject2ImmunizationForecast = new ArrayList<ImmunizationForecastBean>();
 
 
     /**
@@ -63,18 +63,6 @@ public class ImmunizationProfileBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * POIZ_MT070020CA.Subject3.immunizationForecast</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"subject2/immunizationForecast"})
-    public List<ImmunizationForecastBean> getSubject2ImmunizationForecast() {
-        return this.subject2ImmunizationForecast;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * POIZ_MT070020CA.PertinentInformation.attachment</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -92,6 +80,18 @@ public class ImmunizationProfileBean extends MessagePartBean {
      */
     public void setPertinentInformationAttachment(AttachmentBean pertinentInformationAttachment) {
         this.pertinentInformationAttachment = pertinentInformationAttachment;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * POIZ_MT070020CA.Subject3.immunizationForecast</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"subject2/immunizationForecast"})
+    public List<ImmunizationForecastBean> getSubject2ImmunizationForecast() {
+        return this.subject2ImmunizationForecast;
     }
 
 }
