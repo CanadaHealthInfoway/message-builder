@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.generator.lang;
 
 import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.C_SHARP;
 import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.JAVA;
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -81,11 +82,11 @@ public class TypeDocumentationTest {
 				"<p align=\"left\">Provincial, and Territorial jurisdiction.</p>\r\n" + 
 				"</font></font></font></p>"));
 		String output = write(documentation, JAVA);
-		assertEquals("\r\n"
-				+ "/**\r\n" + 
-				" * <p> </p><p align=\"left\">Provincial, and Territorial \r\n" + 
-				" * jurisdiction.</p>\r\n" + 
-				" */\r\n", output);
+		assertEquals(lineSeparator()
+				+ "/**" + lineSeparator() + 
+				" * <p> </p><p align=\"left\">Provincial, and Territorial " + lineSeparator() + 
+				" * jurisdiction.</p>" + lineSeparator() + 
+				" */" + lineSeparator(), output);
 	}
 	
 	@Test
@@ -94,10 +95,10 @@ public class TypeDocumentationTest {
 		// Believe it or not, this is an actual example from a jurisdiction
 		documentation.getAnnotations().add(new Annotation("<span lang=\"EN-CA\"><span style=\"line-height: normal; \"></span></span>"));
 		String output = write(documentation, JAVA);
-		assertEquals("\r\n"
-				+ "/**\r\n"
-				+ " * <p><span ><span style=\"line-height: normal; \"></span></span></p>\r\n"
-				+ " */\r\n", output);
+		assertEquals(lineSeparator()
+				+ "/**" + lineSeparator()
+				+ " * <p><span ><span style=\"line-height: normal; \"></span></span></p>" + lineSeparator()
+				+ " */" + lineSeparator(), output);
 	}
 
 	private String write(Documentation documentation, ProgrammingLanguage programmingLanguage) throws IOException {
