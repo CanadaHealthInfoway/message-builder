@@ -80,6 +80,9 @@ import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
+/**
+ * @sharpen.ignore Stack iterator traverses FIFO in Java, but LIFO in C#, giving different outputs for buildPropertyPath()
+ */
 class XmlRenderingVisitor implements Visitor {	
 	private static final String INLINED_PROPERTY_SUFFIX = "_INLINED";
 	
