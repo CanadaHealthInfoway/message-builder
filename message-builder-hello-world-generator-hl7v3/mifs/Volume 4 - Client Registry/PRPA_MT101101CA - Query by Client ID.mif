@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Query by Client ID"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="AM" subSection="PR"
+                        domain="PA"
+                        id="101101"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+         <mif:licenseTerms>
+            <p xmlns="http://www.w3.org/1999/xhtml">This file and the model designs it contains are made available under terms of a proprietary license implicitly established by the terms expressed in the Bylaws of Health Level Seven, Inc. (HL7), in combination with the agreements under which individual and organizational memberships are established with HL7.
+					Links to the HL7 Bylaws may be found at <a href="http://www.hl7.org">http://www.hl7.org</a>
+				        </p>
+         </mif:licenseTerms>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="11.000" height="8.500"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="0E3DA963-D63C-1251-8C64-408D88F6BAE2">
+         <mif:graphElement shapeId="Sheet.5">
+            <mif:position x="2.423" y="2.500"/>
+            <mif:size width="2.254" height="0.500"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="3.500" y="3.000"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="3.600" y="3.850"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="FE2F9A91-B51E-3108-EEF7-006179A3F09E" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.219" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="5.200" y="4.000"/>
+            <mif:size width="3.109" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="2B6C8CB1-D7F0-BFD9-E4D6-47037600D709" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.205" shapeTemplate="OtherClass" isWidthAutoSize="false"
+                           isHeightAutoSize="true">
+            <mif:position x="5.200" y="5.050"/>
+            <mif:size width="3.000" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="BBF38BE3-9058-C7B0-CCA9-97456A1424A6" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.1" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="false">
+            <mif:position x="2.975" y="3.850"/>
+            <mif:size width="1.250" height="2.100"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:association semanticLinkId="94109857-F8CA-E7EB-605D-C53113D2BC53">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.223">
+            <mif:position x="4.225" y="4.375"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.712" y="4.375"/>
+               <mif:waypoint x="4.712" y="4.375"/>
+               <mif:anchor connectToShapeId="Sheet.219">
+                  <mif:position x="5.200" y="4.375"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="BB6D08AA-AF0E-D9D4-9013-33D9E84F4F16">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.209">
+            <mif:position x="4.225" y="5.425"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.712" y="5.425"/>
+               <mif:waypoint x="4.712" y="5.425"/>
+               <mif:anchor connectToShapeId="Sheet.205">
+                  <mif:position x="5.200" y="5.425"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0226"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="CA" artifact="DT" root="DEFN" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage realmNamespace="CA" artifact="VO" root="DEFN" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage realmNamespace="CA" artifact="IFC" root="DEFN" version="R02.04.xx"/>
+   <mif:entryPoint graphicLinkId="0E3DA963-D63C-1251-8C64-408D88F6BAE2" id="PRPA_MT101101CA"
+                   name="Query by Client ID"
+                   className="ParameterList">
+      <mif:annotations>
+         <mif:documentation>
+            <mif:description>
+               <mif:text>
+                  <html:p xmlns:html="http://www.w3.org/1999/xhtml">Entry point for Query by Client ID message.</html:p>
+               </mif:text>
+            </mif:description>
+         </mif:documentation>
+      </mif:annotations>
+   </mif:entryPoint>
+   <mif:containedClass>
+      <mif:class graphicLinkId="FE2F9A91-B51E-3108-EEF7-006179A3F09E" name="ClientIDBus"
+                 isAbstract="false">
+         <mif:businessName name="Business Client Identifier"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Parameter to query on unknown business/system assigned client identifier e.g. ECID</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports business requirement to query on an uknown business/system assigned client identifier</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Client Healthcare Identification Number"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">This identification attribute supports capture of a healthcare identifier specific to the client. This identifier may be assigned jurisdictionally or by care facility.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">At least 1 client identifier must be present in the message</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Text constraint exists on the model to support non mandatory requirements either a Public or Business Identifier must be supplied to support this Query.</html:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports unique identification of the client and is a public identifier. E.G. Internal Business ID</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="2B6C8CB1-D7F0-BFD9-E4D6-47037600D709" name="ClientIDPub"
+                 isAbstract="false">
+         <mif:businessName name="Public Client Identifier"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Parameter to query on known public client identifier</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports business requirement to query on a known public client identifier</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Client Healthcare Identification Number"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">This identification attribute supports capture of a healthcare identifier specific to the client. This identifier may be assigned jurisdictionally or by care facility.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">At least 1 client identifier must be present in the message</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Text constraint exists on the model to support non mandatory requirements either a Public or Business Identifier must be supplied to support this Query.</html:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports unique identification of the client and is a public identifier. E.G. Provincial Health Care Number</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.PUBLIC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="BBF38BE3-9058-C7B0-CCA9-97456A1424A6" name="ParameterList"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Entry Point</html:p>
+                  </mif:text>
+               </mif:definition>
+            </mif:documentation>
+            <mif:appInfo>
+               <mif:formalConstraint graphicLinkId="091EA225-4201-4931-7DF9-2A5F303EB4D6">
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">either a Public or Business Identifier must be supplied to support this Query</html:p>
+                  </mif:text>
+               </mif:formalConstraint>
+            </mif:appInfo>
+         </mif:annotations>
+      </mif:class>
+   </mif:containedClass>
+   <mif:association graphicLinkId="94109857-F8CA-E7EB-605D-C53113D2BC53" sortKey="2">
+      <mif:traversableConnection name="clientIDBus" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ClientIDBus">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="BB6D08AA-AF0E-D9D4-9013-33D9E84F4F16" sortKey="1">
+      <mif:traversableConnection name="clientIDPub" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ClientIDPub">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+</mif:staticModel>

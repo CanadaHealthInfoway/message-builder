@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ca.infoway.messagebuilder</groupId>
+	<artifactId>message-builder-hello-world-generator-hl7v3</artifactId>
+	<name>message-builder-hello-world-generator-hl7v3</name>
+	<version>2.1.9-SNAPSHOT</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>ca.infoway.messagebuilder</groupId>
+				<artifactId>maven-chi-plugin</artifactId>
+				<version>2.1.9-SNAPSHOT</version>
+
+				<configuration>
+					<messageSet>./messageSet.xml</messageSet>
+
+					<!-- mif-to-xml: message set generation -->
+					<mifTransformer>./ConvertMifVersion.xslt</mifTransformer>
+					<fileSets>
+						<fileSet>
+							<name>common</name>
+							<directory>./mifs/Volume 1 - Infrastructure</directory>
+						</fileSet>
+						<fileSet>
+							<name>terminology</name>
+							<directory>./mifs/Volume 2 - Terminology</directory>
+						</fileSet>
+						<fileSet>
+							<name>si</name>
+							<directory>./mifs/Volume 3 - Shared Interactions</directory>
+						</fileSet>
+						<fileSet>
+							<name>cr</name>
+							<directory>./mifs/Volume 4 - Client Registry</directory>
+						</fileSet>
+					</fileSets>
+
+					<!-- xml-to-java: java api generation -->
+					<version>R02_04_02</version>
+					<realmCode>CA</realmCode>
+					<javaSourceFolder>./java</javaSourceFolder>
+					<csSourceFolder>./cSharp</csSourceFolder>
+					<xsdSourceFolder>./resources</xsdSourceFolder>
+					<generatedReportsDirectory>./target</generatedReportsDirectory>
+					<basePackageName>ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02</basePackageName>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
