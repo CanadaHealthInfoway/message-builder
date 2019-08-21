@@ -68,7 +68,7 @@ To create the Java API, use the command:
 ```
 > mvn chi:xml-to-java
 ```
-Once the generation is complete, inspect the Java code found in the `java` directory.  The model classes are created using a Java base package name of `ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02`.
+Once the generation is complete, inspect the Java code found in the `java` directory.  The model classes are created using a base package name of `ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02`.
 
 To create the .Net API, use the command:
 
@@ -76,4 +76,4 @@ To create the .Net API, use the command:
 > mvn chi:xml-to-csharp
 ```
 
-Once the generation is complete, inspect the Java code found in the `cSharp` directory.  The model classes are created using a base namespace of `Ca.Infoway.Messagebuilder.Model.Pcs_mr2009_r02_04_02`.
+Once the generation is complete, inspect the C# code found in the `cSharp` directory.  The model classes are created using a base namespace of `Ca.Infoway.Messagebuilder.Model.Pcs_mr2009_r02_04_02`.
