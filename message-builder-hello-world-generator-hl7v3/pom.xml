@@ -39,7 +39,7 @@
 					</fileSets>
 
 					<!-- xml-to-java: java api generation -->
-					<version>R02_04_02</version>
+					<version>R02_04_02_SAMPLE</version>
 					<realmCode>CA</realmCode>
 					<javaSourceFolder>./java</javaSourceFolder>
 					<csSourceFolder>./cSharp</csSourceFolder>
