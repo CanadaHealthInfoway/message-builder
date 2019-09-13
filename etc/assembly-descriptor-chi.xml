@@ -30,7 +30,7 @@
       
       <moduleSet>
         <includes>
-          <include>ca.infoway.messagebuilder:maven-chi-plugin</include>
+          <include>ca.infoway.messagebuilder:chi-maven-plugin</include>
         </includes>
         <binaries>
           <includeDependencies>false</includeDependencies>
@@ -42,13 +42,13 @@
 
     <fileSets>
       <fileSet>
-        <directory>maven-chi-plugin/target</directory>
+        <directory>chi-maven-plugin/target</directory>
         <includes><include>*-javadoc.jar</include></includes>
         <outputDirectory>javadoc</outputDirectory>
       </fileSet>
 
       <fileSet>
-        <directory>maven-chi-plugin/target</directory>
+        <directory>chi-maven-plugin/target</directory>
         <includes><include>*-sources.jar</include></includes>
         <outputDirectory>src</outputDirectory>
       </fileSet>

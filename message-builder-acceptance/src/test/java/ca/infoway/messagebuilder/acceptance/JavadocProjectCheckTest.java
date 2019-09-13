@@ -59,7 +59,7 @@ public class JavadocProjectCheckTest {
 	}
 	
 	private final List<String> projectsWithFullJavadocs = Arrays.asList(
-//			"maven-chi-plugin",
+//			"chi-maven-plugin",
 //			"message-builder-core", 
 			"message-builder-terminology"
 //			"message-builder-merge-comparator",
