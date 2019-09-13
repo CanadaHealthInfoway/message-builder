@@ -421,59 +421,6 @@
 
 				</configuration>
 			</plugin>
-			<plugin>
-			    <inherited>false</inherited>
-			    <groupId>com.mycila.maven-license-plugin</groupId>
-			    <artifactId>maven-license-plugin</artifactId>
-			    <version>1.9.0</version>
-			    <configuration>
-				<header>${basedir}/etc/LICENSE_main.txt</header>
-				<validHeaders>
-				    <validHeader>${basedir}/etc/LICENSE.txt</validHeader>
-				</validHeaders>
-				<aggregate>true</aggregate>
-				<concurrencyFactor>4</concurrencyFactor>
-				<encoding>UTF-8</encoding>
-				<!--<strictCheck>true</strictCheck>-->
-				<mapping>
-				    <xslt>XML_STYLE</xslt>
-				    <mappingml>XML_STYLE</mappingml>
-				</mapping>
-				<properties>
-				    <year>2013</year>
-				</properties>
-			        <excludes>
-			            <exclude>**/LICENSE_main.txt</exclude>
-			            <exclude>**/LICENSE.txt</exclude>
-						<exclude>**/test/resources/**</exclude>
-			            <exclude>**/etc/jenkinsBuildScripts/**</exclude>
-			            <exclude>**/*.xls</exclude>
-			            <exclude>**/*.svg</exclude>
-			            <exclude>**/translation-*</exclude>
-			            <exclude>**/*.java1</exclude>
-			            <exclude>**/*.mif</exclude>
-			            <exclude>**/*.coremif</exclude>
-			            <exclude>**/*.xml.template</exclude>
-			            <exclude>**/etc/sample-config.txt</exclude>
-			            <exclude>**/html/js/jquery-1.7.2.js</exclude>
-			            <exclude>**/html/js/jquery.jstree.js</exclude>
-			            <exclude>**/html/js/jquery-ui-1.8.21.custom.min.js</exclude>
-			            <exclude>**/html/js/themes/default/style.css</exclude>
-			            <exclude>**/html/css/jquery-ui-1.8.21.custom.css</exclude>
-						<exclude>**/*.xsd</exclude>
-						<exclude>message-builder-cda-*_src/etc/**</exclude>
-			        </excludes>
-				<skipExistingHeaders>true</skipExistingHeaders>
-			    </configuration>
-			    <executions>
-				<execution>
-				    <phase>test</phase>
-				    <goals>
-				        <goal>check</goal>
-				    </goals>
-				</execution>
-			    </executions>
-			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
