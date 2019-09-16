@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.9]
+### Added
+- Sample project to demonstrate using the generator: `message-builder-hello-world-generator-hl7v3` 
+
+
+### Changed
+- Upgrades to libraries and tests to ensure compatibility with Java version 8 and up
+
+
+### Removed
+- Remove dependencies on "Intelliware Commons" libraries
+
 
 ## [2.1.3]
 ### Added
